@@ -41,10 +41,10 @@ PAGES = [
               "with winning numbers and draw identifiers.",
          js=["results"], schema=["dataset"]),
     dict(slug="statistics", src="statistics", nav="stats",
-         title="Keno Number Frequency NZ | keno-results.co.nz",
-         og="Keno number frequency",
-         desc="How often each Keno number has been drawn. Descriptive history only - "
-              "past draws do not predict future ones.",
+         title="Hot & Cold Keno Numbers NZ | keno-results.co.nz",
+         og="Hot and cold Keno numbers",
+         desc="Which NZ Keno numbers have come up most and least often over the last 5, "
+              "10, 25, 50, 100 or 250 draws, plus the full frequency count.",
          js=["results"]),
     dict(slug="how-to-play", src="how-to-play", nav="howto",
          title="How to Play Keno in New Zealand | keno-results.co.nz",

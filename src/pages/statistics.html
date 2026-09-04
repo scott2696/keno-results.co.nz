@@ -1,18 +1,38 @@
 <div class="wrap">
   <div class="page-head">
     <p class="eyebrow">Statistics</p>
-    <h1>Number frequency</h1>
-    <p class="lede">How often each number has appeared across the draws we hold. This describes what has happened. It does not predict what will happen.</p>
+    <h1>Hot and cold numbers</h1>
+    <p class="lede">Which numbers have come up most and least often over recent draws, and the full frequency count across everything we hold.</p>
   </div>
 
-  <section style="margin-top:24px">
-    <div class="notice warn">
-      <span class="notice-t">Read this first</span>
-      <p>Each Keno draw is independent. Nothing that happened in previous draws changes the chance of any number appearing in the next one &mdash; a number drawn ten times in a row is exactly as likely to appear next draw as one that has not appeared at all.</p>
-      <p>Over a long enough run every number converges toward the same frequency. Short-run differences below are ordinary randomness, not a signal. That is why this page lists numbers in order and shows no ranking, no "hot" or "cold" labels, and no suggestion that any number is due.</p>
+  <section style="margin-top:28px">
+    <div class="card">
+      <div class="hc-controls">
+        <label for="hc-window">Show results for the last</label>
+        <select class="hc-select" id="hc-window">
+          <option value="5">5 draws</option>
+          <option value="10">10 draws</option>
+          <option value="25" selected>25 draws</option>
+          <option value="50">50 draws</option>
+          <option value="100">100 draws</option>
+          <option value="250">250 draws</option>
+        </select>
+      </div>
+      <div id="hotcold" aria-live="polite">
+        <div class="empty"><h3>Loading</h3><p>Counting recent draws.</p></div>
+      </div>
     </div>
 
-    <p class="muted">Based on <strong id="freq-total">0</strong> confirmed draws.</p>
+    <div class="notice warn" style="margin-top:24px">
+      <span class="notice-t">What this can and cannot tell you</span>
+      <p>Each Keno draw is independent, and the machine has no memory of previous draws. A number that has come up in 80% of the last five draws is exactly as likely to appear in the next one as a number that has not appeared at all &mdash; both sit at 25%, every draw, always.</p>
+      <p>Short windows swing widely for that reason. Over five draws a number can easily show at 80% or 0% through ordinary chance; widen the window and everything drifts back toward 25%. Try it with the selector above &mdash; watching the spread narrow as you go from 5 draws to 250 is the clearest demonstration that these are not signals.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Full frequency</h2></div>
+    <p class="muted">How often each number has been drawn across all <strong id="freq-total">0</strong> draws we hold. Listed in number order, because sorting by count would present ordinary variation as a ranking.</p>
     <ul class="freq" id="freq-list" aria-label="How often each number has been drawn"></ul>
   </section>
 </div>

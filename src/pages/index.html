@@ -34,6 +34,28 @@
   </section>
 
   <section>
+    <div class="sec-h">
+      <h2>Hot and cold numbers</h2>
+      <a href="/statistics/">Full statistics</a>
+    </div>
+    <div class="card">
+      <div class="hc-controls">
+        <label for="hc-window">Show results for the last</label>
+        <select class="hc-select" id="hc-window">
+          <option value="5">5 draws</option>
+          <option value="10">10 draws</option>
+          <option value="25" selected>25 draws</option>
+          <option value="50">50 draws</option>
+          <option value="100">100 draws</option>
+        </select>
+      </div>
+      <div id="hotcold" aria-live="polite">
+        <div class="empty"><h3>Loading</h3><p>Counting recent draws.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="grid-2">
       <div class="card">
         <h2 style="font-size:19px">How Keno works</h2>

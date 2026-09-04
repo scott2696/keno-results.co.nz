@@ -146,8 +146,12 @@ validator in CI before any deploy.
   Never style a component inside a `@media` or `[data-theme]` block.
 - Matched balls carry state through fill **and** border, never colour alone.
 - The orange `--live` token means one thing: a draw is in progress. Nothing else.
-- Statistics are presented in number order with no ranking or "hot/cold"
-  styling, because frequency history does not predict future draws.
+- Hot/cold uses its own `--hot` / `--cold` semantic tokens, deliberately not
+  the brand accent and not `--live`. The full frequency list stays in number
+  order (not sorted by count) so it reads as a record rather than a ranking.
+- Hot/cold is presented with an explicit caveat: it is descriptive, not
+  predictive. Widening the draw window visibly narrows the spread toward the
+  25% baseline, which is the honest demonstration of why. Keep that framing.
 - We publish odds, never prize amounts. Prizes depend on stake and on the
   operator's current schedule.
 

@@ -6,10 +6,11 @@
   if (!K) return;
 
   var heroEl  = document.getElementById('latest-draw');
+  var hcHost  = document.getElementById('hotcold');
   var recent  = document.getElementById('recent-draws');
   var archive = document.getElementById('archive-list');
   var freqEl  = document.getElementById('freq-list');
-  if (!heroEl && !recent && !archive && !freqEl) return;
+  if (!heroEl && !recent && !archive && !freqEl && !hcHost) return;
 
   function emptyBlock(title, body) {
     var d = document.createElement('div');
@@ -163,9 +164,96 @@
     }
     var tot = document.getElementById('freq-total');
     if (tot) tot.textContent = draws.length;
+    var sel = document.getElementById('hc-window');
+    if (sel) {
+      /* drop window sizes we do not have the history for */
+      Array.prototype.slice.call(sel.options).forEach(function (o) {
+        var v = parseInt(o.value, 10);
+        if (v > draws.length) o.disabled = true;
+      });
+    }
   }
 
+
+  /* ---------- hot / cold over the last N draws ---------- */
+  var hcEl = document.getElementById('hotcold');
+  var hcSel = document.getElementById('hc-window');
+  var allDraws = [];
+
+  function renderHotCold() {
+    if (!hcEl) return;
+    var want = hcSel ? parseInt(hcSel.value, 10) : 25;
+    var win = allDraws.slice(0, want);
+
+    if (!win.length) {
+      hcEl.innerHTML = '';
+      hcEl.appendChild(emptyBlock('No draw history yet',
+        'Hot and cold numbers appear once confirmed draws have been published.'));
+      return;
+    }
+
+    var counts = new Array(K.RANGE + 1).fill(0);
+    win.forEach(function (d) {
+      d.numbers.forEach(function (n) { counts[n]++; });
+    });
+
+    /* Rank by appearance rate. Ties break on the lower number so the list is
+       stable between renders rather than reshuffling on identical counts. */
+    var ranked = [];
+    for (var n = 1; n <= K.RANGE; n++) ranked.push({ n: n, c: counts[n] });
+    ranked.sort(function (a, b) { return b.c - a.c || a.n - b.n; });
+
+    var hot = ranked.slice(0, 5);
+    var cold = ranked.slice(-5).sort(function (a, b) { return a.c - b.c || a.n - b.n; });
+
+    function column(title, items, kind) {
+      var wrapEl = document.createElement('div');
+      wrapEl.className = 'hc-' + kind;
+      var h = document.createElement('p');
+      h.className = 'hc-h';
+      h.innerHTML = '<span class="dot"></span>' + title;
+      wrapEl.appendChild(h);
+      var ul = document.createElement('ul');
+      ul.className = 'hc-list';
+      ul.setAttribute('aria-label', title + ' numbers over the last ' + win.length + ' draws');
+      items.forEach(function (it) {
+        var li = document.createElement('li');
+        li.className = 'hc-item';
+        var b = K.ball(it.n, kind === 'hot' ? 'is-hot-n' : 'is-cold-n');
+        var pct = Math.round((it.c / win.length) * 100);
+        var r = document.createElement('span');
+        r.className = 'rate';
+        r.textContent = pct + '%';
+        li.appendChild(b);
+        li.appendChild(r);
+        li.setAttribute('aria-label',
+          'Number ' + it.n + ' appeared in ' + it.c + ' of ' + win.length + ' draws, ' + pct + ' percent');
+        ul.appendChild(li);
+      });
+      wrapEl.appendChild(ul);
+      return wrapEl;
+    }
+
+    var grid = document.createElement('div');
+    grid.className = 'hc';
+    grid.appendChild(column('Most drawn', hot, 'hot'));
+    grid.appendChild(column('Least drawn', cold, 'cold'));
+
+    var base = document.createElement('p');
+    base.className = 'hc-base';
+    base.textContent = 'Share of the last ' + win.length + ' draws each number appeared in. ' +
+      'Because 20 of 80 numbers are drawn each time, every number averages 25% over the long run.';
+
+    hcEl.innerHTML = '';
+    hcEl.appendChild(grid);
+    hcEl.appendChild(base);
+  }
+
+  if (hcSel) hcSel.addEventListener('change', renderHotCold);
+
   K.load().then(function (data) {
+    allDraws = data.draws;
+    renderHotCold();
     renderHero(data);
     renderList(recent, data.draws.slice(1, 11),
       'No earlier draws', 'Past draws appear here once a feed is connected.');
@@ -184,7 +272,7 @@
         'We could not load the draw feed. Rather than show numbers we cannot verify, we show nothing.'
       ));
     }
-    [recent, archive, freqEl].forEach(function (el) {
+    [recent, archive, freqEl, hcEl].forEach(function (el) {
       if (el) { el.innerHTML = ''; el.appendChild(emptyBlock('Unavailable', 'Could not load the draw feed.')); }
     });
   });
