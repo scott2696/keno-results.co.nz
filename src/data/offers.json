@@ -41,7 +41,6 @@
       "logo": "/assets/img/partners/rooster-bet-rev@2x.png",
       "url": "https://roosterpartner.media/aazsy7czse",
       "kicker": "Sports betting",
-      "bonus": "Sports, e-sports and live betting",
       "points": [
         "Sports &amp; e-sports",
         "Live betting",
@@ -59,7 +58,9 @@
         "ctaTo": "#A81605",
         "style": "sport"
       },
-      "active": true
+      "active": true,
+      "amount": "NZ$200",
+      "amountSub": "free bet<br>100% matched"
     }
   ]
 }

@@ -561,7 +561,8 @@ def rail_block(side="rail-right"):
                         f'<span class="rail-sub">{sub}</span>' if sub
                         else f'<span class="rail-amt">{amt}</span>')
         else:
-            headline = f'<span class="rail-bonus">{o["bonus"]}</span>'
+            headline = (f'<span class="rail-bonus">{o["bonus"]}</span>'
+                        if o.get("bonus") else "")
 
         points = ""
         if o.get("points"):
