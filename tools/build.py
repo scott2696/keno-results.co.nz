@@ -341,6 +341,77 @@ SCHEMA = {
 }
 
 
+GOLD = "#E8D5A3"
+
+
+def offers_block():
+    """Render the affiliate strip from src/data/offers.json.
+
+    Kept out of the page templates so a placement can be added, edited or
+    switched off in one file. Renders nothing when no offer is active.
+    """
+    try:
+        with open(os.path.join(SRC, "data", "offers.json"), encoding="utf-8") as fh:
+            data = json.load(fh)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return ""
+
+    live = [o for o in data.get("offers", []) if o.get("active")]
+    if not live:
+        return ""
+
+    coins = "".join(
+        f'<svg class="coin" style="left:{x}%;bottom:{y}%;animation-delay:{d}s" '
+        f'viewBox="0 0 16 16" aria-hidden="true">'
+        f'<circle cx="8" cy="8" r="7" fill="none" stroke="{GOLD}" stroke-width="1.6"/>'
+        f'<circle cx="8" cy="8" r="3" fill="{GOLD}" opacity=".7"/></svg>'
+        for x, y, d in ((12, 18, 0.0), (33, 8, 1.7), (58, 24, 3.4), (79, 12, 5.1), (91, 30, 2.5))
+    )
+    crown = (
+        '<svg class="crown" viewBox="0 0 120 74" aria-hidden="true">'
+        '<path d="M6 66 L18 20 L38 44 L60 6 L82 44 L102 20 L114 66 Z" '
+        f'fill="none" stroke="{GOLD}" stroke-width="3" stroke-linejoin="round"/>'
+        f'<circle cx="18" cy="16" r="5" fill="{GOLD}"/>'
+        f'<circle cx="60" cy="4" r="5" fill="{GOLD}"/>'
+        f'<circle cx="102" cy="16" r="5" fill="{GOLD}"/></svg>'
+    )
+
+    items = []
+    for o in live:
+        name = html.escape(o["name"])
+        cta = html.escape(o.get("cta", "Visit site"))
+        items.append(
+            f'<li><a class="offer" href="{o["url"]}" target="_blank" '
+            f'rel="sponsored nofollow noopener">'
+            f'<span class="offer-art" aria-hidden="true">{crown}{coins}</span>'
+            f'<span class="offer-brand">'
+            f'<img src="{o["logo"]}" alt="{name}" width="150" height="47" loading="lazy">'
+            f'</span>'
+            f'<span class="offer-body">'
+            f'<span class="offer-name">{name}</span>'
+            f'<span class="offer-bonus">{o["bonus"]}</span>'
+            f'<span class="offer-terms">18+. New players only. Wagering requirements and '
+            f'full terms apply &mdash; see the operator&rsquo;s site. Gamble responsibly.'
+            f'</span></span>'
+            f'<span class="offer-cta">{cta}'
+            f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            f'<path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'
+            f'</a></li>'
+        )
+
+    return (
+        '<aside class="offers" aria-label="Advertisement">'
+        '<p class="offers-l">Advertisement</p>'
+        '<ul class="offer-list">' + "".join(items) + '</ul>'
+        '<p class="offer-note">This is a paid placement. keno-results.co.nz is not '
+        'affiliated with this operator and does not endorse it. We may earn a commission '
+        'if you sign up. Please read our '
+        '<a href="/responsible-gambling/">responsible gambling</a> page first.</p>'
+        '</aside>'
+    )
+
+
 def breadcrumbs(page):
     if not page["slug"]:
         return None
@@ -394,8 +465,9 @@ def build():
                .replace("{site}", SITE)
                .replace("{head_extra}", head_extra)
                .replace("{scripts}", scripts)
-               .replace("{content}", body.rstrip().replace(
-                   "{subnav}", subnav(slug) if page.get("section") else ""))
+               .replace("{content}", body.rstrip()
+                   .replace("{subnav}", subnav(slug) if page.get("section") else "")
+                   .replace("{offers}", offers_block()))
                .replace("{year}", str(YEAR)))
 
         rel = page.get("path") or ("index.html" if not slug else f"{slug}/index.html")

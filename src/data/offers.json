@@ -1,0 +1,13 @@
+{
+  "_note": "Affiliate placements. 'bonus' is display copy - confirm it matches the partner's current NZ-facing offer before launch. Links must stay rel='sponsored nofollow noopener'.",
+  "offers": [
+    {
+      "name": "CrownSlots",
+      "logo": "/assets/img/partners/crownslots.jpg",
+      "url": "https://crownslotslink.com/h9tfr7emt",
+      "bonus": "Welcome bonus <b>390% up to NZ$3,700</b> + 175 free spins",
+      "cta": "Claim bonus",
+      "active": true
+    }
+  ]
+}

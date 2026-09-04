@@ -140,6 +140,38 @@ published results containing numbers from 81 to 90 for a game drawn from
 1 to 80, while its own guide correctly described the 1-80 range. Run the
 validator in CI before any deploy.
 
+## Affiliate offers
+
+The offer strip under the latest draw is data-driven from `src/data/offers.json`:
+
+```json
+{ "name": "CrownSlots",
+  "logo": "/assets/img/partners/crownslots.jpg",
+  "url":  "https://crownslotslink.com/...",
+  "bonus": "Welcome bonus <b>390% up to NZ$3,700</b> + 175 free spins",
+  "cta": "Claim bonus",
+  "active": true }
+```
+
+Add an entry to run another placement; set `active: false` to pull one without
+deleting it. With no active offers the whole strip renders as nothing.
+
+Rendering is handled by `offers_block()` in `tools/build.py`, and `{offers}` is
+the placeholder in a page's source. It currently appears only on the homepage.
+
+Non-negotiables, all enforced in the renderer:
+
+- `rel="sponsored nofollow noopener"` on every offer link.
+- An explicit **Advertisement** label above, and a disclosure line below stating
+  it is paid, that we are not affiliated, and that we may earn a commission.
+- 18+ and "terms apply" in the card itself.
+- The strip sits **below** the draw card, never inside or beside the numbers.
+  Its palette is deliberately the partner's, not ours, so it cannot be mistaken
+  for editorial content or for data.
+
+Bonus copy is display text and is not verified by us. Confirm it matches the
+partner's current NZ-facing offer before launch, and re-check when it changes.
+
 ## Promotional slots
 
 The content column is 980px, centred, leaving room either side. Four slots are
