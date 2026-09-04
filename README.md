@@ -153,8 +153,10 @@ The offer strip under the latest draw is data-driven from `src/data/offers.json`
   "active": true }
 ```
 
-`placement` is `inline` (under the latest draw) or `rail` (the sticky vertical
-card on the right, shown from 1360px). Add an entry to run another placement;
+`placement` is `inline` (under the latest draw), `rail-left` or `rail-right`
+(sticky vertical cards flanking the content, shown from 1460px - below that the
+content column plus both rails no longer fit, so they are hidden rather than
+overlapping). Add an entry to run another placement;
 set `active: false` to pull one without deleting it. With no active offers,
 both the strip and the rail render as nothing.
 
@@ -174,6 +176,18 @@ own gradient: SpinJo's violet-to-cyan fails contrast badly with a white label
 
 Set `logo` to a file in `assets/img/partners/` when the partner supplies one;
 without it the name is set as a wordmark, split on an internal capital.
+
+A partner whose logo is dark artwork on a white plate needs a reversed master
+before it will read on a dark card - see `rooster-bet-rev.png`, where the white
+plate was knocked out and the neutral darks lifted while the brand reds were
+left alone.
+
+Optional fields: `kicker` (a small line above the headline, for a partner with
+no bonus figure), `amount` + `amountSub` (a large headline figure), and
+`points` (short factual lines - take them from the operator's own site rather
+than writing claims).
+
+`theme.style` accepts `space` (star field) or `sport` (arc lines).
 
 Rendering is handled by `offers_block()` in `tools/build.py`, and `{offers}` is
 the placeholder in a page's source. It currently appears only on the homepage.

@@ -468,8 +468,8 @@ def _load_offers():
         return []
 
 
-def rail_block():
-    """Vertical offer card for the right-hand sticky rail.
+def rail_block(side="rail-right"):
+    """Vertical offer card for a sticky side rail.
 
     Colours come from the partner's own `theme` block in offers.json, emitted
     as inline custom properties, so a card carries the operator's identity.
@@ -477,7 +477,7 @@ def rail_block():
     rather than inventing one or borrowing their artwork.
     """
     live = [o for o in _load_offers()
-            if o.get("active") and o.get("placement") == "rail"]
+            if o.get("active") and o.get("placement") == side]
     if not live:
         return ""
 
@@ -496,7 +496,17 @@ def rail_block():
             style = ' style="' + ";".join(decls) + '"'
 
         art = ""
-        if t.get("style") == "space":
+        if t.get("style") == "sport":
+            art = ('<span class="rail-art rail-art-sport" aria-hidden="true">'
+                   '<svg viewBox="0 0 200 520" preserveAspectRatio="none">'
+                   f'<path d="M-20 300 Q100 240 220 300" fill="none" stroke="{t.get("violet", GOLD)}" '
+                   'stroke-width="1.2" opacity=".38"/>'
+                   f'<path d="M-20 340 Q100 280 220 340" fill="none" stroke="{t.get("violet", GOLD)}" '
+                   'stroke-width="1.2" opacity=".24"/>'
+                   f'<path d="M-20 380 Q100 320 220 380" fill="none" stroke="{t.get("violet", GOLD)}" '
+                   'stroke-width="1.2" opacity=".14"/>'
+                   '</svg></span>')
+        elif t.get("style") == "space":
             # deterministic star field - same every build, no layout cost
             rnd = random.Random(len(name) * 7919)
             stars = []
@@ -517,6 +527,9 @@ def rail_block():
             cut = next((i for i in range(1, len(name)) if name[i].isupper()),
                        len(name) // 2)
             mark = f'<span class="rail-mark">{name[:cut]}<em>{name[cut:]}</em></span>'
+
+        kicker = (f'<span class="rail-kicker">{html.escape(o["kicker"])}</span>'
+                  if o.get("kicker") else "")
 
         # headline figure pulled out of the bonus line so it can carry the card
         amt = o.get("amount")
@@ -543,6 +556,7 @@ def rail_block():
             f'</span>'
             f'<span class="rail-mid">'
             f'<span class="rail-rule"></span>'
+            f'{kicker}'
             f'{headline}'
             f'{points}'
             f'</span>'
@@ -612,7 +626,8 @@ def build():
                .replace("{site}", SITE)
                .replace("{head_extra}", head_extra)
                .replace("{scripts}", scripts)
-               .replace("{rail}", rail_block() if not page.get("no_rail") else "")
+               .replace("{rail}", rail_block("rail-right"))
+               .replace("{rail_left}", rail_block("rail-left"))
                .replace("{content}", body.rstrip()
                    .replace("{subnav}", subnav(slug) if page.get("section") else "")
                    .replace("{offers}", offers_block())
@@ -678,7 +693,8 @@ def build():
                .replace("{head_extra}", '<script type="application/ld+json">'
                         + json.dumps(ld, separators=(",", ":")) + "</script>")
                .replace("{scripts}", "")
-               .replace("{rail}", rail_block())
+               .replace("{rail}", rail_block("rail-right"))
+               .replace("{rail_left}", rail_block("rail-left"))
                .replace("{content}", body)
                .replace("{year}", str(YEAR)))
         dest = os.path.join(ROOT, "news", a["slug"], "index.html")

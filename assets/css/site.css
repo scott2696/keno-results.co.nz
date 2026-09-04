@@ -767,6 +767,11 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 /* star field - drawn, and it twinkles rather than moves */
 .offer-rail .rail-art{position:absolute; inset:0; z-index:-1; pointer-events:none; overflow:hidden}
 .offer-rail .rail-art .star{position:absolute; border-radius:50%; background:#FFFFFF}
+.offer-rail .rail-art-sport svg{position:absolute; inset:0; width:100%; height:100%}
+.offer-rail .rail-kicker{
+  display:block; font-family:var(--mono); font-size:9.5px; text-transform:uppercase;
+  letter-spacing:.16em; color:var(--o-cyan); margin-bottom:8px;
+}
 @media (prefers-reduced-motion:no-preference){
   .offer-rail .rail-art .star{animation:twinkle 4s ease-in-out infinite}
 }
@@ -847,7 +852,7 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 }
 .promo-rail img{border-radius:var(--r-lg); display:block; max-width:100%}
 /* only shown when the viewport can hold the column plus both rails with air */
-@media (min-width:1360px){
+@media (min-width:1460px){
   .promo-rail:not(:empty){display:block}
   .promo-rail.left{left:calc(50% - (var(--wrap) / 2) - var(--rail) - 24px)}
   .promo-rail.right{right:calc(50% - (var(--wrap) / 2) - var(--rail) - 24px)}

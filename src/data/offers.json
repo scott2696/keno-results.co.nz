@@ -1,5 +1,5 @@
 {
-  "_note": "Affiliate placements. 'bonus' is display copy - confirm it matches the partner's current NZ-facing offer before launch. Links must stay rel='sponsored nofollow noopener'. placement: 'inline' renders under the latest draw; 'rail' renders in the right-hand sticky rail on wide screens. Drop a logo file in assets/img/partners/ and set 'logo' to use it; without one the partner name is set as a wordmark.",
+  "_note": "Affiliate placements. 'bonus' is display copy - confirm it matches the partner's current NZ-facing offer before launch. Links must stay rel='sponsored nofollow noopener'. placement: 'inline' renders under the latest draw; 'rail' renders in the right-hand sticky rail on wide screens. Drop a logo file in assets/img/partners/ and set 'logo' to use it; without one the partner name is set as a wordmark. placement: 'inline' | 'rail-left' | 'rail-right'. NOTE: Rooster.Bet has no bonus figure - none was supplied. Add 'amount'/'amountSub' when you have the current NZ-facing offer.",
   "offers": [
     {
       "name": "CrownSlots",
@@ -16,7 +16,7 @@
       "url": "https://roosterspartners.com/aaznxby3ku",
       "bonus": "Up to <b>NZ$5,000</b> + 300 free spins",
       "cta": "Claim bonus",
-      "placement": "rail",
+      "placement": "rail-right",
       "active": true,
       "theme": {
         "deep": "#050522",
@@ -35,6 +35,31 @@
       ],
       "amount": "NZ$5,000",
       "amountSub": "welcome bonus<br>+ 300 free spins"
+    },
+    {
+      "name": "Rooster.Bet",
+      "logo": "/assets/img/partners/rooster-bet-rev@2x.png",
+      "url": "https://roosterpartner.media/aazsy7czse",
+      "kicker": "Sports betting",
+      "bonus": "Sports, e-sports and live betting",
+      "points": [
+        "Sports &amp; e-sports",
+        "Live betting",
+        "Casino &amp; live casino"
+      ],
+      "cta": "Visit Rooster.Bet",
+      "placement": "rail-left",
+      "theme": {
+        "deep": "#0F0F14",
+        "base": "#1A1A22",
+        "raised": "#22222B",
+        "violet": "#FC311D",
+        "cyan": "#FF7A5C",
+        "ctaFrom": "#E02309",
+        "ctaTo": "#A81605",
+        "style": "sport"
+      },
+      "active": true
     }
   ]
 }
