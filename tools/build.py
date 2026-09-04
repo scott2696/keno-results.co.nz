@@ -46,18 +46,42 @@ PAGES = [
          desc="Which NZ Keno numbers have come up most and least often over the last 5, "
               "10, 25, 50, 100 or 250 draws, plus the full frequency count.",
          js=["results"]),
-    dict(slug="how-to-play", src="how-to-play", nav="howto",
+    dict(slug="how-to-play", src="how-to-play", nav="howto", section=True,
          title="How to Play Keno in New Zealand | keno-results.co.nz",
          og="How to play Keno",
          desc="How New Zealand Keno works: 20 numbers drawn from 80, choosing your spots, "
               "how prizes are structured, and what people get wrong.",
          schema=["howto"]),
-    dict(slug="odds", src="odds", nav="odds",
+    dict(slug="odds", src="odds", nav="odds", section=True,
          title="Keno Odds NZ - Real Probabilities | keno-results.co.nz",
          og="Keno odds",
          desc="Verified Keno odds for every spot count, calculated from the rules of the "
               "game. Includes the full six-spot breakdown and the formula used.",
          schema=["faq"]),
+    dict(slug="faqs", src="faqs", section=True,
+         title="Keno FAQs NZ | keno-results.co.nz",
+         og="Keno FAQs",
+         desc="Straight answers about New Zealand Keno: how it works, the odds, the "
+              "multiplier, whether numbers are ever due, and where our results come from.",
+         schema=["faq2"]),
+    dict(slug="multiplier", src="multiplier", section=True,
+         title="Keno Multiplier NZ Explained | keno-results.co.nz",
+         og="The Keno multiplier",
+         desc="How the NZ Keno multiplier scales prizes, the values we have observed "
+              "across 220 draws, and why it never changes your odds of winning.",
+         schema=["faq3"]),
+    dict(slug="draw-schedule", src="draw-schedule", section=True,
+         title="Keno Draw Times NZ | keno-results.co.nz",
+         og="Keno draw schedule",
+         desc="New Zealand Keno draws four times daily at 10:01am, 1:01pm, 3:01pm and "
+              "6:01pm NZ time, every day of the week.",
+         schema=["howto2"]),
+    dict(slug="rules", src="rules", section=True,
+         title="Keno Rules & Regulations NZ | keno-results.co.nz",
+         og="Keno rules and regulations",
+         desc="How NZ Keno is structured, who operates and regulates it, the age limit, "
+              "how prizes are claimed, and where the binding rules live.",
+         schema=[]),
     dict(slug="about", src="about",
          title="About & Data Sources | keno-results.co.nz",
          og="About this site",
@@ -101,6 +125,27 @@ REDIRECTS = {
     "keno-tools": "/statistics/",   # was a tools/statistics page
     "stra": "/odds/",               # "strategy" -> the actual arithmetic
 }
+
+# "More in this section" - the Keno guide cluster.
+SECTION = [
+    ("how-to-play",   "How to play"),
+    ("odds",          "Odds &amp; payouts"),
+    ("faqs",          "Keno FAQs"),
+    ("multiplier",    "Multiplier"),
+    ("draw-schedule", "Draw schedule"),
+    ("rules",         "Rules &amp; regulations"),
+]
+
+
+def subnav(slug):
+    items = []
+    for s_, label in SECTION:
+        cur = ' aria-current="page"' if s_ == slug else ""
+        items.append('<li><a href="/%s/"%s>%s</a></li>' % (s_, cur, label))
+    return ('<nav class="subnav wrap" aria-label="More in this section">'
+            '<span class="subnav-l">More in this section</span>'
+            '<ul>' + "".join(items) + '</ul></nav>')
+
 
 SCHEMA = {
     "org": lambda: {
@@ -159,6 +204,67 @@ SCHEMA = {
              "text": "Compare your numbers against the 20 drawn and count the matches. "
                      "Confirm any win with the official operator."},
         ],
+    },
+    "faq2": lambda: {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "How does Keno work in New Zealand?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "Twenty numbers are drawn at random from 1 to 80. "
+                                        "You pick between one and ten numbers, called spots, "
+                                        "and your prize depends on how many of them appear "
+                                        "among the twenty drawn."}},
+            {"@type": "Question", "name": "How often are NZ Keno draws held?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "Four times a day, every day, at 10:01am, 1:01pm, "
+                                        "3:01pm and 6:01pm New Zealand time."}},
+            {"@type": "Question", "name": "Are Keno winnings taxed in New Zealand?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "Lottery prizes are generally not taxed as income in "
+                                        "New Zealand. Income later earned on those winnings, "
+                                        "such as interest, is taxable in the normal way."}},
+            {"@type": "Question", "name": "Are some Keno numbers due to come up?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "No. Each draw is independent and the draw has no "
+                                        "memory. Every number has the same 25 percent chance "
+                                        "of appearing in any given draw."}},
+            {"@type": "Question", "name": "Does a Keno system or strategy improve your odds?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "No. Every combination is equally likely. Patterns, "
+                                        "wheeling systems and frequency-based picks all "
+                                        "produce identical odds."}},
+        ],
+    },
+    "faq3": lambda: {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is the Keno multiplier?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "A figure selected at random before each draw that "
+                                        "multiplies the prize a winning ticket pays. It applies "
+                                        "to the whole draw, so everyone playing that draw gets "
+                                        "the same multiplier."}},
+            {"@type": "Question", "name": "Does the Keno multiplier change your odds?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "No. The multiplier changes what a win pays, never how "
+                                        "likely a win is. Your chance of matching numbers "
+                                        "depends only on how many spots you play."}},
+            {"@type": "Question", "name": "What multiplier values does NZ Keno use?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "Across 220 observed draws the multiplier has been "
+                                        "x1.5, x2, x3, x5 or x10, with x1.5 the most common at "
+                                        "roughly 54 percent of draws and x10 the rarest at "
+                                        "under 1 percent."}},
+        ],
+    },
+    "howto2": lambda: {
+        "@type": "Dataset",
+        "name": "New Zealand Keno draw schedule",
+        "description": "Observed NZ Keno draw times: four draws daily at 10:01am, 1:01pm, "
+                       "3:01pm and 6:01pm New Zealand time, seven days a week.",
+        "url": SITE + "/draw-schedule/",
+        "creator": {"@id": SITE + "/#org"},
+        "isAccessibleForFree": True,
     },
     "faq": lambda: {
         "@type": "FAQPage",
@@ -245,7 +351,8 @@ def build():
                .replace("{site}", SITE)
                .replace("{head_extra}", head_extra)
                .replace("{scripts}", scripts)
-               .replace("{content}", body.rstrip())
+               .replace("{content}", body.rstrip().replace(
+                   "{subnav}", subnav(slug) if page.get("section") else ""))
                .replace("{year}", str(YEAR)))
 
         rel = page.get("path") or ("index.html" if not slug else f"{slug}/index.html")
