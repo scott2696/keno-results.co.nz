@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Powerball NZ Explained | keno-results.co.nz</title>
-<meta name="description" content="How Powerball attaches to a Lotto NZ line, what it does to the odds, and why a bigger jackpot does not mean a better chance.">
-<link rel="canonical" href="https://keno-results.co.nz/powerball/">
+<title>Keno Draw Archive NZ | keno-results.co.nz</title>
+<meta name="description" content="Every confirmed New Zealand Keno draw we hold, newest first, with winning numbers and draw identifiers.">
+<link rel="canonical" href="https://keno-results.co.nz/results/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="keno-results.co.nz">
 <meta property="og:locale" content="en_NZ">
-<meta property="og:title" content="Powerball NZ">
-<meta property="og:description" content="How Powerball attaches to a Lotto NZ line, what it does to the odds, and why a bigger jackpot does not mean a better chance.">
-<meta property="og:url" content="https://keno-results.co.nz/powerball/">
+<meta property="og:title" content="Keno draw archive">
+<meta property="og:description" content="Every confirmed New Zealand Keno draw we hold, newest first, with winning numbers and draw identifiers.">
+<meta property="og:url" content="https://keno-results.co.nz/results/">
 <meta property="og:image" content="https://keno-results.co.nz/assets/img/icon-512.png">
 <meta name="twitter:card" content="summary">
 
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>/* set theme before paint so there is no flash */
 (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://keno-results.co.nz/"},{"@type":"ListItem","position":2,"name":"Powerball NZ","item":"https://keno-results.co.nz/powerball/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Dataset","name":"New Zealand Keno draw results","description":"Winning numbers for New Zealand Keno draws. Each draw is 20 unique numbers between 1 and 80.","url":"https://keno-results.co.nz/results/","variableMeasured":"Winning numbers (20 drawn from 1-80)","creator":{"@id":"https://keno-results.co.nz/#org"},"isAccessibleForFree":true,"license":"https://keno-results.co.nz/about/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://keno-results.co.nz/"},{"@type":"ListItem","position":2,"name":"Keno draw archive","item":"https://keno-results.co.nz/results/"}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -44,7 +44,7 @@
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <a href="/">Latest</a>
       <a href="/check/">Check numbers</a>
-      <a href="/results/">Results</a>
+      <a href="/results/" aria-current="page">Results</a>
       <a href="/statistics/">Statistics</a>
       <a href="/how-to-play/">How to play</a>
       <a href="/odds/">Odds</a>
@@ -66,28 +66,13 @@
 <main id="main">
 <div class="wrap">
   <div class="page-head">
-    <p class="eyebrow">Other games</p>
-    <h1>Powerball NZ</h1>
-    <p class="lede">How Powerball attaches to a Lotto line, and what it does to the odds.</p>
+    <p class="eyebrow">Archive</p>
+    <h1>Keno draw archive</h1>
+    <p class="lede">Every confirmed draw we hold, newest first. Each entry links through to the checker so you can test a ticket against it.</p>
   </div>
-  <div class="prose" style="margin-top:28px">
-    <h2>How it works</h2>
-    <p>Powerball is not a standalone game. You add it to a Lotto line, and a single extra number is drawn from a separate, smaller pool. To take the Powerball jackpot you need all six of your Lotto numbers <em>and</em> the Powerball number.</p>
-
-    <h2>What it does to your odds</h2>
-    <p>Because the Powerball is drawn independently from its own pool, the chance of taking the top prize is the chance of matching six Lotto numbers multiplied by the chance of matching the Powerball. That makes the jackpot substantially harder to win than Lotto's own first division &mdash; which is precisely why the prize is larger.</p>
-    <p>Powerball also adds its own lower tiers, so a line can win on the Powerball number alongside fewer Lotto matches.</p>
-
-    <h2>Jackpots</h2>
-    <p>When nobody takes the top prize it rolls over, which is how Powerball reaches the very large jackpots it is known for. A rollover does not change your odds &mdash; it changes only the size of the prize you are playing for.</p>
-
-    <div class="notice warn">
-      <span class="notice-t">A common misreading</span>
-      <p>A bigger jackpot does not mean a better chance. The odds of any given line are identical whether the jackpot is at its minimum or at a record high. What changes is the payout, not the probability.</p>
-    </div>
-
-    <p>For current jackpot sizes, draw dates and prize schedules, check Lotto New Zealand directly. We publish Keno results; we do not carry live Powerball data.</p>
-  </div>
+  <section style="margin-top:28px">
+    <ul class="draws" id="archive-list" aria-live="polite"></ul>
+  </section>
 </div>
 </main>
 
@@ -137,6 +122,6 @@
 </footer>
 
 <script src="/assets/js/site.js" defer></script>
-
+<script src="/assets/js/results.js" defer></script>
 </body>
 </html>

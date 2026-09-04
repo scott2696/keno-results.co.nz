@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Keno">
+  <style>
+    .ring{fill:none;stroke:#009C30;stroke-width:11.5}
+    .tail{fill:#F07818}
+    @media (prefers-color-scheme:dark){
+      .ring{stroke:#2FB955}
+      .tail{fill:#FF8C2E}
+    }
+  </style>
+  <path class="tail" d="M34.5 63.6h31L50 88.1z"/>
+  <circle class="ring" cx="50" cy="42" r="24.25"/>
+</svg>

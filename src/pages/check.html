@@ -1,0 +1,48 @@
+<div class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Ticket checker</p>
+    <h1>Check my numbers</h1>
+    <p class="lede">Tap the numbers on your ticket, or type them in any format. Matching happens in your browser &mdash; nothing is uploaded, stored on our servers, or shared.</p>
+  </div>
+
+  <section style="margin-top:28px">
+    <div class="checker-grid">
+      <div class="card">
+        <p class="field-l" id="grid-label">Pick up to 10 numbers</p>
+        <ul class="grid80" id="pick-grid" aria-labelledby="grid-label"></ul>
+        <p class="hint"><span class="count" id="pick-count">0 of 10 selected</span></p>
+      </div>
+
+      <div class="stack">
+        <div class="card">
+          <label class="field">
+            <span class="field-l">Or type them</span>
+            <input class="input" id="pick-input" type="text" inputmode="numeric"
+                   autocomplete="off" spellcheck="false" placeholder="4 9 11 17 22 35">
+          </label>
+          <p class="hint">Spaces, commas or dashes all work.</p>
+
+          <div id="draw-select-wrap" hidden>
+            <label class="field">
+              <span class="field-l">Check against</span>
+              <select class="input" id="draw-select" disabled style="font-family:var(--sans)">
+                <option>Latest draw</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="btn-row" style="margin-top:4px">
+            <button class="btn btn-ghost" type="button" id="pick-clear" disabled>Clear</button>
+          </div>
+        </div>
+
+        <div id="check-result" aria-live="polite" hidden></div>
+      </div>
+    </div>
+
+    <div class="notice" style="margin-top:24px">
+      <span class="notice-t">Before you claim</span>
+      <p>This checker tells you how many numbers matched. It does not calculate a prize amount, because prizes depend on your stake and the operator's current prize schedule. Always confirm a win with Lotto NZ.</p>
+    </div>
+  </section>
+</div>

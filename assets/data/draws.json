@@ -1,0 +1,9 @@
+{
+  "$schema": "./draws.schema.json",
+  "game": "Keno NZ",
+  "numberRange": [1, 80],
+  "drawSize": 20,
+  "source": null,
+  "retrievedAt": null,
+  "draws": []
+}

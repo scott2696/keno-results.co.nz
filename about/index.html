@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Powerball NZ Explained | keno-results.co.nz</title>
-<meta name="description" content="How Powerball attaches to a Lotto NZ line, what it does to the odds, and why a bigger jackpot does not mean a better chance.">
-<link rel="canonical" href="https://keno-results.co.nz/powerball/">
+<title>About &amp; Data Sources | keno-results.co.nz</title>
+<meta name="description" content="Who runs keno-results.co.nz, where the results come from, how every draw is validated before publication, and how to report an error.">
+<link rel="canonical" href="https://keno-results.co.nz/about/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="keno-results.co.nz">
 <meta property="og:locale" content="en_NZ">
-<meta property="og:title" content="Powerball NZ">
-<meta property="og:description" content="How Powerball attaches to a Lotto NZ line, what it does to the odds, and why a bigger jackpot does not mean a better chance.">
-<meta property="og:url" content="https://keno-results.co.nz/powerball/">
+<meta property="og:title" content="About this site">
+<meta property="og:description" content="Who runs keno-results.co.nz, where the results come from, how every draw is validated before publication, and how to report an error.">
+<meta property="og:url" content="https://keno-results.co.nz/about/">
 <meta property="og:image" content="https://keno-results.co.nz/assets/img/icon-512.png">
 <meta name="twitter:card" content="summary">
 
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>/* set theme before paint so there is no flash */
 (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://keno-results.co.nz/"},{"@type":"ListItem","position":2,"name":"Powerball NZ","item":"https://keno-results.co.nz/powerball/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://keno-results.co.nz/#org","name":"keno-results.co.nz","url":"https://keno-results.co.nz/","logo":"https://keno-results.co.nz/assets/img/icon-512.png","email":"info@keno-results.co.nz","disambiguatingDescription":"An independent Keno results service. Not affiliated with, endorsed by, or operated by Lotto New Zealand."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://keno-results.co.nz/"},{"@type":"ListItem","position":2,"name":"About this site","item":"https://keno-results.co.nz/about/"}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -66,27 +66,54 @@
 <main id="main">
 <div class="wrap">
   <div class="page-head">
-    <p class="eyebrow">Other games</p>
-    <h1>Powerball NZ</h1>
-    <p class="lede">How Powerball attaches to a Lotto line, and what it does to the odds.</p>
+    <p class="eyebrow">About</p>
+    <h1>About this site</h1>
+    <p class="lede">What we publish, where it comes from, and how to tell us when we get it wrong.</p>
   </div>
+
   <div class="prose" style="margin-top:28px">
-    <h2>How it works</h2>
-    <p>Powerball is not a standalone game. You add it to a Lotto line, and a single extra number is drawn from a separate, smaller pool. To take the Powerball jackpot you need all six of your Lotto numbers <em>and</em> the Powerball number.</p>
+    <h2>What this site is</h2>
+    <p>keno-results.co.nz is an independent service publishing New Zealand Keno results and explaining how the game works. We are not a gambling operator. You cannot place a bet here, and we do not take payment from visitors.</p>
 
-    <h2>What it does to your odds</h2>
-    <p>Because the Powerball is drawn independently from its own pool, the chance of taking the top prize is the chance of matching six Lotto numbers multiplied by the chance of matching the Powerball. That makes the jackpot substantially harder to win than Lotto's own first division &mdash; which is precisely why the prize is larger.</p>
-    <p>Powerball also adds its own lower tiers, so a line can win on the Powerball number alongside fewer Lotto matches.</p>
-
-    <h2>Jackpots</h2>
-    <p>When nobody takes the top prize it rolls over, which is how Powerball reaches the very large jackpots it is known for. A rollover does not change your odds &mdash; it changes only the size of the prize you are playing for.</p>
-
-    <div class="notice warn">
-      <span class="notice-t">A common misreading</span>
-      <p>A bigger jackpot does not mean a better chance. The odds of any given line are identical whether the jackpot is at its minimum or at a record high. What changes is the payout, not the probability.</p>
+    <div class="notice">
+      <span class="notice-t">Independence</span>
+      <p>We are not affiliated with, endorsed by, or operated by Lotto New Zealand. They run the game and hold the official record. We report on it.</p>
     </div>
 
-    <p>For current jackpot sizes, draw dates and prize schedules, check Lotto New Zealand directly. We publish Keno results; we do not carry live Powerball data.</p>
+    <h2 id="data">Where the numbers come from</h2>
+    <p>Results are taken from the official operator's published data. Every set of numbers on this site carries a provenance strip naming the source and the time we retrieved it. If we cannot verify a draw, we do not publish it &mdash; the site will show an empty state rather than a guess.</p>
+
+    <h3>How we validate</h3>
+    <p>Before anything is published, every draw is checked against the rules of the game:</p>
+    <ul>
+      <li>Exactly 20 numbers.</li>
+      <li>Every number an integer between 1 and 80.</li>
+      <li>No duplicates within a draw.</li>
+      <li>A valid draw identifier and timestamp.</li>
+      <li>No duplicate draw identifiers in the feed.</li>
+    </ul>
+    <p>A draw failing any of these is rejected and never reaches the site. This check is public: it lives in <span class="mono">tools/validate_draws.py</span> in the site's repository, and it runs on every publish.</p>
+
+    <div class="notice warn">
+      <span class="notice-t">Why this matters here</span>
+      <p>An earlier version of this site published results containing numbers between 81 and 90 &mdash; values that cannot occur in a game drawn from 1 to 80 &mdash; while its own guide correctly described the 1&ndash;80 range. That data was wrong, and it has not been carried over. The validation above exists specifically so it cannot happen again.</p>
+    </div>
+
+    <h2 id="corrections">Reporting an error</h2>
+    <p>If something here looks wrong, please tell us. Include the draw identifier and what you expected to see. We would rather be corrected than be confidently wrong, and we will publish a note when we fix something that was materially incorrect.</p>
+    <p>Email <a href="mailto:info@keno-results.co.nz">info@keno-results.co.nz</a>.</p>
+
+    <h2>What we do not do</h2>
+    <ul>
+      <li>We do not sell tickets or accept stakes.</li>
+      <li>We do not publish prize amounts, because those depend on your stake and the operator's current schedule.</li>
+      <li>We do not offer systems, predictions, or claims that any selection method improves your odds. It does not.</li>
+      <li>We do not track you across sites or sell visitor data. See our <a href="/privacy-policy/">privacy policy</a>.</li>
+    </ul>
+
+    <h2>Responsible gambling</h2>
+    <p>This site is intended for people aged 18 and over. Gambling carries a fixed house edge and, over time, returns less than it takes in.</p>
+    <p>If gambling is causing harm, free and confidential help is available from the <a href="https://gamblinghelpline.co.nz/" rel="noopener">Gambling Helpline Aotearoa</a>.</p>
   </div>
 </div>
 </main>

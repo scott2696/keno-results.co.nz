@@ -1,0 +1,65 @@
+<div class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Odds</p>
+    <h1>Keno odds</h1>
+    <p class="lede">The real probabilities behind every spot count, calculated from the rules of the game rather than rounded for marketing.</p>
+  </div>
+
+  <div class="prose" style="margin-top:28px">
+    <p>Keno draws 20 numbers from a pool of 80. You choose between one and ten numbers &mdash; your <strong>spots</strong>. Everything below follows from those two facts alone.</p>
+
+    <h2>Matching every number you picked</h2>
+    <p>This is the top prize tier for each spot count.</p>
+    <div class="tw">
+      <table>
+        <caption class="vh">Odds of matching every number you picked, by spot count</caption>
+        <thead><tr><th class="num">Spots played</th><th class="num">Odds</th><th class="num">Probability</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td class="num">1 in 4</td><td class="num">0.25000000</td></tr>
+        <tr><td class="num">2</td><td class="num">1 in 17</td><td class="num">0.06012658</td></tr>
+        <tr><td class="num">3</td><td class="num">1 in 72</td><td class="num">0.01387537</td></tr>
+        <tr><td class="num">4</td><td class="num">1 in 326</td><td class="num">0.00306339</td></tr>
+        <tr><td class="num">5</td><td class="num">1 in 1,551</td><td class="num">0.00064492</td></tr>
+        <tr><td class="num">6</td><td class="num">1 in 7,753</td><td class="num">0.00012898</td></tr>
+        <tr><td class="num">7</td><td class="num">1 in 40,979</td><td class="num">0.00002440</td></tr>
+        <tr><td class="num">8</td><td class="num">1 in 230,115</td><td class="num">0.00000435</td></tr>
+        <tr><td class="num">9</td><td class="num">1 in 1,380,688</td><td class="num">0.00000072</td></tr>
+        <tr><td class="num">10</td><td class="num">1 in 8,911,711</td><td class="num">0.00000011</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Note what happens as you add spots: the top tier gets dramatically harder, not easier. Playing ten spots and matching all ten is roughly a one-in-nine-million event.</p>
+
+    <h2>A full ticket, tier by tier</h2>
+    <p>Most spot counts also pay on partial matches. A six-spot ticket is the clearest example:</p>
+    <div class="tw">
+      <table>
+        <caption class="vh">Six-spot ticket, odds by number of matches</caption>
+        <thead><tr><th class="num">Matched</th><th class="num">Odds</th><th class="num">Probability</th></tr></thead>
+        <tbody>
+        <tr><td class="num">6 of 6</td><td class="num">1 in 7,752.8</td><td class="num">0.000129</td></tr>
+        <tr><td class="num">5 of 6</td><td class="num">1 in 323.0</td><td class="num">0.003096</td></tr>
+        <tr><td class="num">4 of 6</td><td class="num">1 in 35.0</td><td class="num">0.028538</td></tr>
+        <tr><td class="num">3 of 6</td><td class="num">1 in 7.7</td><td class="num">0.129820</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Taken together, a six-spot ticket matches three or more numbers about 16% of the time, and matches nothing at all about 17% of the time.</p>
+
+    <h2>How the maths works</h2>
+    <p>These are hypergeometric probabilities &mdash; drawing without replacement from a finite pool. For a ticket of <em>s</em> spots, the chance of matching exactly <em>k</em> numbers is:</p>
+    <p class="mono" style="background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-md); padding:12px 14px; overflow-x:auto">P(k) = C(20, k) &times; C(60, s &minus; k) &divide; C(80, s)</p>
+    <p>where <span class="mono">C(n, r)</span> is the number of ways to choose <em>r</em> items from <em>n</em>. Every figure on this page can be verified with that formula.</p>
+
+    <h2>What the odds cannot tell you</h2>
+    <p>The odds above are fixed. They are identical for every draw, every ticket and every player, and nothing about previous draws changes them.</p>
+    <div class="notice warn">
+      <span class="notice-t">On systems and strategies</span>
+      <p>No selection method changes the probabilities in these tables. Choosing numbers that have appeared often, or rarely, or in a pattern, or through a "system", produces exactly the same odds as choosing at random. Anyone claiming otherwise is either mistaken or selling something.</p>
+      <p>The only choice that genuinely changes your odds is how many spots you play &mdash; and more spots means longer odds on the top tier, not shorter.</p>
+    </div>
+
+    <h2>Prize amounts</h2>
+    <p>We publish odds, not prize values. Payouts depend on your stake and on Lotto NZ's current prize schedule, which the operator can change. For amounts, check with them directly.</p>
+  </div>
+</div>
