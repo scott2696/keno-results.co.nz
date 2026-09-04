@@ -49,6 +49,12 @@
     when.textContent = K.fmtDate(d.drawnAt) + ', ' + K.fmtTime(d.drawnAt);
     top.appendChild(id);
     top.appendChild(when);
+    if (d.multiplier) {
+      var m = document.createElement('span');
+      m.className = 'badge badge-neutral';
+      m.textContent = 'x' + d.multiplier;
+      top.appendChild(m);
+    }
     a.appendChild(top);
     a.appendChild(ballList(d.numbers, 'Winning numbers, draw ' + d.id));
     return a;
@@ -79,6 +85,12 @@
     var when = document.createElement('span');
     when.textContent = K.fmtDate(d.drawnAt) + ', ' + K.fmtTime(d.drawnAt) + ' NZ';
     meta.appendChild(t); meta.appendChild(id); meta.appendChild(when);
+    if (d.multiplier) {
+      var m = document.createElement('span');
+      m.className = 'badge badge-neutral';
+      m.textContent = 'Multiplier x' + d.multiplier;
+      meta.appendChild(m);
+    }
     heroEl.appendChild(meta);
 
     heroEl.appendChild(ballList(d.numbers, 'Winning numbers, draw ' + d.id, true));
@@ -86,8 +98,14 @@
     var prov = document.createElement('div');
     prov.className = 'prov';
     var bits = [];
-    if (data.source) bits.push('Source <strong>' + esc(data.source) + '</strong>');
-    if (data.retrievedAt) bits.push('Retrieved <span class="mono">' + esc(data.retrievedAt) + '</span>');
+    if (data.source) {
+      bits.push(data.sourceUrl
+        ? 'Source <a href="' + esc(data.sourceUrl) + '" rel="nofollow noopener"><strong>' + esc(data.source) + '</strong></a>'
+        : 'Source <strong>' + esc(data.source) + '</strong>');
+    }
+    if (data.retrievedAt) {
+      bits.push('Retrieved <span class="mono">' + esc(K.fmtDate(data.retrievedAt) + ', ' + K.fmtTime(data.retrievedAt)) + '</span>');
+    }
     bits.push('<a href="/about/#corrections">Report an error</a>');
     prov.innerHTML = '<span class="badge badge-ok">Verified</span>' +
       bits.map(function (b) { return '<span>' + b + '</span>'; }).join('');

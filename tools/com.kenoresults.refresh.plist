@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Optional local scheduler. The GitHub Action in .github/workflows/ is the
+     recommended path - it does not need this machine to be awake. Use this only
+     if you want to publish from your Mac instead.
+
+     EDIT the path below to match where this repo lives, then:
+       cp tools/com.kenoresults.refresh.plist ~/Library/LaunchAgents/
+       launchctl load ~/Library/LaunchAgents/com.kenoresults.refresh.plist
+     Remove:
+       launchctl unload ~/Library/LaunchAgents/com.kenoresults.refresh.plist
+
+     macOS TCC gotcha: launchd cannot read or write ~/Documents unless /bin/bash
+     has Full Disk Access (System Settings -> Privacy & Security), or the repo
+     lives outside ~/Documents. This is why the GitHub Action is preferred. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.kenoresults.refresh</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/ABSOLUTE/PATH/TO/keno-results.co.nz/tools/refresh.sh</string>
+    <string>--push</string>
+  </array>
+
+  <!-- shortly after each Keno draw (10:01, 13:01, 15:01, 18:01 NZ) -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>10</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>10</integer></dict>
+    <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>10</integer></dict>
+    <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>10</integer></dict>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/kenoresults.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/kenoresults.err.log</string>
+</dict>
+</plist>

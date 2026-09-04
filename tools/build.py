@@ -64,17 +64,17 @@ PAGES = [
          desc="Who runs keno-results.co.nz, where the results come from, how every draw "
               "is validated before publication, and how to report an error.",
          schema=["org"]),
-    dict(slug="lotto-nz", src="lotto-nz",
+    dict(slug="lotto-nz", src="lotto-nz", js=["game"],
          title="Lotto NZ Games Explained | keno-results.co.nz",
          og="Lotto NZ games",
          desc="The games Lotto New Zealand runs alongside Keno - Lotto, Powerball, "
               "Bullseye and Instant Kiwi - and how they differ."),
-    dict(slug="powerball", src="powerball",
+    dict(slug="powerball", src="powerball", js=["game"],
          title="Powerball NZ Explained | keno-results.co.nz",
          og="Powerball NZ",
          desc="How Powerball attaches to a Lotto NZ line, what it does to the odds, "
               "and why a bigger jackpot does not mean a better chance."),
-    dict(slug="bullseye", src="bullseye",
+    dict(slug="bullseye", src="bullseye", js=["game"],
          title="Bullseye NZ Explained | keno-results.co.nz",
          og="Bullseye NZ",
          desc="How New Zealand's daily Bullseye game is structured and how it differs "

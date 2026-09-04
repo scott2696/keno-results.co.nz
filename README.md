@@ -10,7 +10,9 @@ src/base.html          page shell (head, header, footer)
 src/pages/*.html       page content fragments
 src/brand/             original logo artwork (source of truth)
 tools/build.py         renders src/ -> repo root
+tools/fetch_draws.py   pulls results from MyLotto into the feed
 tools/validate_draws.py  feed validator - run before every publish
+tools/refresh.sh       fetch + validate + build (+ --push to publish)
 assets/css/site.css    design system (tokens, components)
 assets/js/             site.js (shared) - results.js - checker.js
 assets/data/draws.json the draw feed
@@ -50,9 +52,78 @@ Pillow is needed only if you regenerate logo or icon artwork.
 ```
 
 `source` is shown to visitors in the provenance strip under every set of
-numbers, so it must name a real upstream source. The feed currently ships
-**empty**: the site shows an honest "no confirmed draw yet" state rather
-than placeholder numbers. Point it at a real feed to bring the site live.
+numbers, so it must name a real upstream source.
+
+### Where the data comes from
+
+Results are pulled from MyLotto's results API:
+
+```
+GET https://pathway.mylotto.co.nz/api/results/v1/results/keno       # latest
+GET https://pathway.mylotto.co.nz/api/results/v1/results/keno/{n}   # draw n
+```
+
+That endpoint sends `Access-Control-Allow-Origin: https://mylotto.co.nz`, so a
+browser on our domain **cannot** call it directly. We fetch server-side on a
+schedule and write a same-origin JSON file the page reads instead - no CORS,
+and we are not hammering their API on every pageview.
+
+`tools/fetch_draws.py` normalises their shape into ours: zero-padded strings
+become integers, `drawDate` + `drawTime` become ISO 8601 with the correct New
+Zealand offset (which alternates between +12:00 and +13:00, so it is taken
+from the zone rather than hardcoded), and draw history is merged with what is
+already on disk so only missing draws are fetched.
+
+```sh
+python3 tools/fetch_draws.py                 # keno + lotto + bullseye
+python3 tools/fetch_draws.py --backfill 200  # reach further back
+python3 tools/fetch_draws.py --games keno    # keno only
+```
+
+Keno draws about 4x/day (10:01, 13:01, 15:01, 18:01 NZ). Lotto and Bullseye
+latest draws are written to `assets/data/{game}-results.json` and shown on
+those game pages.
+
+> The endpoint is published by the operator but undocumented, so it can change
+> without notice. Every failure path leaves existing data intact and the site
+> shows its unavailable state. Worth a compliance check on Lotto NZ's terms
+> before republishing commercially.
+
+### Automated refresh
+
+`tools/refresh-results.workflow.yml` is a ready-to-use GitHub Action. It runs
+after each draw, validates, rebuilds and commits only if something changed.
+That is the recommended path: the site is static, so new results have to be
+committed to appear, and an Action does not depend on a particular machine
+being awake.
+
+**To activate it**, move it into place and push:
+
+```sh
+mkdir -p .github/workflows
+git mv tools/refresh-results.workflow.yml .github/workflows/refresh-results.yml
+git commit -m "Enable scheduled results refresh" && git push
+```
+
+Pushing anything under `.github/workflows/` needs a token with the `workflow`
+scope. If that push is rejected, either add the scope to your token, or create
+the file through GitHub's web UI (Actions -> New workflow) and paste the
+contents in - the web editor is not subject to the token scope.
+
+Once enabled, check it under the repo's **Actions** tab; `workflow_dispatch`
+lets you trigger a run by hand.
+
+To run it by hand instead:
+
+```sh
+./tools/refresh.sh          # fetch, validate, build
+./tools/refresh.sh --push   # ...and publish
+```
+
+`tools/com.kenoresults.refresh.plist` is a launchd template if you would rather
+publish from a Mac. Note the macOS TCC restriction: launchd cannot touch
+`~/Documents` unless `/bin/bash` has Full Disk Access, which is a good reason to
+prefer the Action.
 
 ### Validation is not optional
 

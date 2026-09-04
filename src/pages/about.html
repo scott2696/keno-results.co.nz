@@ -15,7 +15,14 @@
     </div>
 
     <h2 id="data">Where the numbers come from</h2>
-    <p>Results are taken from the official operator's published data. Every set of numbers on this site carries a provenance strip naming the source and the time we retrieved it. If we cannot verify a draw, we do not publish it &mdash; the site will show an empty state rather than a guess.</p>
+    <p>Results come from <a href="https://mylotto.co.nz/results/keno" rel="nofollow noopener">MyLotto</a>, the official Lotto New Zealand results service. We read their published results feed on a schedule &mdash; shortly after each Keno draw &mdash; and cache it here so this site loads fast and does not depend on their servers being reachable when you visit.</p>
+    <p>Every set of numbers on this site carries a provenance strip naming the source and the time we retrieved it. If we cannot verify a draw, we do not publish it: the site shows an empty state rather than a guess.</p>
+    <p>Keno draws roughly four times a day (around 10am, 1pm, 3pm and 6pm New Zealand time), and we refresh shortly after each. The timestamp on any page tells you exactly how current what you are reading is.</p>
+
+    <div class="notice">
+      <span class="notice-t">On the source</span>
+      <p>The feed we read is published by the operator but is not a documented public API, so it can change without notice. If it does, this site will show its unavailable state rather than stale or invented numbers. Lotto New Zealand remain the official record for every result and every prize claim.</p>
+    </div>
 
     <h3>How we validate</h3>
     <p>Before anything is published, every draw is checked against the rules of the game:</p>
@@ -26,7 +33,7 @@
       <li>A valid draw identifier and timestamp.</li>
       <li>No duplicate draw identifiers in the feed.</li>
     </ul>
-    <p>A draw failing any of these is rejected and never reaches the site. This check is public: it lives in <span class="mono">tools/validate_draws.py</span> in the site's repository, and it runs on every publish.</p>
+    <p>A draw failing any of these is rejected and never reaches the site. The check runs twice: once when we fetch, before anything is written, and again in your browser before anything is drawn on screen. It is public &mdash; it lives in <span class="mono">tools/validate_draws.py</span> in this site's repository, and the scheduled refresh will not publish if it fails.</p>
 
     <div class="notice warn">
       <span class="notice-t">Why this matters here</span>

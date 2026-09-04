@@ -95,6 +95,7 @@
           var ok = all.filter(function (d) { return window.Keno.validDraw(d); });
           return {
             source: data.source || null,
+            sourceUrl: data.sourceUrl || null,
             retrievedAt: data.retrievedAt || null,
             draws: ok.sort(function (a, b) { return new Date(b.drawnAt) - new Date(a.drawnAt); }),
             rejected: all.length - ok.length
