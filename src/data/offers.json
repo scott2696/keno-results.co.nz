@@ -1,5 +1,5 @@
 {
-  "_note": "Affiliate placements. 'bonus' is display copy - confirm it matches the partner's current NZ-facing offer before launch. Links must stay rel='sponsored nofollow noopener'.",
+  "_note": "Affiliate placements. 'bonus' is display copy - confirm it matches the partner's current NZ-facing offer before launch. Links must stay rel='sponsored nofollow noopener'. placement: 'inline' renders under the latest draw; 'rail' renders in the right-hand sticky rail on wide screens. Drop a logo file in assets/img/partners/ and set 'logo' to use it; without one the partner name is set as a wordmark.",
   "offers": [
     {
       "name": "CrownSlots",
@@ -7,7 +7,27 @@
       "url": "https://crownslotslink.com/h9tfr7emt",
       "bonus": "Welcome bonus <b>390% up to NZ$3,700</b> + 175 free spins",
       "cta": "Claim bonus",
-      "active": true
+      "active": true,
+      "placement": "inline"
+    },
+    {
+      "name": "SpinJo",
+      "logo": null,
+      "url": "https://roosterspartners.com/aaznxby3ku",
+      "bonus": "Up to <b>NZ$5,000</b> + 300 free spins",
+      "cta": "Claim bonus",
+      "placement": "rail",
+      "active": true,
+      "theme": {
+        "deep": "#050522",
+        "base": "#111135",
+        "raised": "#1D1D4C",
+        "violet": "#8254FF",
+        "cyan": "#00F0F1",
+        "ctaFrom": "#6A2BE8",
+        "ctaTo": "#2F6FD6",
+        "style": "space"
+      }
     }
   ]
 }

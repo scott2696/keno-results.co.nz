@@ -93,7 +93,7 @@
   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 
   --wrap:980px;
-  --rail:160px;      /* promotional side rails */
+  --rail:200px;      /* promotional side rails */
   --logo:url("/assets/img/logo.png");
   --logo-2x:url("/assets/img/logo@2x.png");
   color-scheme:light;
@@ -696,6 +696,83 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
   text-align:center; max-width:70ch; margin-inline:auto; line-height:1.55;
 }
 
+/* vertical variant for the sticky rail.
+   Colours come per-partner from src/data/offers.json as inline custom
+   properties, so a card carries the operator's own identity rather than ours.
+   Defaults below are neutral for a partner that supplies none. */
+.offer-rail{
+  --o-deep:#12100E; --o-base:#1C2420; --o-raised:#2A1420;
+  --o-violet:#C9A961; --o-cyan:#E8D5A3;
+  --o-cta-from:#C9A961; --o-cta-to:#A8853F; --o-cta-ink:#17120A;
+  position:relative; overflow:hidden; isolation:isolate; display:block;
+  padding:20px 18px 18px; border-radius:var(--r-xl); text-decoration:none;
+  background:linear-gradient(168deg, var(--o-base) 0%, var(--o-deep) 58%, var(--o-raised) 100%);
+  border:1px solid color-mix(in srgb, var(--o-violet) 40%, transparent);
+  box-shadow:0 16px 36px -16px rgba(6,6,26,.75);
+  color:#FFFFFF; text-align:center;
+}
+/* nebula bloom */
+.offer-rail::before{
+  content:""; position:absolute; inset:-30%; z-index:-2;
+  background:
+    radial-gradient(200px 190px at 28% 20%, color-mix(in srgb, var(--o-violet) 42%, transparent), transparent 64%),
+    radial-gradient(220px 210px at 76% 82%, color-mix(in srgb, var(--o-cyan) 26%, transparent), transparent 66%);
+}
+.offer-rail::after{
+  content:""; position:absolute; top:0; bottom:0; width:60%; z-index:-1; left:-70%;
+  background:linear-gradient(100deg, transparent, rgba(255,255,255,.12) 46%,
+             rgba(255,255,255,.24) 50%, rgba(255,255,255,.12) 54%, transparent);
+  transform:skewX(-14deg);
+}
+@media (prefers-reduced-motion:no-preference){
+  .offer-rail::before{animation:offer-drift 18s ease-in-out infinite alternate}
+  .offer-rail::after{animation:offer-sheen 9s ease-in-out infinite}
+  .offer-rail{transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease}
+  .offer-rail:hover{transform:translateY(-2px); box-shadow:0 22px 46px -18px rgba(6,6,26,.85)}
+}
+
+/* star field - drawn, and it twinkles rather than moves */
+.offer-rail .rail-art{position:absolute; inset:0; z-index:-1; pointer-events:none; overflow:hidden}
+.offer-rail .rail-art .star{position:absolute; border-radius:50%; background:#FFFFFF}
+@media (prefers-reduced-motion:no-preference){
+  .offer-rail .rail-art .star{animation:twinkle 4s ease-in-out infinite}
+}
+@keyframes twinkle{0%,100%{opacity:.25}50%{opacity:.95}}
+
+.offer-rail .rail-l{
+  display:block; font-family:var(--mono); font-size:9px; text-transform:uppercase;
+  letter-spacing:.18em; color:rgba(255,255,255,.55); margin-bottom:12px;
+}
+.offer-rail .rail-mark{
+  display:block; font-family:var(--display); font-weight:700; font-size:24px;
+  letter-spacing:-.02em; color:#FFFFFF; line-height:1; margin-bottom:4px;
+}
+.offer-rail .rail-mark em{font-style:normal; color:var(--o-cyan)}
+.offer-rail .rail-logo{display:block; width:100%; height:auto; border-radius:var(--r-md); margin-bottom:10px}
+.offer-rail .rail-rule{
+  display:block; height:1px; margin:12px 0;
+  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--o-cyan) 70%,transparent),transparent);
+}
+.offer-rail .rail-bonus{
+  display:block; font-family:var(--display); font-weight:700; font-size:16px;
+  line-height:1.25; letter-spacing:-.015em; color:#FFFFFF; text-wrap:balance;
+}
+.offer-rail .rail-bonus b{color:var(--o-cyan)}
+.offer-rail .rail-cta{
+  display:flex; align-items:center; justify-content:center; gap:7px; margin-top:14px;
+  padding:12px 14px; border-radius:var(--r-full);
+  background:linear-gradient(100deg, var(--o-cta-from), var(--o-cta-to));
+  color:#FFFFFF; font-weight:700; font-size:13.5px;
+  box-shadow:0 6px 16px -6px color-mix(in srgb, var(--o-violet) 70%, transparent),
+             inset 0 1px 0 rgba(255,255,255,.30);
+}
+.offer-rail:hover .rail-cta{filter:brightness(1.12)}
+.offer-rail .rail-cta svg{width:13px; height:13px}
+.offer-rail .rail-terms{
+  display:block; margin-top:10px; font-size:10px; line-height:1.45;
+  color:rgba(255,255,255,.62);
+}
+
 /* ---------- promotional slots ----------
    Four positions, all empty by default. Each collapses to nothing until you
    put something in it, so the page never shows a hole or reserves dead space.
@@ -721,10 +798,10 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 }
 .promo-rail img{border-radius:var(--r-lg); display:block; max-width:100%}
 /* only shown when the viewport can hold the column plus both rails with air */
-@media (min-width:1400px){
+@media (min-width:1360px){
   .promo-rail:not(:empty){display:block}
-  .promo-rail.left{left:calc(50% - (var(--wrap) / 2) - var(--rail) - 32px)}
-  .promo-rail.right{right:calc(50% - (var(--wrap) / 2) - var(--rail) - 32px)}
+  .promo-rail.left{left:calc(50% - (var(--wrap) / 2) - var(--rail) - 24px)}
+  .promo-rail.right{right:calc(50% - (var(--wrap) / 2) - var(--rail) - 24px)}
 }
 
 /* ---------- section sub-nav ---------- */

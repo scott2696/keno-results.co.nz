@@ -11,6 +11,7 @@ import datetime
 import html
 import json
 import os
+import random
 import re
 import shutil
 import sys
@@ -356,7 +357,8 @@ def offers_block():
     except (FileNotFoundError, json.JSONDecodeError):
         return ""
 
-    live = [o for o in data.get("offers", []) if o.get("active")]
+    live = [o for o in data.get("offers", []) if o.get("active")
+            and o.get("placement", "inline") == "inline"]
     if not live:
         return ""
 
@@ -412,6 +414,83 @@ def offers_block():
     )
 
 
+def _load_offers():
+    try:
+        with open(os.path.join(SRC, "data", "offers.json"), encoding="utf-8") as fh:
+            return json.load(fh).get("offers", [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def rail_block():
+    """Vertical offer card for the right-hand sticky rail.
+
+    Colours come from the partner's own `theme` block in offers.json, emitted
+    as inline custom properties, so a card carries the operator's identity.
+    Falls back to a typographic wordmark when no logo has been supplied,
+    rather than inventing one or borrowing their artwork.
+    """
+    live = [o for o in _load_offers()
+            if o.get("active") and o.get("placement") == "rail"]
+    if not live:
+        return ""
+
+    out = []
+    for o in live:
+        name = html.escape(o["name"])
+        cta = html.escape(o.get("cta", "Visit site"))
+        t = o.get("theme") or {}
+
+        style = ""
+        pairs = [("--o-deep", "deep"), ("--o-base", "base"), ("--o-raised", "raised"),
+                 ("--o-violet", "violet"), ("--o-cyan", "cyan"),
+                 ("--o-cta-from", "ctaFrom"), ("--o-cta-to", "ctaTo")]
+        decls = [f"{var}:{t[key]}" for var, key in pairs if t.get(key)]
+        if decls:
+            style = ' style="' + ";".join(decls) + '"'
+
+        art = ""
+        if t.get("style") == "space":
+            # deterministic star field - same every build, no layout cost
+            rnd = random.Random(len(name) * 7919)
+            stars = []
+            for _ in range(22):
+                # keep the field in the upper sky so a star never lands
+                # mid-word in the terms line at the foot of the card
+                x, y = rnd.uniform(3, 97), rnd.uniform(3, 58)
+                sz = rnd.choice((1, 1, 1, 1.5, 2))
+                dl = rnd.uniform(0, 4)
+                stars.append(
+                    f'<i class="star" style="left:{x:.1f}%;top:{y:.1f}%;'
+                    f'width:{sz}px;height:{sz}px;animation-delay:{dl:.1f}s"></i>')
+            art = f'<span class="rail-art" aria-hidden="true">{"".join(stars)}</span>'
+
+        if o.get("logo"):
+            mark = f'<img class="rail-logo" src="{o["logo"]}" alt="{name}" loading="lazy">'
+        else:
+            cut = next((i for i in range(1, len(name)) if name[i].isupper()),
+                       len(name) // 2)
+            mark = f'<span class="rail-mark">{name[:cut]}<em>{name[cut:]}</em></span>'
+
+        out.append(
+            f'<a class="offer-rail" href="{o["url"]}" target="_blank" '
+            f'rel="sponsored nofollow noopener"{style}>'
+            f'{art}'
+            f'<span class="rail-l">Advertisement</span>'
+            f'{mark}'
+            f'<span class="rail-rule"></span>'
+            f'<span class="rail-bonus">{o["bonus"]}</span>'
+            f'<span class="rail-cta">{cta}'
+            f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            f'<path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'
+            f'<span class="rail-terms">18+. New players only. T&amp;Cs apply. '
+            f'Paid placement.</span>'
+            f'</a>'
+        )
+    return "".join(out)
+
+
 def breadcrumbs(page):
     if not page["slug"]:
         return None
@@ -465,6 +544,7 @@ def build():
                .replace("{site}", SITE)
                .replace("{head_extra}", head_extra)
                .replace("{scripts}", scripts)
+               .replace("{rail}", rail_block() if not page.get("no_rail") else "")
                .replace("{content}", body.rstrip()
                    .replace("{subnav}", subnav(slug) if page.get("section") else "")
                    .replace("{offers}", offers_block()))

@@ -153,8 +153,27 @@ The offer strip under the latest draw is data-driven from `src/data/offers.json`
   "active": true }
 ```
 
-Add an entry to run another placement; set `active: false` to pull one without
-deleting it. With no active offers the whole strip renders as nothing.
+`placement` is `inline` (under the latest draw) or `rail` (the sticky vertical
+card on the right, shown from 1360px). Add an entry to run another placement;
+set `active: false` to pull one without deleting it. With no active offers,
+both the strip and the rail render as nothing.
+
+A rail offer may carry a `theme` block so the card uses the operator's own
+colours rather than ours:
+
+```json
+"theme": { "deep": "#050522", "base": "#111135", "raised": "#1D1D4C",
+           "violet": "#8254FF", "cyan": "#00F0F1",
+           "ctaFrom": "#6A2BE8", "ctaTo": "#2F6FD6", "style": "space" }
+```
+
+These are emitted as inline custom properties. `style: "space"` adds a
+deterministic star field. Note the CTA stops are *deepened* from the partner's
+own gradient: SpinJo's violet-to-cyan fails contrast badly with a white label
+(1.43:1), so the card uses violet-to-blue at 4.81:1 while keeping the identity.
+
+Set `logo` to a file in `assets/img/partners/` when the partner supplies one;
+without it the name is set as a wordmark, split on an internal capital.
 
 Rendering is handled by `offers_block()` in `tools/build.py`, and `{offers}` is
 the placeholder in a page's source. It currently appears only on the homepage.
