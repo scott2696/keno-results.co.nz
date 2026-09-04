@@ -204,7 +204,7 @@ section{margin-top:56px}
 }
 .site-head{transition:box-shadow .18s ease}
 .site-head.is-stuck{box-shadow:0 8px 24px -10px rgba(0,0,0,.45)}
-.site-head .wrap{max-width:1240px}
+.site-head .wrap{max-width:1140px}
 .head-in{display:flex; align-items:center; gap:18px; height:70px; transition:height .18s ease}
 .site-head.is-stuck .head-in{height:58px}
 
@@ -310,7 +310,7 @@ section{margin-top:56px}
 .nav-toggle:focus-visible{outline-color:var(--head-accent)}
 .nav-toggle svg{width:19px; height:19px}
 
-@media (max-width:1180px){
+@media (max-width:1020px){
   .head-in{height:60px; gap:14px}
   .site-head.is-stuck .head-in{height:54px}
   .brand-mark{width:96px; height:29px}
@@ -554,6 +554,41 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .empty h3{margin:0 0 8px; font-size:17px}
 .empty p{max-width:52ch; margin:0 auto 4px; color:var(--muted); font-size:14px}
 
+/* ---------- cookie notice ----------
+   Informational, not a consent gate: this site sets no cookies, so there is
+   nothing to grant or refuse. It says what is stored locally and gets out of
+   the way. Never blocks the page, and never returns once dismissed.
+------------------------------------------------------------------------ */
+.cookie{
+  position:fixed; z-index:60; left:50%; bottom:20px; transform:translateX(-50%);
+  width:min(680px, calc(100vw - 32px));
+  display:grid; grid-template-columns:1fr auto; align-items:center; gap:18px;
+  padding:16px 20px; border-radius:var(--r-xl);
+  background:var(--surface); color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 20px 50px -14px rgba(74,44,24,.34), 0 4px 12px -4px rgba(74,44,24,.16);
+}
+.cookie::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:1px; border-radius:inherit;
+  background:linear-gradient(90deg, transparent, var(--gold) 30%, var(--terra) 50%,
+             var(--gold) 70%, transparent);
+}
+.cookie p{margin:0; font-size:13.5px; line-height:1.55; color:var(--ink-2)}
+.cookie strong{color:var(--ink)}
+.cookie .cookie-act{display:flex; gap:8px; align-items:center; flex:0 0 auto}
+.cookie[hidden]{display:none}
+@media (max-width:620px){
+  .cookie{grid-template-columns:1fr; gap:12px; text-align:center; bottom:12px; padding:16px}
+  .cookie .cookie-act{justify-content:center}
+}
+@media (prefers-reduced-motion:no-preference){
+  .cookie{animation:cookie-in .42s cubic-bezier(.2,.8,.2,1) .6s backwards}
+}
+@keyframes cookie-in{
+  from{opacity:0; transform:translate(-50%, 14px)}
+  to{opacity:1; transform:translate(-50%, 0)}
+}
+
 /* ---------- affiliate offers ----------
    Paid placements. Deliberately built to look like advertising rather than
    editorial: its own palette, its own frame, an explicit label, and never
@@ -579,6 +614,9 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 }
 @media (max-width:760px){
   .offer{grid-template-columns:1fr; gap:16px; text-align:center; padding:20px}
+  /* the CTA goes full width when stacked, so its label has to be centred
+     inside it rather than sitting against the left edge */
+  .offer-cta{display:flex; width:100%; padding:14px 20px}
 }
 
 /* drifting light across the panel */
@@ -625,7 +663,7 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .offer-terms{margin:9px 0 0; font-size:11.5px; color:#D6C7EE; line-height:1.5}
 
 .offer-cta{
-  display:inline-flex; align-items:center; gap:9px; white-space:nowrap;
+  display:inline-flex; align-items:center; justify-content:center; gap:9px; white-space:nowrap;
   padding:13px 22px; border-radius:var(--r-full);
   background:linear-gradient(160deg,#F2DFAE,#C9A961 62%,#A8853F);
   color:#17120A; font-weight:700; font-size:15px; letter-spacing:-.01em;

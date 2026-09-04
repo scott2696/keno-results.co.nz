@@ -35,6 +35,30 @@
     });
   }
 
+  /* ---------- cookie notice ----------
+     Informational only: this site sets no cookies, so there is nothing to
+     grant or refuse. Dismissal is remembered in the same local storage the
+     notice describes, which is the honest place for it. */
+  var notice = document.getElementById('cookie-notice');
+  if (notice) {
+    var SEEN = 'storage-notice-seen';
+    var seen = false;
+    try { seen = localStorage.getItem(SEEN) === '1'; } catch (e) { seen = false; }
+
+    if (!seen) {
+      notice.hidden = false;
+      var dismiss = function () {
+        notice.hidden = true;
+        try { localStorage.setItem(SEEN, '1'); } catch (e) { /* private mode */ }
+      };
+      var okBtn = document.getElementById('cookie-ok');
+      if (okBtn) okBtn.addEventListener('click', dismiss);
+      document.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape' && !notice.hidden) dismiss();
+      });
+    }
+  }
+
   /* ---------- condense the masthead on scroll ---------- */
   var head = document.querySelector('.site-head');
   if (head) {
