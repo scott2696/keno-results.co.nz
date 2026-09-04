@@ -554,6 +554,37 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .empty h3{margin:0 0 8px; font-size:17px}
 .empty p{max-width:52ch; margin:0 auto 4px; color:var(--muted); font-size:14px}
 
+/* ---------- news ---------- */
+.news-list{list-style:none; margin:0; padding:0; display:grid; gap:16px}
+.news-card{
+  display:block; background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-lg); padding:22px 24px; text-decoration:none; color:inherit;
+  box-shadow:var(--shadow-1); text-align:left;
+  transition:border-color .16s ease, box-shadow .2s ease, transform .2s ease;
+}
+.news-card:hover{border-color:var(--line-2); box-shadow:var(--shadow-2); transform:translateY(-1px); color:inherit}
+.news-meta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.news-tag{
+  font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.14em;
+  color:var(--accent); border:1px solid var(--accent-line); border-radius:var(--r-full);
+  padding:3px 9px;
+}
+.news-date{font-family:var(--mono); font-size:11.5px; color:var(--muted)}
+.news-card h3{
+  font-family:var(--display); font-size:20px; font-weight:600; letter-spacing:-.022em;
+  margin:0 0 8px; color:var(--ink); text-wrap:balance;
+}
+.news-card p{margin:0; font-size:14.5px; color:var(--ink-2); line-height:1.6; max-width:68ch}
+.news-more{display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-size:13.5px; font-weight:600; color:var(--accent)}
+
+.article-head{text-align:center; padding:44px 0 0}
+.article-head h1{font-size:clamp(27px,3.6vw,38px); margin:14px 0 0}
+.article-lede{font-size:17.5px; line-height:1.55; color:var(--ink-2); max-width:62ch; margin:16px auto 0}
+.article-foot{
+  margin-top:44px; padding-top:22px; border-top:1px solid var(--line);
+  font-size:13.5px; color:var(--muted); max-width:68ch; margin-inline:auto;
+}
+
 /* ---------- cookie notice ----------
    Informational, not a consent gate: this site sets no cookies, so there is
    nothing to grant or refuse. It says what is stored locally and gets out of
@@ -704,8 +735,10 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
   --o-deep:#12100E; --o-base:#1C2420; --o-raised:#2A1420;
   --o-violet:#C9A961; --o-cyan:#E8D5A3;
   --o-cta-from:#C9A961; --o-cta-to:#A8853F; --o-cta-ink:#17120A;
-  position:relative; overflow:hidden; isolation:isolate; display:block;
-  padding:20px 18px 18px; border-radius:var(--r-xl); text-decoration:none;
+  position:relative; overflow:hidden; isolation:isolate;
+  display:flex; flex-direction:column; justify-content:space-between;
+  min-height:var(--rail-h, 520px);
+  padding:22px 18px 20px; border-radius:var(--r-xl); text-decoration:none;
   background:linear-gradient(168deg, var(--o-base) 0%, var(--o-deep) 58%, var(--o-raised) 100%);
   border:1px solid color-mix(in srgb, var(--o-violet) 40%, transparent);
   box-shadow:0 16px 36px -16px rgba(6,6,26,.75);
@@ -748,18 +781,34 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
   letter-spacing:-.02em; color:#FFFFFF; line-height:1; margin-bottom:4px;
 }
 .offer-rail .rail-mark em{font-style:normal; color:var(--o-cyan)}
-.offer-rail .rail-logo{display:block; width:100%; height:auto; border-radius:var(--r-md); margin-bottom:10px}
+.offer-rail .rail-logo{display:block; width:100%; max-width:150px; height:auto; margin:0 auto 4px}
+.offer-rail .rail-top,.offer-rail .rail-mid,.offer-rail .rail-bot{display:block}
+.offer-rail .rail-points{
+  display:block; list-style:none; margin:16px 0 0; padding:0;
+  font-size:11.5px; line-height:1.9; color:rgba(255,255,255,.78);
+}
+.offer-rail .rail-points li{display:block; position:relative; padding-left:16px; text-align:left}
+.offer-rail .rail-points li::before{
+  content:""; position:absolute; left:2px; top:50%; width:5px; height:5px;
+  margin-top:-2.5px; border-radius:50%; background:var(--o-cyan);
+}
+.offer-rail .rail-amt{
+  display:block; font-family:var(--display); font-weight:700;
+  font-size:30px; line-height:1.05; letter-spacing:-.03em; color:var(--o-cyan);
+  margin-bottom:2px;
+}
+.offer-rail .rail-sub{display:block; font-size:13px; color:rgba(255,255,255,.86); line-height:1.35}
 .offer-rail .rail-rule{
-  display:block; height:1px; margin:12px 0;
+  display:block; height:1px; margin:14px 0;
   background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--o-cyan) 70%,transparent),transparent);
 }
 .offer-rail .rail-bonus{
-  display:block; font-family:var(--display); font-weight:700; font-size:16px;
+  display:block; font-family:var(--display); font-weight:700; font-size:15.5px;
   line-height:1.25; letter-spacing:-.015em; color:#FFFFFF; text-wrap:balance;
 }
 .offer-rail .rail-bonus b{color:var(--o-cyan)}
 .offer-rail .rail-cta{
-  display:flex; align-items:center; justify-content:center; gap:7px; margin-top:14px;
+  display:flex; align-items:center; justify-content:center; gap:7px; margin-top:16px;
   padding:12px 14px; border-radius:var(--r-full);
   background:linear-gradient(100deg, var(--o-cta-from), var(--o-cta-to));
   color:#FFFFFF; font-weight:700; font-size:13.5px;

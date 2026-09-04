@@ -12,7 +12,7 @@
     },
     {
       "name": "SpinJo",
-      "logo": null,
+      "logo": "/assets/img/partners/spinjo@2x.png",
       "url": "https://roosterspartners.com/aaznxby3ku",
       "bonus": "Up to <b>NZ$5,000</b> + 300 free spins",
       "cta": "Claim bonus",
@@ -27,7 +27,14 @@
         "ctaFrom": "#6A2BE8",
         "ctaTo": "#2F6FD6",
         "style": "space"
-      }
+      },
+      "points": [
+        "Slots &amp; Megaways",
+        "Live casino",
+        "Jackpots &amp; Drops"
+      ],
+      "amount": "NZ$5,000",
+      "amountSub": "welcome bonus<br>+ 300 free spins"
     }
   ]
 }

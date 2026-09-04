@@ -109,6 +109,11 @@ PAGES = [
          og="Instant Kiwi",
          desc="Why Instant Kiwi scratch tickets work differently from drawn games, and "
               "what their published odds actually describe."),
+    dict(slug="news", src="news", nav="news",
+         title="Keno News & Analysis NZ | keno-results.co.nz",
+         og="Keno news and analysis",
+         desc="Analysis drawn from our own New Zealand Keno draw archive - hot and cold "
+              "numbers, multiplier data and draw schedule, with the working shown."),
     dict(slug="contact", src="contact", nav="contact",
          title="Contact Us | keno-results.co.nz",
          og="Contact us",
@@ -345,6 +350,47 @@ SCHEMA = {
 GOLD = "#E8D5A3"
 
 
+def _news():
+    try:
+        with open(os.path.join(SRC, "data", "news.json"), encoding="utf-8") as fh:
+            arts = json.load(fh).get("articles", [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+    return sorted(arts, key=lambda a: a.get("date", ""), reverse=True)
+
+
+def _pretty_date(iso):
+    try:
+        return datetime.date.fromisoformat(iso).strftime("%-d %B %Y")
+    except ValueError:
+        return iso
+
+
+def news_list():
+    """Cards for the /news/ index."""
+    arts = _news()
+    if not arts:
+        return ('<div class="empty"><h3>Nothing published yet</h3>'
+                '<p>Analysis will appear here.</p></div>')
+    items = []
+    for a in arts:
+        items.append(
+            f'<li><a class="news-card" href="/news/{a["slug"]}/">'
+            f'<span class="news-meta">'
+            f'<span class="news-tag">{html.escape(a.get("tag", "Analysis"))}</span>'
+            f'<span class="news-date">{_pretty_date(a["date"])}</span>'
+            f'</span>'
+            f'<h3>{html.escape(a["title"])}</h3>'
+            f'<p>{html.escape(a["summary"])}</p>'
+            f'<span class="news-more">Read more'
+            f'<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" '
+            f'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            f'<path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'
+            f'</a></li>'
+        )
+    return f'<ul class="news-list">{"".join(items)}</ul>'
+
+
 def offers_block():
     """Render the affiliate strip from src/data/offers.json.
 
@@ -472,20 +518,42 @@ def rail_block():
                        len(name) // 2)
             mark = f'<span class="rail-mark">{name[:cut]}<em>{name[cut:]}</em></span>'
 
+        # headline figure pulled out of the bonus line so it can carry the card
+        amt = o.get("amount")
+        sub = o.get("amountSub")
+        if amt:
+            headline = (f'<span class="rail-amt">{amt}</span>'
+                        f'<span class="rail-sub">{sub}</span>' if sub
+                        else f'<span class="rail-amt">{amt}</span>')
+        else:
+            headline = f'<span class="rail-bonus">{o["bonus"]}</span>'
+
+        points = ""
+        if o.get("points"):
+            lis = "".join(f"<li>{p}</li>" for p in o["points"])
+            points = f'<ul class="rail-points">{lis}</ul>'
+
         out.append(
             f'<a class="offer-rail" href="{o["url"]}" target="_blank" '
             f'rel="sponsored nofollow noopener"{style}>'
             f'{art}'
+            f'<span class="rail-top">'
             f'<span class="rail-l">Advertisement</span>'
             f'{mark}'
+            f'</span>'
+            f'<span class="rail-mid">'
             f'<span class="rail-rule"></span>'
-            f'<span class="rail-bonus">{o["bonus"]}</span>'
+            f'{headline}'
+            f'{points}'
+            f'</span>'
+            f'<span class="rail-bot">'
             f'<span class="rail-cta">{cta}'
             f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" '
             f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
             f'<path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'
             f'<span class="rail-terms">18+. New players only. T&amp;Cs apply. '
             f'Paid placement.</span>'
+            f'</span>'
             f'</a>'
         )
     return "".join(out)
@@ -532,7 +600,7 @@ def build():
 
         nav = page.get("nav")
         out = base
-        for key in ("home", "check", "results", "stats", "howto", "odds", "about", "contact"):
+        for key in ("home", "check", "results", "stats", "howto", "odds", "news", "about", "contact"):
             out = out.replace("{c_%s}" % key, ' aria-current="page"' if nav == key else "")
 
         out = (out
@@ -547,7 +615,8 @@ def build():
                .replace("{rail}", rail_block() if not page.get("no_rail") else "")
                .replace("{content}", body.rstrip()
                    .replace("{subnav}", subnav(slug) if page.get("section") else "")
-                   .replace("{offers}", offers_block()))
+                   .replace("{offers}", offers_block())
+                   .replace("{newslist}", news_list()))
                .replace("{year}", str(YEAR)))
 
         rel = page.get("path") or ("index.html" if not slug else f"{slug}/index.html")
@@ -556,6 +625,67 @@ def build():
         with open(dest, "w", encoding="utf-8") as fh:
             fh.write(out)
         written.append(rel)
+
+    # ---- news articles ----
+    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read()
+    for a in _news():
+        canonical = f"{SITE}/news/{a['slug']}/"
+        ld = {"@context": "https://schema.org", "@graph": [{
+            "@type": "NewsArticle",
+            "headline": a["title"],
+            "description": a["summary"],
+            "datePublished": a["date"],
+            "dateModified": a["date"],
+            "url": canonical,
+            "mainEntityOfPage": canonical,
+            "publisher": {"@id": SITE + "/#org"},
+            "author": {"@id": SITE + "/#org"},
+            "isAccessibleForFree": True,
+        }, {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+                {"@type": "ListItem", "position": 2, "name": "News", "item": SITE + "/news/"},
+                {"@type": "ListItem", "position": 3, "name": a["title"], "item": canonical},
+            ],
+        }]}
+        body = (
+            '<div class="wrap">'
+            '<div class="article-head">'
+            f'<span class="news-meta" style="justify-content:center">'
+            f'<span class="news-tag">{html.escape(a.get("tag", "Analysis"))}</span>'
+            f'<span class="news-date">{_pretty_date(a["date"])}</span></span>'
+            f'<h1>{html.escape(a["title"])}</h1>'
+            f'<p class="article-lede">{html.escape(a["summary"])}</p>'
+            '</div>'
+            f'<div class="prose" style="margin-top:34px">{a["body"]}'
+            '<p class="article-foot">Figures in this article are computed from the draw '
+            'archive this site holds and were correct at the time of writing. '
+            'See <a href="/authors/">our editorial standards</a>, or '
+            '<a href="/news/">all articles</a>.</p>'
+            '</div></div>'
+        )
+        out = base_tpl
+        for key in ("home", "check", "results", "stats", "howto", "odds", "news"):
+            out = out.replace("{c_%s}" % key, ' aria-current="page"' if key == "news" else "")
+        out = (out
+               .replace("{title}", html.escape(a["title"]) + " | keno-results.co.nz")
+               .replace("{og_title}", html.escape(a["title"]))
+               .replace("{description}", html.escape(a["summary"]))
+               .replace("{canonical}", canonical)
+               .replace("{robots}", "index, follow, max-image-preview:large")
+               .replace("{site}", SITE)
+               .replace("{head_extra}", '<script type="application/ld+json">'
+                        + json.dumps(ld, separators=(",", ":")) + "</script>")
+               .replace("{scripts}", "")
+               .replace("{rail}", rail_block())
+               .replace("{content}", body)
+               .replace("{year}", str(YEAR)))
+        dest = os.path.join(ROOT, "news", a["slug"], "index.html")
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        with open(dest, "w", encoding="utf-8") as fh:
+            fh.write(out)
+        written.append(f"news/{a['slug']}/index.html")
 
     # ---- legacy redirect stubs ----
     for old, new in REDIRECTS.items():
@@ -586,6 +716,9 @@ def build():
         prio = "1.0" if not page["slug"] else ("0.9" if page["slug"] in ("check", "results") else "0.7")
         urls.append(f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod>"
                     f"<priority>{prio}</priority></url>")
+    for a in _news():
+        urls.append(f"  <url><loc>{SITE}/news/{a['slug']}/</loc>"
+                    f"<lastmod>{a['date']}</lastmod><priority>0.6</priority></url>")
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n'
                  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
