@@ -140,6 +140,27 @@ published results containing numbers from 81 to 90 for a game drawn from
 1 to 80, while its own guide correctly described the 1-80 range. Run the
 validator in CI before any deploy.
 
+## Blog and news
+
+Two content sections, same machinery, separate files:
+
+| Section | File | Key | Schema | For |
+|---|---|---|---|---|
+| `/blog/` | `src/data/blog.json` | `posts` | `Article` | Evergreen analysis and reference |
+| `/news/` | `src/data/news.json` | `articles` | `NewsArticle` | Timely items |
+
+An entry is `{slug, title, date, summary, tag, body}` where `body` is HTML.
+Add one to the relevant file and rebuild - index cards, the article page,
+schema, canonical and the sitemap entry are all generated. An empty section
+renders its own empty state rather than a broken page.
+
+`Article` vs `NewsArticle` matters: Google treats NewsArticle as time-sensitive,
+so evergreen reference marked that way ages badly in search. Keep the split.
+
+If you publish something sourced from a competitor, rewrite it in your own
+words and attribute the original. Republishing their copy is both a copyright
+problem and duplicate content, and this site's credibility is the whole product.
+
 ## Affiliate offers
 
 The offer strip under the latest draw is data-driven from `src/data/offers.json`:
