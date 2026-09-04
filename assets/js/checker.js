@@ -18,7 +18,7 @@
     var li = document.createElement('li');
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'ball';
+    b.className = 'ball' + K.band(n);
     b.textContent = n;
     b.dataset.n = n;
     b.setAttribute('aria-pressed', 'false');

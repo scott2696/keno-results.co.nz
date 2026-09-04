@@ -25,9 +25,9 @@
   --on-accent:#FFFFFF;
 
   /* live signal - the logo's orange triangle. One meaning only: drawing now. */
-  --live:#B4530A;
-  --live-soft:#FDF0E4;
-  --live-line:#F3D3B2;
+  --live:#A84E1E;
+  --live-soft:#FBEFE7;
+  --live-line:#EFCDB4;
 
 
   /* Metals. Obsidian tokens with a champagne rim - the ball is the same
@@ -36,6 +36,23 @@
   --ball-a:#28322B;      /* ball, top of the sphere */
   --ball-b:#0E1512;      /* ball, base */
   --ball-num:#F4F0E6;    /* warm off-white numerals, 14:1 on the fill */
+  /* Royal bands - deep jewel tones, one per ten. Each carries cream
+     numerals at 6-7:1 and keeps the champagne rim, so they read as enamelled
+     tokens rather than sweets. */
+  --b1:#02693E;   /*  1-10  emerald    */
+  --b2:#006570;   /* 11-20  deep teal  */
+  --b3:#0658B7;   /* 21-30  sapphire   */
+  --b4:#1E3FB8;   /* 31-40  royal blue */
+  --b5:#6321C4;   /* 41-50  royal purple */
+  --b6:#A300A3;   /* 51-60  amethyst   */
+  --b7:#B8002E;   /* 61-70  ruby       */
+  --b8:#9E3A00;   /* 71-80  terracotta */
+
+  /* terracotta, sampled from the reference - used sparingly */
+  --terra:#C6642F;
+  --terra-deep:#A84E1E;
+  --terra-lift:#E08A4E;
+
   --gold:#C9A961;
   --gold-hi:#E8D5A3;
   --gold-lo:#8A6E33;
@@ -43,8 +60,8 @@
   --ball-ink-on:#0C1410;
 
   /* masthead - identical in both themes on purpose */
-  --head:#0A1D14;
-  --head-2:#12301F;
+  --head:#123326;
+  --head-2:#1B4531;
   --head-ink:#E8F1EB;
   --head-muted:#9DB5A6;
   --head-accent:#3BDC8C;
@@ -86,7 +103,7 @@
     --ink:#EAF0EC; --ink-2:#C3CFC8; --muted:#93A199; --line:#232D27; --line-2:#313D36;
     --accent:#34D183; --accent-hover:#4ADE94; --accent-soft:#122A1E; --accent-line:#1E4633;
     --on-accent:#04120A;
-    --live:#FF8C2E; --live-soft:#2A1A0C; --live-line:#4A2E12;
+    --live:#E08A4E; --live-soft:#2A1810; --live-line:#4C2E1B;
     --hot:#FF8A62; --hot-soft:#2B1610; --hot-line:#4E281C;
     --cold:#6FB9E8; --cold-soft:#0E2130; --cold-line:#1E3C52;
     --ball-face:#1A221D; --ball-line:#313D36; --ball-ink:#EAF0EC;
@@ -104,7 +121,7 @@
   --ink:#EAF0EC; --ink-2:#C3CFC8; --muted:#93A199; --line:#232D27; --line-2:#313D36;
   --accent:#34D183; --accent-hover:#4ADE94; --accent-soft:#122A1E; --accent-line:#1E4633;
   --on-accent:#04120A;
-  --live:#FF8C2E; --live-soft:#2A1A0C; --live-line:#4A2E12;
+  --live:#E08A4E; --live-soft:#2A1810; --live-line:#4C2E1B;
   --hot:#FF8A62; --hot-soft:#2B1610; --hot-line:#4E281C;
   --cold:#6FB9E8; --cold-soft:#0E2130; --cold-line:#1E3C52;
   --ball-face:#1A221D; --ball-line:#313D36; --ball-ink:#EAF0EC;
@@ -147,15 +164,15 @@ section{margin-top:56px}
 .site-head{
   position:sticky; top:0; z-index:50;
   background:var(--head);
-  background-image:radial-gradient(120% 180% at 12% 0%, #123A24 0%, transparent 62%);
+  background-image:radial-gradient(130% 190% at 14% 0%, #1B4A33 0%, transparent 64%);
   border-bottom:none;
 }
 /* the decade palette as a signature rule under the bar */
 .site-head::after{
   content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
   background:linear-gradient(90deg,
-    transparent 0%, rgba(201,169,97,.25) 8%, var(--gold) 38%,
-    var(--gold-hi) 50%, var(--gold) 62%, rgba(201,169,97,.25) 92%, transparent 100%);
+    transparent 0%, rgba(201,169,97,.22) 8%, var(--gold) 32%,
+    var(--terra-lift) 50%, var(--gold) 68%, rgba(201,169,97,.22) 92%, transparent 100%);
 }
 .site-head{transition:box-shadow .18s ease}
 .site-head.is-stuck{box-shadow:0 8px 24px -10px rgba(0,0,0,.45)}
@@ -203,7 +220,7 @@ section{margin-top:56px}
   background:var(--head-2); border:1px solid rgba(255,255,255,.10);
   color:var(--head-ink); cursor:pointer;
 }
-.theme-toggle:hover{background:#1A4230}
+.theme-toggle:hover{background:#23573D}
 .theme-toggle:focus-visible{outline-color:var(--head-accent)}
 .theme-toggle svg{width:18px; height:18px; display:block}
 .theme-toggle .i-sun{display:none}
@@ -299,8 +316,14 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
   display:inline-flex; align-items:center; justify-content:center;
   border-radius:var(--r-full);
   /* off-centre highlight reads as a lit sphere rather than a flat disc */
+  --fill:var(--ball-a);
+  --fill-lo:var(--ball-b);
+  background:var(--fill);
   background:
-    radial-gradient(120% 120% at 32% 22%, #3A4640 0%, var(--ball-a) 34%, var(--ball-b) 100%);
+    radial-gradient(120% 120% at 32% 22%,
+      color-mix(in srgb, var(--fill) 72%, #FFFFFF) 0%,
+      var(--fill) 38%,
+      var(--fill-lo) 100%);
   color:var(--ball-num);
   border:1.5px solid var(--gold);
   font-family:var(--sans); font-size:16px; font-weight:600;
@@ -315,6 +338,13 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
   content:""; position:absolute; inset:0; border-radius:inherit;
   border:1px solid rgba(232,213,163,.16); pointer-events:none;
 }
+/* one jewel per ten; the base is a darkened tone of the same hue, so the
+   sphere shades in its own colour rather than fading to a generic black */
+.ball.b1{--fill:var(--b1)} .ball.b2{--fill:var(--b2)}
+.ball.b3{--fill:var(--b3)} .ball.b4{--fill:var(--b4)}
+.ball.b5{--fill:var(--b5)} .ball.b6{--fill:var(--b6)}
+.ball.b7{--fill:var(--b7)} .ball.b8{--fill:var(--b8)}
+.ball[class*=" b"]{--fill-lo:color-mix(in srgb, var(--fill) 55%, #050706)}
 
 /* matched: the ball turns to gold */
 .ball.is-hit,
@@ -378,7 +408,7 @@ button.ball:disabled{cursor:not-allowed}
 .hero::before{
   content:""; position:absolute; inset:0 0 auto 0; height:1px;
   background:linear-gradient(90deg,
-    transparent 0%, var(--gold) 22%, var(--gold-hi) 50%, var(--gold) 78%, transparent 100%);
+    transparent 0%, var(--gold) 20%, var(--terra) 50%, var(--gold) 80%, transparent 100%);
 }
 .hero > :first-child{margin-top:6px}
 .hero-meta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; font-size:13px; color:var(--muted)}
