@@ -140,6 +140,37 @@ published results containing numbers from 81 to 90 for a game drawn from
 1 to 80, while its own guide correctly described the 1-80 range. Run the
 validator in CI before any deploy.
 
+## Promotional slots
+
+The content column is 980px, centred, leaving room either side. Four slots are
+built into `src/base.html`, all empty by default:
+
+| Slot | Where | Notes |
+|---|---|---|
+| `.promo-top` | full width, above the page title | ~970x90 leaderboard |
+| `.promo-mid` | in-flow, between sections | add to a page in `src/pages/` |
+| `.promo-bottom` | full width, above the footer | ~970x90 |
+| `.promo-rail left` / `right` | sticky side rails | 160px wide, only shown above 1400px |
+
+Drop markup straight in:
+
+```html
+<div class="promo-top">
+  <a href="..." rel="sponsored noopener"><img src="/assets/img/promo.png" alt="..."></a>
+</div>
+```
+
+Every slot collapses to nothing while empty (`:empty { display:none }`), so an
+unfilled position never leaves a hole or reserves dead space. The rails are
+`position:fixed` and disappear below 1400px rather than crowding the content.
+
+`--wrap` (column width) and `--rail` (rail width) are both tokens in
+`assets/css/site.css` if you want different proportions.
+
+Use `rel="sponsored"` on paid links, and keep anything that could be mistaken
+for a result clear of the draw components - the provenance strip's credibility
+depends on nothing beside it looking like data.
+
 ## Conventions
 
 - Tokens are declared in full on `:root`; dark mode redefines tokens only.

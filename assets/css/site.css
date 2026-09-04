@@ -91,7 +91,8 @@
   --display:'Archivo','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 
-  --wrap:1180px;
+  --wrap:980px;
+  --rail:160px;      /* promotional side rails */
   --logo:url("/assets/img/logo.png");
   --logo-2x:url("/assets/img/logo@2x.png");
   color-scheme:light;
@@ -256,14 +257,15 @@ section{margin-top:56px}
 }
 
 /* ---------- typography blocks ---------- */
-.page-head{padding:40px 0 0}
+.page-head{padding:44px 0 0; text-align:center}
+.page-head .lede{margin-left:auto; margin-right:auto}
 .eyebrow{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin:0 0 12px}
 h1{font-size:clamp(29px,4.4vw,42px); font-weight:700; letter-spacing:-.033em}
 h2{font-size:clamp(21px,2.6vw,26px); font-weight:600; margin:0 0 14px}
 h3{font-size:18.5px; font-weight:600; margin:30px 0 10px}
 h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
 .lede{font-size:18px; line-height:1.55; color:var(--ink-2); max-width:64ch; margin:16px 0 0}
-.prose{max-width:68ch}
+.prose{max-width:68ch; margin-left:auto; margin-right:auto}
 .prose p,.prose ul,.prose ol{margin:0 0 1em}
 .prose ul,.prose ol{padding-left:22px}
 .prose li{margin-bottom:6px}
@@ -296,6 +298,7 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
 .btn-ghost:hover{background:var(--surface-2); color:var(--ink)}
 .btn:disabled{opacity:.5; cursor:not-allowed}
 .btn-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+.card > .btn-row{justify-content:center}
 
 /* ---------- badges ---------- */
 .badge{display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border-radius:var(--r-full); font-size:11px; font-weight:600; border:1px solid; white-space:nowrap; text-transform:uppercase; letter-spacing:.07em}
@@ -386,7 +389,7 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
 }
 
 /* ---------- the 80-grid ---------- */
-.grid80{display:grid; grid-template-columns:repeat(10,1fr); gap:11px; max-width:560px; list-style:none; margin:0; padding:0}
+.grid80{display:grid; grid-template-columns:repeat(10,1fr); gap:11px; max-width:560px; list-style:none; margin:0 auto; padding:0}
 .grid80 .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:15px}
 button.ball{cursor:pointer; font:inherit; font-weight:600; font-variant-numeric:tabular-nums}
 button.ball:hover:not(:disabled){border-color:var(--accent); color:var(--accent)}
@@ -411,7 +414,7 @@ button.ball:disabled{cursor:not-allowed}
     transparent 0%, var(--gold) 20%, var(--terra) 50%, var(--gold) 80%, transparent 100%);
 }
 .hero > :first-child{margin-top:6px}
-.hero-meta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; font-size:13px; color:var(--muted)}
+.hero-meta{display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; font-size:13px; color:var(--muted)}
 .hero-title{
   font-family:var(--display); font-size:13px; font-weight:600; color:var(--muted);
   text-transform:uppercase; letter-spacing:.16em;
@@ -420,7 +423,7 @@ button.ball:disabled{cursor:not-allowed}
 .hero .draw-id{font-size:15px; font-weight:600; color:var(--ink); letter-spacing:.02em}
 .hero .balls{
   display:grid; grid-template-columns:repeat(10,1fr);
-  gap:11px; margin-top:6px; max-width:660px;
+  gap:11px; margin:6px auto 0; max-width:660px;
 }
 .hero .balls .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:17px}
 @media (max-width:700px){ .hero .balls{grid-template-columns:repeat(5,1fr); max-width:340px} }
@@ -429,7 +432,7 @@ button.ball:disabled{cursor:not-allowed}
 @media (max-width:560px){ .hero{padding:18px} }
 
 /* provenance strip */
-.prov{display:flex; flex-wrap:wrap; gap:9px 22px; align-items:center; margin-top:24px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
+.prov{display:flex; flex-wrap:wrap; gap:9px 22px; align-items:center; justify-content:center; margin-top:24px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
 .prov strong{color:var(--ink-2); font-weight:600}
 
 /* ---------- tables ---------- */
@@ -444,8 +447,8 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .draws{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
 .draw-row{display:block; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:18px 20px; text-decoration:none; color:inherit; transition:border-color .14s ease, background-color .14s ease}
 .draw-row:hover{border-color:var(--line-2); background:var(--surface-2); color:inherit}
-.draw-row-top{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:12.5px; color:var(--muted)}
-.draw-row .balls{display:grid; grid-template-columns:repeat(10,1fr); gap:8px; max-width:580px}
+.draw-row-top{display:flex; align-items:baseline; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:12.5px; color:var(--muted)}
+.draw-row .balls{display:grid; grid-template-columns:repeat(10,1fr); gap:8px; max-width:580px; margin:0 auto}
 .draw-row .balls .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:14px}
 @media (max-width:700px){
   .draw-row .balls{grid-template-columns:repeat(5,1fr); max-width:300px}
@@ -481,23 +484,54 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .empty h3{margin:0 0 8px; font-size:17px}
 .empty p{max-width:52ch; margin:0 auto 4px; color:var(--muted); font-size:14px}
 
+/* ---------- promotional slots ----------
+   Four positions, all empty by default. Each collapses to nothing until you
+   put something in it, so the page never shows a hole or reserves dead space.
+     .promo-top     full-width banner above the page title
+     .promo-mid     in-flow block between sections
+     .promo-bottom  full-width banner above the footer
+     .promo-rail    sticky side rails, only above 1400px where there is room
+   Drop markup straight in: <div class="promo-top"><a ...><img ...></a></div>
+------------------------------------------------------------------------ */
+.promo-top,.promo-mid,.promo-bottom{
+  max-width:var(--wrap); margin-left:auto; margin-right:auto;
+  padding:0 20px; display:flex; justify-content:center;
+}
+.promo-top{margin-top:24px}
+.promo-mid{margin:44px auto}
+.promo-bottom{margin:56px auto 0}
+.promo-top:empty,.promo-mid:empty,.promo-bottom:empty,.promo-rail:empty{display:none}
+.promo-top img,.promo-mid img,.promo-bottom img{border-radius:var(--r-lg); display:block}
+
+.promo-rail{
+  display:none;
+  position:fixed; top:110px; width:var(--rail); z-index:20;
+}
+.promo-rail img{border-radius:var(--r-lg); display:block; max-width:100%}
+/* only shown when the viewport can hold the column plus both rails with air */
+@media (min-width:1400px){
+  .promo-rail:not(:empty){display:block}
+  .promo-rail.left{left:calc(50% - (var(--wrap) / 2) - var(--rail) - 32px)}
+  .promo-rail.right{right:calc(50% - (var(--wrap) / 2) - var(--rail) - 32px)}
+}
+
 /* ---------- section sub-nav ---------- */
 .subnav{margin-top:26px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:5px 0}
-.subnav-l{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.11em; color:var(--muted); display:block; padding:8px 2px 4px}
-.subnav ul{display:flex; flex-wrap:wrap; gap:2px; list-style:none; margin:0; padding:0 0 6px}
+.subnav-l{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.11em; color:var(--muted); display:block; padding:8px 2px 4px; text-align:center}
+.subnav ul{display:flex; flex-wrap:wrap; justify-content:center; gap:2px; list-style:none; margin:0; padding:0 0 6px}
 .subnav a{display:block; padding:7px 12px; border-radius:var(--r-md); font-size:14px; font-weight:500; color:var(--ink-2); text-decoration:none; white-space:nowrap}
 .subnav a:hover{background:var(--surface-2); color:var(--ink)}
 .subnav a[aria-current="page"]{background:var(--accent); color:var(--on-accent)}
 
 /* jump links within a long reference page */
-.jump{display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:0 0 28px; padding:12px 14px; background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-lg)}
+.jump{display:flex; flex-wrap:wrap; justify-content:center; gap:6px; align-items:center; margin:0 0 28px; padding:12px 14px; background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-lg)}
 .jump-l{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.11em; color:var(--muted); margin-right:4px}
 .jump a{padding:4px 10px; border-radius:var(--r-full); background:var(--surface); border:1px solid var(--line-2); font-size:12.5px; font-weight:600; color:var(--ink-2); text-decoration:none; font-variant-numeric:tabular-nums}
 .jump a:hover{border-color:var(--accent); color:var(--accent)}
 
 /* multiplier odds strip */
 .mult{display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:12px; margin:20px 0 8px; list-style:none; padding:0}
-.mult li{border:1px solid var(--line); border-radius:var(--r-lg); padding:14px; text-align:center; background:var(--surface)}
+.mult li{border:1px solid var(--line); border-radius:var(--r-lg); padding:16px 14px; text-align:center; background:var(--surface)}
 .mult .x{font-family:var(--display); font-size:26px; font-weight:700; letter-spacing:-.03em; color:var(--accent); display:block; line-height:1.1}
 .mult .pct{font-family:var(--mono); font-size:13px; color:var(--ink-2); font-variant-numeric:tabular-nums; display:block; margin-top:4px}
 .mult .n{font-size:11.5px; color:var(--muted); display:block; margin-top:2px}
@@ -522,27 +556,27 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .faq .a p:last-child{margin:0}
 
 /* ---------- hot / cold ---------- */
-.hc{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start}
+.hc{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; text-align:center}
 @media (max-width:720px){ .hc{grid-template-columns:1fr; gap:22px} }
-.hc-h{display:flex; align-items:baseline; gap:8px; margin:0 0 12px; font-family:var(--display); font-size:15px; font-weight:600; letter-spacing:-.01em}
+.hc-h{display:flex; align-items:baseline; justify-content:center; gap:8px; margin:0 0 12px; font-family:var(--display); font-size:15px; font-weight:600; letter-spacing:-.01em}
 .hc-h .dot{width:8px; height:8px; border-radius:var(--r-full); flex:0 0 auto}
 .hc-hot .hc-h{color:var(--hot)} .hc-hot .dot{background:var(--hot)}
 .hc-cold .hc-h{color:var(--cold)} .hc-cold .dot{background:var(--cold)}
-.hc-list{display:flex; flex-wrap:wrap; gap:14px; list-style:none; margin:0; padding:0}
+.hc-list{display:flex; flex-wrap:wrap; justify-content:center; gap:14px; list-style:none; margin:0; padding:0}
 .hc-item{display:flex; flex-direction:column; align-items:center; gap:6px}
 .hc-item .rate{font-family:var(--mono); font-size:12px; font-variant-numeric:tabular-nums; font-weight:500}
 .hc-hot .rate{color:var(--hot)} .hc-cold .rate{color:var(--cold)}
 .hc-item .rate{padding:1px 7px; border-radius:var(--r-full); border:1px solid}
 .hc-hot .rate{color:var(--hot); background:var(--hot-soft); border-color:var(--hot-line)}
 .hc-cold .rate{color:var(--cold); background:var(--cold-soft); border-color:var(--cold-line)}
-.hc-controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:18px}
+.hc-controls{display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:20px}
 .hc-controls label{font-family:var(--display); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:600}
 .hc-select{padding:7px 11px; border:1px solid var(--line-2); border-radius:var(--r-md); background:var(--surface); color:var(--ink); font-family:var(--sans); font-size:13.5px; font-weight:500; cursor:pointer}
 .hc-select:focus{border-color:var(--accent)}
-.hc-base{font-size:12.5px; color:var(--muted); margin:16px 0 0}
+.hc-base{font-size:12.5px; color:var(--muted); margin:18px auto 0; max-width:62ch}
 
 /* ---------- stats bars ---------- */
-.freq{list-style:none; margin:0; padding:0; display:grid; gap:5px; max-width:560px}
+.freq{list-style:none; margin:0 auto; padding:0; display:grid; gap:5px; max-width:560px}
 .freq li{display:grid; grid-template-columns:34px 1fr 44px; gap:10px; align-items:center; font-size:13px}
 .freq .n{font-variant-numeric:tabular-nums; color:var(--muted); text-align:right; font-family:var(--mono); font-size:12px}
 .freq .bar{height:9px; border-radius:var(--r-full); background:var(--surface-3); overflow:hidden}
