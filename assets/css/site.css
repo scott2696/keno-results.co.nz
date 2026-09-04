@@ -29,6 +29,21 @@
   --live-soft:#FDF0E4;
   --live-line:#F3D3B2;
 
+
+  /* Decade bands. Keno draws 1-80; colouring by tens is the lottery
+     convention and does real work - you can scan for a number by its colour.
+     Every fill carries ink numerals at 6.7-7.0:1 and a tonal ring for the
+     edge, so the same palette holds on both grounds. */
+  --b1:#00B259; --b1-r:#006E37;   /*  1-10 */
+  --b2:#00AACC; --b2-r:#00697E;   /* 11-20 */
+  --b3:#529DFF; --b3-r:#005BD1;   /* 21-30 */
+  --b4:#A98AFF; --b4-r:#4100F4;   /* 31-40 */
+  --b5:#E566FF; --b5-r:#B800DD;   /* 41-50 */
+  --b6:#FF6B9C; --b6-r:#E0004A;   /* 51-60 */
+  --b7:#FF7424; --b7-r:#B44200;   /* 61-70 */
+  --b8:#C79500; --b8-r:#7B5C00;   /* 71-80 */
+  --ball-ink-on:#0C1410;
+
   /* hot / cold - semantic, deliberately not the brand accent and not --live */
   --hot:#A8321C;
   --hot-soft:#FBEAE6;
@@ -41,6 +56,7 @@
   --ball-face:#FFFFFF;
   --ball-line:#D3DBD6;
   --ball-ink:#0C1410;
+  --shadow-tint:rgba(12,20,16,.22);
 
   --shadow-1:0 1px 2px rgba(12,20,16,.06), 0 1px 1px rgba(12,20,16,.04);
   --shadow-2:0 4px 12px -2px rgba(12,20,16,.08), 0 2px 4px -1px rgba(12,20,16,.04);
@@ -68,6 +84,7 @@
     --hot:#FF8A62; --hot-soft:#2B1610; --hot-line:#4E281C;
     --cold:#6FB9E8; --cold-soft:#0E2130; --cold-line:#1E3C52;
     --ball-face:#1A221D; --ball-line:#313D36; --ball-ink:#EAF0EC;
+    --shadow-tint:rgba(0,0,0,.6);
     --shadow-1:0 1px 2px rgba(0,0,0,.40);
     --shadow-2:0 4px 12px -2px rgba(0,0,0,.50);
     --shadow-3:0 12px 32px -8px rgba(0,0,0,.60);
@@ -85,6 +102,7 @@
   --hot:#FF8A62; --hot-soft:#2B1610; --hot-line:#4E281C;
   --cold:#6FB9E8; --cold-soft:#0E2130; --cold-line:#1E3C52;
   --ball-face:#1A221D; --ball-line:#313D36; --ball-ink:#EAF0EC;
+  --shadow-tint:rgba(0,0,0,.6);
   --shadow-1:0 1px 2px rgba(0,0,0,.40);
   --shadow-2:0 4px 12px -2px rgba(0,0,0,.50);
   --shadow-3:0 12px 32px -8px rgba(0,0,0,.60);
@@ -207,7 +225,7 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
   font-family:var(--sans); font-size:14.5px; font-weight:600; line-height:1.2;
   cursor:pointer; text-decoration:none; white-space:nowrap;
 }
-.btn-primary{background:var(--accent); color:var(--on-accent)}
+.btn-primary{background:var(--accent); color:var(--on-accent); box-shadow:0 2px 8px -2px var(--shadow-tint)}
 .btn-primary:hover{background:var(--accent-hover); color:var(--on-accent)}
 .btn-secondary{background:var(--surface); color:var(--ink); border-color:var(--line-2); box-shadow:var(--shadow-1)}
 .btn-secondary:hover{background:var(--surface-2); color:var(--ink)}
@@ -226,35 +244,73 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* ---------- KENO BALLS ---------- */
-.balls{display:flex; flex-wrap:wrap; gap:7px; list-style:none; margin:0; padding:0}
+.balls{display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0; padding:0}
 .ball{
-  --sz:40px;
+  --sz:44px;
+  --fill:var(--ball-face); --ring:var(--ball-line); --num:var(--ball-ink);
+  position:relative;
   width:var(--sz); height:var(--sz); flex:0 0 var(--sz);
   display:inline-flex; align-items:center; justify-content:center;
   border-radius:var(--r-full);
-  background:var(--ball-face); color:var(--ball-ink);
-  border:1px solid var(--ball-line);
-  font-family:var(--sans); font-size:15px; font-weight:600;
-  font-variant-numeric:tabular-nums; letter-spacing:-.02em; line-height:1;
-  box-shadow:var(--shadow-1);
+  background:var(--fill); color:var(--num);
+  border:2px solid var(--ring);
+  font-family:var(--sans); font-size:16px; font-weight:700;
+  font-variant-numeric:tabular-nums; letter-spacing:-.03em; line-height:1;
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, var(--shadow-1);
 }
-/* matched carries fill weight AND border - never hue alone */
-.ball.is-hit{background:var(--accent); color:var(--on-accent); border-color:var(--accent); border-width:2px; box-shadow:var(--shadow-2)}
-.ball.is-miss{background:transparent; color:var(--muted); border-style:dashed; border-color:var(--line-2); box-shadow:none}
-.ball.is-live{background:var(--live-soft); color:var(--live); border-color:var(--live-line); box-shadow:none}
-.ball.is-ghost{background:var(--surface-2); color:var(--line-2); border-color:var(--line); box-shadow:none}
-.ball.sm{--sz:30px; font-size:12.5px}
-.ball.lg{--sz:52px; font-size:19px}
-@media (max-width:560px){ .balls .ball{--sz:36px; font-size:14px} }
+/* decade bands */
+.ball.b1{--fill:var(--b1); --ring:var(--b1-r); --num:var(--ball-ink-on)}
+.ball.b2{--fill:var(--b2); --ring:var(--b2-r); --num:var(--ball-ink-on)}
+.ball.b3{--fill:var(--b3); --ring:var(--b3-r); --num:var(--ball-ink-on)}
+.ball.b4{--fill:var(--b4); --ring:var(--b4-r); --num:var(--ball-ink-on)}
+.ball.b5{--fill:var(--b5); --ring:var(--b5-r); --num:var(--ball-ink-on)}
+.ball.b6{--fill:var(--b6); --ring:var(--b6-r); --num:var(--ball-ink-on)}
+.ball.b7{--fill:var(--b7); --ring:var(--b7-r); --num:var(--ball-ink-on)}
+.ball.b8{--fill:var(--b8); --ring:var(--b8-r); --num:var(--ball-ink-on)}
+
+/* matched: keep the band identity, add weight + a lift so state reads
+   without relying on hue, which the bands have already spent */
+.ball.is-hit{
+  box-shadow:0 0 0 2px var(--surface), 0 0 0 5px var(--accent),
+             0 4px 14px -3px var(--shadow-tint);
+  transform:translateY(-2px);
+  z-index:1;
+}
+.ball.is-hit::after{
+  content:""; position:absolute; right:-7px; bottom:-7px;
+  width:16px; height:16px; border-radius:var(--r-full);
+  background:var(--accent); border:2px solid var(--surface);
+  background-image:linear-gradient(var(--on-accent),var(--on-accent)),
+                   linear-gradient(var(--on-accent),var(--on-accent));
+  background-size:6px 2px, 2px 2px;
+  background-position:center 8px, 5px 7px;
+  background-repeat:no-repeat;
+}
+.ball.is-picked{
+  box-shadow:0 0 0 2px var(--surface), 0 0 0 5px var(--accent),
+             0 4px 12px -3px var(--shadow-tint);
+  transform:translateY(-2px);
+  z-index:1;
+}
+.ball.is-miss{--fill:transparent; --ring:var(--line-2); --num:var(--muted);
+  border-style:dashed; border-width:2px; box-shadow:none}
+.ball.is-live{--fill:var(--live-soft); --ring:var(--live-line); --num:var(--live); box-shadow:none}
+.ball.is-ghost{--fill:var(--surface-2); --ring:var(--line); --num:var(--line-2); box-shadow:none; opacity:.55}
+.ball.sm{--sz:32px; font-size:13px; border-width:2px}
+.ball.lg{--sz:60px; font-size:22px; border-width:3px}
+@media (max-width:560px){ .balls .ball{--sz:38px; font-size:14px} }
 
 @media (prefers-reduced-motion:no-preference){
-  .ball.reveal{animation:ballin .32s cubic-bezier(.2,0,0,1) backwards}
-  @keyframes ballin{from{opacity:0; transform:translateY(4px)}to{opacity:1; transform:none}}
+  .ball.reveal{animation:ballin .38s cubic-bezier(.2,.8,.2,1) backwards}
+  @keyframes ballin{
+    from{opacity:0; transform:translateY(8px) scale(.82)}
+    to{opacity:1; transform:none}
+  }
 }
 
 /* ---------- the 80-grid ---------- */
-.grid80{display:grid; grid-template-columns:repeat(10,1fr); gap:6px; max-width:520px; list-style:none; margin:0; padding:0}
-.grid80 .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:14px}
+.grid80{display:grid; grid-template-columns:repeat(10,1fr); gap:11px; max-width:560px; list-style:none; margin:0; padding:0}
+.grid80 .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:15px}
 button.ball{cursor:pointer; font:inherit; font-weight:600; font-variant-numeric:tabular-nums}
 button.ball:hover:not(:disabled){border-color:var(--accent); color:var(--accent)}
 button.ball.is-hit:hover{color:var(--on-accent)}
@@ -265,9 +321,29 @@ button.ball:disabled{cursor:not-allowed}
 }
 
 /* ---------- draw hero ---------- */
-.hero{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:24px; box-shadow:var(--shadow-2)}
+.hero{
+  position:relative; overflow:hidden;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-xl); padding:26px; box-shadow:var(--shadow-2);
+}
+/* a thin spectrum rule across the top, drawn from the decade bands - the
+   page's own palette used as a signature rather than an arbitrary gradient */
+.hero::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:4px;
+  background:linear-gradient(90deg,
+    var(--b1) 0%, var(--b2) 14%, var(--b3) 28%, var(--b4) 42%,
+    var(--b5) 57%, var(--b6) 71%, var(--b7) 85%, var(--b8) 100%);
+}
+.hero > :first-child{margin-top:6px}
 .hero-meta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; font-size:13px; color:var(--muted)}
-.hero-title{font-family:var(--display); font-size:20px; font-weight:600; color:var(--ink); letter-spacing:-.02em}
+.hero-title{font-family:var(--display); font-size:21px; font-weight:700; color:var(--ink); letter-spacing:-.025em}
+.hero .balls{
+  display:grid; grid-template-columns:repeat(10,1fr);
+  gap:9px; margin-top:4px; max-width:640px;
+}
+.hero .balls .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:17px}
+@media (max-width:700px){ .hero .balls{grid-template-columns:repeat(5,1fr); max-width:340px} }
+@media (max-width:420px){ .hero .balls{gap:7px; max-width:none} .hero .balls .ball{font-size:14px} }
 .draw-id{font-family:var(--mono); font-size:13px; color:var(--ink-2)}
 @media (max-width:560px){ .hero{padding:18px} }
 
@@ -287,7 +363,13 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .draws{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
 .draw-row{display:block; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:14px 16px; text-decoration:none; color:inherit}
 .draw-row:hover{border-color:var(--line-2); background:var(--surface-2); color:inherit}
-.draw-row-top{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px; font-size:12.5px; color:var(--muted)}
+.draw-row-top{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:12.5px; color:var(--muted)}
+.draw-row .balls{display:grid; grid-template-columns:repeat(10,1fr); gap:6px; max-width:560px}
+.draw-row .balls .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:14px}
+@media (max-width:700px){
+  .draw-row .balls{grid-template-columns:repeat(5,1fr); max-width:300px}
+  .draw-row .balls .ball{font-size:13px}
+}
 
 /* ---------- checker ---------- */
 .checker-grid{display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:24px; align-items:start}
@@ -316,6 +398,15 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .empty h3{margin:0 0 8px; font-size:17px}
 .empty p{max-width:52ch; margin:0 auto 4px; color:var(--muted); font-size:14px}
 
+/* ---------- decade legend ---------- */
+.legend{display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center; margin:14px 0 0; padding:0; list-style:none; font-size:11.5px; color:var(--muted)}
+.legend li{display:flex; align-items:center; gap:6px}
+.legend .sw{width:11px; height:11px; border-radius:var(--r-full); flex:0 0 auto}
+.legend .l1{background:var(--b1)} .legend .l2{background:var(--b2)}
+.legend .l3{background:var(--b3)} .legend .l4{background:var(--b4)}
+.legend .l5{background:var(--b5)} .legend .l6{background:var(--b6)}
+.legend .l7{background:var(--b7)} .legend .l8{background:var(--b8)}
+
 /* ---------- hot / cold ---------- */
 .hc{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start}
 @media (max-width:720px){ .hc{grid-template-columns:1fr; gap:22px} }
@@ -327,8 +418,9 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .hc-item{display:flex; flex-direction:column; align-items:center; gap:6px}
 .hc-item .rate{font-family:var(--mono); font-size:12px; font-variant-numeric:tabular-nums; font-weight:500}
 .hc-hot .rate{color:var(--hot)} .hc-cold .rate{color:var(--cold)}
-.ball.is-hot-n{border-color:var(--hot-line); background:var(--hot-soft); color:var(--hot); border-width:2px; box-shadow:none}
-.ball.is-cold-n{border-color:var(--cold-line); background:var(--cold-soft); color:var(--cold); border-width:2px; box-shadow:none}
+.hc-item .rate{padding:1px 7px; border-radius:var(--r-full); border:1px solid}
+.hc-hot .rate{color:var(--hot); background:var(--hot-soft); border-color:var(--hot-line)}
+.hc-cold .rate{color:var(--cold); background:var(--cold-soft); border-color:var(--cold-line)}
 .hc-controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:18px}
 .hc-controls label{font-family:var(--display); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:600}
 .hc-select{padding:7px 11px; border:1px solid var(--line-2); border-radius:var(--r-md); background:var(--surface); color:var(--ink); font-family:var(--sans); font-size:13.5px; font-weight:500; cursor:pointer}

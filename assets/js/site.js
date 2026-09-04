@@ -52,9 +52,18 @@
       }, NZ));
     } catch (e) { return ''; }
   }
+  /* Decade band: 1-10 -> b1, 11-20 -> b2 ... 71-80 -> b8.
+     Colour by tens is the lottery convention and lets you find a number by
+     its colour rather than reading every ball. */
+  function band(n) {
+    var v = parseInt(n, 10);
+    if (!(v >= 1 && v <= 80)) return '';
+    return ' b' + Math.ceil(v / 10);
+  }
+
   function ball(n, cls, label) {
     var li = document.createElement('li');
-    li.className = 'ball' + (cls ? ' ' + cls : '');
+    li.className = 'ball' + band(n) + (cls ? ' ' + cls : '');
     li.textContent = n;
     if (label) {
       var s = document.createElement('span');
@@ -66,7 +75,7 @@
   }
 
   window.Keno = {
-    fmtDate: fmtDate, fmtTime: fmtTime, ball: ball,
+    fmtDate: fmtDate, fmtTime: fmtTime, ball: ball, band: band,
     RANGE: 80, DRAW_SIZE: 20, MIN_SPOTS: 1, MAX_SPOTS: 10,
 
     /* Never trust the feed. Same rule the ingest validator enforces. */

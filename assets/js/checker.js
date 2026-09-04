@@ -18,7 +18,7 @@
     var li = document.createElement('li');
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'ball';
+    b.className = 'ball' + K.band(n);
     b.textContent = n;
     b.dataset.n = n;
     b.setAttribute('aria-pressed', 'false');
@@ -89,7 +89,7 @@
     var full = picks.length >= K.MAX_SPOTS;
     grid.querySelectorAll('button.ball').forEach(function (b) {
       var n = parseInt(b.dataset.n, 10), on = !!set[n];
-      b.classList.toggle('is-hit', on);
+      b.classList.toggle('is-picked', on);
       b.classList.toggle('is-ghost', !on && full);
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
       b.disabled = !on && full;

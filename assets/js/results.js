@@ -219,7 +219,7 @@
       items.forEach(function (it) {
         var li = document.createElement('li');
         li.className = 'hc-item';
-        var b = K.ball(it.n, kind === 'hot' ? 'is-hot-n' : 'is-cold-n');
+        var b = K.ball(it.n);
         var pct = Math.round((it.c / win.length) * 100);
         var r = document.createElement('span');
         r.className = 'rate';
