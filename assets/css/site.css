@@ -30,18 +30,16 @@
   --live-line:#F3D3B2;
 
 
-  /* Decade bands. Keno draws 1-80; colouring by tens is the lottery
-     convention and does real work - you can scan for a number by its colour.
-     Every fill carries ink numerals at 6.7-7.0:1 and a tonal ring for the
-     edge, so the same palette holds on both grounds. */
-  --b1:#00B259; --b1-r:#006E37;   /*  1-10 */
-  --b2:#00AACC; --b2-r:#00697E;   /* 11-20 */
-  --b3:#529DFF; --b3-r:#005BD1;   /* 21-30 */
-  --b4:#A98AFF; --b4-r:#4100F4;   /* 31-40 */
-  --b5:#E566FF; --b5-r:#B800DD;   /* 41-50 */
-  --b6:#FF6B9C; --b6-r:#E0004A;   /* 51-60 */
-  --b7:#FF7424; --b7-r:#B44200;   /* 61-70 */
-  --b8:#C79500; --b8-r:#7B5C00;   /* 71-80 */
+  /* Metals. Obsidian tokens with a champagne rim - the ball is the same
+     object in both themes; the rim carries its edge on either ground
+     (8.59:1 on the dark page), so the fill never has to shout. */
+  --ball-a:#28322B;      /* ball, top of the sphere */
+  --ball-b:#0E1512;      /* ball, base */
+  --ball-num:#F4F0E6;    /* warm off-white numerals, 14:1 on the fill */
+  --gold:#C9A961;
+  --gold-hi:#E8D5A3;
+  --gold-lo:#8A6E33;
+  --gold-ink:#17120A;
   --ball-ink-on:#0C1410;
 
   /* masthead - identical in both themes on purpose */
@@ -154,10 +152,10 @@ section{margin-top:56px}
 }
 /* the decade palette as a signature rule under the bar */
 .site-head::after{
-  content:""; position:absolute; left:0; right:0; bottom:0; height:3px;
+  content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
   background:linear-gradient(90deg,
-    var(--b1) 0%, var(--b2) 14%, var(--b3) 28%, var(--b4) 42%,
-    var(--b5) 57%, var(--b6) 71%, var(--b7) 85%, var(--b8) 100%);
+    transparent 0%, rgba(201,169,97,.25) 8%, var(--gold) 38%,
+    var(--gold-hi) 50%, var(--gold) 62%, rgba(201,169,97,.25) 92%, transparent 100%);
 }
 .site-head{transition:box-shadow .18s ease}
 .site-head.is-stuck{box-shadow:0 8px 24px -10px rgba(0,0,0,.45)}
@@ -283,75 +281,76 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
 .btn-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
 
 /* ---------- badges ---------- */
-.badge{display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:var(--r-full); font-size:11.5px; font-weight:600; border:1px solid; white-space:nowrap}
+.badge{display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border-radius:var(--r-full); font-size:11px; font-weight:600; border:1px solid; white-space:nowrap; text-transform:uppercase; letter-spacing:.07em}
 .badge-live{background:var(--live-soft); color:var(--live); border-color:var(--live-line)}
-.badge-ok{background:var(--accent-soft); color:var(--accent); border-color:var(--accent-line)}
+.badge-ok{background:transparent; color:var(--accent); border-color:var(--accent-line); font-weight:600; letter-spacing:.03em}
 .badge-neutral{background:var(--surface-2); color:var(--muted); border-color:var(--line)}
+.badge-gold{background:transparent; color:var(--gold-lo); border-color:rgba(201,169,97,.5); font-weight:600; letter-spacing:.03em}
 .pulse{width:6px; height:6px; border-radius:var(--r-full); background:currentColor; flex:0 0 auto}
 @media (prefers-reduced-motion:no-preference){ .pulse{animation:pulse 2s ease-in-out infinite} }
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* ---------- KENO BALLS ---------- */
-.balls{display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0; padding:0}
+.balls{display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:0; padding:0}
 .ball{
-  --sz:44px;
-  --fill:var(--ball-face); --ring:var(--ball-line); --num:var(--ball-ink);
+  --sz:46px;
   position:relative;
   width:var(--sz); height:var(--sz); flex:0 0 var(--sz);
   display:inline-flex; align-items:center; justify-content:center;
   border-radius:var(--r-full);
-  background:var(--fill); color:var(--num);
-  border:2px solid var(--ring);
-  font-family:var(--sans); font-size:16px; font-weight:700;
-  font-variant-numeric:tabular-nums; letter-spacing:-.03em; line-height:1;
-  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, var(--shadow-1);
+  /* off-centre highlight reads as a lit sphere rather than a flat disc */
+  background:
+    radial-gradient(120% 120% at 32% 22%, #3A4640 0%, var(--ball-a) 34%, var(--ball-b) 100%);
+  color:var(--ball-num);
+  border:1.5px solid var(--gold);
+  font-family:var(--sans); font-size:16px; font-weight:600;
+  font-variant-numeric:tabular-nums; letter-spacing:.005em; line-height:1;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    inset 0 -6px 12px -6px rgba(0,0,0,.75),
+    0 2px 6px -1px rgba(12,20,16,.30);
 }
-/* decade bands */
-.ball.b1{--fill:var(--b1); --ring:var(--b1-r); --num:var(--ball-ink-on)}
-.ball.b2{--fill:var(--b2); --ring:var(--b2-r); --num:var(--ball-ink-on)}
-.ball.b3{--fill:var(--b3); --ring:var(--b3-r); --num:var(--ball-ink-on)}
-.ball.b4{--fill:var(--b4); --ring:var(--b4-r); --num:var(--ball-ink-on)}
-.ball.b5{--fill:var(--b5); --ring:var(--b5-r); --num:var(--ball-ink-on)}
-.ball.b6{--fill:var(--b6); --ring:var(--b6-r); --num:var(--ball-ink-on)}
-.ball.b7{--fill:var(--b7); --ring:var(--b7-r); --num:var(--ball-ink-on)}
-.ball.b8{--fill:var(--b8); --ring:var(--b8-r); --num:var(--ball-ink-on)}
+/* a fine inner keyline lifts the rim off the fill, the way a struck edge does */
+.ball::before{
+  content:""; position:absolute; inset:0; border-radius:inherit;
+  border:1px solid rgba(232,213,163,.16); pointer-events:none;
+}
 
-/* matched: keep the band identity, add weight + a lift so state reads
-   without relying on hue, which the bands have already spent */
-.ball.is-hit{
-  box-shadow:0 0 0 2px var(--surface), 0 0 0 5px var(--accent),
-             0 4px 14px -3px var(--shadow-tint);
-  transform:translateY(-2px);
-  z-index:1;
-}
-.ball.is-hit::after{
-  content:""; position:absolute; right:-7px; bottom:-7px;
-  width:16px; height:16px; border-radius:var(--r-full);
-  background:var(--accent); border:2px solid var(--surface);
-  background-image:linear-gradient(var(--on-accent),var(--on-accent)),
-                   linear-gradient(var(--on-accent),var(--on-accent));
-  background-size:6px 2px, 2px 2px;
-  background-position:center 8px, 5px 7px;
-  background-repeat:no-repeat;
-}
+/* matched: the ball turns to gold */
+.ball.is-hit,
 .ball.is-picked{
-  box-shadow:0 0 0 2px var(--surface), 0 0 0 5px var(--accent),
-             0 4px 12px -3px var(--shadow-tint);
-  transform:translateY(-2px);
-  z-index:1;
+  background:linear-gradient(160deg, var(--gold-hi) 0%, var(--gold) 52%, var(--gold-lo) 100%);
+  color:var(--gold-ink);
+  border-color:var(--gold-hi);
+  font-weight:700;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.5),
+    0 0 0 1px rgba(201,169,97,.35),
+    0 4px 16px -4px rgba(201,169,97,.55);
+  transform:translateY(-1px);
 }
-.ball.is-miss{--fill:transparent; --ring:var(--line-2); --num:var(--muted);
-  border-style:dashed; border-width:2px; box-shadow:none}
-.ball.is-live{--fill:var(--live-soft); --ring:var(--live-line); --num:var(--live); box-shadow:none}
-.ball.is-ghost{--fill:var(--surface-2); --ring:var(--line); --num:var(--line-2); box-shadow:none; opacity:.55}
-.ball.sm{--sz:32px; font-size:13px; border-width:2px}
-.ball.lg{--sz:60px; font-size:22px; border-width:3px}
+.ball.is-hit::before,
+.ball.is-picked::before{border-color:rgba(255,255,255,.28)}
+
+.ball.is-miss{
+  background:none; color:var(--muted);
+  border:1.5px dashed var(--line-2); box-shadow:none;
+}
+.ball.is-miss::before{border-color:transparent}
+.ball.is-live{background:none; color:var(--live); border-color:var(--live-line); box-shadow:none}
+.ball.is-ghost{
+  background:linear-gradient(160deg,var(--surface-2),var(--surface-3));
+  color:var(--muted); border-color:var(--line-2); box-shadow:none; opacity:.75;
+}
+.ball.is-ghost::before{border-color:transparent}
+.ball.sm{--sz:34px; font-size:13px}
+.ball.lg{--sz:62px; font-size:22px}
 @media (max-width:560px){ .balls .ball{--sz:38px; font-size:14px} }
 
 @media (prefers-reduced-motion:no-preference){
-  .ball.reveal{animation:ballin .38s cubic-bezier(.2,.8,.2,1) backwards}
+  .ball.reveal{animation:ballin .42s cubic-bezier(.22,.8,.24,1) backwards}
   @keyframes ballin{
-    from{opacity:0; transform:translateY(8px) scale(.82)}
+    from{opacity:0; transform:translateY(7px) scale(.9)}
     to{opacity:1; transform:none}
   }
 }
@@ -372,22 +371,26 @@ button.ball:disabled{cursor:not-allowed}
 .hero{
   position:relative; overflow:hidden;
   background:var(--surface); border:1px solid var(--line);
-  border-radius:var(--r-xl); padding:26px; box-shadow:var(--shadow-2);
+  border-radius:var(--r-xl); padding:30px 30px 26px; box-shadow:var(--shadow-2);
 }
 /* a thin spectrum rule across the top, drawn from the decade bands - the
    page's own palette used as a signature rather than an arbitrary gradient */
 .hero::before{
-  content:""; position:absolute; inset:0 0 auto 0; height:4px;
+  content:""; position:absolute; inset:0 0 auto 0; height:1px;
   background:linear-gradient(90deg,
-    var(--b1) 0%, var(--b2) 14%, var(--b3) 28%, var(--b4) 42%,
-    var(--b5) 57%, var(--b6) 71%, var(--b7) 85%, var(--b8) 100%);
+    transparent 0%, var(--gold) 22%, var(--gold-hi) 50%, var(--gold) 78%, transparent 100%);
 }
 .hero > :first-child{margin-top:6px}
 .hero-meta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; font-size:13px; color:var(--muted)}
-.hero-title{font-family:var(--display); font-size:21px; font-weight:700; color:var(--ink); letter-spacing:-.025em}
+.hero-title{
+  font-family:var(--display); font-size:13px; font-weight:600; color:var(--muted);
+  text-transform:uppercase; letter-spacing:.16em;
+}
+.hero-meta{gap:14px; margin-bottom:20px}
+.hero .draw-id{font-size:15px; font-weight:600; color:var(--ink); letter-spacing:.02em}
 .hero .balls{
   display:grid; grid-template-columns:repeat(10,1fr);
-  gap:9px; margin-top:4px; max-width:640px;
+  gap:11px; margin-top:6px; max-width:660px;
 }
 .hero .balls .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:17px}
 @media (max-width:700px){ .hero .balls{grid-template-columns:repeat(5,1fr); max-width:340px} }
@@ -396,7 +399,7 @@ button.ball:disabled{cursor:not-allowed}
 @media (max-width:560px){ .hero{padding:18px} }
 
 /* provenance strip */
-.prov{display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center; margin-top:18px; padding-top:14px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
+.prov{display:flex; flex-wrap:wrap; gap:9px 22px; align-items:center; margin-top:24px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
 .prov strong{color:var(--ink-2); font-weight:600}
 
 /* ---------- tables ---------- */
@@ -409,10 +412,10 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 
 /* ---------- draw list ---------- */
 .draws{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
-.draw-row{display:block; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:14px 16px; text-decoration:none; color:inherit}
+.draw-row{display:block; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:18px 20px; text-decoration:none; color:inherit; transition:border-color .14s ease, background-color .14s ease}
 .draw-row:hover{border-color:var(--line-2); background:var(--surface-2); color:inherit}
 .draw-row-top{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:12.5px; color:var(--muted)}
-.draw-row .balls{display:grid; grid-template-columns:repeat(10,1fr); gap:6px; max-width:560px}
+.draw-row .balls{display:grid; grid-template-columns:repeat(10,1fr); gap:8px; max-width:580px}
 .draw-row .balls .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:14px}
 @media (max-width:700px){
   .draw-row .balls{grid-template-columns:repeat(5,1fr); max-width:300px}
@@ -440,6 +443,8 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .result-y .result-h{color:var(--accent)}
 .result-n .result-h{color:var(--ink)}
 .result p{font-size:13.5px; color:var(--ink-2); margin:0}
+#check-result .balls{gap:8px}
+#check-result .balls .ball{--sz:36px; font-size:13.5px}
 
 /* ---------- empty / awaiting states ---------- */
 .empty{text-align:center; padding:36px 20px; border:1px dashed var(--line-2); border-radius:var(--r-lg); background:var(--surface-2)}
@@ -485,15 +490,6 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .faq .a{padding:0 18px 16px; max-width:68ch}
 .faq .a p{margin:0 0 10px; font-size:14.5px; color:var(--ink-2)}
 .faq .a p:last-child{margin:0}
-
-/* ---------- decade legend ---------- */
-.legend{display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center; margin:14px 0 0; padding:0; list-style:none; font-size:11.5px; color:var(--muted)}
-.legend li{display:flex; align-items:center; gap:6px}
-.legend .sw{width:11px; height:11px; border-radius:var(--r-full); flex:0 0 auto}
-.legend .l1{background:var(--b1)} .legend .l2{background:var(--b2)}
-.legend .l3{background:var(--b3)} .legend .l4{background:var(--b4)}
-.legend .l5{background:var(--b5)} .legend .l6{background:var(--b6)}
-.legend .l7{background:var(--b7)} .legend .l8{background:var(--b8)}
 
 /* ---------- hot / cold ---------- */
 .hc{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start}

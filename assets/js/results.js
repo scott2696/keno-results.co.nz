@@ -52,8 +52,8 @@
     top.appendChild(when);
     if (d.multiplier) {
       var m = document.createElement('span');
-      m.className = 'badge badge-neutral';
-      m.textContent = 'x' + d.multiplier;
+      m.className = 'badge badge-gold';
+      m.textContent = '\u00D7' + d.multiplier;
       top.appendChild(m);
     }
     a.appendChild(top);
@@ -88,8 +88,8 @@
     meta.appendChild(t); meta.appendChild(id); meta.appendChild(when);
     if (d.multiplier) {
       var m = document.createElement('span');
-      m.className = 'badge badge-neutral';
-      m.textContent = 'Multiplier x' + d.multiplier;
+      m.className = 'badge badge-gold';
+      m.textContent = 'Multiplier \u00D7' + d.multiplier;
       meta.appendChild(m);
     }
     heroEl.appendChild(meta);
