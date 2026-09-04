@@ -82,7 +82,7 @@ PAGES = [
          desc="How NZ Keno is structured, who operates and regulates it, the age limit, "
               "how prizes are claimed, and where the binding rules live.",
          schema=[]),
-    dict(slug="about", src="about",
+    dict(slug="about", src="about", nav="about",
          title="About & Data Sources | keno-results.co.nz",
          og="About this site",
          desc="Who runs keno-results.co.nz, where the results come from, how every draw "
@@ -108,6 +108,33 @@ PAGES = [
          og="Instant Kiwi",
          desc="Why Instant Kiwi scratch tickets work differently from drawn games, and "
               "what their published odds actually describe."),
+    dict(slug="contact", src="contact", nav="contact",
+         title="Contact Us | keno-results.co.nz",
+         og="Contact us",
+         desc="Report a wrong Keno result, ask about our data, or get in touch about "
+              "media and partnerships.",
+         schema=["contactpage"]),
+    dict(slug="authors", src="authors",
+         title="Authors & Editorial Standards | keno-results.co.nz",
+         og="Authors and editorial standards",
+         desc="Who runs keno-results.co.nz, how draw results are produced and validated, "
+              "and the editorial rules everything published here has to pass.",
+         schema=["org"]),
+    dict(slug="terms", src="terms",
+         title="Terms and Conditions | keno-results.co.nz",
+         og="Terms and conditions",
+         desc="The terms on which keno-results.co.nz is provided, including that results "
+              "are unofficial and must be confirmed with Lotto NZ."),
+    dict(slug="cookie-policy", src="cookie-policy",
+         title="Cookie Policy | keno-results.co.nz",
+         og="Cookie policy",
+         desc="keno-results.co.nz sets no cookies. What we store in local storage, why, "
+              "and how to clear it."),
+    dict(slug="responsible-gambling", src="responsible-gambling",
+         title="Responsible Gambling | keno-results.co.nz",
+         og="Responsible gambling",
+         desc="How Keno's house edge works, warning signs worth taking seriously, "
+              "practical limits, and where to get free help in New Zealand."),
     dict(slug="privacy-policy", src="privacy-policy",
          title="Privacy Policy | keno-results.co.nz",
          og="Privacy policy",
@@ -204,6 +231,22 @@ SCHEMA = {
              "text": "Compare your numbers against the 20 drawn and count the matches. "
                      "Confirm any win with the official operator."},
         ],
+    },
+    "contactpage": lambda: {
+        "@type": "ContactPage",
+        "name": "Contact keno-results.co.nz",
+        "url": SITE + "/contact/",
+        "mainEntity": {
+            "@type": "Organization",
+            "@id": SITE + "/#org",
+            "contactPoint": [{
+                "@type": "ContactPoint",
+                "email": "info@keno-results.co.nz",
+                "contactType": "customer support",
+                "areaServed": "NZ",
+                "availableLanguage": "English",
+            }],
+        },
     },
     "faq2": lambda: {
         "@type": "FAQPage",
@@ -339,7 +382,7 @@ def build():
 
         nav = page.get("nav")
         out = base
-        for key in ("home", "check", "results", "stats", "howto", "odds"):
+        for key in ("home", "check", "results", "stats", "howto", "odds", "about", "contact"):
             out = out.replace("{c_%s}" % key, ' aria-current="page"' if nav == key else "")
 
         out = (out
@@ -397,8 +440,13 @@ def build():
                  + "\n".join(urls) + "\n</urlset>\n")
     written.append("sitemap.xml")
 
+    blocked = ["AhrefsBot", "SemrushBot", "MJ12bot", "DotBot", "Rogerbot",
+               "serpstatbot", "SistrixBot"]
+    lines = [f"Sitemap: {SITE}/sitemap.xml", "", "User-agent: *", "Allow: /", ""]
+    for bot in blocked:
+        lines += [f"User-agent: {bot}", "Disallow: /", ""]
     with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as fh:
-        fh.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
+        fh.write("\n".join(lines).rstrip() + "\n")
     written.append("robots.txt")
 
     with open(os.path.join(ROOT, "site.webmanifest"), "w", encoding="utf-8") as fh:
@@ -410,11 +458,10 @@ def build():
             "display": "standalone",
             "background_color": "#FBFCFB",
             "theme_color": "#0B7A43",
-            "icons": [
-                {"src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png"},
-                {"src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png",
-                 "purpose": "any maskable"},
-            ],
+            "icons": [{"src": f"/assets/img/icon-{n}.png", "sizes": f"{n}x{n}",
+                       "type": "image/png"} for n in (48, 96, 144, 192, 240, 288)]
+                     + [{"src": "/assets/img/icon-512.png", "sizes": "512x512",
+                         "type": "image/png", "purpose": "any maskable"}],
         }, fh, indent=2)
     written.append("site.webmanifest")
 

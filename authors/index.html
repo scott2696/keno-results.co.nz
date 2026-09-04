@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hot &amp; Cold Keno Numbers NZ | keno-results.co.nz</title>
-<meta name="description" content="Which NZ Keno numbers have come up most and least often over the last 5, 10, 25, 50, 100 or 250 draws, plus the full frequency count.">
-<link rel="canonical" href="https://keno-results.co.nz/statistics/">
+<title>Authors &amp; Editorial Standards | keno-results.co.nz</title>
+<meta name="description" content="Who runs keno-results.co.nz, how draw results are produced and validated, and the editorial rules everything published here has to pass.">
+<link rel="canonical" href="https://keno-results.co.nz/authors/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="keno-results.co.nz">
 <meta property="og:locale" content="en_NZ">
-<meta property="og:title" content="Hot and cold Keno numbers">
-<meta property="og:description" content="Which NZ Keno numbers have come up most and least often over the last 5, 10, 25, 50, 100 or 250 draws, plus the full frequency count.">
-<meta property="og:url" content="https://keno-results.co.nz/statistics/">
+<meta property="og:title" content="Authors and editorial standards">
+<meta property="og:description" content="Who runs keno-results.co.nz, how draw results are produced and validated, and the editorial rules everything published here has to pass.">
+<meta property="og:url" content="https://keno-results.co.nz/authors/">
 <meta property="og:image" content="https://keno-results.co.nz/assets/img/icon-512.png">
 <meta name="twitter:card" content="summary">
 
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>/* set theme before paint so there is no flash */
 (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://keno-results.co.nz/"},{"@type":"ListItem","position":2,"name":"Hot and cold Keno numbers","item":"https://keno-results.co.nz/statistics/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://keno-results.co.nz/#org","name":"keno-results.co.nz","url":"https://keno-results.co.nz/","logo":"https://keno-results.co.nz/assets/img/icon-512.png","email":"info@keno-results.co.nz","disambiguatingDescription":"An independent Keno results service. Not affiliated with, endorsed by, or operated by Lotto New Zealand."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://keno-results.co.nz/"},{"@type":"ListItem","position":2,"name":"Authors and editorial standards","item":"https://keno-results.co.nz/authors/"}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -49,7 +49,7 @@
       <a href="/">Latest</a>
       <a href="/check/">Check numbers</a>
       <a href="/results/">Results</a>
-      <a href="/statistics/" aria-current="page">Statistics</a>
+      <a href="/statistics/">Statistics</a>
       <a href="/how-to-play/">How to play</a>
       <a href="/odds/">Odds</a>
       <a href="/about/">About us</a>
@@ -79,42 +79,64 @@
 <main id="main">
 <div class="wrap">
   <div class="page-head">
-    <p class="eyebrow">Statistics</p>
-    <h1>Hot and cold numbers</h1>
-    <p class="lede">Which numbers have come up most and least often over recent draws, and the full frequency count across everything we hold.</p>
+    <p class="eyebrow">Editorial</p>
+    <h1>Authors &amp; editorial standards</h1>
+    <p class="lede">Who is behind this site, how the results are produced, and the rules everything published here has to pass.</p>
   </div>
 
-  <section style="margin-top:28px">
-    <div class="card">
-      <div class="hc-controls">
-        <label for="hc-window">Show results for the last</label>
-        <select class="hc-select" id="hc-window">
-          <option value="5">5 draws</option>
-          <option value="10">10 draws</option>
-          <option value="25" selected>25 draws</option>
-          <option value="50">50 draws</option>
-          <option value="100">100 draws</option>
-          <option value="250">250 draws</option>
-        </select>
-      </div>
-      <div id="hotcold" aria-live="polite">
-        <div class="empty"><h3>Loading</h3><p>Counting recent draws.</p></div>
-      </div>
+  <div class="prose" style="margin-top:32px">
+    <h2>How results are produced</h2>
+    <p>Draw results on this site are <strong>not written by a person</strong>. They are read automatically from Lotto NZ's published results shortly after each draw, normalised, and validated before publication. No one types a number in, which removes the most common source of error on results sites.</p>
+    <p>Every draw must pass all of the following or it is discarded rather than published:</p>
+    <ul>
+      <li>Exactly 20 numbers.</li>
+      <li>Every number an integer between 1 and 80.</li>
+      <li>No duplicates within a draw.</li>
+      <li>A valid draw identifier and an ISO 8601 timestamp.</li>
+      <li>No duplicate draw identifiers in the feed.</li>
+    </ul>
+    <p>The check runs twice &mdash; once when the data is fetched, before anything is written, and again in your browser before anything is drawn on screen. It is public: it lives in <span class="mono">tools/validate_draws.py</span> in this site's repository. See <a href="/about/#data">our data and validation</a> for more.</p>
+
+    <h2>How the written pages are produced</h2>
+    <p>The guide pages &mdash; <a href="/how-to-play/">how to play</a>, <a href="/odds/">odds</a>, <a href="/faqs/">FAQs</a>, <a href="/multiplier/">the multiplier</a>, <a href="/rules/">rules</a> &mdash; are written and reviewed by a person, and follow the standards below.</p>
+
+    <h3>Our standards</h3>
+    <ul>
+      <li><strong>Odds are calculated, not quoted.</strong> Every probability on this site is computed from the rules of the game using the hypergeometric formula, which is published on the <a href="/odds/">odds page</a> so you can check any figure yourself.</li>
+      <li><strong>We do not publish prize amounts.</strong> Payouts depend on stake, multiplier and the operator's current schedule. Publishing a figure we cannot guarantee would be worse than publishing none.</li>
+      <li><strong>We do not claim any system works.</strong> No selection method changes Keno's odds. Content implying otherwise is not published here, and the previous version of this site's "strategy" page was retired for exactly that reason.</li>
+      <li><strong>Statistics are described, never predicted.</strong> Frequency data says what happened. It says nothing about the next draw, and our <a href="/statistics/">statistics page</a> is built to demonstrate that rather than obscure it.</li>
+      <li><strong>Sources are named and timestamped.</strong> Every set of numbers carries a provenance strip showing where it came from and exactly when we retrieved it.</li>
+      <li><strong>Corrections are published, not quietly patched.</strong> See <a href="/about/#corrections">our corrections policy</a>.</li>
+    </ul>
+
+    <h2>Contributors</h2>
+
+    <div class="card" style="text-align:left; margin:20px 0">
+      <h3 style="margin-top:0">Site owner and editor</h3>
+      <p class="muted" style="font-size:14px; margin-bottom:0">
+        keno-results.co.nz is independently owned and operated in New Zealand.
+        The site owner is responsible for editorial decisions, the data pipeline,
+        and everything published here.
+      </p>
+      <p style="font-size:14px; margin:12px 0 0">
+        Contact: <a href="mailto:info@keno-results.co.nz">info@keno-results.co.nz</a>
+      </p>
     </div>
 
-    <div class="notice warn" style="margin-top:24px">
-      <span class="notice-t">What this can and cannot tell you</span>
-      <p>Each Keno draw is independent, and the machine has no memory of previous draws. A number that has come up in 80% of the last five draws is exactly as likely to appear in the next one as a number that has not appeared at all &mdash; both sit at 25%, every draw, always.</p>
-      <p>Short windows swing widely for that reason. Over five draws a number can easily show at 80% or 0% through ordinary chance; widen the window and everything drifts back toward 25%. Try it with the selector above &mdash; watching the spread narrow as you go from 5 draws to 250 is the clearest demonstration that these are not signals.</p>
-      <p>Presenting frequency without implying prediction is one of our <a href="/authors/">editorial standards</a>.</p>
+    <div class="notice warn">
+      <span class="notice-t">To the site owner &mdash; remove this box before launch</span>
+      <p>This page is deliberately unsigned. Adding a named author with a biography and credentials is a strong trust signal, but only if the person is real and the claims are true &mdash; invented authorship is exactly the kind of false credibility this site is built to avoid, and it is the first thing a reviewer checks.</p>
+      <p>Fill in the contributor block above with your real name, a short factual background, and a link to a profile that verifies you exist. Then delete this notice. Until then the page states only what is verifiably true.</p>
     </div>
-  </section>
 
-  <section>
-    <div class="sec-h"><h2>Full frequency</h2></div>
-    <p class="muted">How often each number has been drawn across all <strong id="freq-total">0</strong> draws we hold. Listed in number order, because sorting by count would present ordinary variation as a ranking.</p>
-    <ul class="freq" id="freq-list" aria-label="How often each number has been drawn"></ul>
-  </section>
+    <h2>Editorial independence</h2>
+    <p>We are not affiliated with, endorsed by, or operated by Lotto New Zealand or any gambling operator. We do not sell tickets, take stakes, or receive commission when anyone plays. No commercial arrangement affects what is published on the results or odds pages.</p>
+    <p>If advertising appears on this site it will be visually distinct from editorial content and marked as such, and it will never sit inside or beside a set of draw numbers where it could be mistaken for data.</p>
+
+    <h2>Reporting an error</h2>
+    <p>If something here is wrong, please tell us &mdash; include the draw number and what you expected. We would rather be corrected than be confidently wrong. <a href="/contact/">Contact us</a>.</p>
+  </div>
 </div>
 </main>
 
@@ -186,6 +208,6 @@
 </footer>
 
 <script src="/assets/js/site.js" defer></script>
-<script src="/assets/js/results.js" defer></script>
+
 </body>
 </html>

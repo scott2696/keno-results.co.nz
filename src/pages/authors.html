@@ -1,0 +1,61 @@
+<div class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Editorial</p>
+    <h1>Authors &amp; editorial standards</h1>
+    <p class="lede">Who is behind this site, how the results are produced, and the rules everything published here has to pass.</p>
+  </div>
+
+  <div class="prose" style="margin-top:32px">
+    <h2>How results are produced</h2>
+    <p>Draw results on this site are <strong>not written by a person</strong>. They are read automatically from Lotto NZ's published results shortly after each draw, normalised, and validated before publication. No one types a number in, which removes the most common source of error on results sites.</p>
+    <p>Every draw must pass all of the following or it is discarded rather than published:</p>
+    <ul>
+      <li>Exactly 20 numbers.</li>
+      <li>Every number an integer between 1 and 80.</li>
+      <li>No duplicates within a draw.</li>
+      <li>A valid draw identifier and an ISO 8601 timestamp.</li>
+      <li>No duplicate draw identifiers in the feed.</li>
+    </ul>
+    <p>The check runs twice &mdash; once when the data is fetched, before anything is written, and again in your browser before anything is drawn on screen. It is public: it lives in <span class="mono">tools/validate_draws.py</span> in this site's repository. See <a href="/about/#data">our data and validation</a> for more.</p>
+
+    <h2>How the written pages are produced</h2>
+    <p>The guide pages &mdash; <a href="/how-to-play/">how to play</a>, <a href="/odds/">odds</a>, <a href="/faqs/">FAQs</a>, <a href="/multiplier/">the multiplier</a>, <a href="/rules/">rules</a> &mdash; are written and reviewed by a person, and follow the standards below.</p>
+
+    <h3>Our standards</h3>
+    <ul>
+      <li><strong>Odds are calculated, not quoted.</strong> Every probability on this site is computed from the rules of the game using the hypergeometric formula, which is published on the <a href="/odds/">odds page</a> so you can check any figure yourself.</li>
+      <li><strong>We do not publish prize amounts.</strong> Payouts depend on stake, multiplier and the operator's current schedule. Publishing a figure we cannot guarantee would be worse than publishing none.</li>
+      <li><strong>We do not claim any system works.</strong> No selection method changes Keno's odds. Content implying otherwise is not published here, and the previous version of this site's "strategy" page was retired for exactly that reason.</li>
+      <li><strong>Statistics are described, never predicted.</strong> Frequency data says what happened. It says nothing about the next draw, and our <a href="/statistics/">statistics page</a> is built to demonstrate that rather than obscure it.</li>
+      <li><strong>Sources are named and timestamped.</strong> Every set of numbers carries a provenance strip showing where it came from and exactly when we retrieved it.</li>
+      <li><strong>Corrections are published, not quietly patched.</strong> See <a href="/about/#corrections">our corrections policy</a>.</li>
+    </ul>
+
+    <h2>Contributors</h2>
+
+    <div class="card" style="text-align:left; margin:20px 0">
+      <h3 style="margin-top:0">Site owner and editor</h3>
+      <p class="muted" style="font-size:14px; margin-bottom:0">
+        keno-results.co.nz is independently owned and operated in New Zealand.
+        The site owner is responsible for editorial decisions, the data pipeline,
+        and everything published here.
+      </p>
+      <p style="font-size:14px; margin:12px 0 0">
+        Contact: <a href="mailto:info@keno-results.co.nz">info@keno-results.co.nz</a>
+      </p>
+    </div>
+
+    <div class="notice warn">
+      <span class="notice-t">To the site owner &mdash; remove this box before launch</span>
+      <p>This page is deliberately unsigned. Adding a named author with a biography and credentials is a strong trust signal, but only if the person is real and the claims are true &mdash; invented authorship is exactly the kind of false credibility this site is built to avoid, and it is the first thing a reviewer checks.</p>
+      <p>Fill in the contributor block above with your real name, a short factual background, and a link to a profile that verifies you exist. Then delete this notice. Until then the page states only what is verifiably true.</p>
+    </div>
+
+    <h2>Editorial independence</h2>
+    <p>We are not affiliated with, endorsed by, or operated by Lotto New Zealand or any gambling operator. We do not sell tickets, take stakes, or receive commission when anyone plays. No commercial arrangement affects what is published on the results or odds pages.</p>
+    <p>If advertising appears on this site it will be visually distinct from editorial content and marked as such, and it will never sit inside or beside a set of draw numbers where it could be mistaken for data.</p>
+
+    <h2>Reporting an error</h2>
+    <p>If something here is wrong, please tell us &mdash; include the draw number and what you expected. We would rather be corrected than be confidently wrong. <a href="/contact/">Contact us</a>.</p>
+  </div>
+</div>
