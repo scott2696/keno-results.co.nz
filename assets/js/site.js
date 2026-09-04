@@ -35,6 +35,21 @@
     });
   }
 
+  /* ---------- condense the masthead on scroll ---------- */
+  var head = document.querySelector('.site-head');
+  if (head) {
+    var stuck = false;
+    var onScroll = function () {
+      var should = window.scrollY > 12;
+      if (should !== stuck) {
+        stuck = should;
+        head.classList.toggle('is-stuck', stuck);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   /* ---------- shared helpers ---------- */
   var NZ = { timeZone: 'Pacific/Auckland' };
 
