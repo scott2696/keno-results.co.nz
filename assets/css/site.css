@@ -7,21 +7,21 @@
 
 :root{
   /* neutrals - green-biased ink, derived from the brand mark, not navy */
-  --ground:#FBFCFB;
-  --surface:#FFFFFF;
-  --surface-2:#F4F7F5;
-  --surface-3:#EDF1EE;
+  --ground:#F7F1E9;      /* warm alabaster - the lit plaster wall */
+  --surface:#FFFFFF;     /* cards stay pure white and lift off it */
+  --surface-2:#F5EFE7;
+  --surface-3:#EDE5DA;
   --ink:#0C1410;
-  --ink-2:#33403A;
-  --muted:#5A6560;
-  --line:#E3E8E4;
-  --line-2:#D3DBD6;
+  --ink-2:#3A3A34;
+  --muted:#5C625B;
+  --line:#E9E0D4;
+  --line-2:#DACFC0;
 
   /* accent - emerald, darkened from the logo's #009C30 to clear WCAG AA */
-  --accent:#0B7A43;
-  --accent-hover:#096536;
-  --accent-soft:#E6F3EC;
-  --accent-line:#B8DCC8;
+  --accent:#0A6E3C;
+  --accent-hover:#085A31;
+  --accent-soft:#E8F1EA;
+  --accent-line:#BCD8C6;
   --on-accent:#FFFFFF;
 
   /* live signal - the logo's orange triangle. One meaning only: drawing now. */
@@ -81,9 +81,10 @@
   --ball-ink:#0C1410;
   --shadow-tint:rgba(12,20,16,.22);
 
-  --shadow-1:0 1px 2px rgba(12,20,16,.06), 0 1px 1px rgba(12,20,16,.04);
-  --shadow-2:0 4px 12px -2px rgba(12,20,16,.08), 0 2px 4px -1px rgba(12,20,16,.04);
-  --shadow-3:0 12px 32px -8px rgba(12,20,16,.14), 0 4px 8px -2px rgba(12,20,16,.06);
+  /* shadows carry a little warmth so cards sit in the light, not on it */
+  --shadow-1:0 1px 2px rgba(74,44,24,.07), 0 1px 1px rgba(74,44,24,.05);
+  --shadow-2:0 6px 18px -4px rgba(74,44,24,.11), 0 2px 5px -1px rgba(74,44,24,.06);
+  --shadow-3:0 16px 40px -10px rgba(74,44,24,.18), 0 5px 10px -3px rgba(74,44,24,.08);
 
   --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-full:999px;
 
@@ -140,6 +141,7 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--ground); color:var(--ink);
+  position:relative;
   font-family:var(--sans); font-size:16px; line-height:1.62;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
@@ -160,6 +162,31 @@ code,.mono{font-family:var(--mono); font-size:.9em}
 .wrap{max-width:var(--wrap); margin:0 auto; padding:0 20px}
 main{display:block; padding-bottom:72px}
 section{margin-top:56px}
+
+/* ---------- atmosphere ----------
+   A lit plaster backdrop rather than a flat fill: warm light falling from the
+   upper right, a second softer source upper left, and burnt tone pooling at
+   the foot. Fixed, so it behaves like a wall the page sits against instead of
+   a texture that scrolls with it. Light theme only - the dark theme has its
+   own depth already.
+------------------------------------------------------------------------ */
+.atmosphere{
+  position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(1150px 680px at 76% -12%, rgba(252,144,78,.30), transparent 60%),
+    radial-gradient(880px 560px at 8%  2%,   rgba(198,100,47,.15), transparent 58%),
+    radial-gradient(1500px 900px at 50% 112%, rgba(168,78,30,.13), transparent 62%),
+    radial-gradient(700px 700px at 96% 58%,  rgba(201,169,97,.11), transparent 62%);
+}
+/* fine tooth, so the wash reads as pigment on plaster rather than a CSS ramp */
+.atmosphere::after{
+  content:""; position:absolute; inset:0; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-theme="dark"] .atmosphere{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .atmosphere{display:none}
+}
 
 /* ---------- header ---------- */
 .site-head{
@@ -317,7 +344,7 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
 .prose h2:first-child{margin-top:0}
 
 /* ---------- cards / panels ---------- */
-.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:22px}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:22px; box-shadow:var(--shadow-1)}
 .panel{background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-lg); padding:20px}
 
 .notice{border-left:3px solid var(--accent-line); background:var(--accent-soft); padding:14px 18px; border-radius:0 var(--r-md) var(--r-md) 0; margin:20px 0}
@@ -479,7 +506,7 @@ button.ball:disabled{cursor:not-allowed}
 .prov strong{color:var(--ink-2); font-weight:600}
 
 /* ---------- tables ---------- */
-.tw{overflow-x:auto; border:1px solid var(--line); border-radius:var(--r-lg); margin:18px 0}
+.tw{overflow-x:auto; border:1px solid var(--line); border-radius:var(--r-lg); margin:18px 0; background:var(--surface); box-shadow:var(--shadow-1)}
 table{border-collapse:collapse; width:100%; font-size:14px; min-width:460px}
 th,td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top}
 thead th{background:var(--surface-2); font-family:var(--display); font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:600; white-space:nowrap}
@@ -488,8 +515,8 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 
 /* ---------- draw list ---------- */
 .draws{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
-.draw-row{display:block; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:18px 20px; text-decoration:none; color:inherit; transition:border-color .14s ease, background-color .14s ease}
-.draw-row:hover{border-color:var(--line-2); background:var(--surface-2); color:inherit}
+.draw-row{display:block; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:18px 20px; text-decoration:none; color:inherit; box-shadow:var(--shadow-1); transition:border-color .14s ease, box-shadow .18s ease}
+.draw-row:hover{border-color:var(--line-2); box-shadow:var(--shadow-2); color:inherit}
 .draw-row-top{display:flex; align-items:baseline; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:12.5px; color:var(--muted)}
 .draw-row .balls{display:grid; grid-template-columns:repeat(10,1fr); gap:8px; max-width:580px; margin:0 auto}
 .draw-row .balls .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:14px}
@@ -627,7 +654,7 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .freq .c{font-variant-numeric:tabular-nums; color:var(--ink-2); font-family:var(--mono); font-size:12px}
 
 /* ---------- footer ---------- */
-.site-foot{background:var(--surface-2); border-top:1px solid var(--line); margin-top:72px; padding:44px 0 32px}
+.site-foot{background:transparent; border-top:1px solid var(--line); margin-top:72px; padding:44px 0 32px}
 .site-foot .wrap{max-width:1240px}
 .foot-cols{display:grid; grid-template-columns:1.5fr repeat(5,1fr); gap:24px; max-width:1240px; margin:0 auto}
 @media (max-width:1120px){ .foot-cols{grid-template-columns:repeat(3,1fr); gap:26px} }
