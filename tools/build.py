@@ -854,6 +854,7 @@ def build():
             out = out.replace("{c_%s}" % key, ' aria-current="page"' if nav == key else "")
 
         out = (out
+               .replace("{page_id}", slug or "home")
                .replace("{title}", html.escape(page["title"]))
                .replace("{og_title}", html.escape(page["og"]))
                .replace("{description}", html.escape(page["desc"]))
@@ -998,7 +999,8 @@ def build():
                         f"New Zealand time. Twenty numbers from 1 to 80, verified against "
                         f"the rules of the game.")
                .replace("{canonical}", canonical)
-               .replace("{robots}", "index, follow, max-image-preview:large")
+               .replace("{page_id}", "article")
+                   .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
                .replace("{head_extra}", head_links + '<script type="application/ld+json">'
                         + json.dumps(ld, separators=(",", ":")) + "</script>")
@@ -1101,7 +1103,8 @@ def build():
                         f"Every prize tier for a {spots}-spot NZ Keno ticket, with real "
                         f"probabilities. Matching all {spots} is about 1 in {1/p_top:,.0f}.")
                .replace("{canonical}", f"{SITE}/odds/{spots}-spot/")
-               .replace("{robots}", "index, follow, max-image-preview:large")
+               .replace("{page_id}", "article")
+                   .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
                .replace("{head_extra}", '<script type="application/ld+json">'
                         + json.dumps(ld, separators=(",", ":")) + "</script>")
@@ -1279,6 +1282,7 @@ def build():
                    .replace("{og_title}", title)
                    .replace("{description}", desc)
                    .replace("{canonical}", f"{SITE}/statistics/{slug}/")
+                   .replace("{page_id}", "article")
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
                    .replace("{head_extra}", '<script type="application/ld+json">'
@@ -1393,6 +1397,7 @@ def build():
                    .replace("{description}",
                             html.escape(a.get("metaDescription") or a["summary"]))
                    .replace("{canonical}", canonical)
+                   .replace("{page_id}", "article")
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
                    .replace("{head_extra}", '<script type="application/ld+json">'
