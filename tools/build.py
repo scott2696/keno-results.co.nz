@@ -676,8 +676,27 @@ def breadcrumbs(page):
     }
 
 
+def analytics_block():
+    """Cloudflare Web Analytics, or nothing at all.
+
+    Chosen over Google Analytics deliberately: it sets no cookies and builds no
+    cross-site profile, so the pages stay consistent with what the privacy and
+    cookie policies promise, and no consent gate is required. With no token
+    configured this returns an empty string and the site ships untracked."""
+    try:
+        with open(os.path.join(SRC, "data", "analytics.json"), encoding="utf-8") as fh:
+            cfg = json.load(fh)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return ""
+    token = (cfg.get("token") or "").strip()
+    if not token:
+        return ""
+    return ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+            'data-cf-beacon=\'{"token":"%s"}\'></script>' % html.escape(token, quote=True))
+
+
 def build():
-    base = open(os.path.join(SRC, "base.html"), encoding="utf-8").read()
+    base = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block())
     written = []
 
     for page in PAGES:
@@ -737,7 +756,7 @@ def build():
     urls_extra = []
     feed = _draws()
     all_draws = feed.get("draws", [])
-    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read()
+    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block())
     src_label = feed.get("source") or "Lotto NZ"
     src_url = feed.get("sourceUrl") or "https://mylotto.co.nz/results/keno"
 
@@ -1139,7 +1158,7 @@ def build():
         written.append(f"statistics/<page>/index.html  x{len(stat_pages)}")
 
     # ---- blog posts and news articles ----
-    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read()
+    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block())
     for kind, cfg in SECTIONS.items():
         for a in _entries(kind):
             canonical = f"{SITE}/{kind}/{a['slug']}/"

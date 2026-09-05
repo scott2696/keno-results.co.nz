@@ -1,0 +1,5 @@
+{
+  "_note": "Cloudflare Web Analytics. The site tag is public by design - it ships in the page source and identifies the site, not the visitor. Leave 'token' empty and the site ships with no analytics at all, which is the state the privacy and cookie policies describe as the fallback.",
+  "provider": "cloudflare",
+  "token": ""
+}
