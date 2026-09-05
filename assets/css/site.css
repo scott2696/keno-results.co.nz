@@ -571,14 +571,34 @@ h4{font-size:15.5px; font-weight:620; letter-spacing:-.01em; margin:22px 0 8px}
 
 /* ---------- the 80-grid ---------- */
 .grid80{display:grid; grid-template-columns:repeat(10,1fr); gap:11px; max-width:560px; list-style:none; margin:0 auto; padding:0}
-.grid80 .ball{--sz:auto; width:100%; aspect-ratio:1; flex:none; font-size:15px}
-button.ball{cursor:pointer; font:inherit; font-weight:600; font-variant-numeric:tabular-nums}
+/* min-width:0 so the tracks can actually shrink - a grid item defaults to
+   min-width:auto and refuses to go below its content, which is what stopped
+   this grid fitting a phone. */
+.grid80 .ball{--sz:auto; width:100%; min-width:0; aspect-ratio:1; flex:none; font-size:15px}
+/* padding:0 matters more than it looks. A <button> carries 6px of UA padding,
+   and with border-box that sets a min-content floor of text+12+2 = 31px no
+   matter what min-width says - so the ten tracks could not shrink and the
+   grid overflowed its card on every phone narrower than 414px. The label is
+   centred by flex, so the padding was doing nothing but blocking the fit. */
+button.ball{cursor:pointer; padding:0; font:inherit; font-weight:600; font-variant-numeric:tabular-nums}
 button.ball:hover:not(:disabled){border-color:var(--accent); color:var(--accent)}
 button.ball.is-hit:hover{color:var(--on-accent)}
 button.ball:disabled{cursor:not-allowed}
 @media (max-width:560px){
   .grid80{gap:5px; max-width:none}
   .grid80 .ball{font-size:12.5px}
+  /* 24px of card padding either side is a lot of a 360px screen, and it was
+     the difference between the ten columns fitting and not */
+  .card{padding:16px}
+}
+/* Ten columns is kept as far down as it can go, because each row is a decade
+   and the decades are what the ball colours encode - dropping to five would
+   throw that mapping away. At 360px the balls are 24.3px, which is exactly
+   WCAG 2.2 AA's minimum target size; below that the maths stops working, so
+   the grid halves to five columns and the balls jump to ~45px instead. */
+@media (max-width:359px){
+  .grid80{grid-template-columns:repeat(5,1fr); gap:6px}
+  .grid80 .ball{font-size:15px}
 }
 
 /* ---------- draw hero ---------- */
@@ -734,10 +754,19 @@ table caption.vh{position:absolute; width:1px; height:1px; overflow:hidden;
 
 /* ---------- checker ---------- */
 .checker-grid{display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:24px; align-items:start}
-@media (max-width:900px){ .checker-grid{grid-template-columns:1fr} }
+/* minmax(0,1fr), not 1fr. A 1fr track carries min-width:auto, so it cannot
+   shrink below its content's min-content width - and the draw <select> takes
+   its intrinsic width from its longest option ("Draw 27708 - 5 September 2026,
+   10:01 am", 423px). That inflated the track, the card and the page, pushing
+   35px past a 390px viewport. The desktop rule already guarded its first
+   track; this one did not. */
+@media (max-width:900px){ .checker-grid{grid-template-columns:minmax(0,1fr)} }
 .field{display:block; margin-bottom:16px}
 .field-l{display:block; font-family:var(--display); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:600; margin-bottom:7px}
+/* A select is sized by its widest option unless told otherwise. Every control
+   here is full-width by design, so none of them needs its intrinsic width. */
 .input{
+  min-width:0;
   width:100%; padding:11px 13px; border:1px solid var(--line-2); border-radius:var(--r-md);
   background:var(--surface); color:var(--ink); font-family:var(--mono); font-size:15px; letter-spacing:.04em;
 }
