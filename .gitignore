@@ -1,0 +1,26 @@
+# This repo IS the web root: every committed file is served at
+# keno-results.co.nz, and .nojekyll means dotfiles are served too.
+# Anything secret must never land here.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+
+# Firecrawl working files
+.firecrawl/
+.firecrawl-cache/
+
+# Tooling
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
+
+# Local working files that should not be published
+*.local.*
+scratch/
