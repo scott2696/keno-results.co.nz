@@ -1,0 +1,70 @@
+<div class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Tools</p>
+    <h1>Keno odds &amp; return calculator</h1>
+    <p class="lede">Exact probabilities for any spot count, and &mdash; if you supply the prize values &mdash; the real expected return and house edge for that paytable.</p>
+  </div>
+
+  <section style="margin-top:28px">
+    <div class="card" id="calc">
+      <div class="hc-controls">
+        <label for="calc-spots">Spots played</label>
+        <select class="hc-select" id="calc-spots">
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+          <option value="4">4</option><option value="5">5</option>
+          <option value="6" selected>6</option><option value="7">7</option>
+          <option value="8">8</option><option value="9">9</option><option value="10">10</option>
+        </select>
+        <label for="calc-stake" style="margin-left:8px">Stake NZ$</label>
+        <input class="hc-select" id="calc-stake" type="number" min="1" max="100" step="1"
+               value="1" inputmode="decimal" style="width:86px; font-family:var(--mono)">
+      </div>
+
+      <div id="calc-summary" style="margin:20px 0"></div>
+
+      <div class="tw" style="margin:0">
+        <table>
+          <caption class="vh">Probability of each outcome, with optional prize values</caption>
+          <thead>
+            <tr>
+              <th class="num">Matched</th>
+              <th class="num">Odds</th>
+              <th class="num">Probability</th>
+              <th class="num">Prize NZ$ <span style="font-weight:400; text-transform:none; letter-spacing:0">(optional)</span></th>
+            </tr>
+          </thead>
+          <tbody id="calc-rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="prose" style="margin-top:36px">
+    <h2>Why the prize column is blank</h2>
+    <p>Most Keno calculators ship with a paytable baked in, and return an RTP figure to one decimal place. That figure is precise and meaningless, because the paytable is invented &mdash; or borrowed from a different operator in a different country.</p>
+    <p>We do not publish prize values, for the reason set out on <a href="/prizes/">how prizes work</a>: they depend on your stake and Lotto NZ&rsquo;s current schedule, and a figure we cannot guarantee is worse than none. So the calculator asks you.</p>
+    <p>Take the prizes from your ticket or the operator&rsquo;s schedule, type them in, and what comes back is a genuine expected value for <em>that</em> paytable rather than a plausible-looking guess.</p>
+
+    <h2>What is fixed and what is not</h2>
+    <p>The <strong>probabilities are fixed</strong>. They follow from the rules &mdash; 20 numbers drawn from 80 &mdash; and are identical for every player, every draw, every operator. Nothing changes them. They are computed here with the hypergeometric formula, the same one shown on the <a href="/odds/">odds page</a>.</p>
+    <p>The <strong>prizes are not fixed</strong>. The operator sets them and can change them.</p>
+    <p>So the odds half of this page is permanent, and the return half is only as good as the numbers you feed it.</p>
+
+    <h2>Reading the house edge</h2>
+    <p>If you enter a full paytable you will get an RTP below 100% &mdash; that gap is the house edge, and it is how the game is designed to work. It is disclosed, legal and unavoidable.</p>
+    <p>The figure worth sitting with is not the percentage but the last line: what it costs over a thousand tickets. Keno draws four times a day, so a thousand tickets is not a hypothetical for a regular player.</p>
+    <div class="notice warn">
+      <span class="notice-t">No paytable beats the edge</span>
+      <p>Changing spot count moves the shape of the ladder, not the edge. Neither does number selection, the <a href="/multiplier/">multiplier</a>, or anything else. If a calculator anywhere shows you a Keno bet with an RTP above 100%, its paytable is wrong.</p>
+      <p>See <a href="/responsible-gambling/">responsible gambling</a>.</p>
+    </div>
+
+    <h2>Related</h2>
+    <p class="jump"><span class="jump-l">See also</span>
+      <a href="/odds/">All odds tables</a>
+      <a href="/number-generator/">Number generator</a>
+      <a href="/check/">Ticket checker</a>
+      <a href="/prizes/">How prizes work</a>
+    </p>
+  </div>
+</div>

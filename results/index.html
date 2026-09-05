@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Keno Draw Archive NZ | keno-results.co.nz</title>
-<meta name="description" content="Every confirmed New Zealand Keno draw we hold, newest first, with winning numbers and draw identifiers.">
+<meta name="description" content="Every confirmed New Zealand Keno draw, searchable by draw number, date or a number that came up. Each result has its own permanent page.">
 <link rel="canonical" href="https://keno-results.co.nz/results/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="keno-results.co.nz">
 <meta property="og:locale" content="en_NZ">
 <meta property="og:title" content="Keno draw archive">
-<meta property="og:description" content="Every confirmed New Zealand Keno draw we hold, newest first, with winning numbers and draw identifiers.">
+<meta property="og:description" content="Every confirmed New Zealand Keno draw, searchable by draw number, date or a number that came up. Each result has its own permanent page.">
 <meta property="og:url" content="https://keno-results.co.nz/results/">
 <meta property="og:image" content="https://keno-results.co.nz/assets/img/icon-512.png">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
       <a href="/statistics/">Statistics</a>
       <a href="/how-to-play/">How to play</a>
       <a href="/odds/">Odds</a>
-      <a href="/number-generator/">Generator</a>
+      <a href="/number-generator/">Tools</a>
       <a href="/news/">News</a>
     </nav>
 
@@ -83,10 +83,49 @@
   <div class="page-head">
     <p class="eyebrow">Archive</p>
     <h1>Keno draw archive</h1>
-    <p class="lede">Every confirmed draw we hold, newest first. Each entry links through to the checker so you can test a ticket against it.</p>
+    <p class="lede">Every confirmed draw we hold, newest first. Search by draw number, date, or a number that came up.</p>
   </div>
+
   <section style="margin-top:28px">
+    <div class="card">
+      <div class="arc-controls">
+        <label class="arc-f arc-f-wide">
+          <span class="field-l">Search</span>
+          <input class="input" id="arc-q" type="search" autocomplete="off" spellcheck="false"
+                 placeholder="Draw number, date or a drawn number">
+        </label>
+        <label class="arc-f">
+          <span class="field-l">From</span>
+          <input class="input" id="arc-from" type="date">
+        </label>
+        <label class="arc-f">
+          <span class="field-l">To</span>
+          <input class="input" id="arc-to" type="date">
+        </label>
+        <button class="btn btn-ghost" type="button" id="arc-clear" disabled>Clear</button>
+      </div>
+      <p class="hint" style="margin:0; text-align:center"><span class="count" id="arc-count">Loading&hellip;</span></p>
+    </div>
+  </section>
+
+  <section style="margin-top:24px">
     <ul class="draws" id="archive-list" aria-live="polite"></ul>
+
+    <div class="empty" id="arc-empty" hidden>
+      <h3>No draws match</h3>
+      <p>Try a wider date range, or clear the search to see everything we hold.</p>
+    </div>
+
+    <div class="btn-row" style="justify-content:center; margin-top:22px">
+      <button class="btn btn-secondary" type="button" id="arc-more" hidden>Show more</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="card" style="text-align:center">
+      <h2 style="font-size:19px">Every draw has its own page</h2>
+      <p class="muted" style="font-size:14.5px; max-width:60ch; margin:0 auto">Each result links through to a permanent page with the numbers shown against all 80, the multiplier for that draw, and its place in the sequence.</p>
+    </div>
   </section>
 </div>
 </main>
@@ -109,6 +148,7 @@
           <li><a href="/statistics/">Hot &amp; cold numbers</a></li>
           <li><a href="/statistics/frequency/">Number frequency</a></li>
           <li><a href="/number-generator/">Number generator</a></li>
+          <li><a href="/calculator/">Odds calculator</a></li>
           <li><a href="/blog/">Blog &amp; analysis</a></li>
           <li><a href="/news/">News</a></li>
         </ul>
@@ -122,6 +162,8 @@
           <li><a href="/faqs/">Keno FAQs</a></li>
           <li><a href="/multiplier/">Multiplier</a></li>
           <li><a href="/draw-schedule/">Draw schedule</a></li>
+          <li><a href="/where-to-play/">Where to play</a></li>
+          <li><a href="/history/">History of Keno</a></li>
           <li><a href="/rules/">Rules &amp; regulations</a></li>
         </ul>
       </div>
@@ -178,6 +220,6 @@
 </aside>
 
 <script src="/assets/js/site.js" defer></script>
-<script src="/assets/js/results.js" defer></script>
+<script src="/assets/js/archive.js" defer></script>
 </body>
 </html>

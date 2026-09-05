@@ -38,9 +38,9 @@ PAGES = [
     dict(slug="results", src="results", nav="results",
          title="Keno Draw Archive NZ | keno-results.co.nz",
          og="Keno draw archive",
-         desc="Every confirmed New Zealand Keno draw we hold, newest first, "
-              "with winning numbers and draw identifiers.",
-         js=["results"], schema=["dataset"]),
+         desc="Every confirmed New Zealand Keno draw, searchable by draw number, date "
+              "or a number that came up. Each result has its own permanent page.",
+         js=["archive"], schema=["dataset"]),
     dict(slug="statistics", src="statistics", nav="stats",
          title="Hot & Cold Keno Numbers NZ | keno-results.co.nz",
          og="Hot and cold Keno numbers",
@@ -65,11 +65,27 @@ PAGES = [
          desc="Generate a random Keno line in your browser and see the true odds of that "
               "line beside it. One to ten spots, nothing sent anywhere.",
          js=["generator"]),
+    dict(slug="calculator", src="calculator", nav="tools",
+         title="Keno Odds & Return Calculator NZ | keno-results.co.nz",
+         og="Keno odds and return calculator",
+         desc="Exact probabilities for any Keno spot count, plus real expected return and "
+              "house edge once you supply the prize values from your own paytable.",
+         js=["calculator"]),
     dict(slug="prizes", src="prizes", section=True,
          title="How Keno Prizes Work NZ | keno-results.co.nz",
          og="How Keno prizes work",
          desc="What sets the size of a NZ Keno win - spots played, matches, stake and the "
               "draw multiplier - and why we publish odds rather than a prize table."),
+    dict(slug="history", src="history", section=True,
+         title="The History of Keno | keno-results.co.nz",
+         og="The history of Keno",
+         desc="How Keno travelled from Han dynasty China to four draws a day in New "
+              "Zealand, why the pool is 80 numbers, and what has never changed."),
+    dict(slug="where-to-play", src="where-to-play", section=True,
+         title="Where to Play Keno in New Zealand | keno-results.co.nz",
+         og="Where to play Keno in NZ",
+         desc="Who legally offers Keno in New Zealand, how casino Keno differs, what to "
+              "check before playing anywhere, and why we do not sell tickets."),
     dict(slug="faqs", src="faqs", section=True,
          title="Keno FAQs NZ | keno-results.co.nz",
          og="Keno FAQs",
@@ -181,6 +197,8 @@ SECTION = [
     ("faqs",          "Keno FAQs"),
     ("multiplier",    "Multiplier"),
     ("prizes",        "Prizes"),
+    ("where-to-play", "Where to play"),
+    ("history",       "History"),
     ("draw-schedule", "Draw schedule"),
     ("rules",         "Rules &amp; regulations"),
 ]

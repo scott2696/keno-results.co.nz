@@ -513,6 +513,34 @@ thead th{background:var(--surface-2); font-family:var(--display); font-size:11px
 tbody tr:last-child td{border-bottom:none}
 td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 
+/* ---------- stat tiles ---------- */
+.stat{border:1px solid var(--line); border-radius:var(--r-lg); padding:16px 14px;
+  background:var(--surface); text-align:center}
+.stat b{display:block; font-family:var(--display); font-size:25px; font-weight:700;
+  letter-spacing:-.03em; color:var(--accent); line-height:1.1}
+.stat span{display:block; font-size:12.5px; color:var(--muted); margin-top:5px; line-height:1.4}
+
+/* ---------- calculator ---------- */
+.calc-stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:16px}
+.calc-stats .stat{text-align:center}
+.calc-result{border:1px solid var(--accent-line); background:var(--accent-soft);
+  border-radius:var(--r-lg); padding:16px 18px; text-align:center}
+.calc-result .result-h{color:var(--accent); margin-bottom:6px}
+.calc-result p{font-size:14px; color:var(--ink-2); margin:0}
+.calc-prize{padding:6px 9px; font-size:13px; max-width:110px; text-align:right}
+#calc-rows td{vertical-align:middle}
+
+/* ---------- archive controls ---------- */
+.arc-controls{display:grid; grid-template-columns:2fr 1fr 1fr auto; gap:12px; align-items:end; margin-bottom:14px}
+.arc-f{display:block; min-width:0}
+.arc-f .field-l{margin-bottom:6px}
+.arc-controls .btn{white-space:nowrap}
+@media (max-width:760px){
+  .arc-controls{grid-template-columns:1fr 1fr; gap:10px}
+  .arc-f-wide{grid-column:1 / -1}
+  .arc-controls .btn{grid-column:1 / -1; justify-self:center}
+}
+
 /* ---------- draw list ---------- */
 .draws{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
 .draw-row{display:block; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:18px 20px; text-decoration:none; color:inherit; box-shadow:var(--shadow-1); transition:border-color .14s ease, box-shadow .18s ease}

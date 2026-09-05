@@ -2,9 +2,48 @@
   <div class="page-head">
     <p class="eyebrow">Archive</p>
     <h1>Keno draw archive</h1>
-    <p class="lede">Every confirmed draw we hold, newest first. Each entry links through to the checker so you can test a ticket against it.</p>
+    <p class="lede">Every confirmed draw we hold, newest first. Search by draw number, date, or a number that came up.</p>
   </div>
+
   <section style="margin-top:28px">
+    <div class="card">
+      <div class="arc-controls">
+        <label class="arc-f arc-f-wide">
+          <span class="field-l">Search</span>
+          <input class="input" id="arc-q" type="search" autocomplete="off" spellcheck="false"
+                 placeholder="Draw number, date or a drawn number">
+        </label>
+        <label class="arc-f">
+          <span class="field-l">From</span>
+          <input class="input" id="arc-from" type="date">
+        </label>
+        <label class="arc-f">
+          <span class="field-l">To</span>
+          <input class="input" id="arc-to" type="date">
+        </label>
+        <button class="btn btn-ghost" type="button" id="arc-clear" disabled>Clear</button>
+      </div>
+      <p class="hint" style="margin:0; text-align:center"><span class="count" id="arc-count">Loading&hellip;</span></p>
+    </div>
+  </section>
+
+  <section style="margin-top:24px">
     <ul class="draws" id="archive-list" aria-live="polite"></ul>
+
+    <div class="empty" id="arc-empty" hidden>
+      <h3>No draws match</h3>
+      <p>Try a wider date range, or clear the search to see everything we hold.</p>
+    </div>
+
+    <div class="btn-row" style="justify-content:center; margin-top:22px">
+      <button class="btn btn-secondary" type="button" id="arc-more" hidden>Show more</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="card" style="text-align:center">
+      <h2 style="font-size:19px">Every draw has its own page</h2>
+      <p class="muted" style="font-size:14.5px; max-width:60ch; margin:0 auto">Each result links through to a permanent page with the numbers shown against all 80, the multiplier for that draw, and its place in the sequence.</p>
+    </div>
   </section>
 </div>
