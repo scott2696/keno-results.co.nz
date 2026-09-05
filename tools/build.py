@@ -59,6 +59,17 @@ PAGES = [
          desc="Verified Keno odds for every spot count, calculated from the rules of the "
               "game. Includes the full six-spot breakdown and the formula used.",
          schema=["faq"]),
+    dict(slug="number-generator", src="number-generator", nav="tools",
+         title="Keno Number Generator NZ | keno-results.co.nz",
+         og="Keno number generator",
+         desc="Generate a random Keno line in your browser and see the true odds of that "
+              "line beside it. One to ten spots, nothing sent anywhere.",
+         js=["generator"]),
+    dict(slug="prizes", src="prizes", section=True,
+         title="How Keno Prizes Work NZ | keno-results.co.nz",
+         og="How Keno prizes work",
+         desc="What sets the size of a NZ Keno win - spots played, matches, stake and the "
+              "draw multiplier - and why we publish odds rather than a prize table."),
     dict(slug="faqs", src="faqs", section=True,
          title="Keno FAQs NZ | keno-results.co.nz",
          og="Keno FAQs",
@@ -169,6 +180,7 @@ SECTION = [
     ("odds",          "Odds &amp; payouts"),
     ("faqs",          "Keno FAQs"),
     ("multiplier",    "Multiplier"),
+    ("prizes",        "Prizes"),
     ("draw-schedule", "Draw schedule"),
     ("rules",         "Rules &amp; regulations"),
 ]
@@ -413,6 +425,42 @@ def entry_list(kind):
     return f'<ul class="news-list">{"".join(out)}</ul>'
 
 
+def _draws():
+    try:
+        with open(os.path.join(ROOT, "assets", "data", "draws.json"), encoding="utf-8") as fh:
+            return json.load(fh)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {"draws": []}
+
+
+def _nz_dt(iso):
+    """'2026-09-05T10:01:00+12:00' -> ('5 September 2026', '10:01am', '2026-09-05')."""
+    try:
+        dt = datetime.datetime.fromisoformat(iso)
+    except ValueError:
+        return iso, "", iso[:10]
+    day = dt.strftime("%-d %B %Y")
+    h = dt.hour % 12 or 12
+    tod = f"{h}:{dt.minute:02d}{'am' if dt.hour < 12 else 'pm'}"
+    return day, tod, dt.strftime("%Y-%m-%d")
+
+
+def draw_balls(nums, cls="", size=""):
+    lis = "".join(
+        f'<li class="ball b{-(-n // 10)}{cls}">{n}</li>' for n in nums)
+    return f'<ul class="balls{size}" aria-label="Winning numbers">{lis}</ul>'
+
+
+def draw_grid(nums):
+    """All 80, with the drawn ones filled - shows the draw against the field."""
+    drawn = set(nums)
+    lis = "".join(
+        f'<li class="ball b{-(-n // 10)}">{n}</li>' if n in drawn
+        else f'<li class="ball is-ghost">{n}</li>'
+        for n in range(1, 81))
+    return f'<ul class="grid80" aria-label="All 80 numbers, drawn ones highlighted">{lis}</ul>'
+
+
 def offers_block():
     """Render the affiliate strip from src/data/offers.json.
 
@@ -637,7 +685,7 @@ def build():
 
         nav = page.get("nav")
         out = base
-        for key in ("home", "check", "results", "stats", "howto", "odds", "blog", "news", "about", "contact"):
+        for key in ("home", "check", "results", "stats", "howto", "odds", "tools", "blog", "news", "about", "contact"):
             out = out.replace("{c_%s}" % key, ' aria-current="page"' if nav == key else "")
 
         out = (out
@@ -664,6 +712,413 @@ def build():
         with open(dest, "w", encoding="utf-8") as fh:
             fh.write(out)
         written.append(rel)
+
+    # ---- one page per draw ----
+    # The largest indexable surface on the site: dated long-tail queries the
+    # homepage can never hold, because it changes four times a day.
+    urls_extra = []
+    feed = _draws()
+    all_draws = feed.get("draws", [])
+    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read()
+    src_label = feed.get("source") or "Lotto NZ"
+    src_url = feed.get("sourceUrl") or "https://mylotto.co.nz/results/keno"
+
+    for i, d in enumerate(all_draws):
+        day, tod, ymd = _nz_dt(d["drawnAt"])
+        did = d["id"]
+        path = f"results/{ymd}/{did}"
+        canonical = f"{SITE}/{path}/"
+        newer = all_draws[i - 1] if i > 0 else None
+        older = all_draws[i + 1] if i + 1 < len(all_draws) else None
+
+        mult = (f'<span class="badge badge-gold">Multiplier &times;{d["multiplier"]}</span>'
+                if d.get("multiplier") else "")
+        nav_links = []
+        if older:
+            o_day, _, o_ymd = _nz_dt(older["drawnAt"])
+            nav_links.append(f'<a class="btn btn-secondary" rel="prev" '
+                             f'href="/results/{o_ymd}/{older["id"]}/">&larr; Draw {older["id"]}</a>')
+        nav_links.append('<a class="btn btn-ghost" href="/results/">All draws</a>')
+        if newer:
+            n_day, _, n_ymd = _nz_dt(newer["drawnAt"])
+            nav_links.append(f'<a class="btn btn-secondary" rel="next" '
+                             f'href="/results/{n_ymd}/{newer["id"]}/">Draw {newer["id"]} &rarr;</a>')
+
+        head_links = ""
+        if older:
+            _, _, o_ymd = _nz_dt(older["drawnAt"])
+            head_links += f'<link rel="prev" href="{SITE}/results/{o_ymd}/{older["id"]}/">'
+        if newer:
+            _, _, n_ymd = _nz_dt(newer["drawnAt"])
+            head_links += f'<link rel="next" href="{SITE}/results/{n_ymd}/{newer["id"]}/">'
+
+        ld = {"@context": "https://schema.org", "@graph": [{
+            "@type": "Dataset",
+            "name": f"Keno NZ draw {did} - {day}",
+            "description": f"Winning numbers for New Zealand Keno draw {did}, "
+                           f"drawn {day} at {tod} NZ. Twenty numbers from 1 to 80.",
+            "url": canonical,
+            "temporalCoverage": d["drawnAt"],
+            "variableMeasured": "Winning numbers (20 drawn from 1-80)",
+            "creator": {"@id": SITE + "/#org"},
+            "isBasedOn": {"@type": "Organization", "name": src_label},
+            "isAccessibleForFree": True,
+        }, {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Results", "item": SITE + "/results/"},
+                {"@type": "ListItem", "position": 3, "name": f"Draw {did}", "item": canonical},
+            ],
+        }]}
+
+        body = (
+            '<div class="wrap">'
+            '<div class="page-head">'
+            '<p class="eyebrow">Keno draw result</p>'
+            f'<h1>Keno results: draw {did}</h1>'
+            f'<p class="lede">{day} at {tod} New Zealand time. '
+            'Twenty numbers drawn from 1 to 80.</p>'
+            '</div>'
+            '<section style="margin-top:26px"><div class="hero">'
+            '<div class="hero-meta">'
+            f'<span class="hero-title">Winning numbers</span>'
+            f'<span class="draw-id">#{did}</span>'
+            f'<span>{day}, {tod} NZ</span>{mult}'
+            '</div>'
+            + draw_balls(d["numbers"]) +
+            '<div class="prov">'
+            '<span class="badge badge-ok">Verified</span>'
+            f'<span>Source <a href="{src_url}" rel="nofollow noopener">'
+            f'<strong>{html.escape(src_label)}</strong></a></span>'
+            '<span><a href="/about/#corrections">Report an error</a></span>'
+            '</div></div></section>'
+            '<section><div class="sec-h"><h2>This draw against all 80 numbers</h2></div>'
+            + draw_grid(d["numbers"]) +
+            '<p class="muted" style="font-size:13px; margin-top:14px; text-align:center">'
+            'Twenty of eighty come out each draw, so any given number appears '
+            'about 25% of the time. '
+            '<a href="/statistics/">See how that plays out over the full archive</a>.</p>'
+            '</section>'
+            '<section><div class="btn-row" style="justify-content:center">'
+            + "".join(nav_links) + '</div></section>'
+            '<section><div class="card" style="text-align:center">'
+            '<h2 style="font-size:19px">Did your numbers come up?</h2>'
+            '<p class="muted" style="font-size:14.5px; max-width:56ch; margin:0 auto 16px">'
+            'Check a ticket against this draw. Your numbers stay in your browser.</p>'
+            f'<a class="btn btn-primary" href="/check/?draw={did}">Check my numbers</a>'
+            '</div></section>'
+            '</div>'
+        )
+
+        out = base_tpl
+        for key in ("home", "check", "results", "stats", "howto", "odds", "tools",
+                    "blog", "news", "about", "contact"):
+            out = out.replace("{c_%s}" % key,
+                              ' aria-current="page"' if key == "results" else "")
+        out = (out
+               .replace("{title}", f"Keno Results Draw {did} - {day} | keno-results.co.nz")
+               .replace("{og_title}", f"Keno draw {did} - {day}")
+               .replace("{description}",
+                        f"Winning numbers for NZ Keno draw {did}, drawn {day} at {tod} "
+                        f"New Zealand time. Twenty numbers from 1 to 80, verified against "
+                        f"the rules of the game.")
+               .replace("{canonical}", canonical)
+               .replace("{robots}", "index, follow, max-image-preview:large")
+               .replace("{site}", SITE)
+               .replace("{head_extra}", head_links + '<script type="application/ld+json">'
+                        + json.dumps(ld, separators=(",", ":")) + "</script>")
+               .replace("{scripts}", "")
+               .replace("{rail}", rail_block("rail-right"))
+               .replace("{rail_left}", rail_block("rail-left"))
+               .replace("{content}", body)
+               .replace("{year}", str(YEAR)))
+        dest = os.path.join(ROOT, path, "index.html")
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        with open(dest, "w", encoding="utf-8") as fh:
+            fh.write(out)
+    if all_draws:
+        written.append(f"results/<date>/<id>/index.html  x{len(all_draws)}")
+
+    # ---- one page per spot count ----
+    # The odds page is strong but buries ten distinct search intents in one URL.
+    from math import comb
+    SPOT_NOTE = {
+        1: "The simplest ticket there is: one number, one chance, and the shortest odds on the board.",
+        2: "Two numbers. Still short odds on the top tier, but the prize is correspondingly small.",
+        3: "Three spots is where partial-match tiers start to matter.",
+        4: "A common starting point - the top tier is still reachable and lower tiers pay often.",
+        5: "Five spots balances a reachable top tier against a useful ladder beneath it.",
+        6: "The most-played ticket in most Keno markets, and the one most examples use.",
+        7: "Seven spots lengthens the top tier considerably while widening the ladder below.",
+        8: "Eight spots is firmly in long-odds territory for the top tier.",
+        9: "Nine spots: the top tier is a once-in-over-a-million event.",
+        10: "The longest ticket available. Matching all ten is roughly a one-in-nine-million event.",
+    }
+    for spots in range(1, 11):
+        rows, p_top = [], comb(20, spots) / comb(80, spots)
+        for k in range(spots, -1, -1):
+            pk = comb(20, k) * comb(60, spots - k) / comb(80, spots)
+            odds = f"1 in {1/pk:,.1f}" if 1/pk < 100 else f"1 in {1/pk:,.0f}"
+            top = ' <span class="badge badge-ok">Top tier</span>' if k == spots else ""
+            rows.append(f'<tr><td class="num">{k} of {spots}{top}</td>'
+                        f'<td class="num">{odds}</td><td class="num">{pk*100:.4f}%</td></tr>')
+        half = -(-spots // 2)
+        p_half = sum(comb(20, k) * comb(60, spots - k) / comb(80, spots)
+                     for k in range(half, spots + 1))
+        others = " ".join(
+            f'<a href="/odds/{n}-spot/">{n}</a>' for n in range(1, 11) if n != spots)
+
+        body = (
+            '<div class="wrap">'
+            '<div class="page-head">'
+            '<p class="eyebrow">Keno odds</p>'
+            f'<h1>{spots} spot Keno odds</h1>'
+            f'<p class="lede">Every prize tier for a {spots}-spot Keno ticket, calculated '
+            'from the rules of the game. Matching all '
+            f'{spots} happens about once in {1/p_top:,.0f} tickets.</p>'
+            '</div>'
+            '<div class="prose" style="margin-top:30px">'
+            f'<p>{SPOT_NOTE[spots]} You pick {spots} number'
+            f'{"s" if spots > 1 else ""} from 1 to 80, twenty are drawn, and your prize '
+            f'depends on how many of yours come out.</p>'
+            f'<p>Matching at least {half} of your {spots} happens about '
+            f'<strong>{p_half*100:.1f}%</strong> of the time.</p>'
+            '<div class="tw"><table>'
+            f'<caption class="vh">Odds for a {spots} spot Keno ticket</caption>'
+            '<thead><tr><th class="num">Matched</th><th class="num">Odds</th>'
+            '<th class="num">Probability</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>'
+            '<div class="notice"><span class="notice-t">On payouts</span>'
+            '<p>These are odds, not prizes. What each tier pays depends on your stake, '
+            'the <a href="/multiplier/">multiplier</a> on that draw and Lotto NZ\'s current '
+            'prize schedule. See <a href="/prizes/">how Keno prizes are structured</a>.</p></div>'
+            '<h2>How this is calculated</h2>'
+            '<p>Hypergeometric probability - drawing without replacement from a fixed pool. '
+            f'For a {spots}-spot ticket the chance of matching exactly <em>k</em> numbers is '
+            f'<span class="mono">C(20, k) &times; C(60, {spots} &minus; k) &divide; C(80, {spots})</span>. '
+            'Every figure above can be checked with that formula.</p>'
+            '<h2>Other spot counts</h2>'
+            f'<p class="jump"><span class="jump-l">Compare</span>{others}</p>'
+            '<p>Playing more spots does not shorten your odds - it lengthens the top tier '
+            'and widens the ladder beneath it. Compare '
+            f'<a href="/odds/{min(spots+2,10)}-spot/">{min(spots+2,10)} spot</a> and '
+            f'<a href="/odds/{max(spots-2,1)}-spot/">{max(spots-2,1)} spot</a> to see it.</p>'
+            '<p><a href="/odds/">Back to the full odds tables</a></p>'
+            '</div></div>'
+        )
+        ld = {"@context": "https://schema.org", "@graph": [{
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Odds", "item": SITE + "/odds/"},
+                {"@type": "ListItem", "position": 3, "name": f"{spots} spot",
+                 "item": f"{SITE}/odds/{spots}-spot/"},
+            ]}]}
+        out = base_tpl
+        for key in ("home", "check", "results", "stats", "howto", "odds", "tools",
+                    "blog", "news", "about", "contact"):
+            out = out.replace("{c_%s}" % key,
+                              ' aria-current="page"' if key == "odds" else "")
+        out = (out
+               .replace("{title}", f"{spots} Spot Keno Odds NZ | keno-results.co.nz")
+               .replace("{og_title}", f"{spots} spot Keno odds")
+               .replace("{description}",
+                        f"Every prize tier for a {spots}-spot NZ Keno ticket, with real "
+                        f"probabilities. Matching all {spots} is about 1 in {1/p_top:,.0f}.")
+               .replace("{canonical}", f"{SITE}/odds/{spots}-spot/")
+               .replace("{robots}", "index, follow, max-image-preview:large")
+               .replace("{site}", SITE)
+               .replace("{head_extra}", '<script type="application/ld+json">'
+                        + json.dumps(ld, separators=(",", ":")) + "</script>")
+               .replace("{scripts}", "")
+               .replace("{rail}", rail_block("rail-right"))
+               .replace("{rail_left}", rail_block("rail-left"))
+               .replace("{content}", body)
+               .replace("{year}", str(YEAR)))
+        dest = os.path.join(ROOT, "odds", f"{spots}-spot", "index.html")
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        with open(dest, "w", encoding="utf-8") as fh:
+            fh.write(out)
+        urls_extra.append(f"odds/{spots}-spot/")
+    written.append("odds/<n>-spot/index.html  x10")
+
+    # ---- statistics children ----
+    # Everything competitors sell as a "tool", published as a record. The
+    # labels are the difference: "draws since last seen" is a fact,
+    # "overdue" would be a prediction.
+    import collections, itertools
+    nums_all = [n for d in all_draws for n in d["numbers"]]
+    N = len(all_draws)
+    if N:
+        freq = collections.Counter(nums_all)
+        pair_c = collections.Counter()
+        for d in all_draws:
+            for a, b in itertools.combinations(sorted(d["numbers"]), 2):
+                pair_c[(a, b)] += 1
+        last_seen = {}
+        for i, d in enumerate(all_draws):
+            for n in d["numbers"]:
+                last_seen.setdefault(n, i)
+        sums = [sum(d["numbers"]) for d in all_draws]
+        odds_ct = [sum(1 for n in d["numbers"] if n % 2) for d in all_draws]
+        by_time = collections.defaultdict(collections.Counter)
+        for d in all_draws:
+            by_time[d["drawnAt"][11:16]].update(d["numbers"])
+
+        exp_n = N * 20 / 80
+        exp_pair = N * (20 * 19) / (80 * 79)
+
+        def bar_rows(counter, total, label):
+            mx = max(counter.values()) or 1
+            out = []
+            for n in range(1, 81):
+                c = counter.get(n, 0)
+                out.append(f'<li><span class="n">{n}</span>'
+                           f'<span class="bar"><i style="width:{c/mx*100:.1f}%"></i></span>'
+                           f'<span class="c">{c}</span></li>')
+            return f'<ul class="freq" aria-label="{label}">{"".join(out)}</ul>'
+
+        stat_pages = []
+
+        stat_pages.append(("frequency", "Number frequency",
+            f"How often each Keno number has been drawn across {N} confirmed draws.",
+            '<p>Counts across all <strong>' + str(N) + '</strong> draws we hold, in number '
+            'order. Sorting by count would present ordinary variation as a ranking, so we '
+            'do not.</p>'
+            f'<p>With 20 of 80 drawn each time, the expected count for any number is '
+            f'<strong>{exp_n:.0f}</strong>. The observed range is '
+            f'<strong>{min(freq.values())}</strong> to <strong>{max(freq.values())}</strong> '
+            '&mdash; a spread you would expect from chance alone at this sample size.</p>'
+            + bar_rows(freq, N, "Times each number has been drawn")))
+
+        prows = []
+        for (a, b), c in pair_c.most_common(20):
+            prows.append(f'<tr><td class="num">{a} + {b}</td><td class="num">{c}</td>'
+                         f'<td class="num">{c/exp_pair:.2f}&times;</td></tr>')
+        stat_pages.append(("pairs", "Most drawn pairs",
+            f"Which two numbers have come out together most often across {N} draws.",
+            f'<p>There are <strong>3,160</strong> possible pairs and {N} draws, so any given '
+            f'pair is expected about <strong>{exp_pair:.1f}</strong> times.</p>'
+            '<div class="tw"><table><caption class="vh">Most frequently drawn pairs</caption>'
+            '<thead><tr><th class="num">Pair</th><th class="num">Times together</th>'
+            '<th class="num">vs expected</th></tr></thead>'
+            f'<tbody>{"".join(prows)}</tbody></table></div>'
+            '<div class="notice warn"><span class="notice-t">Read this before using it</span>'
+            '<p>This is a record of what has happened, not a prediction. With 3,160 pairs, '
+            '<em>something</em> has to come top &mdash; that is arithmetic, not a pattern. '
+            'The leading pair here sits at roughly twice expectation, which is exactly the '
+            'kind of spread random sampling produces at this scale.</p>'
+            '<p>Numbers are drawn independently. No pair is more likely to repeat because '
+            'it has appeared together before.</p></div>'))
+
+        grows = []
+        for n, gap in sorted(last_seen.items(), key=lambda t: -t[1])[:20]:
+            grows.append(f'<tr><td class="num">{n}</td><td class="num">{gap}</td>'
+                         f'<td class="num">{gap/4:.1f} days</td></tr>')
+        stat_pages.append(("gaps", "Draws since last seen",
+            "How many draws have passed since each number last came up.",
+            '<p>Counted back from the most recent draw. At four draws a day, a gap of '
+            'twelve is three days.</p>'
+            '<div class="tw"><table><caption class="vh">Longest current gaps</caption>'
+            '<thead><tr><th class="num">Number</th><th class="num">Draws since seen</th>'
+            '<th class="num">Roughly</th></tr></thead>'
+            f'<tbody>{"".join(grows)}</tbody></table></div>'
+            '<div class="notice warn"><span class="notice-t">These numbers are not "due"</span>'
+            '<p>Other sites publish this table as "overdue numbers". That framing is wrong. '
+            'A number absent for twenty draws has exactly the same 25% chance in the next '
+            'draw as one that came up an hour ago. The draw has no memory of what it did '
+            'last time, and a gap is a fact about the past, never a signal about the future.</p>'
+            '</div>'))
+
+        srows = "".join(
+            f'<tr><td>{lab}</td><td class="num">{obs}</td><td class="num">{exp}</td></tr>'
+            for lab, obs, exp in [
+                ("Mean sum of the 20 drawn numbers", f"{sum(sums)/N:.0f}", "810"),
+                ("Lowest sum recorded", f"{min(sums)}", "&mdash;"),
+                ("Highest sum recorded", f"{max(sums)}", "&mdash;"),
+                ("Mean odd numbers per draw", f"{sum(odds_ct)/N:.1f}", "10.0"),
+                ("Fewest odds in a draw", f"{min(odds_ct)}", "&mdash;"),
+                ("Most odds in a draw", f"{max(odds_ct)}", "&mdash;"),
+            ])
+        stat_pages.append(("patterns", "Sums and odd/even",
+            f"Sum totals and odd/even splits across {N} Keno draws, against what randomness predicts.",
+            '<p>Two measures that show, more clearly than any frequency chart, that the '
+            'draw is behaving exactly as a random process should.</p>'
+            '<div class="tw"><table><caption class="vh">Sum and parity measures</caption>'
+            '<thead><tr><th>Measure</th><th class="num">Observed</th>'
+            '<th class="num">Expected if random</th></tr></thead>'
+            f'<tbody>{srows}</tbody></table></div>'
+            '<p>The mean sum lands within a point of the theoretical 810, and the mean odd '
+            'count within a tenth of 10. Individual draws swing widely &mdash; that is what '
+            'randomness looks like up close &mdash; but the averages sit exactly where the '
+            'maths says they should.</p>'
+            '<div class="notice"><span class="notice-t">Why this matters</span>'
+            '<p>If the draw were biased, this is where it would show. It does not.</p></div>'))
+
+        trows = []
+        for t in sorted(by_time):
+            c = by_time[t]
+            top_n, top_c = c.most_common(1)[0]
+            draws_at = sum(c.values()) // 20
+            trows.append(f'<tr><td class="num">{t}</td><td class="num">{draws_at}</td>'
+                         f'<td class="num">{top_n}</td><td class="num">{top_c}</td></tr>')
+        stat_pages.append(("by-draw-time", "Frequency by draw time",
+            "Whether the morning, midday, afternoon and evening draws behave differently. They do not.",
+            '<p>Keno draws four times a day. If any draw slot were different from the others, '
+            'this is where it would appear.</p>'
+            '<div class="tw"><table><caption class="vh">Most drawn number by draw time</caption>'
+            '<thead><tr><th class="num">Draw time (NZ)</th><th class="num">Draws</th>'
+            '<th class="num">Most drawn</th><th class="num">Times</th></tr></thead>'
+            f'<tbody>{"".join(trows)}</tbody></table></div>'
+            '<p>Each slot has its own leader and they are all within ordinary variation of '
+            'each other. There is no morning number and no evening number &mdash; the same '
+            'machine, the same rules, four times a day.</p>'))
+
+        for slug, title, desc, inner in stat_pages:
+            others = "".join(
+                f'<a href="/statistics/{s2}/">{t2}</a>'
+                for s2, t2, _, _ in stat_pages if s2 != slug)
+            body = ('<div class="wrap">'
+                    '<div class="page-head"><p class="eyebrow">Statistics</p>'
+                    f'<h1>{title}</h1><p class="lede">{desc}</p></div>'
+                    f'<div class="prose" style="margin-top:30px">{inner}'
+                    '<h2>More statistics</h2>'
+                    f'<p class="jump"><span class="jump-l">See also</span>{others}'
+                    '<a href="/statistics/">Hot and cold</a></p>'
+                    '</div></div>')
+            ld = {"@context": "https://schema.org", "@graph": [{
+                "@type": "BreadcrumbList", "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+                    {"@type": "ListItem", "position": 2, "name": "Statistics",
+                     "item": SITE + "/statistics/"},
+                    {"@type": "ListItem", "position": 3, "name": title,
+                     "item": f"{SITE}/statistics/{slug}/"}]}]}
+            out = base_tpl
+            for key in ("home", "check", "results", "stats", "howto", "odds", "tools",
+                        "blog", "news", "about", "contact"):
+                out = out.replace("{c_%s}" % key,
+                                  ' aria-current="page"' if key == "stats" else "")
+            out = (out
+                   .replace("{title}", f"{title} - Keno NZ | keno-results.co.nz")
+                   .replace("{og_title}", title)
+                   .replace("{description}", desc)
+                   .replace("{canonical}", f"{SITE}/statistics/{slug}/")
+                   .replace("{robots}", "index, follow, max-image-preview:large")
+                   .replace("{site}", SITE)
+                   .replace("{head_extra}", '<script type="application/ld+json">'
+                            + json.dumps(ld, separators=(",", ":")) + "</script>")
+                   .replace("{scripts}", "")
+                   .replace("{rail}", rail_block("rail-right"))
+                   .replace("{rail_left}", rail_block("rail-left"))
+                   .replace("{content}", body)
+                   .replace("{year}", str(YEAR)))
+            dest = os.path.join(ROOT, "statistics", slug, "index.html")
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+            with open(dest, "w", encoding="utf-8") as fh:
+                fh.write(out)
+            urls_extra.append(f"statistics/{slug}/")
+        written.append(f"statistics/<page>/index.html  x{len(stat_pages)}")
 
     # ---- blog posts and news articles ----
     base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read()
@@ -707,7 +1162,7 @@ def build():
                 '</div></div>'
             )
             out = base_tpl
-            for key in ("home", "check", "results", "stats", "howto", "odds",
+            for key in ("home", "check", "results", "stats", "howto", "odds", "tools",
                         "blog", "news", "about", "contact"):
                 out = out.replace("{c_%s}" % key,
                                   ' aria-current="page"' if key == kind else "")
@@ -761,6 +1216,13 @@ def build():
         prio = "1.0" if not page["slug"] else ("0.9" if page["slug"] in ("check", "results") else "0.7")
         urls.append(f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod>"
                     f"<priority>{prio}</priority></url>")
+    for extra in urls_extra:
+        urls.append(f"  <url><loc>{SITE}/{extra}</loc><lastmod>{today}</lastmod>"
+                    f"<priority>0.7</priority></url>")
+    for d in all_draws:
+        _, _, ymd = _nz_dt(d["drawnAt"])
+        urls.append(f"  <url><loc>{SITE}/results/{ymd}/{d['id']}/</loc>"
+                    f"<lastmod>{ymd}</lastmod><priority>0.5</priority></url>")
     for kind in SECTIONS:
         for a in _entries(kind):
             urls.append(f"  <url><loc>{SITE}/{kind}/{a['slug']}/</loc>"

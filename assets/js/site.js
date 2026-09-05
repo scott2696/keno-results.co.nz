@@ -59,6 +59,37 @@
     }
   }
 
+  /* ---------- keep the sticky rails clear of the footer ----------
+     The rails are position:fixed, so left alone they sit over the footer at
+     the bottom of the page. Clamp each one's top so its lower edge never
+     passes the footer, and let it ride up as the footer scrolls in. */
+  var rails = [].slice.call(document.querySelectorAll('.promo-rail'));
+  var footer = document.querySelector('.site-foot');
+  if (rails.length && footer) {
+    var TOP = 110, GAP = 24, ticking = false;
+
+    var placeRails = function () {
+      ticking = false;
+      var footerTop = footer.getBoundingClientRect().top;
+      rails.forEach(function (rail) {
+        if (!rail.firstElementChild) return;               // empty slot
+        if (getComputedStyle(rail).display === 'none') return;  // below breakpoint
+        var h = rail.offsetHeight;
+        var maxTop = footerTop - h - GAP;
+        rail.style.top = Math.round(Math.min(TOP, maxTop)) + 'px';
+      });
+    };
+
+    var onScrollResize = function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(placeRails); }
+    };
+    window.addEventListener('scroll', onScrollResize, { passive: true });
+    window.addEventListener('resize', onScrollResize);
+    /* re-measure once images and fonts have settled */
+    window.addEventListener('load', placeRails);
+    placeRails();
+  }
+
   /* ---------- condense the masthead on scroll ---------- */
   var head = document.querySelector('.site-head');
   if (head) {

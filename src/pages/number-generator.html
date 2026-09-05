@@ -1,0 +1,51 @@
+<div class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Tools</p>
+    <h1>Keno number generator</h1>
+    <p class="lede">A random line, generated in your browser, with the true odds of that line shown beside it. Because the odds are the only honest thing anyone can tell you about picking numbers.</p>
+  </div>
+
+  <section style="margin-top:28px">
+    <div class="card">
+      <div class="hc-controls">
+        <label for="gen-spots">How many spots</label>
+        <select class="hc-select" id="gen-spots">
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+          <option value="4">4</option><option value="5">5</option>
+          <option value="6" selected>6</option><option value="7">7</option>
+          <option value="8">8</option><option value="9">9</option><option value="10">10</option>
+        </select>
+        <button class="btn btn-primary" type="button" id="gen-go">Generate</button>
+      </div>
+
+      <ul class="balls" id="gen-grid" style="justify-content:center" aria-live="polite"></ul>
+
+      <div id="gen-odds" style="max-width:56ch; margin:20px auto 0; text-align:center; font-size:14.5px"></div>
+
+      <label class="vh" for="gen-out">Generated numbers</label>
+      <input class="input" id="gen-out" readonly style="max-width:340px; margin:18px auto 0; text-align:center">
+
+      <div class="btn-row" style="justify-content:center; margin-top:16px">
+        <button class="btn btn-secondary" type="button" id="gen-copy">Copy numbers</button>
+        <button class="btn btn-ghost" type="button" id="gen-use">Use in the checker</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="prose" style="margin-top:36px">
+    <h2>Does a generator improve your chances?</h2>
+    <p>No &mdash; and neither does anything else. Every combination of numbers is exactly as likely as every other. A line from this generator has identical odds to your birthday, to 1&ndash;2&ndash;3&ndash;4&ndash;5&ndash;6, and to the numbers a "system" would give you.</p>
+    <p>What a generator is genuinely good for is <strong>avoiding your own patterns</strong>. People cluster around dates, so tickets built from birthdays over-use 1&ndash;31. That does not change your chance of winning, but in any prize pool shared between winners it can change how many people you would split with.</p>
+
+    <h2>How the randomness works</h2>
+    <p>Numbers are drawn using your browser's cryptographic random source where available, with rejection sampling so no number is even fractionally more likely than another. Nothing is sent to us &mdash; the line is generated on your device and stays there.</p>
+
+    <h2>What the odds beside it mean</h2>
+    <p>The figures shown with each line are computed from the rules of the game, not estimated. They are the same for any line at that spot count. See the <a href="/odds/">full odds tables</a> for every tier, or read <a href="/statistics/">what our archive shows</a> about how randomness actually behaves over 220 draws.</p>
+
+    <div class="notice warn">
+      <span class="notice-t">Worth remembering</span>
+      <p>Keno has a fixed house edge. Generating numbers faster does not change it &mdash; it just gets you there sooner. Decide your limit before you play, and see <a href="/responsible-gambling/">responsible gambling</a>.</p>
+    </div>
+  </div>
+</div>
