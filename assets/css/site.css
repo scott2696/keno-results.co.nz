@@ -234,24 +234,20 @@ section{margin-top:64px}
   --slash-a:#7A3A18; --slash-b:#5E2B11; --plane:rgba(232,236,242,.035);
 }
 
-body[data-page="home"]::before,
-body[data-page="home"]::after{
+body::before,
+body::after{
   content:""; position:absolute; left:0; right:0; top:0;
   pointer-events:none; z-index:-1;
 }
-/* the slash: a wedge off the top-right corner, hard edge along its underside */
-body[data-page="home"]::before{
+/* the slash: a wedge off one top corner, hard edge along its underside */
+body::before{
   height:190px;
   background:linear-gradient(103deg, var(--slash-a) 0%, var(--slash-b) 70%, var(--slash-a) 100%);
-  /* Slimmer and shorter than the reference's, because this layout has paid
-     rails hard against both edges. A full corner block fought the one on the
-     right; a slim wedge tucked under the masthead reads as art direction and
-     lets the rail sit cleanly on top of it. */
   clip-path:polygon(100% 0, 100% 150px, 46% 0);
   opacity:.90;
 }
 /* the quiet layer: two faint angular planes, and the marks */
-body[data-page="home"]::after{
+body::after{
   height:330px;
   background-image:
     url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22300%22%20viewBox%3D%220%200%20460%20300%22%3E%3Cg%20fill%3D%22%23C6642F%22%3E%3Cpath%20d%3D%22M62%2044l17%2010-17%2010z%22%20opacity%3D%22.70%22%2F%3E%3Cpath%20d%3D%22M148%2022l13%208-13%208z%22%20opacity%3D%22.45%22%2F%3E%3Cpath%20d%3D%22M206%2078l10%206-10%206z%22%20opacity%3D%22.55%22%2F%3E%3Cpath%20d%3D%22M112%20118l14%208-14%208z%22%20opacity%3D%22.35%22%2F%3E%3Crect%20x%3D%22176%22%20y%3D%22140%22%20width%3D%229%22%20height%3D%229%22%20rx%3D%221.5%22%20transform%3D%22rotate%2824%20180%20144%29%22%20opacity%3D%22.40%22%2F%3E%3Crect%20x%3D%2238%22%20y%3D%22150%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%20transform%3D%22rotate%28-18%2041%20153%29%22%20opacity%3D%22.30%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%230A0E14%22%3E%3Cpath%20d%3D%22M96%2074l11%207-11%207z%22%20opacity%3D%22.10%22%2F%3E%3Cpath%20d%3D%22M244%2034l9%206-9%206z%22%20opacity%3D%22.09%22%2F%3E%3Cpath%20d%3D%22M300%20106l12%207-12%207z%22%20opacity%3D%22.07%22%2F%3E%3Crect%20x%3D%22140%22%20y%3D%22188%22%20width%3D%228%22%20height%3D%228%22%20rx%3D%221.5%22%20transform%3D%22rotate%2832%20144%20192%29%22%20opacity%3D%22.08%22%2F%3E%3Crect%20x%3D%22262%22%20y%3D%22160%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22%20transform%3D%22rotate%28-12%20265%20163%29%22%20opacity%3D%22.07%22%2F%3E%3Cpath%20d%3D%22M20%2096l10%206-10%206z%22%20opacity%3D%22.08%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
@@ -261,11 +257,38 @@ body[data-page="home"]::after{
   background-position:left 3% top 30px, right -12% top, left -8% top;
   background-size:460px 300px, 62% 330px, 54% 330px;
 }
-/* Below 900px the wedge would reach the headline, so it shortens and the
-   quiet layer drops out entirely - nothing readable ever sits on the orange. */
+
+/* Four variants, assigned by hashing the page's own key in build.py, so 278
+   pages do not all carry an identical stamp while the site still reads as one
+   thing. b is shallower, c mirrors to the left corner, d is a thin full-width
+   band. The marks move with the wedge so the two never sit on top of one
+   another. */
+body[data-art="b"]::before{
+  clip-path:polygon(100% 0, 100% 112px, 58% 0); opacity:.84;
+}
+body[data-art="b"]::after{background-position:left 6% top 44px, right -12% top, left -8% top}
+
+body[data-art="c"]::before{
+  background:linear-gradient(77deg, var(--slash-a) 0%, var(--slash-b) 70%, var(--slash-a) 100%);
+  clip-path:polygon(0 0, 0 138px, 52% 0); opacity:.86;
+}
+body[data-art="c"]::after{
+  background-position:right 4% top 34px, left -12% top, right -8% top;
+}
+
+body[data-art="d"]::before{
+  height:150px; opacity:.80;
+  clip-path:polygon(100% 0, 100% 104px, 0 46px, 0 0);
+}
+body[data-art="d"]::after{background-position:left 4% top 66px, right -12% top, left -8% top}
+
+/* Below 900px every variant shortens to a corner sliver and the shapes drop
+   out, so nothing readable can land on the orange on a phone. */
 @media (max-width:900px){
-  body[data-page="home"]::before{clip-path:polygon(100% 0, 100% 92px, 60% 0)}
-  body[data-page="home"]::after{background-image:none}
+  body::before{clip-path:polygon(100% 0, 100% 92px, 60% 0); height:120px}
+  body[data-art="c"]::before{clip-path:polygon(0 0, 0 92px, 40% 0)}
+  body[data-art="d"]::before{clip-path:polygon(100% 0, 100% 74px, 0 34px, 0 0)}
+  body::after{background-image:none}
 }
 
 /* ---------- header ---------- */

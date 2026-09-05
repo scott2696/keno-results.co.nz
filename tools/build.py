@@ -8,6 +8,7 @@ GitHub Pages serves them. No npm, no toolchain -- the site is 13 pages and
 does not need one. Re-run after editing anything in src/.
 """
 import datetime
+import hashlib
 import html
 import json
 import os
@@ -799,6 +800,18 @@ def breadcrumbs(page):
     return crumb_list(f"{SITE}/{page['slug']}/", [(label, f"{SITE}/{page['slug']}/")])
 
 
+def page_deco(key):
+    """Which of the four page-top wedge variants this page gets.
+
+    Hashed from the page's own key so it is stable across builds - a wedge that
+    changed shape every time the generator ran would be noise, not design - and
+    spread so neighbouring pages in a section rarely repeat.
+    """
+    if key == "home":
+        return "a"          # the variant that was reviewed and approved
+    return "abcd"[int(hashlib.sha1(key.encode()).hexdigest(), 16) % 4]
+
+
 def analytics_block():
     """Cloudflare Web Analytics, or nothing at all.
 
@@ -855,6 +868,7 @@ def build():
 
         out = (out
                .replace("{page_id}", slug or "home")
+               .replace("{page_art}", page_deco(slug or "home"))
                .replace("{title}", html.escape(page["title"]))
                .replace("{og_title}", html.escape(page["og"]))
                .replace("{description}", html.escape(page["desc"]))
@@ -999,7 +1013,8 @@ def build():
                         f"New Zealand time. Twenty numbers from 1 to 80, verified against "
                         f"the rules of the game.")
                .replace("{canonical}", canonical)
-               .replace("{page_id}", "article")
+               .replace("{page_id}", "draw")
+                   .replace("{page_art}", page_deco(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
                .replace("{head_extra}", head_links + '<script type="application/ld+json">'
@@ -1103,7 +1118,8 @@ def build():
                         f"Every prize tier for a {spots}-spot NZ Keno ticket, with real "
                         f"probabilities. Matching all {spots} is about 1 in {1/p_top:,.0f}.")
                .replace("{canonical}", f"{SITE}/odds/{spots}-spot/")
-               .replace("{page_id}", "article")
+               .replace("{page_id}", "odds-spot")
+                   .replace("{page_art}", page_deco(o_url))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
                .replace("{head_extra}", '<script type="application/ld+json">'
@@ -1282,7 +1298,8 @@ def build():
                    .replace("{og_title}", title)
                    .replace("{description}", desc)
                    .replace("{canonical}", f"{SITE}/statistics/{slug}/")
-                   .replace("{page_id}", "article")
+                   .replace("{page_id}", "stats-child")
+                   .replace("{page_art}", page_deco(st_url))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
                    .replace("{head_extra}", '<script type="application/ld+json">'
@@ -1398,6 +1415,7 @@ def build():
                             html.escape(a.get("metaDescription") or a["summary"]))
                    .replace("{canonical}", canonical)
                    .replace("{page_id}", "article")
+                   .replace("{page_art}", page_deco(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
                    .replace("{head_extra}", '<script type="application/ld+json">'
