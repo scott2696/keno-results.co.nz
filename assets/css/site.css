@@ -760,7 +760,20 @@ table caption.vh{position:absolute; width:1px; height:1px; overflow:hidden;
    10:01 am", 423px). That inflated the track, the card and the page, pushing
    35px past a 390px viewport. The desktop rule already guarded its first
    track; this one did not. */
-@media (max-width:900px){ .checker-grid{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:900px){
+  .checker-grid{grid-template-columns:minmax(0,1fr)}
+  /* On one column the DOM order put the result two cards below the grid, so
+     tapping a number updated an answer that was off-screen. display:contents
+     lifts the stack's children into the grid so the result can be ordered
+     directly under the numbers - which is where you are already looking.
+     Desktop keeps the two-column layout, where it was always visible. */
+  /* .checker-grid .stack, not .stack - the plain .stack{display:grid} rule is
+     defined further down the file and would otherwise win on source order. */
+  .checker-grid .stack{display:contents}
+  .checker-grid .pick-card{order:1}
+  .checker-grid #check-result{order:2}
+  .checker-grid .entry-card{order:3}
+}
 .field{display:block; margin-bottom:16px}
 .field-l{display:block; font-family:var(--display); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:600; margin-bottom:7px}
 /* A select is sized by its widest option unless told otherwise. Every control
