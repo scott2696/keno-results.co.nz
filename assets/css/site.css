@@ -341,6 +341,12 @@ body[data-art="b"] .site-head::after{
 .site-head{transition:box-shadow .18s ease}
 .site-head.is-stuck{box-shadow:0 8px 24px -10px rgba(0,0,0,.45)}
 .site-head .wrap{max-width:1140px}
+/* Above 1300px the bonus label comes back, and the eight links plus brand,
+   CTA and two icon buttons then want 1211px. The masthead is already wider
+   than the 980px content column by design, so it gets the extra rather than
+   the label being dropped on the widest screens - which is where there is
+   most obviously room for it. */
+@media (min-width:1301px){ .site-head .wrap{max-width:1260px} }
 .head-in{display:flex; align-items:center; gap:18px; height:70px; transition:height .18s ease}
 .site-head.is-stuck .head-in{height:58px}
 
@@ -413,6 +419,18 @@ body[data-art="b"] .site-head::after{
   box-shadow:0 2px 10px -2px rgba(59,220,140,.5);
 }
 .head-actions{display:flex; align-items:center; gap:10px; flex:0 0 auto}
+/* Between the hamburger breakpoint and a roomy desktop the eight nav links,
+   the brand, the CTA and the two icon buttons do not fit at full size - this
+   band overflowed by 41px even before the bonus button was added. Tightening
+   the links here costs a little air and fixes it without taking the nav away
+   from anyone who currently has it. */
+@media (min-width:1021px) and (max-width:1300px){
+  .head-in{gap:12px}
+  .head-actions{gap:8px}
+  .site-nav{gap:0}
+  .site-nav a{padding:9px 9px; font-size:13.5px}
+  .head-actions .btn{padding:9px 14px; font-size:13.5px}
+}
 
 .head-actions .btn-primary{
   background:var(--head-accent); color:var(--head-on-accent);
@@ -795,8 +813,14 @@ table caption.vh{position:absolute; width:1px; height:1px; overflow:hidden;
 .result-y .result-h{color:var(--accent)}
 .result-n .result-h{color:var(--ink)}
 .result p{font-size:13.5px; color:var(--ink-2); margin:0}
-#check-result .balls{gap:8px}
-#check-result .balls .ball{--sz:36px; font-size:13.5px}
+/* Matched to the standard ball rather than shrunk to 36px. These are the
+   numbers the visitor came to see the state of, so they should read at the
+   same weight as they do on a draw page - and at 44px they also clear the
+   24px minimum tap target, which matters because the hit/miss states are
+   the answer, not decoration. Still wraps to two rows in the 320px desktop
+   column, exactly as the smaller size did. */
+#check-result .balls{gap:9px}
+#check-result .balls .ball{--sz:44px; font-size:15px}
 
 /* ---------- empty / awaiting states ---------- */
 .empty{text-align:center; padding:36px 20px; border:1px dashed var(--line-2); border-radius:var(--r-lg); background:var(--surface-2)}
@@ -1506,7 +1530,9 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
   .bb-x:hover,.bb-cta:hover,.bonus-btn:hover{transform:none}
 }
 /* the label collapses first; the icon and its dot stay visible on a phone */
-@media (max-width:1080px){ .bonus-btn-t{display:none} .bonus-btn{padding:9px 11px} }
+/* The label costs ~50px and the masthead has none to spare until well past
+   1200px, so it stays an icon until there is genuinely room. */
+@media (max-width:1300px){ .bonus-btn-t{display:none} .bonus-btn{padding:9px 11px} }
 
 /* ---------- misc ---------- */
 .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
