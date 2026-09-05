@@ -211,6 +211,57 @@
 
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/game.js" defer></script>
+<!-- Welcome offer. Shown once, after a delay, and never on the responsible
+     gambling or legal pages. Labelled as advertising in the same words as
+     every other placement on the site - an unlabelled ad popup would
+     contradict the disclosure sitting on all three rail units. -->
+<div class="promo-modal" id="promo-modal" hidden>
+  <div class="promo-backdrop" data-promo-close></div>
+  <div class="promo-card" role="dialog" aria-modal="true"
+       aria-labelledby="promo-title" aria-describedby="promo-sub">
+    <span class="promo-sky" aria-hidden="true"><span style="left:45.4%;top:41.2%;width:1.5px;height:1.5px;animation-delay:1.6s"></span><span style="left:84.1%;top:15.3%;width:2px;height:2px;animation-delay:1.7s"></span><span style="left:60.9%;top:15.0%;width:1.5px;height:1.5px;animation-delay:1.1s"></span><span style="left:10.7%;top:58.7%;width:1px;height:1px;animation-delay:2.1s"></span><span style="left:40.0%;top:33.7%;width:2px;height:2px;animation-delay:2.3s"></span><span style="left:61.8%;top:60.2%;width:1px;height:1px;animation-delay:0.2s"></span><span style="left:20.3%;top:18.9%;width:1px;height:1px;animation-delay:2.8s"></span><span style="left:33.3%;top:43.4%;width:1px;height:1px;animation-delay:1.9s"></span><span style="left:63.5%;top:37.0%;width:1px;height:1px;animation-delay:1.6s"></span><span style="left:28.7%;top:71.8%;width:1px;height:1px;animation-delay:2.5s"></span><span style="left:32.3%;top:18.1%;width:1px;height:1px;animation-delay:0.1s"></span><span style="left:56.1%;top:9.6%;width:1px;height:1px;animation-delay:3.0s"></span><span style="left:39.1%;top:69.1%;width:1px;height:1px;animation-delay:0.8s"></span><span style="left:91.0%;top:5.7%;width:1.5px;height:1.5px;animation-delay:3.5s"></span><span style="left:40.2%;top:7.1%;width:1px;height:1px;animation-delay:2.8s"></span><span style="left:27.9%;top:8.1%;width:1px;height:1px;animation-delay:0.1s"></span><span style="left:41.4%;top:66.6%;width:1px;height:1px;animation-delay:0.9s"></span><span style="left:11.7%;top:6.2%;width:1.5px;height:1.5px;animation-delay:0.6s"></span><span style="left:55.7%;top:33.3%;width:1px;height:1px;animation-delay:3.5s"></span><span style="left:75.9%;top:31.3%;width:1.5px;height:1.5px;animation-delay:0.4s"></span><span style="left:42.4%;top:16.9%;width:1px;height:1px;animation-delay:3.1s"></span><span style="left:95.6%;top:43.5%;width:1px;height:1px;animation-delay:0.8s"></span><span style="left:39.9%;top:61.8%;width:2px;height:2px;animation-delay:0.4s"></span><span style="left:97.0%;top:16.9%;width:1px;height:1px;animation-delay:0.0s"></span><span style="left:60.6%;top:60.1%;width:1.5px;height:1.5px;animation-delay:0.3s"></span><span style="left:10.7%;top:42.8%;width:1px;height:1px;animation-delay:0.1s"></span><span style="left:37.4%;top:45.6%;width:1px;height:1px;animation-delay:3.5s"></span><span style="left:48.4%;top:42.2%;width:1.5px;height:1.5px;animation-delay:0.7s"></span></span>
+    <span class="promo-aurora" aria-hidden="true"></span>
+
+    <button class="promo-x" type="button" data-promo-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <span class="promo-flag">Advertisement</span>
+
+    <div class="promo-body">
+      <img class="promo-logo" src="/assets/img/partners/spinjo@2x.png"
+           alt="SpinJo" width="300" height="70" decoding="async">
+
+      <p class="promo-eyebrow">Exclusive welcome offer</p>
+
+      <p class="promo-amount" id="promo-title"><span>NZ$5,000</span></p>
+      <p class="promo-sub" id="promo-sub">welcome bonus <b>+ 300 free spins</b></p>
+
+      <ul class="promo-points">
+        <li>Slots &amp; Megaways</li>
+        <li>Live casino</li>
+        <li>Jackpots &amp; Drops</li>
+      </ul>
+
+      <a class="promo-cta" href="https://roosterspartners.com/aaznxby3ku"
+         target="_blank" rel="sponsored nofollow noopener" data-promo-go>
+        Claim bonus &amp; play
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <button class="promo-no" type="button" data-promo-close>No thanks, just the results</button>
+
+      <p class="promo-fine">
+        18+. New players only. T&amp;Cs apply. Paid placement &mdash; we earn a
+        commission if you sign up. Gamble responsibly:
+        <a href="/responsible-gambling/">know the signs</a>.
+      </p>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

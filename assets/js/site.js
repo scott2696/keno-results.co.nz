@@ -45,8 +45,18 @@
     var seen = false;
     try { seen = localStorage.getItem(SEEN) === '1'; } catch (e) { seen = false; }
 
+    /* If the welcome offer is about to open, stay down and let it go first -
+       it will un-hide this once dismissed. Two overlays at once is clutter. */
+    var promoPending = false;
+    try {
+      promoPending = !!document.getElementById('promo-modal') &&
+        localStorage.getItem('promo-seen') !== '1' &&
+        !/^\/(responsible-gambling|privacy-policy|cookie-policy|terms|authors)\//
+          .test(location.pathname);
+    } catch (e) { promoPending = false; }
+
     if (!seen) {
-      notice.hidden = false;
+      notice.hidden = promoPending;
       var dismiss = function () {
         notice.hidden = true;
         try { localStorage.setItem(SEEN, '1'); } catch (e) { /* private mode */ }
@@ -179,4 +189,82 @@
         });
     }
   };
+
+  /* ---------- welcome offer ----------
+     Shown once ever, and deliberately not everywhere:
+
+     - never on /responsible-gambling/ or the legal pages. Interrupting someone
+       reading about gambling harm with a casino bonus is indefensible, and no
+       conversion is worth it.
+     - never at the same time as the storage notice. Two overlays at once is
+       clutter, so the notice waits and appears once this is dismissed.
+     - after a short delay, so the page paints first. A modal that beats the
+       content to the screen reads as a trap rather than an offer.
+
+     Full dialog behaviour: focus moves in and is trapped, Escape and the
+     backdrop close it, and focus returns to wherever it came from.
+  */
+  (function () {
+    var modal = document.getElementById('promo-modal');
+    if (!modal) return;
+
+    var BLOCK = /^\/(responsible-gambling|privacy-policy|cookie-policy|terms|authors)\//;
+    var SEEN = 'promo-seen';
+    var seen = true;
+    try { seen = localStorage.getItem(SEEN) === '1'; } catch (e) { seen = true; }
+    if (seen || BLOCK.test(location.pathname)) { showNotice(); return; }
+
+    var card = modal.querySelector('.promo-card');
+    var opener = null;
+
+    function focusables() { return card.querySelectorAll('a[href],button:not([disabled])'); }
+
+    function onKey(e) {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = focusables(); if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+
+    function open() {
+      opener = document.activeElement;
+      modal.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      window.requestAnimationFrame(function () { modal.classList.add('is-in'); });
+      var cta = card.querySelector('.promo-cta');
+      if (cta) cta.focus({ preventScroll: true });
+      document.addEventListener('keydown', onKey);
+    }
+
+    function close() {
+      try { localStorage.setItem(SEEN, '1'); } catch (e) { /* private mode */ }
+      modal.classList.remove('is-in');
+      document.removeEventListener('keydown', onKey);
+      document.documentElement.style.overflow = '';
+      window.setTimeout(function () { modal.hidden = true; showNotice(); }, 300);
+      if (opener && opener.focus) opener.focus();
+    }
+
+    function showNotice() {
+      var n = document.getElementById('cookie-notice');
+      if (!n) return;
+      var s = true;
+      try { s = localStorage.getItem('storage-notice-seen') === '1'; } catch (e) {}
+      if (!s) n.hidden = false;
+    }
+
+    Array.prototype.forEach.call(modal.querySelectorAll('[data-promo-close]'),
+      function (el) { el.addEventListener('click', close); });
+
+    /* following the offer counts as having answered it */
+    var go = modal.querySelector('[data-promo-go]');
+    if (go) go.addEventListener('click', function () {
+      try { localStorage.setItem(SEEN, '1'); } catch (e) {}
+    });
+
+    var timer = window.setTimeout(open, 1400);
+    window.addEventListener('pagehide', function () { window.clearTimeout(timer); });
+  }());
 })();

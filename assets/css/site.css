@@ -1194,6 +1194,173 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
 .foot-bottom{margin-top:32px; padding-top:20px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:10px 20px; align-items:center; font-size:12.5px; color:var(--muted)}
 .r18{display:inline-flex; align-items:center; justify-content:center; min-width:32px; height:22px; padding:0 6px; border:1.5px solid var(--muted); border-radius:var(--r-sm); font-family:var(--display); font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--muted)}
 
+/* ---------- welcome offer modal ----------
+   The partner's own world is deep space, so the card is built from their
+   palette rather than the site's: obsidian navy ground, violet aurora, cyan
+   for the figure that matters. It has to feel like SpinJo, not like a
+   keno-results.co.nz panel wearing a logo.
+
+   Hierarchy is deliberately steep. The amount is the largest type anywhere on
+   this site by a wide margin - roughly 4x body - because it is the one thing
+   a visitor is being asked to care about. Everything above it (logo, eyebrow)
+   sets up who is offering; everything below (points, CTA) tells them what to
+   do. Nothing competes with the number.
+
+   Contrast is measured, not assumed: cyan on the ground is 14.0:1, the fine
+   print 7.5:1, and white on both ends of the CTA gradient clears AA at 6.7:1
+   and 4.8:1. The brand violet is 4.43:1 and therefore decoration only - it
+   carries borders and glow, never a word of text.
+   ---------------------------------------------------------------------- */
+.promo-modal{position:fixed; inset:0; z-index:200; display:grid; place-items:center; padding:18px}
+.promo-modal[hidden]{display:none}
+.promo-backdrop{
+  position:absolute; inset:0; background:rgba(4,4,18,.74);
+  -webkit-backdrop-filter:blur(9px) saturate(120%); backdrop-filter:blur(9px) saturate(120%);
+  opacity:0; transition:opacity .32s ease;
+}
+.promo-modal.is-in .promo-backdrop{opacity:1}
+
+.promo-card{
+  --deep:#050522; --base:#111135; --violet:#8254FF; --cyan:#00F0F1;
+  --cta-a:#6A2BE8; --cta-b:#2F6FD6;
+  position:relative; overflow:hidden; isolation:isolate;
+  width:min(452px, 100%); max-height:calc(100vh - 36px); overflow-y:auto;
+  padding:30px 30px 24px; border-radius:26px; text-align:center;
+  background:
+    radial-gradient(120% 78% at 50% -14%, #241C63 0%, transparent 62%),
+    linear-gradient(180deg, var(--base) 0%, var(--deep) 72%);
+  border:1px solid rgba(130,84,255,.30);
+  box-shadow:
+    0 40px 90px -22px rgba(0,0,0,.80),
+    0 0 0 1px rgba(255,255,255,.04) inset,
+    0 1px 0 rgba(255,255,255,.12) inset;
+  transform:translateY(18px) scale(.965); opacity:0;
+  transition:transform .42s cubic-bezier(.16,1,.3,1), opacity .32s ease;
+}
+.promo-modal.is-in .promo-card{transform:none; opacity:1}
+
+/* the same starfield the rail unit uses, so the two read as one brand */
+.promo-sky{position:absolute; inset:0; z-index:-1; pointer-events:none}
+.promo-sky span{
+  position:absolute; border-radius:50%; background:#fff; opacity:.55;
+  animation:promo-twinkle 3.4s ease-in-out infinite;
+}
+@keyframes promo-twinkle{0%,100%{opacity:.18}50%{opacity:.85}}
+.promo-aurora{
+  position:absolute; z-index:-1; left:50%; top:-46%; width:150%; aspect-ratio:1;
+  transform:translateX(-50%); pointer-events:none;
+  background:radial-gradient(closest-side, rgba(130,84,255,.34), transparent 70%);
+}
+
+.promo-x{
+  position:absolute; top:12px; right:12px; z-index:2;
+  width:34px; height:34px; display:grid; place-items:center;
+  border-radius:50%; border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06); color:#C9CBE8; cursor:pointer;
+  transition:background .18s ease, color .18s ease, transform .18s ease;
+}
+.promo-x svg{width:15px; height:15px}
+.promo-x:hover{background:rgba(255,255,255,.14); color:#fff; transform:rotate(90deg)}
+
+.promo-flag{
+  position:absolute; top:17px; left:20px;
+  font-size:9.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:#7E80AE;
+}
+
+.promo-body{position:relative; display:grid; gap:0; margin-top:14px}
+.promo-logo{width:auto; height:44px; margin:0 auto 18px; display:block}
+
+.promo-eyebrow{
+  margin:0 0 8px; font-size:10.5px; font-weight:600;
+  letter-spacing:.20em; text-transform:uppercase; color:var(--cyan);
+}
+
+/* The figure. A shimmer crosses it once on entry - the one flourish in the
+   card, spent on the single element that has to land first. */
+.promo-amount{margin:0; line-height:1}
+.promo-amount span{
+  display:inline-block;
+  font-size:clamp(44px, 12vw, 58px); font-weight:680; letter-spacing:-.04em;
+  background:linear-gradient(100deg, #FFFFFF 0%, var(--cyan) 42%, #FFFFFF 72%);
+  background-size:220% 100%; background-position:100% 0;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:promo-shine 1.5s cubic-bezier(.4,0,.2,1) .35s 1 both;
+}
+@keyframes promo-shine{from{background-position:100% 0}to{background-position:0 0}}
+
+.promo-sub{margin:10px 0 0; font-size:15.5px; color:#C9CBE8}
+.promo-sub b{color:#fff; font-weight:600}
+
+.promo-points{
+  list-style:none; margin:20px 0 0; padding:18px 0 0;
+  border-top:1px solid rgba(255,255,255,.09);
+  display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
+}
+.promo-points li{
+  font-size:12.5px; color:#C9CBE8;
+  padding:5px 12px; border-radius:999px;
+  background:rgba(130,84,255,.14); border:1px solid rgba(130,84,255,.26);
+}
+
+.promo-cta{
+  display:flex; align-items:center; justify-content:center; gap:9px;
+  margin-top:22px; padding:16px 22px; border-radius:999px;
+  font-size:16px; font-weight:650; letter-spacing:-.01em;
+  color:#fff; text-decoration:none;
+  background:linear-gradient(100deg, var(--cta-a), var(--cta-b));
+  background-size:180% 100%;
+  box-shadow:0 12px 30px -8px rgba(106,43,232,.72), 0 1px 0 rgba(255,255,255,.22) inset;
+  transition:background-position .45s ease, transform .18s ease, box-shadow .25s ease;
+}
+.promo-cta svg{width:18px; height:18px; transition:transform .22s ease}
+.promo-cta:hover{
+  color:#fff; background-position:100% 0; transform:translateY(-1px);
+  box-shadow:0 16px 38px -8px rgba(106,43,232,.85), 0 1px 0 rgba(255,255,255,.28) inset;
+}
+.promo-cta:hover svg{transform:translateX(3px)}
+.promo-cta:active{transform:translateY(0)}
+
+.promo-no{
+  margin:12px auto 0; padding:8px 12px; border:0; background:none; cursor:pointer;
+  font:inherit; font-size:13px; color:#8F92BE; border-radius:8px;
+  transition:color .18s ease;
+}
+.promo-no:hover{color:#C9CBE8; text-decoration:underline; text-underline-offset:3px}
+
+.promo-fine{
+  margin:16px 0 0; font-size:11px; line-height:1.55; color:#9A9CC4;   /* 7.5:1 */
+}
+.promo-fine a{color:#B9BBDD; text-underline-offset:2px}
+.promo-fine a:hover{color:#fff}
+
+.promo-card :focus-visible{outline:2px solid var(--cyan); outline-offset:2px}
+
+@media (max-width:420px){
+  .promo-modal{padding:12px}
+  .promo-card{padding:24px 20px 20px; border-radius:22px}
+  .promo-logo{height:38px; margin-bottom:14px}
+  .promo-points{gap:6px}
+  .promo-points li{font-size:11.5px; padding:4px 10px}
+  .promo-cta{padding:15px 18px; font-size:15px}
+}
+/* Short viewports - a landscape phone - must not trap the CTA below the fold */
+@media (max-height:640px){
+  .promo-card{padding:20px 22px 18px}
+  .promo-logo{height:34px; margin-bottom:10px}
+  .promo-amount span{font-size:clamp(36px,9vw,44px)}
+  .promo-points{margin-top:14px; padding-top:14px}
+  .promo-cta{margin-top:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .promo-backdrop,.promo-card{transition:none}
+  .promo-card{transform:none}
+  .promo-sky span{animation:none; opacity:.5}
+  .promo-amount span{animation:none; background-position:0 0}
+  .promo-x:hover{transform:none}
+  .promo-cta:hover{transform:none}
+}
+
 /* ---------- misc ---------- */
 .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
 @media (max-width:760px){ .grid-2{grid-template-columns:1fr} }
