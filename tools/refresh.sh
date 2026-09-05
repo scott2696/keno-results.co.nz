@@ -10,6 +10,12 @@ cd "$(dirname "$0")/.."
 
 python3 tools/fetch_draws.py --backfill "${BACKFILL:-40}"
 python3 tools/validate_draws.py          # non-zero exit aborts the run
+
+# Editorial pipeline. Both are best-effort: a failure here must never stop
+# results being published, so neither is allowed to fail the run.
+python3 tools/watch_news.py || echo "news watch skipped"
+python3 tools/auto_news.py  || echo "auto-news skipped"
+
 python3 tools/build.py > /dev/null
 
 if [ "${1:-}" = "--push" ]; then

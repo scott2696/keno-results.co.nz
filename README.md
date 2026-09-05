@@ -140,6 +140,38 @@ published results containing numbers from 81 to 90 for a game drawn from
 1 to 80, while its own guide correctly described the 1-80 range. Run the
 validator in CI before any deploy.
 
+## Editorial automation
+
+Two scripts run from the refresh workflow.
+
+**`tools/watch_news.py`** reads the Google News NZ query feed (NZ media do not
+publish open APIs) and queues lottery topics into `src/data/news-queue.json`.
+
+It stores **headlines, sources, dates and links only**. It never fetches or keeps
+article bodies, and nothing it captures is used as source material. Its job is to
+tell you what is being covered so you know a story exists; the article you then
+write comes from official data. Republishing a competitor's copy is both a
+copyright problem and duplicate content.
+
+**`tools/auto_news.py`** writes articles unattended, but only from Lotto NZ's own
+results endpoint and our Keno archive. It fires on notable events only, never on
+routine draws:
+
+- Powerball First Division struck, or its pool past $15m
+- Lotto First Division taken
+- Bullseye First Division struck (an exact six-digit match, so rare)
+- A Keno draw carrying x5 or x10
+
+Each draw is written about once. Dedupe works on the draw number appearing
+anywhere in an existing article, so a hand-written piece stops the generator
+republishing the same draw under a different slug. `--dry-run` reports without
+writing, and `MAX_PER_RUN` caps output at two per run.
+
+Auto-written articles run shorter than hand-written ones (roughly 270 words vs
+550) because they are templated result reports. That is acceptable at low volume
+- they fire a few times a month - but do not lower the notability thresholds
+without thinking about thin content.
+
 ## Blog and news
 
 Two content sections, same machinery, separate files:
