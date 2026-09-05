@@ -19,14 +19,15 @@
         "ctaTo": "#A21CAF",
         "style": "royal"
       },
-      "amount": "390%",
-      "amountSub": "up to NZ$3,700<br>+ 175 free spins",
+      "amount": "NZ$3,700",
+      "amountSub": "390% welcome bonus<br>+ 175 free spins",
       "points": [
         "Slots &amp; jackpots",
         "Live dealer",
         "Fast payouts"
       ],
-      "kind": "Casino"
+      "kind": "Casino",
+      "logoRev": "/assets/img/partners/crownslots-rev@2x.png"
     },
     {
       "name": "SpinJo",

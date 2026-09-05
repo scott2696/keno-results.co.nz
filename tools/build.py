@@ -833,8 +833,10 @@ def bonusbox_block():
         cards.append(
             f'<li class="bb-card" style="{style}">'
             f'<span class="bb-kind">{html.escape(o.get("kind", "Offer"))}</span>'
-            f'<img class="bb-logo" src="{o["logo"]}" alt="{html.escape(o["name"])}" '
-            f'loading="lazy" decoding="async">'
+            # logoRev where an operator's mark is dark-on-white: the inline
+            # banner sets that one on a white plate, these cards do not.
+            f'<img class="bb-logo" src="{o.get("logoRev") or o["logo"]}" '
+            f'alt="{html.escape(o["name"])}" loading="lazy" decoding="async">'
             f'<span class="bb-amount">{o.get("amount", "")}</span>'
             f'<span class="bb-sub">{o.get("amountSub", "")}</span>'
             f'<ul class="bb-points">{pts}</ul>'
