@@ -1302,10 +1302,15 @@ def build():
     for kind, cfg in SECTIONS.items():
         for a in _entries(kind):
             canonical = f"{SITE}/{kind}/{a['slug']}/"
-            img = (f"{SITE}/assets/img/articles/{a['slug']}.png"
-                   if os.path.exists(os.path.join(
-                       ROOT, "assets", "img", "articles", a["slug"] + ".png"))
-                   else None)
+            # SVG first: the art is drawn, not sampled, so it is vector and a
+            # tenth the weight. PNG stays supported in case one is ever
+            # generated rather than drawn.
+            img = None
+            for ext in (".svg", ".png"):
+                if os.path.exists(os.path.join(ROOT, "assets", "img",
+                                               "articles", a["slug"] + ext)):
+                    img = f"{SITE}/assets/img/articles/{a['slug']}{ext}"
+                    break
             article = {
                 "@type": cfg["schema"],
                 "@id": canonical + "#article",
@@ -1337,6 +1342,7 @@ def build():
                                                "not a photograph"}
             if not article["wordCount"]:
                 del article["wordCount"]
+            img_path = img.replace(SITE, "") if img else None
             crumbs = crumb_list(canonical, [(cfg["label"], f"{SITE}/{kind}/"),
                                             (a["title"], canonical)])
             ld = page_graph(
@@ -1353,7 +1359,18 @@ def build():
                 f'<h1>{html.escape(a["title"])}</h1>'
                 f'<p class="article-lede">{html.escape(a["summary"])}</p>'
                 '</div>'
-                f'<div class="prose" style="margin-top:34px">{a["body"]}'
+                # Header illustration, between the standfirst and the first
+                # paragraph. Labelled as an illustration on principle: on a site
+                # whose whole position is verified data, a decorative image must
+                # never be mistakable for a photograph of a real draw.
+                + (f'<div class="article-img"><figure>'
+                   f'<img src="{img_path}" alt="Abstract illustration in the '
+                   f'site\'s colours, accompanying the article \u2014 it does not '
+                   f'depict a real draw." width="1200" height="675" '
+                   f'loading="lazy" decoding="async">'
+                   f'<figcaption>Illustration \u2014 abstract, not a photograph'
+                   f'</figcaption></figure></div>' if img_path else '')
+                + f'<div class="prose" style="margin-top:34px">{a["body"]}'
                 '<p class="article-foot">Figures in this article are computed from the draw '
                 'archive this site holds and were correct at the time of writing. '
                 'See <a href="/authors/">our editorial standards</a>, or '

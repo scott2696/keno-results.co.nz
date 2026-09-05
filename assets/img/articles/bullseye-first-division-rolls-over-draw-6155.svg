@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Abstract illustration">
+  <defs>
+    <radialGradient id="g" cx="0.43" cy="0.20" r="1">
+      <stop offset="0" stop-color="#141B24"/>
+      <stop offset="1" stop-color="#0D1117"/>
+    </radialGradient>
+    <filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
+    <linearGradient id="v" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0D1117" stop-opacity=".00"/>
+      <stop offset="1" stop-color="#0D1117" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <g>
+    <circle cx="450" cy="331" r="476" fill="none" stroke="#8D3E27" stroke-width="0.5" opacity="0.08"/>
+    <circle cx="450" cy="331" r="442" fill="none" stroke="#0E5D6F" stroke-width="0.6" opacity="0.09"/>
+    <circle cx="450" cy="331" r="408" fill="none" stroke="#284791" stroke-width="0.8" opacity="0.13"/>
+    <circle cx="450" cy="331" r="374" fill="none" stroke="#453B92" stroke-width="0.9" opacity="0.17"/>
+    <circle cx="450" cy="331" r="340" fill="none" stroke="#15568A" stroke-width="1.0" opacity="0.20"/>
+    <circle cx="450" cy="331" r="306" fill="none" stroke="#126447" stroke-width="1.1" opacity="0.23"/>
+    <circle cx="450" cy="331" r="272" fill="none" stroke="#852764" stroke-width="1.2" opacity="0.27"/>
+    <circle cx="450" cy="331" r="238" fill="none" stroke="#662F88" stroke-width="1.4" opacity="0.31"/>
+    <circle cx="450" cy="331" r="204" fill="none" stroke="#8D3E27" stroke-width="1.5" opacity="0.34"/>
+    <circle cx="450" cy="331" r="170" fill="none" stroke="#0E5D6F" stroke-width="1.6" opacity="0.38"/>
+    <circle cx="450" cy="331" r="136" fill="none" stroke="#284791" stroke-width="1.7" opacity="0.41"/>
+    <circle cx="450" cy="331" r="102" fill="none" stroke="#34D399" stroke-width="2.4" opacity="0.85"/>
+    <circle cx="450" cy="331" r="68" fill="none" stroke="#15568A" stroke-width="2.0" opacity="0.48"/>
+    <circle cx="450" cy="331" r="34" fill="none" stroke="#126447" stroke-width="2.1" opacity="0.52"/>
+    <circle cx="450" cy="331" r="13" fill="#34D399" opacity=".9"/>
+  </g>
+  <rect width="1200" height="675" fill="url(#v)"/>
+  <rect width="1200" height="675" filter="url(#n)" opacity=".045"/>
+</svg>

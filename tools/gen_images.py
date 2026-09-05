@@ -39,14 +39,20 @@ ENDPOINT = ("https://generativelanguage.googleapis.com/v1beta/models/"
             f"{MODEL}:generateContent")
 
 # The site's own palette, so images sit inside the design rather than beside it.
-PALETTE = ("deep forest green #123326, champagne gold #C9A961, warm alabaster "
-           "#F7F1E9, terracotta #C6642F, and deep obsidian #12100E")
+# Tracks the redesign: the warm cream-and-gold scheme these were first written
+# for no longer exists on the site, and an image in it would now read as
+# imported from somewhere else.
+PALETTE = ("cool paper #F6F7F9, deep slate ink #0A0E14, emerald #0A6E3C, and "
+           "the site's muted decade tones - evergreen #126447, teal #0E5D6F, "
+           "steel blue #15568A, indigo #284791, violet #453B92, plum #662F88")
 
 STYLE = (
     "Abstract editorial illustration for a lottery results website. "
     f"Strict palette: {PALETTE}. "
-    "Flat vector-like shapes with subtle grain, soft directional light from the "
-    "upper right, generous negative space, calm and premium. "
+    "Flat vector shapes on a light cool-grey ground, minimal and precise, soft "
+    "directional light from the upper right, generous negative space, calm and "
+    "restrained. Low saturation throughout - the colours are muted, never "
+    "vivid. The feel of a considered data product, not an advertisement. "
     "Wide 16:9 composition suitable for a page header. "
     "STRICTLY NO people, no faces, no hands, no text, no lettering, no numbers, "
     "no logos, no brand marks, no photorealism, no casino imagery, no slot "
@@ -55,12 +61,12 @@ STYLE = (
 )
 
 SUBJECTS = {
-    "keno":      "Scattered spheres on a calm field, a few catching gold rimlight, "
-                 "arranged with deliberate irregular spacing suggesting randomness.",
+    "keno":      "Scattered flat circles on a calm pale field, a few in deeper "
+                 "tones, at deliberate irregular spacing suggesting randomness.",
     "lotto":     "Overlapping translucent circles converging toward a single bright "
                  "point, suggesting accumulation and convergence.",
     "bullseye":  "Concentric rings radiating from an off-centre point, thinning "
-                 "outward, one ring picked out in gold.",
+                 "outward, one ring picked out in emerald.",
     "analysis":  "A gentle distribution curve formed from small circular marks, "
                  "flattening from left to right toward an even baseline.",
     "data":      "A grid of small tiles at varying opacity, settling into an even "

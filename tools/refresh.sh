@@ -18,7 +18,9 @@ python3 tools/validate_draws.py          # non-zero exit aborts the run
 python3 tools/watch_news.py     || echo "news watch skipped"
 python3 tools/fetch_official.py || echo "official releases skipped"
 python3 tools/auto_news.py  || echo "auto-news skipped"
-python3 tools/gen_images.py --limit 3 || echo "image generation skipped"
+python3 tools/make_art.py       || echo "article art skipped"
+# gen_images.py (Gemini) is kept for if billing is ever enabled on that
+# project; make_art.py draws the same brief locally and for free.
 
 python3 tools/build.py > /dev/null
 
