@@ -14,6 +14,7 @@ import os
 import random
 import re
 import shutil
+import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -150,7 +151,7 @@ PAGES = [
          og="Contact us",
          desc="Report a wrong Keno result, ask about our data, or get in touch about "
               "media and partnerships.",
-         schema=["contactpage"]),
+         schema=[]),
     dict(slug="authors", src="authors",
          title="Authors & Editorial Standards | keno-results.co.nz",
          og="Authors and editorial standards",
@@ -220,18 +221,46 @@ SCHEMA = {
         "@id": SITE + "/#org",
         "name": "keno-results.co.nz",
         "url": SITE + "/",
-        "logo": SITE + "/assets/img/icon-512.png",
+        # A bare URL is legal but Google asks for an ImageObject with dimensions,
+        # and will not use a logo it has to go and measure itself.
+        "logo": {"@id": SITE + "/#logo"},
+        "image": {"@id": SITE + "/#logo"},
         "email": "info@keno-results.co.nz",
+        "areaServed": {"@type": "Country", "name": "New Zealand"},
+        "knowsAbout": ["Keno", "Lotto New Zealand", "Lottery results",
+                       "Lottery odds and probability"],
+        # The editorial standards page is what an E-E-A-T assessment is looking
+        # for, and it is worth naming rather than leaving to be discovered.
+        "publishingPrinciples": SITE + "/authors/",
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "email": "info@keno-results.co.nz",
+            "contactType": "customer support",
+            "areaServed": "NZ",
+            "availableLanguage": "English",
+        }],
         "disambiguatingDescription":
             "An independent Keno results service. Not affiliated with, endorsed by, "
             "or operated by Lotto New Zealand.",
+    },
+    "logo": lambda: {
+        "@type": "ImageObject",
+        "@id": SITE + "/#logo",
+        "url": SITE + "/assets/img/icon-512.png",
+        "contentUrl": SITE + "/assets/img/icon-512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "keno-results.co.nz",
     },
     "website": lambda: {
         "@type": "WebSite",
         "@id": SITE + "/#website",
         "url": SITE + "/",
         "name": "keno-results.co.nz",
+        "description": "Every New Zealand Keno draw, checked against Lotto NZ's "
+                       "own published results before it is shown.",
         "publisher": {"@id": SITE + "/#org"},
+        "copyrightHolder": {"@id": SITE + "/#org"},
         "inLanguage": "en-NZ",
         "potentialAction": {
             "@type": "SearchAction",
@@ -271,22 +300,6 @@ SCHEMA = {
              "text": "Compare your numbers against the 20 drawn and count the matches. "
                      "Confirm any win with the official operator."},
         ],
-    },
-    "contactpage": lambda: {
-        "@type": "ContactPage",
-        "name": "Contact keno-results.co.nz",
-        "url": SITE + "/contact/",
-        "mainEntity": {
-            "@type": "Organization",
-            "@id": SITE + "/#org",
-            "contactPoint": [{
-                "@type": "ContactPoint",
-                "email": "info@keno-results.co.nz",
-                "contactType": "customer support",
-                "areaServed": "NZ",
-                "availableLanguage": "English",
-            }],
-        },
     },
     "faq2": lambda: {
         "@type": "FAQPage",
@@ -449,6 +462,57 @@ def _draws():
             return json.load(fh)
     except (FileNotFoundError, json.JSONDecodeError):
         return {"draws": []}
+
+
+# Pages whose content is the draw data itself, so they genuinely change
+# whenever a new draw lands - unlike the guides, which change when edited.
+DATA_PAGES = {"", "results", "statistics", "lotto-nz", "powerball", "bullseye"}
+
+_GIT_DATES = None
+
+
+def git_dates():
+    """Last commit date for every tracked file, from one pass of the log.
+
+    lastmod has to mean something. Stamping today's date on /terms/ because the
+    generator happened to run is not a modification, and Google's documented
+    response to a lastmod it cannot correlate with real change is to stop
+    trusting the field across the whole site. Now that results rebuild on a
+    schedule, every static page was claiming to change daily."""
+    global _GIT_DATES
+    if _GIT_DATES is not None:
+        return _GIT_DATES
+    _GIT_DATES = {}
+    try:
+        out = subprocess.run(
+            ["git", "log", "--name-only", "--format=%x00%cd", "--date=short"],
+            cwd=ROOT, capture_output=True, text=True, timeout=90).stdout
+    except (OSError, subprocess.SubprocessError):
+        return _GIT_DATES
+    date = None
+    for line in out.splitlines():
+        if line.startswith("\x00"):
+            date = line[1:].strip()
+        elif line.strip() and date:
+            _GIT_DATES.setdefault(line.strip(), date)   # log is newest-first
+    return _GIT_DATES
+
+
+def latest_draw_ymd():
+    ds = _draws().get("draws") or []
+    return max((_nz_dt(d["drawnAt"])[2] for d in ds), default=None)
+
+
+def page_lastmod(page):
+    """When this page's content last actually changed.
+
+    Deliberately ignores base.html and the stylesheet: re-skinning a page is not
+    a content change, and treating it as one is exactly what devalues the field."""
+    cand = [git_dates().get("src/pages/%s.html" % page["src"])]
+    if page["slug"] in DATA_PAGES:
+        cand.append(latest_draw_ymd())
+    cand = [d for d in cand if d]
+    return max(cand) if cand else datetime.date.today().isoformat()
 
 
 def _nz_dt(iso):
@@ -662,18 +726,77 @@ def rail_block(side="rail-right"):
     return "".join(out)
 
 
+# Pages that index other pages rather than being the destination themselves.
+COLLECTIONS = {"results", "odds", "statistics", "blog", "news"}
+PAGE_TYPES = {"contact": "ContactPage", "about": "AboutPage",
+              "authors": "AboutPage"}
+# Node types that are the *subject* of their page rather than a second copy of
+# it, so the WebPage stays a WebPage and points at them.
+MAIN_ENTITY_TYPES = {"FAQPage", "HowTo", "Dataset"}
+
+
+def crumb_list(url, trail):
+    """A BreadcrumbList with an @id, so a WebPage node can point at it.
+
+    trail is [(name, url), ...] excluding Home, which is always first."""
+    items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"}]
+    for i, (name, href) in enumerate(trail, start=2):
+        items.append({"@type": "ListItem", "position": i, "name": name, "item": href})
+    return {"@type": "BreadcrumbList", "@id": url + "#breadcrumb",
+            "itemListElement": items}
+
+
+def page_graph(url, name, description, *, page_type="WebPage", modified=None,
+               published=None, crumbs=None, nodes=(), main_entity=None,
+               image=None):
+    """The full JSON-LD graph for one page.
+
+    Organization and WebSite ship on *every* page, not just the homepage. Nearly
+    every node on this site points at #org as publisher, creator or author, and
+    Google resolves an @id only within the graph on the page it is reading - so
+    on any page that omitted them, those references pointed at nothing at all.
+
+    The WebPage node is the piece that was missing entirely: it is what ties a
+    URL to the site, to its breadcrumb trail, and to a modification date."""
+    wp = {
+        "@type": page_type,
+        "@id": url + "#webpage",
+        "url": url,
+        "name": re.sub(r"\s*\|.*$", "", name),
+        "description": description,
+        "isPartOf": {"@id": SITE + "/#website"},
+        "about": {"@id": SITE + "/#org"},
+        "publisher": {"@id": SITE + "/#org"},
+        "inLanguage": "en-NZ",
+    }
+    if published:
+        wp["datePublished"] = published
+    if modified:
+        wp["dateModified"] = modified
+    if crumbs:
+        wp["breadcrumb"] = {"@id": crumbs["@id"]}
+    if main_entity:
+        wp["mainEntity"] = main_entity
+    if image:
+        wp["primaryImageOfPage"] = {"@type": "ImageObject", "url": image}
+    graph = [SCHEMA["org"](), SCHEMA["logo"](), SCHEMA["website"](), wp]
+    graph.extend(n for n in nodes if n)
+    if crumbs:
+        graph.append(crumbs)
+    return {"@context": "https://schema.org", "@graph": graph}
+
+
+def ld_script(graph):
+    return ('<script type="application/ld+json">'
+            + json.dumps(graph, indent=None, separators=(",", ":"))
+            + "</script>")
+
+
 def breadcrumbs(page):
     if not page["slug"]:
         return None
     label = re.sub(r"\s*\|.*$", "", page["og"])
-    return {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
-            {"@type": "ListItem", "position": 2, "name": label,
-             "item": f"{SITE}/{page['slug']}/"},
-        ],
-    }
+    return crumb_list(f"{SITE}/{page['slug']}/", [(label, f"{SITE}/{page['slug']}/")])
 
 
 def analytics_block():
@@ -707,15 +830,20 @@ def build():
         if page.get("path"):
             canonical = f"{SITE}/{page['path']}"
 
-        graph = [SCHEMA[k]() for k in page.get("schema", [])]
-        crumbs = breadcrumbs(page)
-        if crumbs:
-            graph.append(crumbs)
-        head_extra = ""
-        if graph:
-            blob = json.dumps({"@context": "https://schema.org", "@graph": graph},
-                              indent=None, separators=(",", ":"))
-            head_extra = f'<script type="application/ld+json">{blob}</script>'
+        extra = [SCHEMA[k]() for k in page.get("schema", [])
+                 if k not in ("org", "website")]
+        ptype = PAGE_TYPES.get(slug) or ("CollectionPage" if slug in COLLECTIONS
+                                         else "WebPage")
+        main = None
+        for n in extra:
+            if n.get("@type") in MAIN_ENTITY_TYPES:
+                n.setdefault("@id", canonical + "#main")
+                main = {"@id": n["@id"]}
+                break
+        head_extra = "" if page.get("robots", "").startswith("noindex") else ld_script(
+            page_graph(canonical, page["og"], page["desc"], page_type=ptype,
+                       modified=page_lastmod(page), crumbs=breadcrumbs(page),
+                       nodes=extra, main_entity=main))
 
         scripts = "".join(
             f'<script src="/assets/js/{name}.js" defer></script>' for name in page.get("js", []))
@@ -789,25 +917,34 @@ def build():
             _, _, n_ymd = _nz_dt(newer["drawnAt"])
             head_links += f'<link rel="next" href="{SITE}/results/{n_ymd}/{newer["id"]}/">'
 
-        ld = {"@context": "https://schema.org", "@graph": [{
+        dataset = {
             "@type": "Dataset",
+            "@id": canonical + "#dataset",
             "name": f"Keno NZ draw {did} - {day}",
             "description": f"Winning numbers for New Zealand Keno draw {did}, "
                            f"drawn {day} at {tod} NZ. Twenty numbers from 1 to 80.",
             "url": canonical,
             "temporalCoverage": d["drawnAt"],
+            "datePublished": ymd,
             "variableMeasured": "Winning numbers (20 drawn from 1-80)",
+            "measurementTechnique": "Read from Lotto NZ's published results and "
+                                    "validated before publication",
             "creator": {"@id": SITE + "/#org"},
-            "isBasedOn": {"@type": "Organization", "name": src_label},
+            "publisher": {"@id": SITE + "/#org"},
+            "isBasedOn": {"@type": "Organization", "name": src_label, "url": src_url},
+            "license": SITE + "/terms/",
+            "inLanguage": "en-NZ",
+            "keywords": ["Keno", "New Zealand", f"draw {did}", day],
             "isAccessibleForFree": True,
-        }, {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
-                {"@type": "ListItem", "position": 2, "name": "Results", "item": SITE + "/results/"},
-                {"@type": "ListItem", "position": 3, "name": f"Draw {did}", "item": canonical},
-            ],
-        }]}
+        }
+        crumbs = crumb_list(canonical, [("Results", SITE + "/results/"),
+                                        (f"Draw {did}", canonical)])
+        ld = page_graph(
+            canonical, f"Keno draw {did} - {day}",
+            f"Winning numbers for New Zealand Keno draw {did}, drawn {day} "
+            f"at {tod} NZ.",
+            page_type="ItemPage", modified=ymd, published=ymd, crumbs=crumbs,
+            nodes=[dataset], main_entity={"@id": canonical + "#dataset"})
 
         body = (
             '<div class="wrap">'
@@ -944,14 +1081,14 @@ def build():
             '<p><a href="/odds/">Back to the full odds tables</a></p>'
             '</div></div>'
         )
-        ld = {"@context": "https://schema.org", "@graph": [{
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
-                {"@type": "ListItem", "position": 2, "name": "Odds", "item": SITE + "/odds/"},
-                {"@type": "ListItem", "position": 3, "name": f"{spots} spot",
-                 "item": f"{SITE}/odds/{spots}-spot/"},
-            ]}]}
+        o_url = f"{SITE}/odds/{spots}-spot/"
+        ld = page_graph(
+            o_url, f"Keno {spots} spot odds",
+            f"Every prize division for a {spots} spot Keno ticket in New Zealand, "
+            f"with the real probability of each.",
+            modified=git_dates().get("src/pages/odds.html"),
+            crumbs=crumb_list(o_url, [("Odds", SITE + "/odds/"),
+                                      (f"{spots} spot", o_url)]))
         out = base_tpl
         for key in ("home", "check", "results", "stats", "howto", "odds", "tools",
                     "blog", "news", "about", "contact"):
@@ -977,7 +1114,9 @@ def build():
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "w", encoding="utf-8") as fh:
             fh.write(out)
-        urls_extra.append(f"odds/{spots}-spot/")
+        urls_extra.append((f"odds/{spots}-spot/",
+                           git_dates().get("src/pages/odds.html")
+                           or datetime.date.today().isoformat()))
     written.append("odds/<n>-spot/index.html  x10")
 
     # ---- statistics children ----
@@ -1124,13 +1263,12 @@ def build():
                     f'<p class="jump"><span class="jump-l">See also</span>{others}'
                     '<a href="/statistics/">Hot and cold</a></p>'
                     '</div></div>')
-            ld = {"@context": "https://schema.org", "@graph": [{
-                "@type": "BreadcrumbList", "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
-                    {"@type": "ListItem", "position": 2, "name": "Statistics",
-                     "item": SITE + "/statistics/"},
-                    {"@type": "ListItem", "position": 3, "name": title,
-                     "item": f"{SITE}/statistics/{slug}/"}]}]}
+            st_url = f"{SITE}/statistics/{slug}/"
+            ld = page_graph(
+                st_url, title, desc,
+                modified=latest_draw_ymd(),
+                crumbs=crumb_list(st_url, [("Statistics", SITE + "/statistics/"),
+                                           (title, st_url)]))
             out = base_tpl
             for key in ("home", "check", "results", "stats", "howto", "odds", "tools",
                         "blog", "news", "about", "contact"):
@@ -1154,7 +1292,9 @@ def build():
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             with open(dest, "w", encoding="utf-8") as fh:
                 fh.write(out)
-            urls_extra.append(f"statistics/{slug}/")
+            urls_extra.append((f"statistics/{slug}/",
+                               latest_draw_ymd()
+                               or datetime.date.today().isoformat()))
         written.append(f"statistics/<page>/index.html  x{len(stat_pages)}")
 
     # ---- blog posts and news articles ----
@@ -1162,26 +1302,48 @@ def build():
     for kind, cfg in SECTIONS.items():
         for a in _entries(kind):
             canonical = f"{SITE}/{kind}/{a['slug']}/"
-            ld = {"@context": "https://schema.org", "@graph": [{
+            img = (f"{SITE}/assets/img/articles/{a['slug']}.png"
+                   if os.path.exists(os.path.join(
+                       ROOT, "assets", "img", "articles", a["slug"] + ".png"))
+                   else None)
+            article = {
                 "@type": cfg["schema"],
+                "@id": canonical + "#article",
                 "headline": a["title"],
-                "description": a["summary"],
+                "description": a.get("metaDescription") or a["summary"],
                 "datePublished": a["date"],
                 "dateModified": a.get("updated", a["date"]),
                 "url": canonical,
-                "mainEntityOfPage": canonical,
+                # Point at the WebPage node rather than repeating the URL, so the
+                # article and the page it lives on are one connected thing.
+                "mainEntityOfPage": {"@id": canonical + "#webpage"},
+                "isPartOf": {"@id": canonical + "#webpage"},
                 "publisher": {"@id": SITE + "/#org"},
+                # Authored by the organisation, not a person - that is the actual
+                # editorial model here, and /authors/ says so in as many words.
                 "author": {"@id": SITE + "/#org"},
+                "creditText": "keno-results.co.nz",
+                "articleSection": cfg["label"],
+                "inLanguage": "en-NZ",
+                "wordCount": len(re.sub(r"<[^>]+>", " ", a.get("body", "")).split()),
                 "isAccessibleForFree": True,
-            }, {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
-                    {"@type": "ListItem", "position": 2, "name": cfg["label"],
-                     "item": f"{SITE}/{kind}/"},
-                    {"@type": "ListItem", "position": 3, "name": a["title"], "item": canonical},
-                ],
-            }]}
+            }
+            if a.get("tag"):
+                article["keywords"] = list(dict.fromkeys(
+                    [a["tag"], "Keno", "New Zealand"]))
+            if img:
+                article["image"] = {"@type": "ImageObject", "url": img,
+                                    "caption": "Illustration - AI-generated, "
+                                               "not a photograph"}
+            if not article["wordCount"]:
+                del article["wordCount"]
+            crumbs = crumb_list(canonical, [(cfg["label"], f"{SITE}/{kind}/"),
+                                            (a["title"], canonical)])
+            ld = page_graph(
+                canonical, a["title"], a.get("metaDescription") or a["summary"],
+                page_type="WebPage", modified=a.get("updated", a["date"]),
+                published=a["date"], crumbs=crumbs, nodes=[article],
+                main_entity={"@id": canonical + "#article"}, image=img)
             body = (
                 '<div class="wrap">'
                 '<div class="article-head">'
@@ -1250,27 +1412,28 @@ def build():
         written.append(f"{old}/index.html (-> {new})")
 
     # ---- sitemap ----
-    today = datetime.date.today().isoformat()
+    # <priority> and <changefreq> are gone: Google has ignored both for years,
+    # and a file that argues with the crawler about what matters is just noise.
+    # What is left is the one field it does read, and it is now true.
     urls = []
     for page in PAGES:
         if page.get("sitemap") is False:
             continue
         loc = SITE + "/" if not page["slug"] else f"{SITE}/{page['slug']}/"
-        prio = "1.0" if not page["slug"] else ("0.9" if page["slug"] in ("check", "results") else "0.7")
-        urls.append(f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod>"
-                    f"<priority>{prio}</priority></url>")
-    for extra in urls_extra:
-        urls.append(f"  <url><loc>{SITE}/{extra}</loc><lastmod>{today}</lastmod>"
-                    f"<priority>0.7</priority></url>")
+        urls.append(f"  <url><loc>{loc}</loc>"
+                    f"<lastmod>{page_lastmod(page)}</lastmod></url>")
+    for extra, mod in urls_extra:
+        urls.append(f"  <url><loc>{SITE}/{extra}</loc><lastmod>{mod}</lastmod></url>")
     for d in all_draws:
+        # A draw page is finished the moment the draw is published: the numbers
+        # cannot change, so its lastmod is the draw date, permanently.
         _, _, ymd = _nz_dt(d["drawnAt"])
         urls.append(f"  <url><loc>{SITE}/results/{ymd}/{d['id']}/</loc>"
-                    f"<lastmod>{ymd}</lastmod><priority>0.5</priority></url>")
+                    f"<lastmod>{ymd}</lastmod></url>")
     for kind in SECTIONS:
         for a in _entries(kind):
             urls.append(f"  <url><loc>{SITE}/{kind}/{a['slug']}/</loc>"
-                        f"<lastmod>{a.get('updated', a['date'])}</lastmod>"
-                        f"<priority>0.6</priority></url>")
+                        f"<lastmod>{a.get('updated', a['date'])}</lastmod></url>")
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n'
                  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
