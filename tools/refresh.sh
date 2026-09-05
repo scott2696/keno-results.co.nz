@@ -11,9 +11,12 @@ cd "$(dirname "$0")/.."
 python3 tools/fetch_draws.py --backfill "${BACKFILL:-40}"
 python3 tools/validate_draws.py          # non-zero exit aborts the run
 
-# Editorial pipeline. Both are best-effort: a failure here must never stop
-# results being published, so neither is allowed to fail the run.
-python3 tools/watch_news.py || echo "news watch skipped"
+# Editorial pipeline. All best-effort: a failure here must never stop results
+# being published, so none of these is allowed to fail the run.
+#   watch_news     - what the media is covering (headlines only, never bodies)
+#   fetch_official - what Lotto NZ itself has published, which we can source from
+python3 tools/watch_news.py     || echo "news watch skipped"
+python3 tools/fetch_official.py || echo "official releases skipped"
 python3 tools/auto_news.py  || echo "auto-news skipped"
 python3 tools/gen_images.py --limit 3 || echo "image generation skipped"
 

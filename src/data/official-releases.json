@@ -1,0 +1,91 @@
+{
+  "_note": "Lotto NZ's own media releases - the operator, not a news site. Titles, dates, links and standfirsts only: enough to cite and link a release. Article text is always written from scratch from the facts, never adapted from Lotto NZ's wording.",
+  "source": "https://mylotto.co.nz/media-releases",
+  "updated": "2026-09-05T11:48:31",
+  "releases": [
+    {
+      "title": "More Powerballs, more prizes coming 13 September",
+      "date": "2026-08-28",
+      "url": "https://mylotto.co.nz/news-and-press-releases/more-powerballs-more-prizes-coming-13-september",
+      "slug": "more-powerballs-more-prizes-coming-13-september",
+      "standfirst": "Lotto NZ has revealed fresh details of its Powerball overhaul, including information on the new prizes that will be up for grabs and confirmation of a launch on Sunday 13 September.",
+      "game": "powerball",
+      "topic": "format",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-05"
+    },
+    {
+      "title": "Calling all West Aucklanders – have you won $20 million?",
+      "date": "2026-08-19",
+      "url": "https://mylotto.co.nz/news-and-press-releases/calling-all-west-aucklanders-have-you-won-20-million",
+      "slug": "calling-all-west-aucklanders-have-you-won-20-million",
+      "standfirst": "Lotto NZ is calling on West Aucklanders to dig out and check their tickets – a huge $20 million Powerball prize won more than three weeks ago remains unclaimed.",
+      "game": "powerball",
+      "topic": "unclaimed",
+      "priority": 3,
+      "covered": false,
+      "seen": "2026-09-05"
+    },
+    {
+      "title": "Lotto NZ to delay release of winning ticket locations until next morning",
+      "date": "2026-07-06",
+      "url": "https://mylotto.co.nz/news-and-press-releases/lotto-nz-to-delay-release-of-winning-ticket-locations-until-next-morning",
+      "slug": "lotto-nz-to-delay-release-of-winning-ticket-locations-until-next-morning",
+      "standfirst": "Lotto NZ is giving players more time to check if they’re a big winner by delaying the release of winner location information until the morning after each draw.",
+      "game": "lotto",
+      "topic": "schedule",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-05"
+    },
+    {
+      "title": "More chances to win as Lotto NZ unveils changes to Powerball",
+      "date": "2026-03-24",
+      "url": "https://mylotto.co.nz/news-and-press-releases/more-chances-to-win-as-lotto-nz-unveils-changes-to-powerball",
+      "slug": "more-chances-to-win-as-lotto-nz-unveils-changes-to-powerball",
+      "standfirst": "Lotto NZ says new improvements to its flagship Powerball game will increase the number of prize divisions and the likelihood of winning a prize in each draw.",
+      "game": "powerball",
+      "topic": "format",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-05"
+    },
+    {
+      "title": "Ever wondered what happens behind the scenes of a live Lotto draw?",
+      "date": "2025-12-03",
+      "url": "https://mylotto.co.nz/news-and-press-releases/behind-the-scenes-of-a-live-lotto-draw",
+      "slug": "behind-the-scenes-of-a-live-lotto-draw",
+      "standfirst": "In our special feature with Seven Sharp, Hilary Barry steps inside the draw studio for an exclusive look at what really happens before those winning numbers appear on screen.",
+      "game": "lotto",
+      "topic": "general",
+      "priority": 5,
+      "covered": false,
+      "seen": "2026-09-05"
+    },
+    {
+      "title": "Lotto NZ returns near-record $395 million to community",
+      "date": "2025-11-12",
+      "url": "https://mylotto.co.nz/news-and-press-releases/lotto-nz-returns-near-record-395-million-dollars-to-community-121125",
+      "slug": "lotto-nz-returns-near-record-395-million-dollars-to-community-121125",
+      "standfirst": "A series of large Powerball jackpots sits behind the FY25 return, the second highest amount in the history of the Government-operated lottery.",
+      "game": "powerball",
+      "topic": "general",
+      "priority": 5,
+      "covered": false,
+      "seen": "2026-09-05"
+    },
+    {
+      "title": "Lotto NZ partners with NZ Team for Milano Cortina 2026 Olympic Winter Games",
+      "date": "2025-09-08",
+      "url": "https://mylotto.co.nz/news-and-press-releases/lotto-nz-partners-with-nz-team-for-milano-cortina-2026-080925",
+      "slug": "lotto-nz-partners-with-nz-team-for-milano-cortina-2026-080925",
+      "standfirst": "The New Zealand Team and Lotto NZ build on the momentum from their Paris 2024 campaign.",
+      "game": "lotto",
+      "topic": "general",
+      "priority": 5,
+      "covered": false,
+      "seen": "2026-09-05"
+    }
+  ]
+}
