@@ -12,8 +12,9 @@
       "game": "powerball",
       "topic": "format",
       "priority": 1,
-      "covered": false,
-      "seen": "2026-09-05"
+      "covered": true,
+      "seen": "2026-09-05",
+      "article": "/news/powerball-14-balls-division-8-changes-13-september/"
     },
     {
       "title": "Calling all West Aucklanders – have you won $20 million?",
