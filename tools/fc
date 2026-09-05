@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Firecrawl wrapper.
+#
+# The key lives in the macOS keychain, not in a file. This repo is public and
+# is itself the document root - every committed file is served at
+# keno-results.co.nz, and .nojekyll means dotfiles are served too - so a .env
+# here would have been a live, world-readable credential. Same pattern already
+# used for the Ralfy and Gemini keys.
+#
+#   tools/fc search "Lotto NZ keno rules"
+#   tools/fc scrape https://mylotto.co.nz/keno -o .firecrawl/keno.md
+#   tools/fc --status
+set -euo pipefail
+
+KEY="$(security find-generic-password -s firecrawl-api -w 2>/dev/null || true)"
+if [ -z "$KEY" ]; then
+  echo "No Firecrawl key in the keychain (service 'firecrawl-api')." >&2
+  echo "Add one with: security add-generic-password -U -s firecrawl-api -a \"\$USER\" -w '<key>'" >&2
+  exit 1
+fi
+export FIRECRAWL_API_KEY="$KEY"
+
+mkdir -p "$(dirname "$0")/../.firecrawl"
+exec npx -y firecrawl-cli@latest "$@"
