@@ -140,6 +140,35 @@ published results containing numbers from 81 to 90 for a game drawn from
 1 to 80, while its own guide correctly described the 1-80 range. Run the
 validator in CI before any deploy.
 
+## Article images
+
+`tools/gen_images.py` generates one header image per blog post and news article
+using Google's Gemini image model, reading the key from the macOS keychain
+(service `nano-banana-api`) or `GEMINI_API_KEY`. The key is never written to
+disk or committed.
+
+Generated **once per article** into `assets/img/articles/<slug>.png` and
+committed, so rebuilds cost nothing. Existing files are skipped unless
+`--force <slug>` names one. `--dry-run` prints prompts without calling the API.
+
+The prompt hard-bans people, faces, text, numbers, logos, photorealism, money
+and casino imagery, and pins the palette to the site's own colours. Output is
+abstract editorial illustration only, and every image carries a visible
+"Illustration - AI-generated, not a photograph" caption plus alt text saying
+the same.
+
+That constraint is deliberate. On a site whose whole position is verified data
+and named sources, an AI image that could pass for a photograph of a real draw
+or a real winner would undercut everything else on the page.
+
+Pages render fine with no image - the figure is simply omitted - so a failed or
+rate-limited generation never breaks a build.
+
+**Free-tier quota:** the Gemini free tier caps image requests per minute *and*
+per day. The script backs off and honours the API's own `retryDelay`, but once
+the daily cap is hit nothing more generates until it resets. Enable billing on
+the Google AI Studio project to lift it.
+
 ## Editorial automation
 
 Two scripts run from the refresh workflow.

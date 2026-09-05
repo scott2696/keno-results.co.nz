@@ -501,6 +501,15 @@ button.ball:disabled{cursor:not-allowed}
 .draw-id{font-family:var(--mono); font-size:13px; color:var(--ink-2)}
 @media (max-width:560px){ .hero{padding:18px} }
 
+/* Variable-length draws (Lotto, Powerball, Bullseye) centre as flex; the fixed
+   10-column grid above is only right when there are exactly 20 balls. */
+[data-game-latest] .balls{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:10px; margin:6px auto 0; max-width:none;
+}
+[data-game-latest] .balls .ball{--sz:46px; width:var(--sz); aspect-ratio:auto; flex:0 0 var(--sz)}
+@media (max-width:560px){ [data-game-latest] .balls .ball{--sz:40px; font-size:15px} }
+
 /* provenance strip */
 .prov{display:flex; flex-wrap:wrap; gap:9px 22px; align-items:center; justify-content:center; margin-top:24px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
 .prov strong{color:var(--ink-2); font-weight:600}
@@ -581,6 +590,20 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .empty{text-align:center; padding:36px 20px; border:1px dashed var(--line-2); border-radius:var(--r-lg); background:var(--surface-2)}
 .empty h3{margin:0 0 8px; font-size:17px}
 .empty p{max-width:52ch; margin:0 auto 4px; color:var(--muted); font-size:14px}
+
+/* ---------- article header image ---------- */
+.article-img{margin:30px auto 0; max-width:900px}
+.article-img figure{margin:0}
+.article-img img{
+  display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover;
+  border-radius:var(--r-xl); border:1px solid var(--line);
+  box-shadow:var(--shadow-2); background:var(--surface-2);
+}
+.article-img figcaption{
+  margin-top:9px; text-align:center;
+  font-family:var(--mono); font-size:10.5px; text-transform:uppercase;
+  letter-spacing:.11em; color:var(--muted);
+}
 
 /* ---------- news ---------- */
 .news-list{list-style:none; margin:0; padding:0; display:grid; gap:16px}

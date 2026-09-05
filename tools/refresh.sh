@@ -15,6 +15,7 @@ python3 tools/validate_draws.py          # non-zero exit aborts the run
 # results being published, so neither is allowed to fail the run.
 python3 tools/watch_news.py || echo "news watch skipped"
 python3 tools/auto_news.py  || echo "auto-news skipped"
+python3 tools/gen_images.py --limit 3 || echo "image generation skipped"
 
 python3 tools/build.py > /dev/null
 
