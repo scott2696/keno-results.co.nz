@@ -243,8 +243,11 @@
       modal.classList.remove('is-in');
       document.removeEventListener('keydown', onKey);
       document.documentElement.style.overflow = '';
-      window.setTimeout(function () { modal.hidden = true; showNotice(); }, 300);
-      if (opener && opener.focus) opener.focus();
+      window.setTimeout(function () {
+        modal.hidden = true;
+        showNotice();
+        if (opener && opener.focus && opener !== document.body) opener.focus();
+      }, 300);
     }
 
     function showNotice() {
@@ -266,5 +269,59 @@
 
     var timer = window.setTimeout(open, 1400);
     window.addEventListener('pagehide', function () { window.clearTimeout(timer); });
+  }());
+
+  /* ---------- bonus box ----------
+     Opens the three partner offers from the nav. Same dialog contract as the
+     welcome modal: focus in and trapped, Escape and backdrop close, focus
+     returned, scroll locked. The attention dot on the trigger stops for good
+     once the box has been opened - a badge that never goes away is just noise.
+  */
+  (function () {
+    var box = document.getElementById('bonus-box');
+    var btn = document.querySelector('[data-bb-open]');
+    if (!box || !btn) return;
+
+    var panel = box.querySelector('.bb-panel');
+    var opener = null;
+    var SEEN = 'bonusbox-seen';
+    try { if (localStorage.getItem(SEEN) === '1') btn.classList.add('is-seen'); } catch (e) {}
+
+    function onKey(e) {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = panel.querySelectorAll('a[href],button:not([disabled])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    function open() {
+      opener = document.activeElement;
+      box.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      window.requestAnimationFrame(function () { box.classList.add('is-in'); });
+      var x = panel.querySelector('.bb-x');
+      if (x) x.focus({ preventScroll: true });
+      document.addEventListener('keydown', onKey);
+      btn.classList.add('is-seen');
+      try { localStorage.setItem(SEEN, '1'); } catch (e) { /* private mode */ }
+    }
+    function close() {
+      box.classList.remove('is-in');
+      document.removeEventListener('keydown', onKey);
+      document.documentElement.style.overflow = '';
+      window.setTimeout(function () {
+        box.hidden = true;
+        /* after the panel is gone, not before - focusing into a node that is
+           still on screen and about to be hidden loses the focus again */
+        var back = (opener && opener.focus && opener !== document.body) ? opener : btn;
+        if (back && back.focus) back.focus();
+      }, 300);
+    }
+
+    btn.addEventListener('click', open);
+    Array.prototype.forEach.call(box.querySelectorAll('[data-bb-close]'),
+      function (el) { el.addEventListener('click', close); });
   }());
 })();

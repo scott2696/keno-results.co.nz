@@ -1374,6 +1374,140 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
   .promo-cta:hover{transform:none}
 }
 
+/* ---------- bonus box ----------
+   A nav trigger that opens the three partner offers in one panel.
+
+   Deliberately not dressed as a loot box. On a gambling site a "mystery"
+   reveal implies you have won something, and nothing here is won - these are
+   the same paid placements already on the page. So the flourish is in the
+   motion (the cards deal in, staggered) while the words stay factual: the
+   panel says Advertisement, says what it is, and says it is not a prize draw.
+   Exciting to open, impossible to misread.
+   ---------------------------------------------------------------------- */
+.bonus-btn{
+  position:relative; display:inline-flex; align-items:center; gap:8px;
+  padding:9px 14px 9px 12px; border-radius:var(--r-full); cursor:pointer;
+  font:inherit; font-size:13.5px; font-weight:600; letter-spacing:-.01em;
+  color:#F0C14B;                                   /* 10.3:1 on the masthead */
+  background:rgba(240,193,75,.10);
+  border:1px solid rgba(240,193,75,.34);
+  transition:background .2s ease, border-color .2s ease, transform .18s ease;
+}
+.bonus-btn svg{width:17px; height:17px; flex:0 0 auto}
+.bonus-btn:hover{background:rgba(240,193,75,.18); border-color:rgba(240,193,75,.6); transform:translateY(-1px)}
+.bonus-btn:active{transform:translateY(0)}
+.bonus-btn:focus-visible{outline:2px solid #F0C14B; outline-offset:2px}
+/* one small signal that there is something to open, then it stops */
+.bonus-dot{
+  position:absolute; top:-2px; right:-2px; width:8px; height:8px; border-radius:50%;
+  background:#F0C14B; box-shadow:0 0 0 2px var(--head);
+}
+.bonus-dot::after{
+  content:""; position:absolute; inset:0; border-radius:50%; background:inherit;
+  animation:bb-ping 2.6s cubic-bezier(0,0,.2,1) 6;
+}
+@keyframes bb-ping{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(2.6);opacity:0}}
+.bonus-btn.is-seen .bonus-dot{display:none}
+
+.bb-modal{position:fixed; inset:0; z-index:210; display:grid; place-items:center; padding:18px}
+.bb-modal[hidden]{display:none}
+.bb-backdrop{
+  position:absolute; inset:0; background:rgba(6,8,14,.76);
+  -webkit-backdrop-filter:blur(9px); backdrop-filter:blur(9px);
+  opacity:0; transition:opacity .3s ease;
+}
+.bb-modal.is-in .bb-backdrop{opacity:1}
+.bb-panel{
+  position:relative; width:min(940px,100%); max-height:calc(100vh - 36px); overflow-y:auto;
+  padding:30px 30px 24px; border-radius:24px; text-align:center;
+  background:radial-gradient(120% 70% at 50% -10%, #1B2230 0%, transparent 60%), #0E121A;
+  border:1px solid rgba(240,193,75,.20);
+  box-shadow:0 40px 90px -22px rgba(0,0,0,.8), 0 1px 0 rgba(255,255,255,.10) inset;
+  transform:translateY(16px) scale(.97); opacity:0;
+  transition:transform .42s cubic-bezier(.16,1,.3,1), opacity .3s ease;
+}
+.bb-modal.is-in .bb-panel{transform:none; opacity:1}
+.bb-x{
+  position:absolute; top:12px; right:12px; z-index:2; width:34px; height:34px;
+  display:grid; place-items:center; border-radius:50%; cursor:pointer;
+  border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06); color:#C9CEDA;
+  transition:background .18s ease, color .18s ease, transform .18s ease;
+}
+.bb-x svg{width:15px; height:15px}
+.bb-x:hover{background:rgba(255,255,255,.14); color:#fff; transform:rotate(90deg)}
+.bb-flag{position:absolute; top:17px; left:20px; font-size:9.5px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:#7C879B}
+.bb-eyebrow{margin:12px 0 6px; font-size:10.5px; font-weight:600; letter-spacing:.20em;
+  text-transform:uppercase; color:#F0C14B}
+.bb-title{margin:0; font-size:clamp(24px,4vw,32px); font-weight:670; letter-spacing:-.03em; color:#fff}
+.bb-lede{margin:10px auto 0; max-width:52ch; font-size:14px; line-height:1.55; color:#A7B0C0}
+
+.bb-grid{list-style:none; margin:26px 0 0; padding:0; display:grid; gap:16px;
+  grid-template-columns:repeat(3,1fr)}
+.bb-card{
+  position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center;
+  padding:22px 18px 18px; border-radius:18px; text-align:center;
+  background:linear-gradient(180deg, var(--c-base) 0%, var(--c-deep) 100%);
+  border:1px solid color-mix(in srgb, var(--c-accent) 26%, transparent);
+  box-shadow:0 12px 30px -14px rgba(0,0,0,.9);
+  opacity:0; transform:translateY(14px);
+}
+.bb-modal.is-in .bb-card{
+  animation:bb-deal .5s cubic-bezier(.16,1,.3,1) forwards;
+  animation-delay:calc(.16s + var(--i) * .09s);
+}
+@keyframes bb-deal{to{opacity:1; transform:none}}
+.bb-card::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--c-accent), transparent);
+}
+.bb-kind{font-size:9.5px; font-weight:600; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--c-accent); margin-bottom:12px}
+.bb-logo{height:30px; width:auto; margin:0 0 14px; display:block}
+.bb-amount{font-size:clamp(28px,4vw,34px); font-weight:680; letter-spacing:-.035em;
+  line-height:1; color:#fff}
+.bb-sub{margin-top:8px; font-size:12.5px; line-height:1.45; color:#B6BECC}
+.bb-points{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:5px;
+  font-size:11.5px; color:#98A1B2}
+.bb-cta{
+  margin-top:auto; padding-top:0;
+  display:flex; align-items:center; justify-content:center; gap:7px; width:100%;
+  margin-block-start:18px; padding:12px 16px; border-radius:999px;
+  font-size:14px; font-weight:640; color:#fff; text-decoration:none;
+  background:linear-gradient(100deg, var(--c-cta-a), var(--c-cta-b));
+  background-size:180% 100%;
+  box-shadow:0 10px 24px -10px color-mix(in srgb, var(--c-cta-a) 80%, transparent);
+  transition:background-position .4s ease, transform .18s ease;
+}
+.bb-cta svg{width:16px; height:16px; transition:transform .22s ease}
+.bb-cta:hover{color:#fff; background-position:100% 0; transform:translateY(-1px)}
+.bb-cta:hover svg{transform:translateX(3px)}
+.bb-fine{margin:20px 0 0; font-size:11px; line-height:1.55; color:#8E97A8}
+.bb-fine a{color:#B4BCCA} .bb-fine a:hover{color:#fff}
+.bb-panel :focus-visible{outline:2px solid #F0C14B; outline-offset:2px}
+
+@media (max-width:860px){
+  .bb-grid{grid-template-columns:1fr; gap:12px}
+  .bb-card{flex-direction:row; flex-wrap:wrap; align-items:center; text-align:left;
+    padding:16px; gap:0 14px}
+  .bb-kind{order:1; flex:1 1 100%; margin-bottom:8px}
+  .bb-logo{order:2; height:26px; margin:0}
+  .bb-amount{order:3; font-size:26px; margin-left:auto}
+  .bb-sub{order:4; flex:1 1 100%; margin-top:6px}
+  .bb-points{display:none}
+  .bb-cta{order:5; margin-block-start:14px}
+  .bb-panel{padding:24px 18px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  .bb-backdrop,.bb-panel,.bb-cta{transition:none}
+  .bb-panel{transform:none}
+  .bb-modal.is-in .bb-card{animation:none; opacity:1; transform:none}
+  .bonus-dot::after{animation:none}
+  .bb-x:hover,.bb-cta:hover,.bonus-btn:hover{transform:none}
+}
+/* the label collapses first; the icon and its dot stay visible on a phone */
+@media (max-width:1080px){ .bonus-btn-t{display:none} .bonus-btn{padding:9px 11px} }
+
 /* ---------- misc ---------- */
 .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
 @media (max-width:760px){ .grid-2{grid-template-columns:1fr} }

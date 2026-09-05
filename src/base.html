@@ -59,6 +59,17 @@
     </nav>
 
     <div class="head-actions">
+      <!-- Bonus box. Amber so it reads against the green bar without competing
+           with the primary CTA beside it, which stays the loudest thing here. -->
+      <button class="bonus-btn" type="button" data-bb-open
+              aria-haspopup="dialog" aria-controls="bonus-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+        </svg>
+        <span class="bonus-btn-t">Bonus box</span>
+        <span class="bonus-dot" aria-hidden="true"></span>
+      </button>
       <a class="btn btn-primary" href="/check/">Check my numbers</a>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
         <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -224,6 +235,7 @@
     </div>
   </div>
 </div>
+{bonusbox}
 {analytics}
 </body>
 </html>

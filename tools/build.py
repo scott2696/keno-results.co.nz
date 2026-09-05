@@ -812,6 +812,58 @@ def page_deco(key):
     return "abcd"[int(hashlib.sha1(key.encode()).hexdigest(), 16) % 4]
 
 
+def bonusbox_block():
+    """The three partner offers, rendered from offers.json.
+
+    Built from the data rather than typed into base.html, so the box and the
+    rails can never disagree about what an operator is offering - which is the
+    kind of drift that turns an affiliate page into a liability."""
+    offers = [o for o in _load_offers() if o.get("active", True)]
+    if not offers:
+        return ""
+    cards = []
+    for i, o in enumerate(offers[:3]):
+        t = o.get("theme", {})
+        style = (
+            "--c-deep:%s;--c-base:%s;--c-accent:%s;--c-cta-a:%s;--c-cta-b:%s;--i:%d"
+            % (t.get("deep", "#12161D"), t.get("base", "#1A1F29"),
+               t.get("cyan", "#E9B44C"), t.get("ctaFrom", "#0A6E3C"),
+               t.get("ctaTo", "#085A31"), i))
+        pts = "".join("<li>%s</li>" % p for p in (o.get("points") or [])[:3])
+        cards.append(
+            f'<li class="bb-card" style="{style}">'
+            f'<span class="bb-kind">{html.escape(o.get("kind", "Offer"))}</span>'
+            f'<img class="bb-logo" src="{o["logo"]}" alt="{html.escape(o["name"])}" '
+            f'loading="lazy" decoding="async">'
+            f'<span class="bb-amount">{o.get("amount", "")}</span>'
+            f'<span class="bb-sub">{o.get("amountSub", "")}</span>'
+            f'<ul class="bb-points">{pts}</ul>'
+            f'<a class="bb-cta" href="{o["url"]}" target="_blank" '
+            f'rel="sponsored nofollow noopener">{html.escape(o.get("cta", "Claim bonus"))}'
+            f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            f'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" '
+            f'aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>'
+            f'</li>')
+    return (
+        '<div class="bb-modal" id="bonus-box" hidden>'
+        '<div class="bb-backdrop" data-bb-close></div>'
+        '<div class="bb-panel" role="dialog" aria-modal="true" aria-labelledby="bb-title">'
+        '<button class="bb-x" type="button" data-bb-close aria-label="Close">'
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+        '</button>'
+        '<span class="bb-flag">Advertisement</span>'
+        '<p class="bb-eyebrow">Bonus box</p>'
+        f'<h2 class="bb-title" id="bb-title">{len(cards)} welcome offers</h2>'
+        '<p class="bb-lede">From the operators we carry. Not a prize draw &mdash; '
+        'these are the same paid placements you see on the page, in one place.</p>'
+        f'<ul class="bb-grid">{"".join(cards)}</ul>'
+        '<p class="bb-fine">18+. New players only. T&amp;Cs apply. Paid placements '
+        '&mdash; we earn a commission if you sign up. Gamble responsibly: '
+        '<a href="/responsible-gambling/">know the signs</a>.</p>'
+        '</div></div>')
+
+
 def analytics_block():
     """Cloudflare Web Analytics, or nothing at all.
 
@@ -832,7 +884,7 @@ def analytics_block():
 
 
 def build():
-    base = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block())
+    base = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block())
     written = []
 
     for page in PAGES:
@@ -899,7 +951,7 @@ def build():
     urls_extra = []
     feed = _draws()
     all_draws = feed.get("draws", [])
-    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block())
+    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block())
     src_label = feed.get("source") or "Lotto NZ"
     src_url = feed.get("sourceUrl") or "https://mylotto.co.nz/results/keno"
 
@@ -1319,7 +1371,7 @@ def build():
         written.append(f"statistics/<page>/index.html  x{len(stat_pages)}")
 
     # ---- blog posts and news articles ----
-    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block())
+    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block())
     for kind, cfg in SECTIONS.items():
         for a in _entries(kind):
             canonical = f"{SITE}/{kind}/{a['slug']}/"

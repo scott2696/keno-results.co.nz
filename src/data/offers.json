@@ -8,7 +8,25 @@
       "bonus": "Welcome bonus <b>390% up to NZ$3,700</b> + 175 free spins",
       "cta": "Claim bonus",
       "active": true,
-      "placement": "inline"
+      "placement": "inline",
+      "theme": {
+        "deep": "#160A28",
+        "base": "#22103A",
+        "raised": "#31174F",
+        "violet": "#C084FC",
+        "cyan": "#E9B44C",
+        "ctaFrom": "#7C3AED",
+        "ctaTo": "#A21CAF",
+        "style": "royal"
+      },
+      "amount": "390%",
+      "amountSub": "up to NZ$3,700<br>+ 175 free spins",
+      "points": [
+        "Slots &amp; jackpots",
+        "Live dealer",
+        "Fast payouts"
+      ],
+      "kind": "Casino"
     },
     {
       "name": "SpinJo",
@@ -34,7 +52,8 @@
         "Jackpots &amp; Drops"
       ],
       "amount": "NZ$5,000",
-      "amountSub": "welcome bonus<br>+ 300 free spins"
+      "amountSub": "welcome bonus<br>+ 300 free spins",
+      "kind": "Casino"
     },
     {
       "name": "Rooster.Bet",
@@ -60,7 +79,9 @@
       },
       "active": true,
       "amount": "NZ$200",
-      "amountSub": "free bet<br>100% matched"
+      "amountSub": "free bet<br>100% matched",
+      "kind": "Sports betting",
+      "bonus": "Free bet <b>100% up to NZ$200</b>"
     }
   ]
 }
