@@ -1,0 +1,48 @@
+# Keno draws about 4x/day (10:01, 13:01, 15:01, 18:01 NZ). We run shortly after
+# each, in UTC. NZ is +12 (NZST) or +13 (NZDT), so each draw is covered by two
+# cron lines - one for each offset. Re-running when nothing is new is a no-op.
+on:
+  schedule:
+    - cron: '20 21 * * *'   # 10:01 NZDT / 09:20 NZST-ish
+    - cron: '20 22 * * *'   # 10:01 NZST
+    - cron: '20  0 * * *'   # 13:01 NZDT
+    - cron: '20  1 * * *'   # 13:01 NZST
+    - cron: '20  2 * * *'   # 15:01 NZDT
+    - cron: '20  3 * * *'   # 15:01 NZST
+    - cron: '20  5 * * *'   # 18:01 NZDT
+    - cron: '20  6 * * *'   # 18:01 NZST
+  workflow_dispatch:         # allow a manual run from the Actions tab
+
+concurrency:
+  group: refresh-results
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest draws
+        run: python3 tools/fetch_draws.py --backfill 40
+
+      - name: Validate before publishing
+        run: python3 tools/validate_draws.py
+
+      - name: Rebuild pages
+        run: python3 tools/build.py
+
+      - name: Commit if anything changed
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No new draws - nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Refresh draw results ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+          git push
