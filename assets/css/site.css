@@ -298,12 +298,45 @@ body[data-art="d"]::after{background-position:left 4% top 66px, right -12% top, 
   background-image:radial-gradient(130% 190% at 14% 0%, #1B4A33 0%, transparent 64%);
   border-bottom:none;
 }
-/* one hairline, the accent at low opacity, to part the bar from the page */
+/* The rule under the bar, in the same burnt orange as the wedge. Two layers,
+   not one: a hairline for the edge itself, and a soft 5px bloom under it so
+   the bar reads as shaded off the page rather than ruled off it. The line
+   fades at both ends so it never terminates hard against the viewport. */
 .site-head::after{
-  content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
-  background:linear-gradient(90deg,
-    transparent 0%, rgba(59,220,140,.14) 22%, rgba(59,220,140,.30) 50%,
-    rgba(59,220,140,.14) 78%, transparent 100%);
+  content:""; position:absolute; left:0; right:0; bottom:-5px; height:6px;
+  background:
+    linear-gradient(90deg, transparent 0%,
+      color-mix(in srgb, var(--slash-a) 60%, transparent) 14%,
+      var(--slash-a) 50%,
+      color-mix(in srgb, var(--slash-a) 60%, transparent) 86%, transparent 100%)
+      top/100% 1px no-repeat,
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--slash-a) 34%, transparent) 0%,
+      transparent 100%);
+  pointer-events:none;
+}
+/* The wedge lands on one side or the other, so the rule leans that way too -
+   the two read as one gesture instead of two unrelated orange marks. */
+body[data-art="c"] .site-head::after{
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--slash-a) 85%, transparent) 0%,
+      var(--slash-a) 26%,
+      color-mix(in srgb, var(--slash-a) 45%, transparent) 68%, transparent 100%)
+      top/100% 1px no-repeat,
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--slash-a) 34%, transparent) 0%, transparent 100%);
+}
+body[data-art="a"] .site-head::after,
+body[data-art="b"] .site-head::after{
+  background:
+    linear-gradient(90deg, transparent 0%,
+      color-mix(in srgb, var(--slash-a) 45%, transparent) 32%,
+      var(--slash-a) 74%,
+      color-mix(in srgb, var(--slash-a) 85%, transparent) 100%)
+      top/100% 1px no-repeat,
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--slash-a) 34%, transparent) 0%, transparent 100%);
 }
 .site-head{transition:box-shadow .18s ease}
 .site-head.is-stuck{box-shadow:0 8px 24px -10px rgba(0,0,0,.45)}
