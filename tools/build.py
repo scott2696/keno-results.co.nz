@@ -1184,10 +1184,16 @@ def build():
                         "blog", "news", "about", "contact"):
                 out = out.replace("{c_%s}" % key,
                                   ' aria-current="page"' if key == kind else "")
+            # A headline plus " | keno-results.co.nz" runs past what Google will
+            # render, and a truncated brand is worse than no brand - the site name
+            # is already in the schema. Long headlines carry themselves.
+            head = html.escape(a.get("seoTitle") or a["title"])
+            page_title = head if len(head) > 46 else head + " | keno-results.co.nz"
             out = (out
-                   .replace("{title}", html.escape(a["title"]) + " | keno-results.co.nz")
+                   .replace("{title}", page_title)
                    .replace("{og_title}", html.escape(a["title"]))
-                   .replace("{description}", html.escape(a["summary"]))
+                   .replace("{description}",
+                            html.escape(a.get("metaDescription") or a["summary"]))
                    .replace("{canonical}", canonical)
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
