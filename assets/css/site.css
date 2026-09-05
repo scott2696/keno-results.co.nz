@@ -6,143 +6,155 @@
    ========================================================================== */
 
 :root{
-  /* neutrals - green-biased ink, derived from the brand mark, not navy */
-  --ground:#F7F1E9;      /* warm alabaster - the lit plaster wall */
-  --surface:#FFFFFF;     /* cards stay pure white and lift off it */
-  --surface-2:#F5EFE7;
-  --surface-3:#EDE5DA;
-  --ink:#0C1410;
-  --ink-2:#3A3A34;
-  --muted:#5C625B;
-  --line:#E9E0D4;
-  --line-2:#DACFC0;
+  /* ------------------------------------------------------------------
+     Neutrals. Cool, near-achromatic paper with a faint blue cast. The old
+     ground was warm cream under four stacked orange washes, which mixed to
+     a nicotine tone - the thing that read as "ill". Cool neutrals also let
+     one saturated accent do all the talking instead of competing with the
+     ground for attention.
+     ------------------------------------------------------------------ */
+  --ground:#F6F7F9;
+  --surface:#FFFFFF;
+  --surface-2:#F1F3F6;
+  --surface-3:#E8EBF0;
+  --ink:#0A0E14;         /* 18.0:1 on ground */
+  --ink-2:#2C333D;       /* 11.9:1 */
+  --muted:#5A6472;       /*  5.6:1 - AA at any size, not a whisper */
+  --line:#E4E7EC;        /* 1.16:1 - a hairline should be felt, not read */
+  --line-2:#D5DAE2;
 
-  /* accent - emerald, darkened from the logo's #009C30 to clear WCAG AA */
-  --accent:#0A6E3C;
+  /* accent - the logo's emerald, darkened to clear AA on both paper and white */
+  --accent:#0A6E3C;      /* 5.92:1 on ground */
   --accent-hover:#085A31;
-  --accent-soft:#E8F1EA;
-  --accent-line:#BCD8C6;
+  --accent-soft:#F0F6F2;
+  --accent-line:#CBDFD3;
   --on-accent:#FFFFFF;
 
-  /* live signal - the logo's orange triangle. One meaning only: drawing now. */
-  --live:#A84E1E;
-  --live-soft:#FBEFE7;
-  --live-line:#EFCDB4;
+  /* live signal - one meaning only: a draw is happening now */
+  --live:#A8481C;
+  --live-soft:#FCF6F2;
+  --live-line:#E8D2C4;
 
+  /* ------------------------------------------------------------------
+     Decade bands. Previously eight fully saturated jewel hues (avg chroma
+     64); twenty on screen at once read as confetti. Chroma is now 43 - low
+     enough to read as one designed family, high enough that adjacent bands
+     stay tellable apart. Both were measured: L* spread 6.7, and minimum
+     adjacent deltaE 13.8, above the ~12 where two colours stop being
+     distinguishable. A first pass at chroma 25 looked refined in isolation
+     and read as mud in a row of twenty - deltaE had fallen to 8.2.
+     Every band carries white numerals at 7.1:1 or better, so the whole set
+     is AAA where the original sat at 6.8 and failed.
+     ------------------------------------------------------------------ */
+  --b1:#126447;   /*  1-10  evergreen */
+  --b2:#0E5D6F;   /* 11-20  teal      */
+  --b3:#15568A;   /* 21-30  steel     */
+  --b4:#284791;   /* 31-40  indigo    */
+  --b5:#453B92;   /* 41-50  violet    */
+  --b6:#662F88;   /* 51-60  plum      */
+  --b7:#852764;   /* 61-70  magenta   */
+  --b8:#8D3E27;   /* 71-80  clay      */
+  --ball-num:#FFFFFF;
 
-  /* Metals. Obsidian tokens with a champagne rim - the ball is the same
-     object in both themes; the rim carries its edge on either ground
-     (8.59:1 on the dark page), so the fill never has to shout. */
-  --ball-a:#28322B;      /* ball, top of the sphere */
-  --ball-b:#0E1512;      /* ball, base */
-  --ball-num:#F4F0E6;    /* warm off-white numerals, 14:1 on the fill */
-  /* Royal bands - deep jewel tones, one per ten. Each carries cream
-     numerals at 6-7:1 and keeps the champagne rim, so they read as enamelled
-     tokens rather than sweets. */
-  --b1:#02693E;   /*  1-10  emerald    */
-  --b2:#006570;   /* 11-20  deep teal  */
-  --b3:#0658B7;   /* 21-30  sapphire   */
-  --b4:#1E3FB8;   /* 31-40  royal blue */
-  --b5:#6321C4;   /* 41-50  royal purple */
-  --b6:#A300A3;   /* 51-60  amethyst   */
-  --b7:#B8002E;   /* 61-70  ruby       */
-  --b8:#9E3A00;   /* 71-80  terracotta */
-
-  /* terracotta, sampled from the reference - used sparingly */
-  --terra:#C6642F;
-  --terra-deep:#A84E1E;
-  --terra-lift:#E08A4E;
-
-  --gold:#C9A961;
-  --gold-hi:#E8D5A3;
-  --gold-lo:#8A6E33;
-  --gold-ink:#17120A;
-  --ball-ink-on:#0C1410;
-
-  /* masthead - identical in both themes on purpose */
-  --head:#123326;
-  --head-2:#1B4531;
-  --head-ink:#E8F1EB;
-  --head-muted:#9DB5A6;
+  /* masthead - a near-black with a green cast, not a green bar. Same in
+     both themes: it is the one fixed point on the page. */
+  --head:#0C1E17;
+  --head-2:#123227;
+  --head-ink:#EAF2EE;
+  --head-muted:#8FA69A;
   --head-accent:#3BDC8C;
   --head-on-accent:#04140B;
 
-  /* hot / cold - semantic, deliberately not the brand accent and not --live */
+  /* hot / cold - semantic, deliberately neither the accent nor --live */
   --hot:#A8321C;
-  --hot-soft:#FBEAE6;
-  --hot-line:#EFC4BA;
+  --hot-soft:#FCF3F1;
+  --hot-line:#EBCFC8;
   --cold:#1B5E8A;
-  --cold-soft:#E7F0F7;
-  --cold-line:#BBD5E8;
+  --cold-soft:#EFF4F9;
+  --cold-line:#CBDDEC;
 
-  /* balls */
   --ball-face:#FFFFFF;
-  --ball-line:#D3DBD6;
-  --ball-ink:#0C1410;
-  --shadow-tint:rgba(12,20,16,.22);
+  --ball-line:#DCE1E8;
+  --ball-ink:#0A0E14;
+  --shadow-tint:rgba(10,14,20,.20);
 
-  /* shadows carry a little warmth so cards sit in the light, not on it */
-  --shadow-1:0 1px 2px rgba(74,44,24,.07), 0 1px 1px rgba(74,44,24,.05);
-  --shadow-2:0 6px 18px -4px rgba(74,44,24,.11), 0 2px 5px -1px rgba(74,44,24,.06);
-  --shadow-3:0 16px 40px -10px rgba(74,44,24,.18), 0 5px 10px -3px rgba(74,44,24,.08);
+  /* Shadows are neutral and tight. A premium surface sits a millimetre off
+     the page, not a centimetre - the old warm-brown blur read as haze. */
+  --shadow-1:0 1px 2px rgba(10,14,20,.05), 0 1px 1px rgba(10,14,20,.04);
+  --shadow-2:0 4px 12px -2px rgba(10,14,20,.07), 0 2px 4px -1px rgba(10,14,20,.05);
+  --shadow-3:0 14px 34px -10px rgba(10,14,20,.14), 0 4px 8px -3px rgba(10,14,20,.06);
+  --ring:0 0 0 3px rgba(10,110,60,.16);
 
-  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-full:999px;
+  --r-sm:5px; --r-md:9px; --r-lg:13px; --r-xl:18px; --r-full:999px;
 
+  /* One family, disciplined by weight and tracking rather than by mixing
+     faces. This is the register the reference products work in. */
   --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  --display:'Archivo','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --display:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 
   --wrap:980px;
-  --rail:200px;      /* promotional side rails */
+  --rail:200px;
   --logo:url("/assets/img/logo.png");
   --logo-2x:url("/assets/img/logo@2x.png");
   color-scheme:light;
 }
 
+/* Dark redefines tokens only. Ground is a true slate black, not a green one:
+   the green now lives in the accent and the masthead, where it means something. */
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --ground:#0A0F0C; --surface:#121814; --surface-2:#1A221D; --surface-3:#232D27;
-    --ink:#EAF0EC; --ink-2:#C3CFC8; --muted:#93A199; --line:#232D27; --line-2:#313D36;
-    --accent:#34D183; --accent-hover:#4ADE94; --accent-soft:#122A1E; --accent-line:#1E4633;
+    --ground:#0B0E13; --surface:#12161D; --surface-2:#171C25; --surface-3:#202631;
+    --ink:#E8ECF2; --ink-2:#C3CBD6; --muted:#8B95A5; --line:#1F252F; --line-2:#2B323E;
+    --accent:#34D399; --accent-hover:#5EE7B4; --accent-soft:#0E2A1F; --accent-line:#1C4634;
     --on-accent:#04120A;
-    --live:#E08A4E; --live-soft:#2A1810; --live-line:#4C2E1B;
+    --live:#E09257; --live-soft:#2A1A10; --live-line:#4C321B;
     --hot:#FF8A62; --hot-soft:#2B1610; --hot-line:#4E281C;
     --cold:#6FB9E8; --cold-soft:#0E2130; --cold-line:#1E3C52;
-    --ball-face:#1A221D; --ball-line:#313D36; --ball-ink:#EAF0EC;
+    /* darker than the light set, not lighter: on a dark ground the ball still
+       has to carry white numerals. Verified 7.11:1 minimum, and 2.27:1
+       against the page so the token itself stays visible. */
+    --b1:#176448; --b2:#125D71; --b3:#225988; --b4:#334D8C; --b5:#4B428E;
+    --b6:#683788; --b7:#842E65; --b8:#8A4326;
+    --ball-face:#171C25; --ball-line:#2B323E; --ball-ink:#E8ECF2;
     --shadow-tint:rgba(0,0,0,.6);
     --shadow-1:0 1px 2px rgba(0,0,0,.40);
     --shadow-2:0 4px 12px -2px rgba(0,0,0,.50);
-    --shadow-3:0 12px 32px -8px rgba(0,0,0,.60);
+    --shadow-3:0 14px 34px -10px rgba(0,0,0,.60);
+    --ring:0 0 0 3px rgba(52,211,153,.22);
     --logo:url("/assets/img/logo-dark.png");
     --logo-2x:url("/assets/img/logo-dark@2x.png");
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0A0F0C; --surface:#121814; --surface-2:#1A221D; --surface-3:#232D27;
-  --ink:#EAF0EC; --ink-2:#C3CFC8; --muted:#93A199; --line:#232D27; --line-2:#313D36;
-  --accent:#34D183; --accent-hover:#4ADE94; --accent-soft:#122A1E; --accent-line:#1E4633;
+  --ground:#0B0E13; --surface:#12161D; --surface-2:#171C25; --surface-3:#202631;
+  --ink:#E8ECF2; --ink-2:#C3CBD6; --muted:#8B95A5; --line:#1F252F; --line-2:#2B323E;
+  --accent:#34D399; --accent-hover:#5EE7B4; --accent-soft:#0E2A1F; --accent-line:#1C4634;
   --on-accent:#04120A;
-  --live:#E08A4E; --live-soft:#2A1810; --live-line:#4C2E1B;
+  --live:#E09257; --live-soft:#2A1A10; --live-line:#4C321B;
   --hot:#FF8A62; --hot-soft:#2B1610; --hot-line:#4E281C;
   --cold:#6FB9E8; --cold-soft:#0E2130; --cold-line:#1E3C52;
-  --ball-face:#1A221D; --ball-line:#313D36; --ball-ink:#EAF0EC;
+  --b1:#176448; --b2:#125D71; --b3:#225988; --b4:#334D8C; --b5:#4B428E;
+  --b6:#683788; --b7:#842E65; --b8:#8A4326;
+  --ball-face:#171C25; --ball-line:#2B323E; --ball-ink:#E8ECF2;
   --shadow-tint:rgba(0,0,0,.6);
   --shadow-1:0 1px 2px rgba(0,0,0,.40);
   --shadow-2:0 4px 12px -2px rgba(0,0,0,.50);
-  --shadow-3:0 12px 32px -8px rgba(0,0,0,.60);
+  --shadow-3:0 14px 34px -10px rgba(0,0,0,.60);
+  --ring:0 0 0 3px rgba(52,211,153,.22);
   --logo:url("/assets/img/logo-dark.png");
   --logo-2x:url("/assets/img/logo-dark@2x.png");
   color-scheme:dark;
 }
-
 /* ---------- base ---------- */
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--ground); color:var(--ink);
   position:relative;
-  font-family:var(--sans); font-size:16px; line-height:1.62;
+  font-family:var(--sans); font-size:16px; line-height:1.6;
+  font-optical-sizing:auto;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
 img{max-width:100%; height:auto}
@@ -161,31 +173,28 @@ code,.mono{font-family:var(--mono); font-size:.9em}
 
 .wrap{max-width:var(--wrap); margin:0 auto; padding:0 20px}
 main{display:block; padding-bottom:72px}
-section{margin-top:56px}
+section{margin-top:64px}
 
 /* ---------- atmosphere ----------
-   A lit plaster backdrop rather than a flat fill: warm light falling from the
-   upper right, a second softer source upper left, and burnt tone pooling at
-   the foot. Fixed, so it behaves like a wall the page sits against instead of
-   a texture that scrolls with it. Light theme only - the dark theme has its
-   own depth already.
------------------------------------------------------------------------- */
+   Four stacked orange radials over cream is what made the page look unwell.
+   What replaces it is almost nothing: a single cool wash at the top, barely
+   above the ground, so the masthead has something to sit against and the
+   page still reads as one continuous surface. Depth now comes from the
+   elevation of the cards, not from a tinted backdrop.
+   ---------------------------------------------------------------------- */
 .atmosphere{
   position:fixed; inset:0; z-index:-2; pointer-events:none;
   background:
-    radial-gradient(1150px 680px at 76% -12%, rgba(252,144,78,.30), transparent 60%),
-    radial-gradient(880px 560px at 8%  2%,   rgba(198,100,47,.15), transparent 58%),
-    radial-gradient(1500px 900px at 50% 112%, rgba(168,78,30,.13), transparent 62%),
-    radial-gradient(700px 700px at 96% 58%,  rgba(201,169,97,.11), transparent 62%);
+    radial-gradient(1200px 520px at 50% -8%, rgba(10,110,60,.045), transparent 68%),
+    linear-gradient(180deg, rgba(10,14,20,.022) 0%, transparent 22%);
 }
-/* fine tooth, so the wash reads as pigment on plaster rather than a CSS ramp */
-.atmosphere::after{
-  content:""; position:absolute; inset:0; opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+:root[data-theme="dark"] .atmosphere{
+  background:radial-gradient(1200px 560px at 50% -10%, rgba(52,211,153,.055), transparent 66%);
 }
-:root[data-theme="dark"] .atmosphere{display:none}
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .atmosphere{display:none}
+  :root:not([data-theme="light"]) .atmosphere{
+    background:radial-gradient(1200px 560px at 50% -10%, rgba(52,211,153,.055), transparent 66%);
+  }
 }
 
 /* ---------- header ---------- */
@@ -195,12 +204,12 @@ section{margin-top:56px}
   background-image:radial-gradient(130% 190% at 14% 0%, #1B4A33 0%, transparent 64%);
   border-bottom:none;
 }
-/* the decade palette as a signature rule under the bar */
+/* one hairline, the accent at low opacity, to part the bar from the page */
 .site-head::after{
   content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
   background:linear-gradient(90deg,
-    transparent 0%, rgba(201,169,97,.22) 8%, var(--gold) 32%,
-    var(--terra-lift) 50%, var(--gold) 68%, rgba(201,169,97,.22) 92%, transparent 100%);
+    transparent 0%, rgba(59,220,140,.14) 22%, rgba(59,220,140,.30) 50%,
+    rgba(59,220,140,.14) 78%, transparent 100%);
 }
 .site-head{transition:box-shadow .18s ease}
 .site-head.is-stuck{box-shadow:0 8px 24px -10px rgba(0,0,0,.45)}
@@ -327,14 +336,14 @@ section{margin-top:56px}
 }
 
 /* ---------- typography blocks ---------- */
-.page-head{padding:44px 0 0; text-align:center}
+.page-head{padding:52px 0 0; text-align:center}
 .page-head .lede{margin-left:auto; margin-right:auto}
-.eyebrow{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin:0 0 12px}
-h1{font-size:clamp(29px,4.4vw,42px); font-weight:700; letter-spacing:-.033em}
-h2{font-size:clamp(21px,2.6vw,26px); font-weight:600; margin:0 0 14px}
-h3{font-size:18.5px; font-weight:600; margin:30px 0 10px}
-h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
-.lede{font-size:18px; line-height:1.55; color:var(--ink-2); max-width:64ch; margin:16px 0 0}
+.eyebrow{font-family:var(--sans); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.13em; color:var(--muted); margin:0 0 14px}
+h1{font-size:clamp(30px,4.6vw,46px); font-weight:680; letter-spacing:-.036em}
+h2{font-size:clamp(21px,2.6vw,27px); font-weight:640; letter-spacing:-.024em; margin:0 0 14px}
+h3{font-size:18.5px; font-weight:620; letter-spacing:-.016em; margin:32px 0 10px}
+h4{font-size:15.5px; font-weight:620; letter-spacing:-.01em; margin:22px 0 8px}
+.lede{font-size:18px; line-height:1.55; color:var(--muted); max-width:62ch; margin:16px 0 0}
 .prose{max-width:68ch; margin-left:auto; margin-right:auto}
 .prose p,.prose ul,.prose ol{margin:0 0 1em}
 .prose ul,.prose ol{padding-left:22px}
@@ -344,8 +353,10 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
 .prose h2:first-child{margin-top:0}
 
 /* ---------- cards / panels ---------- */
-.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:22px; box-shadow:var(--shadow-1)}
-.panel{background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-lg); padding:20px}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:24px; box-shadow:var(--shadow-1)}
+.card-flat{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:24px; box-shadow:none}
+.card-lift{box-shadow:var(--shadow-2)}
+.panel{background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-lg); padding:22px}
 
 .notice{border-left:3px solid var(--accent-line); background:var(--accent-soft); padding:14px 18px; border-radius:0 var(--r-md) var(--r-md) 0; margin:20px 0}
 .notice p{margin:0 0 8px} .notice p:last-child{margin:0}
@@ -375,87 +386,60 @@ h4{font-size:15.5px; font-weight:600; margin:22px 0 8px}
 .badge-live{background:var(--live-soft); color:var(--live); border-color:var(--live-line)}
 .badge-ok{background:transparent; color:var(--accent); border-color:var(--accent-line); font-weight:600; letter-spacing:.03em}
 .badge-neutral{background:var(--surface-2); color:var(--muted); border-color:var(--line)}
-.badge-gold{background:transparent; color:var(--gold-lo); border-color:rgba(201,169,97,.5); font-weight:600; letter-spacing:.03em}
+.badge-gold{background:var(--surface-2); color:var(--ink-2); border-color:var(--line-2); font-weight:600; letter-spacing:.03em; font-variant-numeric:tabular-nums}
 .pulse{width:6px; height:6px; border-radius:var(--r-full); background:currentColor; flex:0 0 auto}
 @media (prefers-reduced-motion:no-preference){ .pulse{animation:pulse 2s ease-in-out infinite} }
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-/* ---------- KENO BALLS ---------- */
-.balls{display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:0; padding:0}
+/* ---------- KENO BALLS ----------
+   Was a glossy sphere with a champagne rim on eight saturated hues. Twenty of
+   those at once is the loudest thing on the page and it fought everything
+   else. Now: a flat token with a single soft top-light, a hairline of its own
+   colour rather than a gold ring, and a tight shadow. Still recognisably a
+   ball, no longer a bag of sweets.
+   -------------------------------------------------------------------- */
+.balls{display:flex; flex-wrap:wrap; gap:9px; list-style:none; margin:0; padding:0}
 .ball{
-  --sz:46px;
+  --sz:44px;
+  --fill:var(--b1);
   position:relative;
   width:var(--sz); height:var(--sz); flex:0 0 var(--sz);
   display:inline-flex; align-items:center; justify-content:center;
   border-radius:var(--r-full);
-  /* off-centre highlight reads as a lit sphere rather than a flat disc */
-  --fill:var(--ball-a);
-  --fill-lo:var(--ball-b);
-  background:var(--fill);
-  background:
-    radial-gradient(120% 120% at 32% 22%,
-      color-mix(in srgb, var(--fill) 72%, #FFFFFF) 0%,
-      var(--fill) 38%,
-      var(--fill-lo) 100%);
+  background:linear-gradient(180deg,
+    color-mix(in srgb, var(--fill) 88%, #FFFFFF) 0%,
+    var(--fill) 46%,
+    color-mix(in srgb, var(--fill) 86%, #000000) 100%);
   color:var(--ball-num);
-  border:1.5px solid var(--gold);
-  font-family:var(--sans); font-size:16px; font-weight:600;
-  font-variant-numeric:tabular-nums; letter-spacing:.005em; line-height:1;
+  border:1px solid color-mix(in srgb, var(--fill) 70%, #000000);
+  font-family:var(--sans); font-size:15px; font-weight:600;
+  font-variant-numeric:tabular-nums; font-feature-settings:"cv05" 1;
+  letter-spacing:.01em; line-height:1;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.14),
-    inset 0 -6px 12px -6px rgba(0,0,0,.75),
-    0 2px 6px -1px rgba(12,20,16,.30);
+    inset 0 1px 0 rgba(255,255,255,.16),
+    0 1px 2px rgba(10,14,20,.16);
 }
-/* a fine inner keyline lifts the rim off the fill, the way a struck edge does */
-.ball::before{
-  content:""; position:absolute; inset:0; border-radius:inherit;
-  border:1px solid rgba(232,213,163,.16); pointer-events:none;
-}
-/* one jewel per ten; the base is a darkened tone of the same hue, so the
-   sphere shades in its own colour rather than fading to a generic black */
 .ball.b1{--fill:var(--b1)} .ball.b2{--fill:var(--b2)}
 .ball.b3{--fill:var(--b3)} .ball.b4{--fill:var(--b4)}
 .ball.b5{--fill:var(--b5)} .ball.b6{--fill:var(--b6)}
 .ball.b7{--fill:var(--b7)} .ball.b8{--fill:var(--b8)}
-.ball[class*=" b"]{--fill-lo:color-mix(in srgb, var(--fill) 55%, #050706)}
 
-/* matched: the ball turns to gold */
+/* matched: reads as confirmed, using the same accent as every other
+   verified state on the site rather than a second metallic language */
 .ball.is-hit,
 .ball.is-picked{
-  background:linear-gradient(160deg, var(--gold-hi) 0%, var(--gold) 52%, var(--gold-lo) 100%);
-  color:var(--gold-ink);
-  border-color:var(--gold-hi);
-  font-weight:700;
+  background:var(--accent);
+  color:var(--on-accent);
+  border-color:color-mix(in srgb, var(--accent) 76%, #000000);
+  font-weight:650;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.5),
-    0 0 0 1px rgba(201,169,97,.35),
-    0 4px 16px -4px rgba(201,169,97,.55);
-  transform:translateY(-1px);
+    inset 0 1px 0 rgba(255,255,255,.22),
+    var(--ring),
+    0 2px 6px -1px rgba(10,110,60,.32);
 }
-.ball.is-hit::before,
-.ball.is-picked::before{border-color:rgba(255,255,255,.28)}
-
 .ball.is-miss{
-  background:none; color:var(--muted);
-  border:1.5px dashed var(--line-2); box-shadow:none;
-}
-.ball.is-miss::before{border-color:transparent}
-.ball.is-live{background:none; color:var(--live); border-color:var(--live-line); box-shadow:none}
-.ball.is-ghost{
-  background:linear-gradient(160deg,var(--surface-2),var(--surface-3));
-  color:var(--muted); border-color:var(--line-2); box-shadow:none; opacity:.75;
-}
-.ball.is-ghost::before{border-color:transparent}
-.ball.sm{--sz:34px; font-size:13px}
-.ball.lg{--sz:62px; font-size:22px}
-@media (max-width:560px){ .balls .ball{--sz:38px; font-size:14px} }
-
-@media (prefers-reduced-motion:no-preference){
-  .ball.reveal{animation:ballin .42s cubic-bezier(.22,.8,.24,1) backwards}
-  @keyframes ballin{
-    from{opacity:0; transform:translateY(7px) scale(.9)}
-    to{opacity:1; transform:none}
-  }
+  background:var(--surface); color:var(--muted);
+  border:1px dashed var(--line-2); box-shadow:none;
 }
 
 /* ---------- the 80-grid ---------- */
@@ -476,12 +460,15 @@ button.ball:disabled{cursor:not-allowed}
   background:var(--surface); border:1px solid var(--line);
   border-radius:var(--r-xl); padding:30px 30px 26px; box-shadow:var(--shadow-2);
 }
-/* a thin spectrum rule across the top, drawn from the decade bands - the
-   page's own palette used as a signature rather than an arbitrary gradient */
+/* the hero is the one surface that earns a lift; a faint accent rule marks
+   it as the live panel without a second colour language */
 .hero::before{
-  content:""; position:absolute; inset:0 0 auto 0; height:1px;
+  content:""; position:absolute; inset:0 0 auto 0; height:2px;
+  border-radius:var(--r-xl) var(--r-xl) 0 0;
   background:linear-gradient(90deg,
-    transparent 0%, var(--gold) 20%, var(--terra) 50%, var(--gold) 80%, transparent 100%);
+    transparent 0%, color-mix(in srgb, var(--accent) 55%, transparent) 30%,
+    var(--accent) 50%,
+    color-mix(in srgb, var(--accent) 55%, transparent) 70%, transparent 100%);
 }
 .hero > :first-child{margin-top:6px}
 .hero-meta{display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; font-size:13px; color:var(--muted)}
@@ -514,20 +501,76 @@ button.ball:disabled{cursor:not-allowed}
 .prov{display:flex; flex-wrap:wrap; gap:9px 22px; align-items:center; justify-content:center; margin-top:24px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
 .prov strong{color:var(--ink-2); font-weight:600}
 
-/* ---------- tables ---------- */
-.tw{overflow-x:auto; border:1px solid var(--line); border-radius:var(--r-lg); margin:18px 0; background:var(--surface); box-shadow:var(--shadow-1)}
-table{border-collapse:collapse; width:100%; font-size:14px; min-width:460px}
-th,td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top}
-thead th{background:var(--surface-2); font-family:var(--display); font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:600; white-space:nowrap}
+/* ---------- tables ----------
+   The old table drew a full-width rule under every single row and filled the
+   header with beige, so each row read as its own box and the eye had to climb
+   a ladder. A premium data table does the opposite: it gets out of the way.
+   One rule under the header, hairlines between rows that you feel rather than
+   read, a hover band to track across, and figures on tabular numerals so the
+   columns actually line up. Density is deliberate - 15px of vertical padding
+   is what makes a table feel considered rather than cramped.
+   -------------------------------------------------------------------- */
+.tw{
+  overflow-x:auto;
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  margin:22px 0;
+  background:var(--surface);
+  box-shadow:var(--shadow-1);
+  -webkit-overflow-scrolling:touch;
+}
+table{
+  border-collapse:separate; border-spacing:0;
+  width:100%; min-width:460px;
+  font-size:14.5px; line-height:1.45;
+  /* every figure in every column lines up, which is most of what makes a
+     table look engineered rather than typed */
+  font-variant-numeric:tabular-nums;
+}
+thead th{
+  position:sticky; top:0; z-index:1;
+  background:var(--surface);
+  text-align:left; white-space:nowrap;
+  padding:13px 18px 11px;
+  font-family:var(--sans); font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:.085em;
+  color:var(--muted);
+  border-bottom:1px solid var(--line-2);
+}
+tbody td{
+  padding:15px 18px;
+  vertical-align:middle;
+  border-bottom:1px solid var(--line);
+  color:var(--ink-2);
+}
 tbody tr:last-child td{border-bottom:none}
-td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
+/* the first column is the row's label, so it carries the ink */
+tbody td:first-child{color:var(--ink); font-weight:550}
+tbody tr{transition:background .12s ease}
+tbody tr:hover td{background:var(--surface-2)}
+/* Figures right-align so the digits stack; the first column is the row's
+   label, so it stays left. Scoped to cells the generator marked numeric -
+   the prose tables in the legal pages use plain <td> and are untouched.
+   (Blanket `td.num{text-align:right}` right-aligned the label column too,
+   because every cell in a numeric table carries the class.) */
+td.num:not(:first-child),
+th.num:not(:first-child){text-align:right}
+/* a caption sits above its table as a label, not as a title */
+table caption{
+  caption-side:top; text-align:left;
+  padding:0 18px 10px;
+  font-size:12.5px; color:var(--muted);
+}
+table caption.vh{position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; padding:0}
 
 /* ---------- stat tiles ---------- */
-.stat{border:1px solid var(--line); border-radius:var(--r-lg); padding:16px 14px;
+.stat{border:1px solid var(--line); border-radius:var(--r-lg); padding:20px 16px;
   background:var(--surface); text-align:center}
-.stat b{display:block; font-family:var(--display); font-size:25px; font-weight:700;
-  letter-spacing:-.03em; color:var(--accent); line-height:1.1}
-.stat span{display:block; font-size:12.5px; color:var(--muted); margin-top:5px; line-height:1.4}
+.stat b{display:block; font-family:var(--display); font-size:27px; font-weight:660;
+  letter-spacing:-.035em; color:var(--ink); line-height:1.08;
+  font-variant-numeric:tabular-nums}
+.stat span{display:block; font-size:12.5px; color:var(--muted); margin-top:7px; line-height:1.4}
 
 /* ---------- calculator ---------- */
 .calc-stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:16px}
@@ -648,12 +691,12 @@ td.num,th.num{font-variant-numeric:tabular-nums; white-space:nowrap}
   padding:16px 20px; border-radius:var(--r-xl);
   background:var(--surface); color:var(--ink);
   border:1px solid var(--line);
-  box-shadow:0 20px 50px -14px rgba(74,44,24,.34), 0 4px 12px -4px rgba(74,44,24,.16);
+  box-shadow:var(--shadow-3);
 }
 .cookie::before{
   content:""; position:absolute; inset:0 0 auto 0; height:1px; border-radius:inherit;
-  background:linear-gradient(90deg, transparent, var(--gold) 30%, var(--terra) 50%,
-             var(--gold) 70%, transparent);
+  background:linear-gradient(90deg, transparent,
+             color-mix(in srgb, var(--accent) 45%, transparent) 50%, transparent);
 }
 .cookie p{margin:0; font-size:13.5px; line-height:1.55; color:var(--ink-2)}
 .cookie strong{color:var(--ink)}
