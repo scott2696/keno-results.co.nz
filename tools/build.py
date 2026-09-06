@@ -28,8 +28,8 @@ PAGES = [
     dict(slug="", src="index", nav="home",
          title="Keno Results NZ | Latest Winning Numbers",
          og="Keno Results NZ",
-         desc="The latest confirmed New Zealand Keno draw - 20 numbers from 1 to 80 - "
-              "with a ticket checker and full draw archive.",
+         desc="Today's Keno results for New Zealand, updated after each of the four "
+              "daily draws. Latest winning numbers, ticket checker and full archive.",
          js=["results"], schema=["website", "org"]),
     dict(slug="check", src="check", nav="check",
          title="Check My Keno Numbers | keno-results.co.nz",
@@ -40,8 +40,8 @@ PAGES = [
     dict(slug="results", src="results", nav="results",
          title="Keno Draw Archive NZ | keno-results.co.nz",
          og="Keno draw archive",
-         desc="Every confirmed New Zealand Keno draw, searchable by draw number, date "
-              "or a number that came up. Each result has its own permanent page.",
+         desc="Every daily Keno result we hold for New Zealand, searchable by draw "
+              "number, date or a number that came up. Each draw has its own page.",
          js=["archive"], schema=["dataset"]),
     dict(slug="statistics", src="statistics", nav="stats",
          title="Hot & Cold Keno Numbers NZ | keno-results.co.nz",
@@ -64,8 +64,8 @@ PAGES = [
     dict(slug="number-generator", src="number-generator", nav="tools",
          title="Keno Number Generator NZ | keno-results.co.nz",
          og="Keno number generator",
-         desc="Generate a random Keno line in your browser and see the true odds of that "
-              "line beside it. One to ten spots, nothing sent anywhere.",
+         desc="A free Keno number generator for NZ players. Draw a random line and see "
+              "the true odds beside it. One to ten spots, nothing sent anywhere.",
          js=["generator"]),
     dict(slug="calculator", src="calculator", nav="tools",
          title="Keno Odds & Return Calculator NZ | keno-results.co.nz",
@@ -103,8 +103,8 @@ PAGES = [
     dict(slug="draw-schedule", src="draw-schedule", section=True,
          title="Keno Draw Times NZ | keno-results.co.nz",
          og="Keno draw schedule",
-         desc="New Zealand Keno draws four times daily at 10:01am, 1:01pm, 3:01pm and "
-              "6:01pm NZ time, every day of the week.",
+         desc="NZ Keno draw times: four draws daily at 10:01am, 1:01pm, 3:01pm and "
+              "6:01pm New Zealand time, weekends and public holidays included.",
          schema=["howto2"]),
     dict(slug="rules", src="rules", section=True,
          title="Keno Rules & Regulations NZ | keno-results.co.nz",
@@ -372,6 +372,22 @@ SCHEMA = {
                                 "text": "About 1 in 7,753. Twenty numbers are drawn from "
                                         "80, so the probability is C(20,6) divided by "
                                         "C(80,6)."}},
+            {"@type": "Question",
+             "name": "How do I win at Keno?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "By matching drawn numbers, and no method "
+                                        "makes that more likely. Every draw is "
+                                        "independent and no combination is better "
+                                        "than another. The only real choice is how "
+                                        "many spots to play, because each spot count "
+                                        "has a different prize ladder."}},
+            {"@type": "Question",
+             "name": "What time is the 6pm Keno draw in New Zealand?",
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": "6:01pm New Zealand time. It is the last of "
+                                        "four daily draws, after 10:01am, 1:01pm and "
+                                        "3:01pm, and the time holds on weekends and "
+                                        "public holidays."}},
             {"@type": "Question",
              "name": "Does playing more spots improve my Keno odds?",
              "acceptedAnswer": {"@type": "Answer",
