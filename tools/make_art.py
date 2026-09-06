@@ -373,6 +373,107 @@ numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
 '''
 
 
+# ---------------------------------------------------------------- raster copy
+# SVG is right for the page - crisp, 2-8 KB - but it is not a format Google
+# accepts for Article structured data, and no social platform will render it in
+# a share card. So each image is also written as a PNG, and that is what
+# og:image and the schema point at. Same composition, drawn directly rather
+# than converted, so there is no rasteriser dependency.
+
+FONTS = ["/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+         "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+         "/System/Library/Fonts/Helvetica.ttc"]
+
+
+def _font(size):
+    from PIL import ImageFont
+    for f in FONTS:
+        if os.path.exists(f):
+            try:
+                return ImageFont.truetype(f, size)
+            except Exception:
+                continue
+    return None                      # caller falls back to skipping the PNG
+
+
+def _hex(c):
+    c = c.lstrip("#")
+    return tuple(int(c[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def render_png(a, dest):
+    """Draw the raster twin. Best-effort: no font, no PNG, and the SVG still
+    carries the page."""
+    try:
+        from PIL import Image, ImageDraw
+    except ImportError:
+        return False
+    art = a.get("art") or {}
+    if art.get("kind") not in REAL:
+        return False                 # only the real-result images are worth sharing
+    f_num, f_cap = _font(52), _font(26)
+    if not f_num:
+        return False
+
+    im = Image.new("RGB", (W, H), _hex(GROUND))
+    d = ImageDraw.Draw(im)
+    for y in range(H):               # the same top-down lift the SVG has
+        t = 1 - (y / H)
+        d.line([(0, y), (W, y)], fill=tuple(
+            int(g + (g2 - g) * t * .55) for g, g2 in zip(_hex(GROUND), _hex(GROUND_2))))
+
+    def disc(cx, cy, r, label, fill, ring=None):
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=_hex(fill))
+        if ring:
+            d.ellipse([cx - r - 7, cy - r - 7, cx + r + 7, cy + r + 7],
+                      outline=_hex(ring), width=3)
+        fnt = _font(int(r * .82)) or f_num
+        d.text((cx, cy), str(label), font=fnt, fill=_hex(PAPER), anchor="mm")
+
+    nums = [int(n) for n in art.get("numbers", [])]
+    if art["kind"] == "draw":
+        extras = art.get("extras", [])
+        total = len(nums) + len(extras)
+        r = min(62, (W - 152 - 36) / (total * 2 + (total - 1) * .48))
+        gap = r * .48
+        x = (W - (total * 2 * r + (total - 1) * gap + 36)) / 2 + r
+        for n in nums:
+            disc(x, H / 2 - 16, r, n, band_of(n)); x += 2 * r + gap
+        x += 18
+        for e in extras:
+            disc(x, H / 2 - 16, r, str(e.get("value", "")).lstrip("0") or "0",
+                 "#1C2431", ring="#E9B44C" if e.get("label") == "Powerball" else ACCENT)
+            x += 2 * r + gap
+    elif art["kind"] == "keno":
+        per = 10
+        r = min(40, (W - 152) / (per * 2 + (per - 1) * .4)); gap = r * .4
+        for ri in range(0, len(nums), per):
+            row = nums[ri:ri + per]
+            x = (W - (len(row) * 2 * r + (len(row) - 1) * gap)) / 2 + r
+            y = H / 2 - 74 + (ri // per) * (2 * r + gap)
+            for n in row:
+                disc(x, y, r, n, band_of(n)); x += 2 * r + gap
+        if art.get("multiplier"):
+            d.text((W / 2, H - 74), "x%s" % art["multiplier"],
+                   font=_font(58) or f_num, fill=_hex("#E9B44C"), anchor="mm")
+    else:                                                    # bullseye
+        cx, cy = W / 2, H / 2 - 20
+        for i in range(9, 0, -1):
+            rr = i * 40
+            d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr],
+                      outline=_hex(ACCENT if i == 3 else BANDS[i % 8]), width=2 if i == 3 else 1)
+        d.ellipse([cx - 86, cy - 86, cx + 86, cy + 86], fill=_hex(GROUND_2),
+                  outline=_hex(ACCENT), width=3)
+        d.text((cx, cy), str(art.get("value", "")), font=_font(54) or f_num,
+               fill=_hex(PAPER), anchor="mm")
+
+    cap = "%s . DRAW %s" % (str(art.get("game", "")).upper(), art.get("drawNumber", ""))
+    d.text((W / 2, H - 54), cap, font=f_cap, fill=(120, 128, 142), anchor="mm")
+    im.save(dest, optimize=True)
+    return True
+
+
 def entries():
     out = []
     for fname, key in (("blog.json", "posts"), ("news.json", "articles")):
@@ -402,10 +503,11 @@ def main():
         svg = render(a)
         with open(dest, "w", encoding="utf-8") as fh:
             fh.write(svg)
+        png = render_png(a, dest[:-4] + ".png")
         made += 1
         kind = (a.get("art") or {}).get("kind")
         label = (kind + "*") if kind in REAL else pick_shape(a)
-        print(f"  {label:<12} {len(svg)//1024 or 1} KB  {slug}")
+        print(f"  {label:<12} {len(svg)//1024 or 1} KB{'  +png' if png else ''}  {slug}")
     print(f"article art: {made} drawn")
     return 0
 

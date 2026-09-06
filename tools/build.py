@@ -1002,6 +1002,8 @@ def build():
                .replace("{canonical}", canonical)
                .replace("{robots}", page.get("robots", "index, follow, max-image-preview:large"))
                .replace("{site}", SITE)
+                   .replace("{og_image}", SITE + "/assets/img/icon-512.png")
+                   .replace("{tw_card}", "summary")
                .replace("{head_extra}", head_extra)
                .replace("{scripts}", scripts)
                .replace("{rail}", rail_block("rail-right"))
@@ -1144,6 +1146,8 @@ def build():
                    .replace("{page_art}", page_deco(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
+                   .replace("{og_image}", SITE + "/assets/img/icon-512.png")
+                   .replace("{tw_card}", "summary")
                .replace("{head_extra}", head_links + '<script type="application/ld+json">'
                         + json.dumps(ld, separators=(",", ":")) + "</script>")
                .replace("{scripts}", "")
@@ -1249,6 +1253,8 @@ def build():
                    .replace("{page_art}", page_deco(o_url))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
+                   .replace("{og_image}", SITE + "/assets/img/icon-512.png")
+                   .replace("{tw_card}", "summary")
                .replace("{head_extra}", '<script type="application/ld+json">'
                         + json.dumps(ld, separators=(",", ":")) + "</script>")
                .replace("{scripts}", "")
@@ -1429,6 +1435,8 @@ def build():
                    .replace("{page_art}", page_deco(st_url))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
+                   .replace("{og_image}", SITE + "/assets/img/icon-512.png")
+                   .replace("{tw_card}", "summary")
                    .replace("{head_extra}", '<script type="application/ld+json">'
                             + json.dumps(ld, separators=(",", ":")) + "</script>")
                    .replace("{scripts}", "")
@@ -1454,6 +1462,10 @@ def build():
             # tenth the weight. PNG stays supported in case one is ever
             # generated rather than drawn.
             img = None
+            png = (f"{SITE}/assets/img/articles/{a['slug']}.png"
+                   if os.path.exists(os.path.join(ROOT, "assets", "img",
+                                                  "articles", a["slug"] + ".png"))
+                   else None)
             for ext in (".svg", ".png"):
                 if os.path.exists(os.path.join(ROOT, "assets", "img",
                                                "articles", a["slug"] + ext)):
@@ -1485,9 +1497,19 @@ def build():
                 article["keywords"] = list(dict.fromkeys(
                     [a["tag"], "Keno", "New Zealand"]))
             if img:
-                article["image"] = {"@type": "ImageObject", "url": img,
-                                    "caption": "Illustration - AI-generated, "
-                                               "not a photograph"}
+                # The raster where one exists, because SVG is not an accepted
+                # format for Article structured data. The caption has to match
+                # what the image actually shows - these are drawn locally, not
+                # generated, and a draw image shows the real numbers.
+                art_kind = (a.get("art") or {}).get("kind")
+                article["image"] = {
+                    "@type": "ImageObject", "url": png or img,
+                    "width": 1200, "height": 675,
+                    "caption": ("The numbers drawn in %s draw %s"
+                                % ((a.get("art") or {}).get("game", ""),
+                                   (a.get("art") or {}).get("drawNumber", ""))
+                                if art_kind in ("draw", "keno", "bullseye")
+                                else "Abstract illustration, not a photograph")}
             if not article["wordCount"]:
                 del article["wordCount"]
             img_path = img.replace(SITE, "") if img else None
@@ -1544,10 +1566,14 @@ def build():
                    .replace("{description}",
                             html.escape(a.get("metaDescription") or a["summary"]))
                    .replace("{canonical}", canonical)
+                   .replace("{og_image}", png or f"{SITE}/assets/img/icon-512.png")
+                   .replace("{tw_card}", "summary_large_image" if png else "summary")
                    .replace("{page_id}", "article")
                    .replace("{page_art}", page_deco(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
+                   .replace("{og_image}", SITE + "/assets/img/icon-512.png")
+                   .replace("{tw_card}", "summary")
                    .replace("{head_extra}", '<script type="application/ld+json">'
                             + json.dumps(ld, separators=(",", ":")) + "</script>")
                    .replace("{scripts}", "")
