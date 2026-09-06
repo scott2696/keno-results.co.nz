@@ -119,6 +119,20 @@ def post(url, payload, timeout=30):
         return 200, {"raw": body[:400]}
 
 
+def accepted_ok(body):
+    """True only if the API actually took the batch.
+
+    RalfyIndex answers a bad key with HTTP 200 and {"errorCode":1,...}, so
+    success has to be read from the body rather than the status line."""
+    if not isinstance(body, dict):
+        return False
+    if body.get("errorCode"):
+        return False
+    if "error" in body or "message" in body and "status" not in body:
+        return False
+    return body.get("status") in ("ok", "success", True) or "creditsUsed" in body
+
+
 def sitemap_urls():
     try:
         tree = ET.parse(SITEMAP)
@@ -165,7 +179,11 @@ def main():
     if args.status:
         try:
             code, body = post(STATUS_URL, {"apikey": key})
-            print(f"index: status {code} {json.dumps(body)}")
+            ok = accepted_ok(body)
+            print(f"index: status {code} {json.dumps(body)}"
+                  f"  -> credentials {'OK' if ok else 'REJECTED'}")
+            if not ok:
+                return 1
         except (urllib.error.URLError, TimeoutError) as e:
             print(f"index: status check failed ({e})", file=sys.stderr)
         return 0
@@ -247,6 +265,15 @@ def main():
         except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
             print(f"index: submit failed ({str(e)[:140]}); "
                   f"{len(chunk)} URL(s) left unrecorded and will retry",
+                  file=sys.stderr)
+            break
+        # This API answers a rejected key with HTTP 200 and an errorCode in the
+        # body, so the status line alone is not evidence of anything. Without
+        # this check a dead key would look like a clean run and the URLs would
+        # be marked submitted having never been sent.
+        if not accepted_ok(body):
+            print(f"index: API rejected the batch -> {json.dumps(body)[:200]}\n"
+                  f"       {len(chunk)} URL(s) left unrecorded and will retry",
                   file=sys.stderr)
             break
         # Only record what the API actually took.
