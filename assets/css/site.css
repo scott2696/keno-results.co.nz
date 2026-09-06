@@ -1534,6 +1534,72 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
    1200px, so it stays an icon until there is genuinely room. */
 @media (max-width:1300px){ .bonus-btn-t{display:none} .bonus-btn{padding:9px 11px} }
 
+/* ---------- partner band (below the rail breakpoint) ----------
+   The side rails need 1460px, so on every phone and most laptops the two rail
+   partners simply are not on the page. This carries one of them horizontally
+   in that range and disappears the moment the rails appear, so the same
+   operator is never shown twice.
+
+   Sits above <main> rather than inside it, so "skip to content" still lands
+   on the results rather than on an advertisement.
+   ------------------------------------------------------------------------ */
+.promo-band{display:block; max-width:var(--wrap); margin:0 auto; padding:12px 20px 0}
+.promo-band:empty{display:none}
+@media (min-width:1460px){ .promo-band{display:none} }
+
+.band-in{
+  position:relative; overflow:hidden; isolation:isolate;
+  display:flex; align-items:center; gap:14px;
+  padding:12px 14px; border-radius:var(--r-lg); text-decoration:none;
+  background:
+    radial-gradient(120% 180% at 88% 0%, color-mix(in srgb, var(--o-cyan) 16%, transparent) 0%, transparent 60%),
+    linear-gradient(100deg, var(--o-base) 0%, var(--o-deep) 78%);
+  border:1px solid color-mix(in srgb, var(--o-cyan) 26%, transparent);
+  box-shadow:0 10px 26px -16px rgba(0,0,0,.9);
+}
+.band-flag{
+  position:absolute; top:5px; left:12px;
+  font-size:8.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:#7E80AE;
+}
+.band-logo{height:26px; width:auto; flex:0 0 auto; margin-top:6px}
+.band-copy{display:flex; flex-direction:column; line-height:1.15; margin-top:6px; min-width:0}
+.band-amt{
+  font-size:21px; font-weight:680; letter-spacing:-.03em; color:var(--o-cyan);
+  font-variant-numeric:tabular-nums;
+}
+.band-sub{font-size:11px; color:#B6BECC; margin-top:2px}
+.band-cta{
+  margin-left:auto; flex:0 0 auto; margin-top:6px;
+  display:inline-flex; align-items:center; gap:6px;
+  padding:10px 15px; border-radius:999px;
+  font-size:13.5px; font-weight:640; color:#fff; white-space:nowrap;
+  background:linear-gradient(100deg, var(--o-cta-a), var(--o-cta-b));
+  box-shadow:0 8px 20px -10px var(--o-cta-a);
+  transition:transform .18s ease;
+}
+.band-cta svg{width:15px; height:15px}
+.band-in:hover .band-cta{transform:translateY(-1px)}
+
+/* Narrow phones: the CTA drops to its own full-width row rather than
+   squeezing the figure, which is the thing worth reading. */
+@media (max-width:430px){
+  .promo-band{padding:10px 16px 0}
+  .band-in{flex-wrap:wrap; gap:10px 12px; padding:14px 14px 12px}
+  .band-logo{height:23px}
+  .band-amt{font-size:19px}
+  .band-cta{margin-left:0; width:100%; justify-content:center; margin-top:2px}
+}
+/* On the smallest screens the sub-line wrapped and took the band to 173px,
+   about a third of a 568px viewport. Shortened rather than allowed to wrap. */
+@media (max-width:360px){
+  .band-sub{font-size:10.5px}
+  .band-amt{font-size:18px}
+  .band-in{padding:12px 12px 10px; gap:8px 10px}
+  .band-cta{padding:9px 14px; font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){ .band-in:hover .band-cta{transform:none} }
+
 /* ---------- misc ---------- */
 .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
 @media (max-width:760px){ .grid-2{grid-template-columns:1fr} }

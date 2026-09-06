@@ -845,6 +845,46 @@ def _art_cap(a):
     return "Illustration &mdash; abstract, not a photograph"
 
 
+def band_block():
+    """A horizontal partner banner for viewports below the rail breakpoint.
+
+    The side rails only appear at 1460px and up, so on every phone and most
+    laptops the two rail partners are invisible. This fills that gap with one
+    of them, laid out horizontally, and disappears the moment the rails take
+    over so nobody ever sees both.
+
+    Rendered from offers.json like everything else, so the banner and the rail
+    can never disagree about the offer."""
+    offers = [o for o in _load_offers() if o.get("active", True)
+              and o.get("placement") == "rail-right"]
+    if not offers:
+        return ""
+    o = offers[0]
+    t = o.get("theme", {})
+    style = ("--o-deep:%s;--o-base:%s;--o-cyan:%s;--o-cta-a:%s;--o-cta-b:%s"
+             % (t.get("deep", "#050522"), t.get("base", "#111135"),
+                t.get("cyan", "#00F0F1"), t.get("ctaFrom", "#6A2BE8"),
+                t.get("ctaTo", "#2F6FD6")))
+    return (
+        f'<aside class="promo-band" aria-label="Advertisement" style="{style}">'
+        f'<a class="band-in" href="{o["url"]}" target="_blank" '
+        f'rel="sponsored nofollow noopener">'
+        f'<span class="band-flag">Ad</span>'
+        f'<img class="band-logo" src="{o.get("logoRev") or o["logo"]}" '
+        f'alt="{html.escape(o["name"])}" loading="lazy" decoding="async">'
+        f'<span class="band-copy">'
+        f'<span class="band-amt">{o.get("amount", "")}</span>'
+        # the rail breaks this over two lines; here it is one, so the <br>
+        # becomes a space rather than being hidden and closing the gap
+        f'<span class="band-sub">'
+        f'{(o.get("amountSub", "") or "").replace("<br>", " ")}</span></span>'
+        f'<span class="band-cta">{html.escape(o.get("cta", "Claim"))}'
+        f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+        f'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" '
+        f'aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'
+        f'</a></aside>')
+
+
 def bonusbox_block():
     """The three partner offers, rendered from offers.json.
 
@@ -919,7 +959,7 @@ def analytics_block():
 
 
 def build():
-    base = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block())
+    base = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block()).replace("{band}", band_block())
     written = []
 
     for page in PAGES:
@@ -986,7 +1026,7 @@ def build():
     urls_extra = []
     feed = _draws()
     all_draws = feed.get("draws", [])
-    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block())
+    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block()).replace("{band}", band_block())
     src_label = feed.get("source") or "Lotto NZ"
     src_url = feed.get("sourceUrl") or "https://mylotto.co.nz/results/keno"
 
@@ -1406,7 +1446,7 @@ def build():
         written.append(f"statistics/<page>/index.html  x{len(stat_pages)}")
 
     # ---- blog posts and news articles ----
-    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block())
+    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block()).replace("{band}", band_block())
     for kind, cfg in SECTIONS.items():
         for a in _entries(kind):
             canonical = f"{SITE}/{kind}/{a['slug']}/"
