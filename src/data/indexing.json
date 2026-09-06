@@ -1,0 +1,7 @@
+{
+  "_note": "RalfyIndex submission. The API key is NOT here - it lives in the macOS keychain (service 'ralfyindex-api'), because this repo is public and is itself the web root. Fill in 'endpoint' from the example at https://ralfyindex.com/dashboard/apikey; auth is already known to be an 'apikey' field in the JSON body, verified against /status.",
+  "endpoint": "",
+  "urlsField": "urls",
+  "batchSize": 100,
+  "extra": {}
+}

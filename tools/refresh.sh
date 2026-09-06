@@ -24,6 +24,11 @@ python3 tools/make_art.py       || echo "article art skipped"
 
 python3 tools/build.py > /dev/null
 
+# Indexing runs after the build, so it only ever advertises pages that exist,
+# and after validate_draws, so a feed that failed validation can never have its
+# pages submitted. Best-effort: a failure here must not stop publishing.
+python3 tools/submit_index.py || echo "indexing skipped"
+
 if [ "${1:-}" = "--push" ]; then
   if [ -z "$(git status --porcelain)" ]; then
     echo "No new draws - nothing to publish."
