@@ -939,6 +939,23 @@ def bonusbox_block():
         '</div></div>')
 
 
+def hreflang_block(canonical, robots=""):
+    """Alternates for the two English markets this content serves.
+
+    All three point at the same URL, which is valid and self-reciprocal - it
+    declares one page serving both, not a separate Australian edition.
+
+    Omitted entirely on noindex pages: telling Google "here is the Australian
+    alternate" while also telling it not to index the page is a contradiction,
+    and the 404 was picking it up from the shared template.
+    """
+    if robots.startswith("noindex"):
+        return ""
+    return "".join(
+        '<link rel="alternate" hreflang="%s" href="%s">' % (lang, canonical)
+        for lang in ("en-NZ", "en-AU", "x-default"))
+
+
 def analytics_block():
     """Cloudflare Web Analytics, or nothing at all.
 
@@ -1000,6 +1017,7 @@ def build():
                .replace("{og_title}", html.escape(page["og"]))
                .replace("{description}", html.escape(page["desc"]))
                .replace("{canonical}", canonical)
+               .replace("{hreflang}", hreflang_block(canonical, page.get("robots", "")))
                .replace("{robots}", page.get("robots", "index, follow, max-image-preview:large"))
                .replace("{site}", SITE)
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
@@ -1144,6 +1162,7 @@ def build():
                .replace("{canonical}", canonical)
                .replace("{page_id}", "draw")
                    .replace("{page_art}", page_deco(canonical))
+                   .replace("{hreflang}", hreflang_block(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
@@ -1251,6 +1270,7 @@ def build():
                .replace("{canonical}", f"{SITE}/odds/{spots}-spot/")
                .replace("{page_id}", "odds-spot")
                    .replace("{page_art}", page_deco(o_url))
+                   .replace("{hreflang}", hreflang_block(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
@@ -1433,6 +1453,7 @@ def build():
                    .replace("{canonical}", f"{SITE}/statistics/{slug}/")
                    .replace("{page_id}", "stats-child")
                    .replace("{page_art}", page_deco(st_url))
+                   .replace("{hreflang}", hreflang_block(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
@@ -1570,6 +1591,7 @@ def build():
                    .replace("{tw_card}", "summary_large_image" if png else "summary")
                    .replace("{page_id}", "article")
                    .replace("{page_art}", page_deco(canonical))
+                   .replace("{hreflang}", hreflang_block(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
