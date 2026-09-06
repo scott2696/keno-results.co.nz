@@ -9,7 +9,12 @@
   "submit": {
     "article": true,
     "page": true,
-    "draw": false
+    "draw": false,
+    "other": false
   },
-  "_submit_note": "One credit per URL. Draw pages are excluded by default: four a day is ~1,460 credits a year, and a dated archive page gains nothing from being indexed in five minutes rather than by the next sitemap crawl. Set draw to true to submit them anyway."
+  "_submit_note": "One credit per URL. Submitted: news and blog articles, plus any page under the pagePrefixes below. Skipped: draw pages (four a day, ~1,460 credits a year, and a dated archive page gains nothing from being indexed in five minutes rather than at the next sitemap crawl) and everything else, which is mostly legal pages that change once a year. Add a prefix to pagePrefixes to include a section.",
+  "pagePrefixes": [
+    "odds",
+    "faqs"
+  ]
 }

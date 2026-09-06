@@ -56,15 +56,24 @@ NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 # be turned back on in src/data/indexing.json.
 DEFAULT_KINDS = {"article": True, "page": True, "draw": False}
 
+# Which non-article pages are worth a credit. Everything outside this list is
+# still in the sitemap and still gets indexed - it just is not worth paying to
+# hurry along. The legal pages in particular gain nothing from being crawled
+# five minutes sooner, and they change once a year.
+DEFAULT_PAGE_PREFIXES = ["odds", "faqs"]
 
-def kind_of(url):
-    """article (blog/news), draw (a dated result), or page (everything else)."""
+
+def kind_of(url, page_prefixes=None):
+    """article (blog/news), draw (a dated result), page (worth submitting),
+    or other (real, indexable, just not worth a credit)."""
     path = url.replace("https://keno-results.co.nz", "").strip("/")
     if path.startswith(("blog/", "news/")) and path.count("/") >= 1:
         return "article"
     if path.startswith("results/2"):
         return "draw"
-    return "page"
+    prefixes = DEFAULT_PAGE_PREFIXES if page_prefixes is None else page_prefixes
+    head = path.split("/")[0]
+    return "page" if head in prefixes else "other"
 
 API_BASE = "https://api.ralfyindex.com"
 STATUS_URL = API_BASE + "/status"
@@ -179,13 +188,16 @@ def main():
         print(f"index: baseline adopted, {len(urls)} URLs marked as already sent")
         return 0
 
+    cfg_all = config()
     kinds = dict(DEFAULT_KINDS)
-    kinds.update(config().get("submit") or {})
+    kinds.update(cfg_all.get("submit") or {})
+    kinds.setdefault("other", False)
+    prefixes = cfg_all.get("pagePrefixes") or DEFAULT_PAGE_PREFIXES
 
     new_all = [u for u in urls if u not in sent]
     fresh, skipped = [], {}
     for u in new_all:
-        k = kind_of(u)
+        k = kind_of(u, prefixes)
         if kinds.get(k, True):
             fresh.append(u)
         else:
