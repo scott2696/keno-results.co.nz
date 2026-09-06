@@ -36,6 +36,24 @@ jobs:
       - name: Rebuild pages
         run: python3 tools/build.py
 
+      - name: Watch for lottery news and official releases
+  continue-on-error: true
+  run: |
+    python3 tools/watch_news.py  || true
+    python3 tools/fetch_official.py || true
+
+- name: Write any article the data justifies
+  continue-on-error: true
+  run: |
+    python3 tools/auto_news.py || true
+    python3 tools/make_art.py  || true
+    python3 tools/build.py > /dev/null
+
+- name: Submit new URLs for indexing
+  env:
+    RALFY_API_KEY: ${{ secrets.RALFY_API_KEY }}
+  continue-on-error: true
+  run: python3 tools/submit_index.py
       - name: Commit if anything changed
         run: |
           if [ -z "$(git status --porcelain)" ]; then
