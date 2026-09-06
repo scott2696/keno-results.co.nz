@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-05T10:04:28",
+  "updated": "2026-09-06T17:27:57",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -503,6 +503,16 @@
       "seen": "2026-09-05"
     },
     {
+      "title": "Lucky Lotto player wins $1m as Powerball jackpot grows",
+      "source": "NZ Herald",
+      "published": "Sat, 18 Apr 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxObEtPS0JnZDNJaXFDbUgxMHB0X3E3YzE3QjZhci1hSFNYSUcyT2pCdnNPVXBlYW4zZjZ5TGkwMHhEVXVjRno1TVpUaENDRkpZYWU5eU91TkdUT1pHak55Njd4cVZJZFVjcjlqVFFWaEU2MWcxZ3RCekRmQVRlMm8zNEM4QTVwSDcxcjVfUEUteTVXVFlGV0MyYnl1cFhzaC1oSDZaMkZiYVhKSE84aFhxOHBNREYxYVdFay1VUg?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-09-06"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -623,6 +633,36 @@
       "seen": "2026-09-05"
     },
     {
+      "title": "One Aucklander is sitting on an unclaimed $20m Lotto ticket",
+      "source": "NZ Herald",
+      "published": "Tue, 18 Aug 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNYzRQMzZubDAwVGpPTVFvY1M1UHNsb1ZDR0Znbm9iLXlZcmFPcUNRWndOQ0lYNHZkdTJ5Rm1TLXc4eWIxT0dQYm1xcXI5dGNsWWM1b2NTSHlIWlJjVGZNREotUkVUY2poR29tYThQN1pOc2JmZjVMY3FlektmTTgyUWl2aHFEOXV2TFRRY1ZCTWRmUjExUzY3MWFBb1pyWVZCb1Z3RXkyX3ZBSDZ3RjVUUV9ENUFMUXlOblR1ajZERTVUYnB6MHcwdEI5ZHNnUFJhN0htNUduX1ROZXVLYWNUdDFJYzFFSTJxbW80?oc=5",
+      "topic": "winner",
+      "priority": 3,
+      "covered": false,
+      "seen": "2026-09-06"
+    },
+    {
+      "title": "A lucky local customer? Store where $28m Powerball ticket sold awaits the winner",
+      "source": "NZ Herald",
+      "published": "Wed, 03 Jun 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNc3NtMGhxc0F1SXp4QUlUQ1NGNWhsUFVnS3lfRzdBWV9DWHVrcWdOa0NFcjlrUEdLNzhLN25ES1dLVmF3VlJJV2d4Rk5qS2xYV3N5UDZqeXppNHREbjUwLWRHU29ITkY2RFVmSjduZThJWF9nZUkzMi10TzZNemtmWXlDOE5DeU9OX01NSHc1eHZqa1RUWGV3ejRCYTh0NFUzenFxdlNmNDJnSm1aNEhFc1ZGdFlDWVg4MGNHVlhpUV9JSFF1R2pERmpzZ0J5V09wNm1rNmk5V1ladER4aHBSbUxOVEI?oc=5",
+      "topic": "winner",
+      "priority": 3,
+      "covered": false,
+      "seen": "2026-09-06"
+    },
+    {
+      "title": "Six million dollars in tonight's Lotto Powerball - are you the winner?",
+      "source": "NZ Herald",
+      "published": "Sat, 02 May 2026 08:08:20 GMT",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOSm8wWjNQUGQ1M0JQUzg5Q1YyUHNLODlkUDVlN0tSM2JUQ3lMTUl3OWh6cmhOczR6VXBPSHlQYVdHTW1qZzZJMkZkMWdERTRMblFwZVZIWHMwTGpTRUg5UFFqbFlrMjFmYXJMTER6aTh2eWNURnhPTUx4aGNWSXNHdV9FOTVxOXJUazRwN0d4eGZfMzY2ZWh2Z1drWC1Fc05rU3VFVWMwVHVnajFJc1FFVXVOSHJVS1l6Y0lhQ1FJWDB3NjdybGR6dmtDT2Jydw?oc=5",
+      "topic": "winner",
+      "priority": 3,
+      "covered": false,
+      "seen": "2026-09-06"
+    },
+    {
       "title": "Where Saturday\u2019s winning Lotto tickets were sold",
       "source": "Stuff",
       "published": "Sat, 29 Aug 2026 23:13:39 GMT",
@@ -721,6 +761,26 @@
       "priority": 4,
       "covered": false,
       "seen": "2026-09-05"
+    },
+    {
+      "title": "Where last night's $28m winning Lotto ticket was sold",
+      "source": "NZ Herald",
+      "published": "Sat, 05 Sep 2026 23:37:41 GMT",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMDB4cHNkSDNUUU92V09nbkJJeUNIQU1IWTQxR2Y5WEtub3FqWUJsU3lOX1ExUVJyWmFQOHlwWDN3azZWQzN6WnJDOGkxdkxIWVpOUXg0cV92eDlfZEFCSll2RWRyQ0ttS0RvcnZjMGRmYW4xZmpfbGdiLXlnUXNBM09CUUszNkNhOU01V0lBZ1Voa2RtNEtNUXdxQV9KZElpVU9jNDl3Nk1Ud1BR?oc=5",
+      "topic": "retail",
+      "priority": 4,
+      "covered": false,
+      "seen": "2026-09-06"
+    },
+    {
+      "title": "Where the winning $330k Lotto tickets were bought",
+      "source": "Stuff",
+      "published": "Wed, 02 Sep 2026 23:10:26 GMT",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNU2R4N0N4MnhVNzF6SkF1V3YxZERWMGFnNmVvUTgteDFxdEtjS21rRFQ5Yjg1d1BrMlR1cDRkRnZkVmMyVmVQVUNpNkNBdWItTkJtNnN0d0lHSFhGLUFVM3hKdHp2VExKYkk5QkpUZzlDbW9mSEw3WEtOSHZTZDRRdkhUQnF3RFBsdWJwaFZIdw?oc=5",
+      "topic": "retail",
+      "priority": 4,
+      "covered": false,
+      "seen": "2026-09-06"
     },
     {
       "title": "Lotto's top prize to hit $60m \u2013 but it\u2019s never been harder to win",
@@ -971,6 +1031,26 @@
       "priority": 5,
       "covered": false,
       "seen": "2026-09-05"
+    },
+    {
+      "title": "Lotto Powerball: One lucky ticket holder is $28m richer!",
+      "source": "NZ Herald",
+      "published": "Fri, 04 Sep 2026 23:53:35 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTUJ2QjlPd3hoZUZhajlVRUkweXlKZkUyVUVfUXZWZjZsa0ZUNDhsUmZNQlJicWJJanQ4d2RFdG5Odjl1RGxDaTRrZDVHQWVpOEx6c01fVDB5VTBKR0ZPT0E3N2ZVeGhaWWg3WWpIbUJRbFRWOGlodm45R3pjcVp3MUN0Wk9Cd1BlR1hvVDcyM2JrUlFhN3VvUkxMVGNJeEZZWXdSOFJYQ2pRbGFtZG9fNEVUSlRadXZ2RWtRVGs2YlptYkE?oc=5",
+      "topic": "general",
+      "priority": 5,
+      "covered": false,
+      "seen": "2026-09-06"
+    },
+    {
+      "title": "Lotto Draw Results: Lotto NZ 5 September",
+      "source": "The National Tribune",
+      "published": "Sat, 05 Sep 2026 12:08:51 GMT",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNLW54XzE5SXVCeThtTThFRGs2clB3ZUtVSzNjeFFRREVqcUNEVVN2SFBHbkZFdDMtc25LcWJldS1DaUQxU0t5X3N3THRwMXFFX0tDdTRpSWJVcjN0LVhLQ2VfYVl6UDhVczd6MUlfdFZQSENxaVVIZGNyTjdib0ZBWg?oc=5",
+      "topic": "general",
+      "priority": 5,
+      "covered": false,
+      "seen": "2026-09-06"
     }
   ]
 }
