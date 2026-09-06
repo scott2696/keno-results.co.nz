@@ -180,7 +180,12 @@ def lotto_article(d):
     )
     return {"slug": f"lotto-draw-{dn}-result", "title": headline,
             "date": datetime.date.today().isoformat(), "tag": "Lotto NZ",
-            "summary": lede, "body": body, "_key": f"lotto-{dn}"}
+            "summary": lede, "body": body, "_key": f"lotto-{dn}",
+            "art": {"kind": "draw", "game": "Lotto", "drawNumber": dn,
+                    "numbers": d.get("numbers", []),
+                    "extras": [{"label": e.get("label"), "value": e.get("value")}
+                               for e in d.get("extras", [])
+                               if e.get("label") in ("Bonus", "Powerball")]}}
 
 
 def bullseye_article(d):
@@ -228,7 +233,9 @@ def bullseye_article(d):
             "date": datetime.date.today().isoformat(), "tag": "Bullseye",
             "summary": (f"Draw {dn} produced a First Division Bullseye winner, with the "
                         f"number {n} matched exactly."),
-            "body": body, "_key": f"bullseye-{dn}"}
+            "body": body, "_key": f"bullseye-{dn}",
+            "art": {"kind": "bullseye", "game": "Bullseye", "drawNumber": dn,
+                    "value": str(n)}}
 
 
 def keno_article():
@@ -288,7 +295,9 @@ def keno_article():
             "date": datetime.date.today().isoformat(), "tag": "Keno",
             "summary": (f"Draw {dn} was attached to a &times;{mult} multiplier, recorded "
                         f"in {share:.1f}% of the {total} draws in our archive."),
-            "body": body, "_key": f"keno-{dn}"}
+            "body": body, "_key": f"keno-{dn}",
+            "art": {"kind": "keno", "game": "Keno", "drawNumber": dn,
+                    "numbers": d.get("numbers", []), "multiplier": mult}}
 
 
 def main():

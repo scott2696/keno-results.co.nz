@@ -184,6 +184,126 @@ def bands(r, cols):
     return out
 
 
+# --------------------------------------------------------------- real draws
+# An abstract shape says "lottery"; the actual numbers say what happened in
+# this particular draw. Where an article carries its result (auto_news records
+# one on everything it writes), the header shows that result rather than a
+# generic composition - which also makes every image unique without relying on
+# the seed, and makes it worth looking at rather than just looking nice.
+
+def band_of(n):
+    return BANDS[min((int(n) - 1) // 10, 7)]
+
+
+def ball(cx, cy, r, label, fill, ring=None, dim=False):
+    out = [f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{r:.0f}" fill="{fill}" '
+           f'opacity="{.55 if dim else 1}"/>',
+           f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{r:.0f}" fill="none" '
+           f'stroke="{PAPER}" stroke-opacity=".14" stroke-width="1"/>']
+    if ring:
+        out.append(f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{r + 7:.0f}" fill="none" '
+                   f'stroke="{ring}" stroke-width="2.5" opacity=".9"/>')
+    out.append(f'<text x="{cx:.0f}" y="{cy:.0f}" text-anchor="middle" '
+               f'dominant-baseline="central" fill="{PAPER}" '
+               f'font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" '
+               f'font-size="{r * .82:.0f}">{label}</text>')
+    return out
+
+
+def caption(text, y=None):
+    return [f'<text x="{W/2:.0f}" y="{y or H - 54:.0f}" text-anchor="middle" '
+            f'fill="{PAPER}" fill-opacity=".46" '
+            f'font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" '
+            f'font-size="26" letter-spacing="6">{text}</text>']
+
+
+def art_draw(a):
+    """A Lotto/Powerball line: the six numbers, plus bonus and Powerball."""
+    art = a["art"]
+    nums = [int(n) for n in art.get("numbers", [])]
+    extras = art.get("extras", [])
+    if not nums:
+        return None
+    # Size the balls to the frame rather than assuming they fit: eight at a
+    # fixed r=62 needed 1,238px of a 1,200px canvas and hung off both edges.
+    total = len(nums) + len(extras)
+    divider = 36 if extras else 0
+    margin = 76
+    r = min(62, (W - 2 * margin - divider) / (total * 2 + (total - 1) * 0.48))
+    gap = r * 0.48
+    span = total * (r * 2) + (total - 1) * gap + divider
+    x = (W - span) / 2 + r
+    out = []
+    for n in nums:
+        out += ball(x, H / 2 - 16, r, n, band_of(n))
+        x += r * 2 + gap
+    if extras:
+        out.append(f'<line x1="{x - gap / 2 - 18:.0f}" y1="{H/2 - 86:.0f}" '
+                   f'x2="{x - gap / 2 - 18:.0f}" y2="{H/2 + 54:.0f}" '
+                   f'stroke="{PAPER}" stroke-opacity=".16" stroke-width="1.5"/>')
+        x += 18
+    for e in extras:
+        val = str(e.get("value", "")).lstrip("0") or "0"
+        gold = e.get("label") == "Powerball"
+        out += ball(x, H / 2 - 16, r, val, "#1C2431",
+                    ring="#E9B44C" if gold else ACCENT)
+        x += r * 2 + gap
+    return out + caption(f'{art.get("game", "").upper()} &#183; DRAW '
+                         f'{art.get("drawNumber", "")}')
+
+
+def art_keno(a):
+    """Twenty Keno numbers in the two rows the site draws them in, with the
+    multiplier alongside, since that is what the article is about."""
+    art = a["art"]
+    nums = [int(n) for n in art.get("numbers", [])]
+    if not nums:
+        return None
+    per = 10
+    margin = 76
+    r = min(40, (W - 2 * margin) / (per * 2 + (per - 1) * 0.4))
+    gap = r * 0.4
+    rows = [nums[i:i + per] for i in range(0, len(nums), per)]
+    out = []
+    for ri, row in enumerate(rows):
+        span = len(row) * (r * 2) + (len(row) - 1) * gap
+        x = (W - span) / 2 + r
+        y = H / 2 - 74 + ri * (r * 2 + gap)
+        for n in row:
+            out += ball(x, y, r, n, band_of(n))
+            x += r * 2 + gap
+    mult = art.get("multiplier")
+    if mult:
+        out.append(f'<text x="{W/2:.0f}" y="{H - 74:.0f}" text-anchor="middle" '
+                   f'fill="#E9B44C" font-family="Inter,Helvetica,Arial,sans-serif" '
+                   f'font-weight="680" font-size="58" letter-spacing="-2">'
+                   f'&#215;{mult}</text>')
+    return out + caption(f'KENO &#183; DRAW {art.get("drawNumber","")}', y=H - 30)
+
+
+def art_bullseye(a):
+    """Bullseye draws one number, so the rings converge on it."""
+    art = a["art"]
+    val = str(art.get("value", ""))
+    cx, cy = W / 2, H / 2 - 20
+    out = []
+    for i in range(9, 0, -1):
+        out.append(f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{i * 40}" fill="none" '
+                   f'stroke="{ACCENT if i == 3 else BANDS[i % 8]}" '
+                   f'stroke-width="{2.2 if i == 3 else 1.2}" '
+                   f'opacity="{.8 if i == 3 else max(.08, .5 - i * .045):.2f}"/>')
+    out.append(f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="86" fill="{GROUND_2}"/>')
+    out.append(f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="86" fill="none" '
+               f'stroke="{ACCENT}" stroke-width="2.5"/>')
+    out.append(f'<text x="{cx:.0f}" y="{cy:.0f}" text-anchor="middle" '
+               f'dominant-baseline="central" fill="{PAPER}" '
+               f'font-family="Inter,Helvetica,Arial,sans-serif" font-weight="680" '
+               f'font-size="54" letter-spacing="-1">{val}</text>')
+    return out + caption(f'BULLSEYE &#183; DRAW {art.get("drawNumber","")}')
+
+
+REAL = {"draw": art_draw, "keno": art_keno, "bullseye": art_bullseye}
+
 SHAPES = {"scatter": scatter, "converge": converge, "rings": rings,
           "distribution": distribution, "grid": grid, "bands": bands}
 
@@ -216,11 +336,21 @@ def render(a):
     r = seeded(slug)
     cols = BANDS[:]
     r.shuffle(cols)
-    shape = pick_shape(a)
-    body = "\n    ".join(SHAPES[shape](r, cols))
+    # A real result beats a shape whenever the article carries one.
+    art = a.get("art") or {}
+    parts = REAL[art["kind"]](a) if art.get("kind") in REAL else None
+    shape = art.get("kind") if parts else pick_shape(a)
+    if parts is None:
+        parts = SHAPES[pick_shape(a)](r, cols)
+    body = "\n    ".join(parts)
     gx, gy = r.uniform(.20, .80), r.uniform(.10, .40)
+    if art.get("kind") in REAL:
+        label = ("The numbers drawn in %s draw %s"
+                 % (art.get("game", ""), art.get("drawNumber", "")))
+    else:
+        label = "Abstract illustration"
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" \
-width="{W}" height="{H}" role="img" aria-label="Abstract illustration">
+width="{W}" height="{H}" role="img" aria-label="{label}">
   <defs>
     <radialGradient id="g" cx="{gx:.2f}" cy="{gy:.2f}" r="1">
       <stop offset="0" stop-color="{GROUND_2}"/>
@@ -273,7 +403,9 @@ def main():
         with open(dest, "w", encoding="utf-8") as fh:
             fh.write(svg)
         made += 1
-        print(f"  {pick_shape(a):<12} {len(svg)//1024 or 1} KB  {slug}")
+        kind = (a.get("art") or {}).get("kind")
+        label = (kind + "*") if kind in REAL else pick_shape(a)
+        print(f"  {label:<12} {len(svg)//1024 or 1} KB  {slug}")
     print(f"article art: {made} drawn")
     return 0
 

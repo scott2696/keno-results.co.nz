@@ -828,6 +828,23 @@ def page_deco(key):
     return "abcd"[int(hashlib.sha1(key.encode()).hexdigest(), 16) % 4]
 
 
+def _art_alt(a):
+    art = a.get("art") or {}
+    if art.get("kind") in ("draw", "keno", "bullseye"):
+        return ("The numbers drawn in %s draw %s, shown as coloured balls."
+                % (art.get("game", ""), art.get("drawNumber", "")))
+    return ("Abstract illustration in the site's colours, accompanying the "
+            "article \u2014 it does not depict a real draw.")
+
+
+def _art_cap(a):
+    art = a.get("art") or {}
+    if art.get("kind") in ("draw", "keno", "bullseye"):
+        return "%s draw %s &mdash; the numbers as drawn" % (
+            html.escape(str(art.get("game", ""))), art.get("drawNumber", ""))
+    return "Illustration &mdash; abstract, not a photograph"
+
+
 def bonusbox_block():
     """The three partner offers, rendered from offers.json.
 
@@ -1454,13 +1471,16 @@ def build():
                 # paragraph. Labelled as an illustration on principle: on a site
                 # whose whole position is verified data, a decorative image must
                 # never be mistakable for a photograph of a real draw.
+                # Two kinds of header image, and they must not be described the
+                # same way. Where the article carries its own result the image
+                # shows those actual numbers, so calling it an abstract
+                # illustration would be false - and on this site that is the
+                # one thing an image must never be.
                 + (f'<div class="article-img"><figure>'
-                   f'<img src="{img_path}" alt="Abstract illustration in the '
-                   f'site\'s colours, accompanying the article \u2014 it does not '
-                   f'depict a real draw." width="1200" height="675" '
-                   f'loading="lazy" decoding="async">'
-                   f'<figcaption>Illustration \u2014 abstract, not a photograph'
-                   f'</figcaption></figure></div>' if img_path else '')
+                   f'<img src="{img_path}" alt="{html.escape(_art_alt(a))}" '
+                   f'width="1200" height="675" loading="lazy" decoding="async">'
+                   f'<figcaption>{_art_cap(a)}</figcaption></figure></div>'
+                   if img_path else '')
                 + f'<div class="prose" style="margin-top:34px">{a["body"]}'
                 '<p class="article-foot">Figures in this article are computed from the draw '
                 'archive this site holds and were correct at the time of writing. '
