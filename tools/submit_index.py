@@ -47,6 +47,25 @@ STATE = os.path.join(ROOT, "src", "data", "indexed.json")
 CONFIG = os.path.join(ROOT, "src", "data", "indexing.json")
 NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
+# What is worth paying a credit for. Submission costs one credit per URL, so
+# four draw pages a day is ~1,460 credits a year - most of a plan spent on
+# dated archive pages nobody searches for by number minutes after the draw.
+# Those are discovered from the sitemap perfectly well; what actually benefits
+# from being indexed in five rather than five hundred minutes is an article,
+# and there are a couple a month. The default reflects that, and any of it can
+# be turned back on in src/data/indexing.json.
+DEFAULT_KINDS = {"article": True, "page": True, "draw": False}
+
+
+def kind_of(url):
+    """article (blog/news), draw (a dated result), or page (everything else)."""
+    path = url.replace("https://keno-results.co.nz", "").strip("/")
+    if path.startswith(("blog/", "news/")) and path.count("/") >= 1:
+        return "article"
+    if path.startswith("results/2"):
+        return "draw"
+    return "page"
+
 API_BASE = "https://api.ralfyindex.com"
 STATUS_URL = API_BASE + "/status"
 
@@ -160,9 +179,27 @@ def main():
         print(f"index: baseline adopted, {len(urls)} URLs marked as already sent")
         return 0
 
-    fresh = [u for u in urls if u not in sent]
+    kinds = dict(DEFAULT_KINDS)
+    kinds.update(config().get("submit") or {})
+
+    new_all = [u for u in urls if u not in sent]
+    fresh, skipped = [], {}
+    for u in new_all:
+        k = kind_of(u)
+        if kinds.get(k, True):
+            fresh.append(u)
+        else:
+            skipped[k] = skipped.get(k, 0) + 1
+            # Record it anyway: it is a deliberate skip, not a failure, and
+            # leaving it unrecorded would re-offer it on every future run.
+            sent[u] = today
+
+    if skipped:
+        save_state(state)
+        print("index: skipped " + ", ".join(f"{n} {k}" for k, n in skipped.items())
+              + " (not worth a credit; the sitemap covers discovery)")
     if not fresh:
-        print("index: nothing new since the last run")
+        print("index: nothing new worth submitting")
         return 0
 
     batch = fresh[:args.limit]

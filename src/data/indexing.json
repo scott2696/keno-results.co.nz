@@ -5,5 +5,11 @@
   "batchSize": 100,
   "extra": {
     "projectName": "keno-results.co.nz"
-  }
+  },
+  "submit": {
+    "article": true,
+    "page": true,
+    "draw": false
+  },
+  "_submit_note": "One credit per URL. Draw pages are excluded by default: four a day is ~1,460 credits a year, and a dated archive page gains nothing from being indexed in five minutes rather than by the next sitemap crawl. Set draw to true to submit them anyway."
 }
