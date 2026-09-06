@@ -1517,14 +1517,17 @@ def build():
             if a.get("tag"):
                 article["keywords"] = list(dict.fromkeys(
                     [a["tag"], "Keno", "New Zealand"]))
-            if img:
-                # The raster where one exists, because SVG is not an accepted
+            if png:
+                # Only when a raster exists. Falling back to the SVG declared an
+                # image in a format Google does not accept for Article markup,
+                # which is a structured-data error rather than a harmless one -
+                # no image is better than an unusable one., because SVG is not an accepted
                 # format for Article structured data. The caption has to match
                 # what the image actually shows - these are drawn locally, not
                 # generated, and a draw image shows the real numbers.
                 art_kind = (a.get("art") or {}).get("kind")
                 article["image"] = {
-                    "@type": "ImageObject", "url": png or img,
+                    "@type": "ImageObject", "url": png,
                     "width": 1200, "height": 675,
                     "caption": ("The numbers drawn in %s draw %s"
                                 % ((a.get("art") or {}).get("game", ""),
