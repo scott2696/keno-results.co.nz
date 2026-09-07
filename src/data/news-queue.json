@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-07T02:31:07",
+  "updated": "2026-09-07T03:28:21",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -551,6 +551,16 @@
       "priority": 2,
       "covered": false,
       "seen": "2026-09-06"
+    },
+    {
+      "title": "Lotto Powerball not struck - jackpot rolls over to $20 million on Wednesday",
+      "source": "NZ Herald",
+      "published": "Sat, 22 Aug 2026 08:10:48 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxON1ZsVUthQzVyTERqT3pTWjVYcFlNdm0ySFlzaGJwNXF3VWJlaTAtSlIwcjlyYVY0c1VndTZHclJpdWU0V0dwNTI5cDhXVnBvT2FVZUdadnFBSjJiVTdqRHBKcVMxZ3Zjd2d6ZkZIaXplYVdROHJyRDJ4THFYeUZwN1VQemw0c0xsT01FY2VqQkl0Ul9rODhtbkpHcHQwUUVVZEhWS2lkVTg?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-09-07"
     },
     {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
