@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-07T00:39:37",
+  "updated": "2026-09-07T01:28:57",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -1151,6 +1151,16 @@
       "priority": 5,
       "covered": false,
       "seen": "2026-09-06"
+    },
+    {
+      "title": "$28.5m Lotto win: What the Gisborne resident could spend it on close to home",
+      "source": "1News",
+      "published": "Mon, 07 Sep 2026 01:11:24 GMT",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPR2NrTU84bFRpMnZValhNSFZrc0VsUFA2emhvcFV3UjFObFF5MDg1YS1Xd3d6SUp1aW9TNjRYU2I5Z0doZEZpVmlzX0xlQmYtZG9GOGMzRDB6V0IySllCMzEzdVdjSDBDenZIYVBPd1BfdjlIRzU3cFVqMldpZTFHNlRIczE5dmUxUk9YN0NZNzBkeTF0d1htRDc5LTc1Q1o5ODBPUGNSaU5iTkp1dEE?oc=5",
+      "topic": "general",
+      "priority": 5,
+      "covered": false,
+      "seen": "2026-09-07"
     }
   ]
 }
