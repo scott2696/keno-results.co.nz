@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-07T01:28:57",
+  "updated": "2026-09-07T02:31:07",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -733,6 +733,16 @@
       "seen": "2026-09-06"
     },
     {
+      "title": "'Had a bit of a sit down': Winners of $28m Father's Day Lotto ticket claim prize at store",
+      "source": "NZ Herald",
+      "published": "Mon, 07 Sep 2026 01:17:16 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPQzB4TUprWHJoUVBxWld2c3Z6dnZ0NHFmdjViV01FQWgxRWV2eEVVNGxuMXZnZGc0S0N5S3FUaWdSNXdWRGhvUGlfREE5SGk1dlEtMU42VjhxUXlLaUhVbEpjeDZCLV84Y1pJcFRZUkJEc1ktRWc3V2Z4QklfVldyV1JBVUZjTjYyMUxqZUN6WUw3eGtqaktQWkdqQmgwQ1Q2V3VxVk13NjdqLWtRTEI0N3Nyc2JZNmFZb2M2amtQWUxCWU9HQ09VeXA0WGdoemRE?oc=5",
+      "topic": "winner",
+      "priority": 3,
+      "covered": false,
+      "seen": "2026-09-07"
+    },
+    {
       "title": "Where Saturday\u2019s winning Lotto tickets were sold",
       "source": "Stuff",
       "published": "Sat, 29 Aug 2026 23:13:39 GMT",
@@ -851,6 +861,16 @@
       "priority": 4,
       "covered": false,
       "seen": "2026-09-06"
+    },
+    {
+      "title": "Four Lotto players win $250k \u2013 where the winning tickets were sold",
+      "source": "NZ Herald",
+      "published": "Sat, 22 Aug 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQWE4zeEszQUxyYjRsNjFSeE84a2xoUElJbHppM08xUERaVy1ZWEhvb3FXeDNBUFBhNjJrdkt2QmczcTVhdmdPU1ljS2hncWtrMVlHenNpSzgyd0ZlOFpvc3VEdklwQ2Nad2hFOUlCVEhURUR2TlNSZWswOGplUENldHBKbzVmc3Q2Wm5qcjBDcm1JWklOYnhLTUtwZHc1MFFqU0VFdEh3bGY4eEFDMG9ZUmNlS0l4SmttSHVmUUVaeGhnSDYwYWozTGpyRXNBZVdmdVFoN1Rn?oc=5",
+      "topic": "retail",
+      "priority": 4,
+      "covered": false,
+      "seen": "2026-09-07"
     },
     {
       "title": "Lotto's top prize to hit $60m \u2013 but it\u2019s never been harder to win",
@@ -1157,6 +1177,16 @@
       "source": "1News",
       "published": "Mon, 07 Sep 2026 01:11:24 GMT",
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPR2NrTU84bFRpMnZValhNSFZrc0VsUFA2emhvcFV3UjFObFF5MDg1YS1Xd3d6SUp1aW9TNjRYU2I5Z0doZEZpVmlzX0xlQmYtZG9GOGMzRDB6V0IySllCMzEzdVdjSDBDenZIYVBPd1BfdjlIRzU3cFVqMldpZTFHNlRIczE5dmUxUk9YN0NZNzBkeTF0d1htRDc5LTc1Q1o5ODBPUGNSaU5iTkp1dEE?oc=5",
+      "topic": "general",
+      "priority": 5,
+      "covered": false,
+      "seen": "2026-09-07"
+    },
+    {
+      "title": "Gisborne\u2019s new \u2018lucky shop\u2019 draws crowds after $28.25m Lotto win",
+      "source": "Stuff",
+      "published": "Mon, 07 Sep 2026 01:47:31 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNQkZFbFhpRUlSTXNCSHU3SWdzc2hOQ2ZqTDJqUHJxeFYwc280aDhLU0pTd1RVWGVUcS1sRndXa2dkbXl1VGR1QjZBM2NOYkdtNk1QZ1VnSlVsVjRtUzM5dmlIWFJaRTUtOXV0MmEyZzZnV1k3QzJWMjhzVlpUWHdzYVJwbXRjSU1SMHl4QlVWSTBlc2JXWHJWX1hkWUdZUkJmWFFF?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
