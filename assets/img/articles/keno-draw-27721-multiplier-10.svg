@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="The numbers drawn in Keno draw 27721">
+  <defs>
+    <radialGradient id="g" cx="0.25" cy="0.23" r="1">
+      <stop offset="0" stop-color="#141B24"/>
+      <stop offset="1" stop-color="#0D1117"/>
+    </radialGradient>
+    <filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
+    <linearGradient id="v" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0D1117" stop-opacity=".00"/>
+      <stop offset="1" stop-color="#0D1117" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <g>
+    <circle cx="168" cy="264" r="40" fill="#126447" opacity="1"/>
+    <circle cx="168" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="168" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">1</text>
+    <circle cx="264" cy="264" r="40" fill="#126447" opacity="1"/>
+    <circle cx="264" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="264" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">5</text>
+    <circle cx="360" cy="264" r="40" fill="#0E5D6F" opacity="1"/>
+    <circle cx="360" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="360" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">13</text>
+    <circle cx="456" cy="264" r="40" fill="#0E5D6F" opacity="1"/>
+    <circle cx="456" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="456" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">16</text>
+    <circle cx="552" cy="264" r="40" fill="#0E5D6F" opacity="1"/>
+    <circle cx="552" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="552" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">19</text>
+    <circle cx="648" cy="264" r="40" fill="#15568A" opacity="1"/>
+    <circle cx="648" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="648" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">22</text>
+    <circle cx="744" cy="264" r="40" fill="#15568A" opacity="1"/>
+    <circle cx="744" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="744" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">23</text>
+    <circle cx="840" cy="264" r="40" fill="#15568A" opacity="1"/>
+    <circle cx="840" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="840" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">25</text>
+    <circle cx="936" cy="264" r="40" fill="#15568A" opacity="1"/>
+    <circle cx="936" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="936" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">29</text>
+    <circle cx="1032" cy="264" r="40" fill="#284791" opacity="1"/>
+    <circle cx="1032" cy="264" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="1032" y="264" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">31</text>
+    <circle cx="168" cy="360" r="40" fill="#284791" opacity="1"/>
+    <circle cx="168" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="168" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">32</text>
+    <circle cx="264" cy="360" r="40" fill="#284791" opacity="1"/>
+    <circle cx="264" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="264" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">34</text>
+    <circle cx="360" cy="360" r="40" fill="#453B92" opacity="1"/>
+    <circle cx="360" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="360" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">41</text>
+    <circle cx="456" cy="360" r="40" fill="#453B92" opacity="1"/>
+    <circle cx="456" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="456" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">49</text>
+    <circle cx="552" cy="360" r="40" fill="#662F88" opacity="1"/>
+    <circle cx="552" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="552" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">57</text>
+    <circle cx="648" cy="360" r="40" fill="#662F88" opacity="1"/>
+    <circle cx="648" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="648" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">60</text>
+    <circle cx="744" cy="360" r="40" fill="#852764" opacity="1"/>
+    <circle cx="744" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="744" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">69</text>
+    <circle cx="840" cy="360" r="40" fill="#852764" opacity="1"/>
+    <circle cx="840" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="840" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">70</text>
+    <circle cx="936" cy="360" r="40" fill="#8D3E27" opacity="1"/>
+    <circle cx="936" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="936" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">73</text>
+    <circle cx="1032" cy="360" r="40" fill="#8D3E27" opacity="1"/>
+    <circle cx="1032" cy="360" r="40" fill="none" stroke="#E8ECF2" stroke-opacity=".14" stroke-width="1"/>
+    <text x="1032" y="360" text-anchor="middle" dominant-baseline="central" fill="#E8ECF2" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="33">79</text>
+    <text x="600" y="601" text-anchor="middle" fill="#E9B44C" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="680" font-size="58" letter-spacing="-2">&#215;10</text>
+    <text x="600" y="645" text-anchor="middle" fill="#E8ECF2" fill-opacity=".46" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="600" font-size="26" letter-spacing="6">KENO &#183; DRAW 27721</text>
+  </g>
+  <rect width="1200" height="675" fill="url(#v)"/>
+  <rect width="1200" height="675" filter="url(#n)" opacity=".045"/>
+</svg>
