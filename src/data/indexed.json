@@ -1,6 +1,6 @@
 {
   "_note": "URLs already sent to RalfyIndex. A URL is recorded only once the API has accepted it, so a failed run simply retries next time.",
-  "updated": "2026-09-09T21:29:07",
+  "updated": "2026-09-09T22:30:17",
   "submitted": {
     "https://keno-results.co.nz/": "2026-09-06",
     "https://keno-results.co.nz/check/": "2026-09-06",
@@ -293,6 +293,7 @@
     "https://keno-results.co.nz/results/2026-09-09/27725/": "2026-09-09",
     "https://keno-results.co.nz/results/2026-09-09/27726/": "2026-09-09",
     "https://keno-results.co.nz/results/2026-09-09/27727/": "2026-09-09",
-    "https://keno-results.co.nz/news/lotto-draw-2619-result/": "2026-09-09"
+    "https://keno-results.co.nz/news/lotto-draw-2619-result/": "2026-09-09",
+    "https://keno-results.co.nz/results/2026-09-10/27728/": "2026-09-09"
   }
 }

@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-09T21:29:05",
+  "updated": "2026-09-09T22:30:15",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -67,6 +67,16 @@
       "source": "The National Tribune",
       "published": "Wed, 09 Sep 2026 18:16:25 GMT",
       "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPQkRtZ1FwY2pZMjdMdWw2NEJPeTJIQW5Zanlmd0haT2VGYWl1M1NJQ3NPUC1reGhXSzhaUTdNR2pIbEVqUklNeVNGNkR0OWt2aW1PTVhxeFZzVFdEbVhVcTBBRmRKZjE2MmJ1Y1ZLZjY2dmVZZVRNVmtWNXhDc3lWZ0FLSWZvdXlDSDFpNUp3cHFubW1qNnRWVHMzT01iXzBfQzE5LVpn?oc=5",
+      "topic": "rules",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-09"
+    },
+    {
+      "title": "Lotto announces $10m jackpot must be won before major draw changes",
+      "source": "1News",
+      "published": "Wed, 09 Sep 2026 20:34:59 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNNDBaV0xHUjJEX1FJUjJ5NVl1b1A4OE1CTXFaR1RCQmh0bWw2ZXRqaE8tUnk1bVJuUF96aGZKVzMzME8wVXpxSDY3azcwY29kNk9raE5MWVNlX0tOekRKVjNXbml6LUZOcGY4WE9oM1lmZGpaRlB2MEJ6ZzluWWxEZl9JalJvd0ZEdlBjZHJZbHFURmJObF9aOHdqUE9wQW9nYkZJ?oc=5",
       "topic": "rules",
       "priority": 1,
       "covered": false,
@@ -1187,16 +1197,6 @@
       "source": "NZ Herald",
       "published": "Sat, 14 Mar 2026 07:07:23 GMT",
       "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxORkVEdE1EVDRKT21oMHFkeElMRWVkc0pnQk9UWlRkOXRRLUdCdUdKUXVjTEhqOWVlVV80VDh1VkNYRWNlUDFYODk1dTljSllDeDVlS3N2M0xSa1V3bnRFWm5LSEJaY2N2T2J1Z3FoWHVfLUhzN3RyRThHQlFPT3JLWU9ialNJTTdZeElUMzFrM1ZQUi1vMkFmWG8zanBSYnB0Nno5WXl5cnNTMkwxQVpkdzM3MGlneXpVbzJsNE8tRzltRTRnd0E?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Lotto results are in and here are the winning numbers and prizes",
-      "source": "Stuff",
-      "published": "Sat, 01 Aug 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZUxsSXZtRi1DNTg0VFB2WW1mUVg5TjJESkVOWElxMm5ibVZxM1RtcEI0VGxkZWRKcjR2bUpUbndJdVBNWURBTzkwZmtJZlVud2VkMmM5b25LektLSXBzTWNuTDNGRW13Zm1sUl9ZYzFFemlsalNPVjJRLUtrTTh1bw?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
