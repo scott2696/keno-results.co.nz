@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-08T22:30:52",
+  "updated": "2026-09-09T00:38:56",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -773,6 +773,16 @@
       "seen": "2026-09-08"
     },
     {
+      "title": "Six Lotto Players Share $1 Million: Lotto NZ 4 July",
+      "source": "Mirage News",
+      "published": "Sat, 04 Jul 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOVHBaYmpaR3h2VnlHUGgzcVlCTUQxZ1lTeWFKRkZHaEk2ZVZ4SHJzdkx5Z2dGWENKLTNFa3hCVEhBWTNBSXNWN1ZkMV9la05BVGFZTlRsSzdhdVg0Q2YxUEd0NVNGZ0dKZnFxT3BVLXZZVHNjOHRzeHQ1REpVRHAwRHZJOTlkU0k?oc=5",
+      "topic": "winner",
+      "priority": 3,
+      "covered": false,
+      "seen": "2026-09-09"
+    },
+    {
       "title": "Where Saturday\u2019s winning Lotto tickets were sold",
       "source": "Stuff",
       "published": "Sat, 29 Aug 2026 23:13:39 GMT",
@@ -901,6 +911,16 @@
       "priority": 4,
       "covered": false,
       "seen": "2026-09-07"
+    },
+    {
+      "title": "16 Kiwis now $21k richer after Lotto draw \u2013 where lucky tickets were sold",
+      "source": "NZ Herald",
+      "published": "Sun, 10 May 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNc2FSWEJ3bElpV1Y5SEVNWjRMYUd1eFh4c1N4MUo1Y25Fc0VISUcwM2ZNT2ZhY2lJaVpMTnpTLTVFUzZuQU5RWnVBUk4wMHFlc0YwTTdfZWh4cU9kREJOZnZCaFhtZlgxMTBKbHpRSTJheDEzREc5OVF5Y052eWpTWXZUUzFVTGRKc2ZiNmFjVy1kQjN6RWNMWHZ2OGVvclh4dVZVM0hWNDlSX3hkVkVPelpzWHE4d1RfcGdYMFE1V09vNFlkaVZ4RHFrbGQxMm0zVDJadnhxSnVIVzJvMlE?oc=5",
+      "topic": "retail",
+      "priority": 4,
+      "covered": false,
+      "seen": "2026-09-09"
     },
     {
       "title": "Lotto's top prize to hit $60m \u2013 but it\u2019s never been harder to win",
@@ -1177,26 +1197,6 @@
       "source": "Mirage News",
       "published": "Thu, 27 Aug 2026 21:48:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMS1jeFVMWjY2ZnFEUGQ4eFBQWncwQS1TYmdtUWExOTRsVERCVXFWVUN2TXl6STgycXVhNWt1U1VTdW80WUZ1UDVwOVlKOGlNSDRIWVZQU1RIZ1FLRDZHTUpJYWQxX3RmNWdURTJVUkQzTm5kbWhTYmlIdDZtTjFTWjR5Y0QxdjJnOHBJ?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-06"
-    },
-    {
-      "title": "Lotto draw couldn't go live after TVNZ technical issue",
-      "source": "RNZ",
-      "published": "Sat, 13 Jun 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQM1l1b0tCTzkyWm93amhwdjdQS3JaSWlkczJiVUk4REhqYk1HTXpTQzMwY3pVTzN3LXlmTnJIbnZ0WDNPYkp6RlhSYWxvN2VZOFFjM0dsSVJKMEtBdF9YSnRoWTAyd3FDZHREZGxCcm5zLWVFVmhHMy1fV2k1QTIzSE1tbGw0TlowdDlzZFA5U05wVmNFSVFtTjY4eUhJdw?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-06"
-    },
-    {
-      "title": "One player pockets $1m Lotto prize as Powerball rolls to $25m",
-      "source": "stuff.co.nz",
-      "published": "Wed, 08 Jul 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQcXQtcTBHRF92bFVjTWFNd0pSeFFMSDY2eEF4aXVwSTY3RWUzTUtNWlNQcmdzRDdTZjFVT3lET1NQMDBsc19UNlY3UEN0V2REREVGdDJUamtnTzd5dHEyekFkTGNyeC0zaUpyV19XZkF6RldMUHIwV1VxQU50V24wVXprNVhkOFBEaTgyZURnR1hndWRVWUR6LUJHNA?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
