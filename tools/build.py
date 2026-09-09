@@ -1617,6 +1617,13 @@ def build():
     for old, new in {**REDIRECTS, **moved}.items():
         dest = os.path.join(ROOT, old, "index.html")
         os.makedirs(os.path.dirname(dest), exist_ok=True)
+        # Canonical only, deliberately without noindex. The two together are
+        # contradictory - noindex says drop this page, canonical says fold it
+        # into another - and Google's guidance is to pick one. For a page that
+        # has moved, canonical consolidates the old URL's signals onto the new
+        # page instead of throwing them away, and it is what puts the URL in
+        # Search Console as "Alternative page with proper canonical tag"
+        # rather than "Excluded by noindex tag".
         with open(dest, "w", encoding="utf-8") as fh:
             fh.write(f"""<!DOCTYPE html>
 <html lang="en-NZ">
@@ -1624,7 +1631,7 @@ def build():
 <meta charset="utf-8">
 <title>Moved to {new}</title>
 <link rel="canonical" href="{SITE}{new}">
-<meta name="robots" content="noindex, follow">
+<meta name="robots" content="follow">
 <meta http-equiv="refresh" content="0; url={new}">
 </head>
 <body><p>This page has moved to <a href="{new}">{SITE}{new}</a>.</p></body>
