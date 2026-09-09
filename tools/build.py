@@ -31,7 +31,13 @@ PAGES = [
          desc="Today's Keno results for New Zealand, updated after each of the four "
               "daily draws. Latest winning numbers, ticket checker and full archive.",
          js=["results"], schema=["website", "org"]),
-    dict(slug="check", src="check", nav="check",
+    dict(slug="check", faq=[
+             ('How do I know if I have won?',
+              'Enter your numbers above and they are matched against any published draw, in your browser. For an official confirmation and to claim, take the ticket to Lotto NZ &mdash; we tell you how many numbers matched, not what it is worth.'),
+             ('Can I check an old Keno ticket?',
+              'Yes, against any draw we hold. Use the draw selector to pick the draw your ticket was for. Bear in mind prizes must be claimed within 12 months of the draw date.'),
+         ],
+         src="check", nav="check",
          title="Check My Keno Numbers | keno-results.co.nz",
          og="Check my Keno numbers",
          desc="Check your Keno ticket against any published New Zealand draw. "
@@ -43,25 +49,53 @@ PAGES = [
          desc="Every daily Keno result we hold for New Zealand, searchable by draw "
               "number, date or a number that came up. Each draw has its own page.",
          js=["archive"], schema=["dataset"]),
-    dict(slug="statistics", src="statistics", nav="stats",
+    dict(slug="statistics", faq=[
+             ('Are some Keno numbers due to come up?',
+              'No. Every draw is independent and the machine has no memory. A number that has not appeared in fifty draws is exactly as likely as one that appeared in the last three &mdash; both sit at 25%, because twenty numbers are drawn from eighty.'),
+             ('What are the most common Keno numbers?',
+              'Some numbers have come up more often than others in any finite sample, and the full count is above. It carries no predictive value. Widen the window from 5 draws to 250 with the selector and watch the spread collapse &mdash; that flattening is the point.'),
+         ],
+         src="statistics", nav="stats",
          title="Hot & Cold Keno Numbers NZ | keno-results.co.nz",
          og="Hot and cold Keno numbers",
          desc="Which NZ Keno numbers have come up most and least often over the last 5, "
               "10, 25, 50, 100 or 250 draws, plus the full frequency count.",
          js=["results"]),
-    dict(slug="how-to-play", src="how-to-play", nav="howto", section=True,
+    dict(slug="how-to-play", faq=[
+             ('How many numbers can I pick in Keno?',
+              "Between one and ten &mdash; your spots. It is the most consequential choice on the ticket, because each spot count has an entirely different prize ladder. See <a href='/odds/'>the odds tables</a> for all ten."),
+             ('Can I choose my own numbers, or do I have to take a Dip?',
+              'Either. You can mark your own, take a Dip where the system picks at random, or reuse a saved set from a MyLotto account. All three give exactly the same odds &mdash; the draw has no idea where your numbers came from.'),
+             ('How long do I have to claim a Keno prize?',
+              'Lotto NZ allows 12 months from the draw date to claim a prize on any of its draw games. After that the prize is forfeited.'),
+         ],
+         src="how-to-play", nav="howto", section=True,
          title="How to Play Keno in New Zealand | keno-results.co.nz",
          og="How to play Keno",
          desc="How New Zealand Keno works: 20 numbers drawn from 80, choosing your spots, "
               "how prizes are structured, and what people get wrong.",
          schema=["howto"]),
-    dict(slug="odds", src="odds", nav="odds", section=True,
+    dict(slug="odds", faq=[
+             ('Which Keno spot count has the best odds?',
+              'It depends what you mean by best. The chance of matching <em>every</em> spot is highest at 1 spot and falls steeply as you add more. The chance of winning <em>anything at all</em> peaks in the middle of the range. The tables above give both figures for all ten spot counts, so you can see the trade rather than take a recommendation.'),
+             ('If I spend more, will I win more?',
+              'You will win more <em>when</em> you win, because the prize scales with your stake &mdash; a $2 ticket pays twice what the same result pays on $1. What does not change is how often you win. Staking more does not make a matching line any more likely.'),
+             ('Does playing more spots improve my chances?',
+              'No. Each spot count is a different game with its own prize ladder, not a difficulty setting. Adding spots makes matching all of them dramatically harder while opening lower tiers that pay less. Neither direction is an edge.'),
+             ('What is the house edge on Keno?',
+              "It is the share of stakes the operator keeps over the long run, and it varies by spot count because each has its own prize ladder. Our <a href='/calculator/'>return calculator</a> works out the expected return for any spot count and stake, which is the same figure seen from the player's side."),
+         ],
+         src="odds", nav="odds", section=True,
          title="Keno Odds NZ - Real Probabilities | keno-results.co.nz",
          og="Keno odds",
          desc="Verified Keno odds for every spot count, calculated from the rules of the "
               "game. Includes the full six-spot breakdown and the formula used.",
          schema=["faq"]),
-    dict(slug="number-generator", src="number-generator", nav="tools",
+    dict(slug="number-generator", faq=[
+             ('Do randomly generated numbers win more often?',
+              'No. A random line and a line you chose yourself have identical odds. The generator exists so you can see the true probability of a line beside it, not because the numbers are better.'),
+         ],
+         src="number-generator", nav="tools",
          title="Keno Number Generator NZ | keno-results.co.nz",
          og="Keno number generator",
          desc="A free Keno number generator for NZ players. Draw a random line and see "
@@ -73,7 +107,11 @@ PAGES = [
          desc="Exact probabilities for any Keno spot count, plus real expected return and "
               "house edge once you supply the prize values from your own paytable.",
          js=["calculator"]),
-    dict(slug="prizes", src="prizes", section=True,
+    dict(slug="prizes", faq=[
+             ('How do I claim a larger Keno prize?',
+              'Smaller prizes can be paid at a retailer; larger ones are claimed through Lotto NZ directly. The operator publishes the current thresholds and the process, and those change, which is why we point you there rather than quote a figure.'),
+         ],
+         src="prizes", section=True,
          title="How Keno Prizes Work NZ | keno-results.co.nz",
          og="How Keno prizes work",
          desc="What sets the size of a NZ Keno win - spots played, matches, stake and the "
@@ -94,13 +132,27 @@ PAGES = [
          desc="Straight answers about New Zealand Keno: how it works, the odds, the "
               "multiplier, whether numbers are ever due, and where our results come from.",
          schema=["faq2"]),
-    dict(slug="multiplier", src="multiplier", section=True,
+    dict(slug="multiplier", faq=[
+             ('Does the multiplier change my odds of winning?',
+              'No. The multiplier scales what a winning ticket pays; it has no effect on whether a ticket wins. It is attached before the draw and applies to everyone playing that draw equally.'),
+             ('What multipliers are possible?',
+              'We have recorded &times;1.5, &times;2, &times;3, &times;5 and &times;10 across the draws in our archive. The counts and the share each represents are in the table above, taken from our own records rather than a published schedule.'),
+         ],
+         src="multiplier", section=True,
          title="Keno Multiplier NZ Explained | keno-results.co.nz",
          og="The Keno multiplier",
          desc="How the NZ Keno multiplier scales prizes, the values we have observed "
               "across 220 draws, and why it never changes your odds of winning.",
          schema=["faq3"]),
-    dict(slug="draw-schedule", src="draw-schedule", section=True,
+    dict(slug="draw-schedule", faq=[
+             ('What time is the Keno draw in New Zealand?',
+              'Four draws every day, at 10:01am, 1:01pm, 3:01pm and 6:01pm New Zealand time. Every draw in our archive has held to those times.'),
+             ('Does Keno draw on weekends and public holidays?',
+              'Yes. The schedule does not change &mdash; four draws a day, every day of the year, weekends and public holidays included.'),
+             ('What time is the last Keno draw of the day?',
+              "6:01pm New Zealand time. The result usually appears on <a href='/'>the homepage</a> within a few minutes of Lotto NZ publishing it."),
+         ],
+         src="draw-schedule", section=True,
          title="Keno Draw Times NZ | keno-results.co.nz",
          og="Keno draw schedule",
          desc="NZ Keno draw times: four draws daily at 10:01am, 1:01pm, 3:01pm and "
@@ -118,17 +170,35 @@ PAGES = [
          desc="Who runs keno-results.co.nz, where the results come from, how every draw "
               "is validated before publication, and how to report an error.",
          schema=["org"]),
-    dict(slug="lotto-nz", src="lotto-nz", js=["game"],
+    dict(slug="lotto-nz", faq=[
+             ('Do I pay tax on Lotto winnings in New Zealand?',
+              'Lotto NZ states prize money is not taxed, so a prize is paid in full. What the money then earns &mdash; interest, dividends, rent &mdash; is taxable in the ordinary way. That is general information rather than tax advice; Inland Revenue is the right answer for your own circumstances.'),
+             ('I found an old ticket &mdash; can I still claim?',
+              'If the draw was within the last 12 months, yes. Lotto NZ allows 12 months from the draw date on all its draw games; Instant Kiwi runs 12 months from the date the game closed.'),
+         ],
+         src="lotto-nz", js=["game"],
          title="Lotto NZ Games Explained | keno-results.co.nz",
          og="Lotto NZ games",
          desc="The games Lotto New Zealand runs alongside Keno - Lotto, Powerball, "
               "Bullseye and Instant Kiwi - and how they differ."),
-    dict(slug="powerball", src="powerball", js=["game"],
+    dict(slug="powerball", faq=[
+             ('How has Powerball changed since it launched in 2001?',
+              'It began with eight Powerballs and a $1 million starting jackpot. The change on 13 September 2026, taking the pool from 10 to 14, is the fifth revision of the game.'),
+             ('Why is there a Must Be Won draw?',
+              'Because the current game ends. The final draw under the 10-Powerball format, on Saturday 12 September, is Must Be Won &mdash; if nobody takes Division 1 the pool flows down to the next division with winners rather than rolling into a game that no longer exists.'),
+         ],
+         src="powerball", js=["game"],
          title="Powerball NZ Explained | keno-results.co.nz",
          og="Powerball NZ",
          desc="How Powerball attaches to a Lotto NZ line, what it does to the odds, "
               "and why a bigger jackpot does not mean a better chance."),
-    dict(slug="bullseye", src="bullseye", js=["game"],
+    dict(slug="bullseye", faq=[
+             ('What are the odds of winning Bullseye?',
+              'A six-digit number runs from 000000 to 999999, which is 1,000,000 possibilities, so one entry matches exactly once in a million. That follows from the format alone and does not change.'),
+             ('When is Bullseye drawn?',
+              'Once a day, in the evening New Zealand time. Every draw we hold has landed just after 6pm.'),
+         ],
+         src="bullseye", js=["game"],
          title="Bullseye NZ Explained | keno-results.co.nz",
          og="Bullseye NZ",
          desc="How New Zealand's daily Bullseye game is structured and how it differs "
@@ -956,6 +1026,40 @@ def hreflang_block(canonical, robots=""):
         for lang in ("en-NZ", "en-AU", "x-default"))
 
 
+def faq_block(faq):
+    """Per-page questions, rendered as the same disclosure list /faqs/ uses.
+
+    Questions come from what people actually ask - Lotto NZ's own FAQ for the
+    operator-side ones, and the question-form search terms for the rest. Answers
+    are written here from figures this site can verify, which is the only kind
+    worth publishing: an FAQ that guesses is worse than no FAQ, because it gets
+    quoted back as fact.
+    """
+    if not faq:
+        return ""
+    items = "".join(
+        '<details%s><summary>%s</summary><div class="a">%s</div></details>'
+        % (" open" if i == 0 else "", html.escape(q), a)
+        for i, (q, a) in enumerate(faq))
+    return ('<section><div class="sec-h"><h2>Common questions</h2></div>'
+            '<div class="faq">%s</div></section>' % items)
+
+
+def faq_schema(faq, url):
+    """FAQPage for the questions on this page, as the WebPage's mainEntity."""
+    if not faq:
+        return None
+    return {
+        "@type": "FAQPage",
+        "@id": url + "#faq",
+        "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": re.sub(r"<[^>]+>", "", a).strip()}}
+            for q, a in faq],
+    }
+
+
 def analytics_block():
     """Cloudflare Web Analytics, or nothing at all.
 
@@ -991,6 +1095,14 @@ def build():
                  if k not in ("org", "website")]
         ptype = PAGE_TYPES.get(slug) or ("CollectionPage" if slug in COLLECTIONS
                                          else "WebPage")
+        pfaq = faq_schema(page.get("faq"), canonical)
+        if pfaq:
+            # A page must not carry two FAQPage nodes, and schema questions have
+            # to be the ones actually rendered - the older SCHEMA-key FAQs were
+            # never on the page, which is exactly what Google rejects. The
+            # per-page list is what the visitor sees, so it replaces them.
+            extra = [n for n in extra if n.get("@type") != "FAQPage"]
+            extra.append(pfaq)
         main = None
         for n in extra:
             if n.get("@type") in MAIN_ENTITY_TYPES:
@@ -1031,6 +1143,9 @@ def build():
                    .replace("{offers}", offers_block())
                    .replace("{newslist}", entry_list("news"))
                    .replace("{bloglist}", entry_list("blog")))
+               # outside the {content} chain: the slot lives in base.html, not
+               # in the page body, so replacing it on `body` never matched
+               .replace("{faq}", faq_block(page.get("faq")))
                .replace("{year}", str(YEAR)))
 
         rel = page.get("path") or ("index.html" if not slug else f"{slug}/index.html")
@@ -1165,6 +1280,7 @@ def build():
                    .replace("{hreflang}", hreflang_block(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
+                   .replace("{faq}", "")
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
                    .replace("{tw_card}", "summary")
                .replace("{head_extra}", head_links + '<script type="application/ld+json">'
@@ -1273,6 +1389,7 @@ def build():
                    .replace("{hreflang}", hreflang_block(o_url))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
+                   .replace("{faq}", "")
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
                    .replace("{tw_card}", "summary")
                .replace("{head_extra}", '<script type="application/ld+json">'
@@ -1456,6 +1573,7 @@ def build():
                    .replace("{hreflang}", hreflang_block(st_url))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
+                   .replace("{faq}", "")
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
                    .replace("{tw_card}", "summary")
                    .replace("{head_extra}", '<script type="application/ld+json">'
@@ -1597,6 +1715,7 @@ def build():
                    .replace("{hreflang}", hreflang_block(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
+                   .replace("{faq}", "")
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
                    .replace("{tw_card}", "summary")
                    .replace("{head_extra}", '<script type="application/ld+json">'
