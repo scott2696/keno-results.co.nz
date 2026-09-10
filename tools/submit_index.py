@@ -167,6 +167,11 @@ def main():
     ap.add_argument("--baseline", action="store_true",
                     help="record the current sitemap as sent, submit nothing")
     ap.add_argument("--status", action="store_true", help="check credentials only")
+    ap.add_argument("--urls", metavar="FILE",
+                    help="resubmit specific URLs (one per line), ignoring the ledger "
+                         "and the kind policy. For pages whose CONTENT changed - the "
+                         "ledger exists to stop a URL being paid for twice, which is "
+                         "right for new pages and wrong for a substantial rewrite.")
     ap.add_argument("--limit", type=int, default=200)
     args = ap.parse_args()
 
@@ -186,6 +191,42 @@ def main():
                 return 1
         except (urllib.error.URLError, TimeoutError) as e:
             print(f"index: status check failed ({e})", file=sys.stderr)
+        return 0
+
+    if args.urls:
+        try:
+            want = [l.strip() for l in open(args.urls, encoding="utf-8") if l.strip()]
+        except OSError as e:
+            print(f"index: cannot read {args.urls} ({e})", file=sys.stderr)
+            return 1
+        cfg = config()
+        endpoint = (cfg.get("endpoint") or "").strip()
+        if not endpoint:
+            print("index: no submit endpoint configured", file=sys.stderr)
+            return 1
+        field = cfg.get("urlsField") or "urls"
+        size = int(cfg.get("batchSize") or 100)
+        state = load_state(); sent = state["submitted"]
+        today = datetime.date.today().isoformat()
+        done = 0
+        print(f"index: resubmitting {len(want)} changed page(s)")
+        for i in range(0, len(want), size):
+            chunk = want[i:i + size]
+            payload = {"apikey": key, field: chunk}
+            payload.update(cfg.get("extra") or {})
+            try:
+                code, body = post(endpoint, payload)
+            except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+                print(f"index: failed ({str(e)[:120]})", file=sys.stderr); break
+            if not accepted_ok(body):
+                print(f"index: rejected -> {json.dumps(body)[:180]}", file=sys.stderr); break
+            for u in chunk:
+                sent[u] = today
+            done += len(chunk)
+            print(f"   accepted {len(chunk)} -> {json.dumps(body)[:120]}")
+        if done:
+            save_state(state)
+        print(f"index: {done} resubmitted")
         return 0
 
     urls = sitemap_urls()
