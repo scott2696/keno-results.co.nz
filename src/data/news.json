@@ -2,6 +2,20 @@
   "_note": "Timely news items. Same shape as blog.json. Written from Lotto NZ's published results only - no third-party news copy is used as source material. Verify every figure against the operator before publishing an edit.",
   "articles": [
     {
+      "slug": "bullseye-draw-6160-won",
+      "title": "Bullseye top prize won as 197230 comes out",
+      "date": "2026-09-10",
+      "tag": "Bullseye",
+      "summary": "Draw 6160 produced a First Division Bullseye winner, with the number 197230 matched exactly.",
+      "body": "<p>Bullseye's top prize was won on Thursday, with the drawn number matched exactly for the first time in the current run of draws.</p><h2>The result</h2><p>Bullseye draw 6160 was made on Thursday 10 September 2026 at 18:02. The winning number was <strong>197230</strong>, matched by 1 ticket.</p><h2>The divisions</h2><div class=\"tw\"><table><caption class=\"vh\">Bullseye draw 6160 prize divisions</caption><thead><tr><th class=\"num\">Division</th><th class=\"num\">Winners</th><th class=\"num\">Prize each</th></tr></thead><tbody><tr><td class=\"num\">1</td><td class=\"num\">1</td><td class=\"num\">$275,000</td></tr><tr><td class=\"num\">2</td><td class=\"num\">0</td><td class=\"num\">$10,000</td></tr><tr><td class=\"num\">3</td><td class=\"num\">3</td><td class=\"num\">$386</td></tr><tr><td class=\"num\">4</td><td class=\"num\">20</td><td class=\"num\">$116</td></tr><tr><td class=\"num\">5</td><td class=\"num\">275</td><td class=\"num\">$21</td></tr><tr><td class=\"num\">6</td><td class=\"num\">2,382</td><td class=\"num\">Bonus Ticket</td></tr></tbody></table></div><p>In total the draw paid $289,017 across 2,681 winning tickets.</p><h2>How Bullseye works</h2><p>Bullseye draws a single six-digit number and pays on proximity to it, with each division covering a progressively wider band either side. An exact match takes First Division, which is why it is struck infrequently and why the pool builds between wins.</p><h2>Next draw</h2><p>Bullseye is drawn daily at around 6pm New Zealand time. The next draw is number 6161.</p><p class=\"article-foot\" style=\"margin-top:26px\">All figures in this report are taken from Lotto New Zealand&rsquo;s published results for the draw named above. keno-results.co.nz is an independent service and is not affiliated with Lotto NZ. Results here are unofficial &mdash; always confirm a winning ticket with the official operator before acting on it. See our <a href=\"/authors/\">editorial standards</a>.</p>",
+      "art": {
+        "kind": "bullseye",
+        "game": "Bullseye",
+        "drawNumber": 6160,
+        "value": "197230"
+      }
+    },
+    {
       "slug": "lotto-draw-2619-result",
       "title": "4 tickets take Lotto's top prize as Powerball rolls to $4,271,861",
       "date": "2026-09-09",
