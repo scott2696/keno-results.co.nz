@@ -1147,6 +1147,37 @@ def _mark(o, img_cls, word_cls):
     return '<img%s src="%s" alt="%s" loading="lazy" decoding="async">' % (cls, src, name)
 
 
+def operator_itemlist(url):
+    """An ItemList naming the operators the page lists, in display order.
+
+    Name and position only. Deliberately no Review, AggregateRating or Offer
+    node: Google restricted self-serving review markup, and a rating awarded to
+    an entity you have a paid relationship with is the exact case it targets --
+    a manual action there costs far more than the rich result is worth. This
+    says "the page lists these fifteen, in this order" and claims nothing about
+    quality.
+
+    itemListOrder is omitted rather than guessed. The order is editorial, so it
+    is neither ascending nor descending by any property, and declaring it
+    unordered would contradict the visible 01-15 numbering.
+    """
+    live = sorted((o for o in _load_offers()
+                   if o.get("active") and o.get("casino") and o.get("urlCasino")),
+                  key=lambda o: (o.get("order", 999), o["name"].lower()))
+    if not live:
+        return None
+    return {
+        "@type": "ItemList",
+        "@id": url + "#operators",
+        "name": "Online casino operators listed on this page",
+        "numberOfItems": len(live),
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": o["name"]}
+            for i, o in enumerate(live, 1)
+        ],
+    }
+
+
 def casino_table(page=None):
     """The operator comparison table, rendered from offers.json.
 
@@ -1465,11 +1496,26 @@ def ld_script(graph):
             + "</script>")
 
 
+# A cluster's hub, so its spokes can declare a real trail instead of the flat
+# Home > Page every other page gets. Only clusters with a genuine hub appear
+# here; inventing a middle level for a page that has no parent would be worse
+# than a two-step crumb.
+CLUSTER_HUB = {
+    "casinos": ("online-casinos", "Online casinos in NZ"),
+    "gaming":  ("gaming", "Gambling in New Zealand"),
+}
+
+
 def breadcrumbs(page):
     if not page["slug"]:
         return None
     label = re.sub(r"\s*\|.*$", "", page["og"])
-    return crumb_list(f"{SITE}/{page['slug']}/", [(label, f"{SITE}/{page['slug']}/")])
+    trail = []
+    hub = CLUSTER_HUB.get(page.get("section"))
+    if hub and hub[0] != page["slug"]:
+        trail.append((hub[1], f"{SITE}/{hub[0]}/"))
+    trail.append((label, f"{SITE}/{page['slug']}/"))
+    return crumb_list(f"{SITE}/{page['slug']}/", trail)
 
 
 def page_deco(key):
@@ -1703,6 +1749,13 @@ def build():
             # per-page list is what the visitor sees, so it replaces them.
             extra = [n for n in extra if n.get("@type") != "FAQPage"]
             extra.append(pfaq)
+        # Pages that render the operator table describe it in the graph too, so
+        # the fifteen names are machine-readable as a list rather than only as
+        # table markup.
+        if page.get("section") == "casinos":
+            il = operator_itemlist(canonical)
+            if il:
+                extra.append(il)
         main = None
         for n in extra:
             if n.get("@type") in MAIN_ENTITY_TYPES:
