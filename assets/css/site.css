@@ -1665,3 +1665,10 @@ table.ct tbody td{padding:16px 15px; vertical-align:middle}
   .ct-pts{grid-column:1; grid-row:3; margin-top:8px}
   .ct-go{grid-column:2; grid-row:1 / span 2; text-align:right}
 }
+
+/* Visible freshness stamp. Same date the sitemap reports, so the reader and the
+   crawler are told one fact rather than two that can drift. */
+.reviewed{margin:18px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--muted)}
+.reviewed::before{content:""; display:inline-block; width:6px; height:6px; border-radius:50%;
+  background:var(--accent); margin-right:8px; vertical-align:middle}
