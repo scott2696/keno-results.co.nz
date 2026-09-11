@@ -1,0 +1,152 @@
+<div class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Online casinos in NZ</p>
+    <h1>Crypto casinos for New Zealand players</h1>
+    <p class="lede">Two transactions, not one &mdash; a currency trade and a gambling session &mdash; with a provably fair mechanism that proves less than it is sold as, and a New Zealand tax wrinkle nobody mentions.</p>
+  </div>
+
+  {subnav}
+
+{casinotable}
+
+  <div class="prose" style="margin-top:36px">
+    <p>Crypto casinos are marketed on three claims: faster withdrawals, no verification, and
+    provable fairness. One is half true, one is false, and one is real but proves something
+    narrower than the marketing implies. Taking them in order is the most useful thing this
+    page can do.</p>
+
+    <h2>You are making two bets, not one</h2>
+    <p>This is the point everything else follows from. When you deposit in a volatile asset
+    and play in it, your balance moves for two independent reasons: what happens at the
+    table, and what happens to the asset.</p>
+    <p>Win 10% at the table while the asset falls 15%, and you are down. Lose 10% while it
+    rises 20%, and you are up. Neither outcome tells you anything about how you played, and
+    the second is more dangerous than the first because it rewards a losing session.</p>
+    <p>Price every crypto session as two positions. The gambling side has a known negative
+    expectation &mdash; the house edge, set out on
+    <a href="/casino-payout-percentages/">payouts and RTP</a>. The currency side has an
+    unknown one, and combining them makes both harder to see. Stablecoins remove most of
+    that, at the cost of still needing an exchange step at each end.</p>
+
+    <div class="notice">
+      <span class="notice-t">The cost that is easy to miss</span>
+      <p>A round trip is four conversions, not two: fiat to crypto, crypto to the
+      casino&rsquo;s unit of account, back again, and back to New Zealand dollars. Each
+      carries a spread, and network fees sit on top. Compare that against the numbers on
+      <a href="/casino-payout-percentages/">the RTP page</a> &mdash; several percent of
+      round-trip cost is on the same order as the entire house edge of single-zero
+      roulette.</p>
+    </div>
+
+    <h2>&ldquo;No verification&rdquo; is the claim to distrust</h2>
+    <p>Anti-money-laundering obligations attach to the operator, not to the payment rail.
+    A site that genuinely performs no identity checks at any withdrawal size is not
+    demonstrating privacy-friendliness; it is telling you it is outside the regime that
+    would otherwise give you somewhere to complain.</p>
+    <p>In practice most crypto-accepting operators verify exactly like anyone else, and
+    frequently do it <em>later</em> &mdash; at the first large withdrawal rather than at
+    signup. That is the worst possible timing, because it arrives when you have a balance
+    you want and no leverage. The advice on
+    <a href="/fast-payout-casinos/">fast payouts</a> applies with more force here: verify at
+    the start, before you have won anything.</p>
+
+    <h2>Withdrawals: fast on-chain, not fast overall</h2>
+    <p>The chain is the quick part. Confirmation is minutes on most networks. Everything in
+    front of it &mdash; the pending period, verification, compliance review, manual approval
+    above a threshold &mdash; runs at the same speed it does for a bank transfer, because it
+    is the same process performed by the same team.</p>
+    <p>So &ldquo;instant crypto withdrawals&rdquo; describes the final settlement step of a
+    four-stage process. It is a true statement about one stage and a misleading one about
+    the whole. The stages are broken down on
+    <a href="/fast-payout-casinos/">fast payout casinos</a>.</p>
+
+    <h2>Provably fair: what it actually proves</h2>
+    <p>This one is real, it is genuinely clever, and it is worth understanding because it is
+    the only fairness mechanism in online gambling a player can verify personally.</p>
+    <p>The mechanism, in outline. Before a bet, the operator generates a secret
+    <strong>server seed</strong> and publishes its cryptographic hash. You supply or are
+    assigned a <strong>client seed</strong>. The outcome is computed from both, combined
+    with a nonce that increments per bet. Afterwards the operator reveals the server seed,
+    and you hash it yourself to confirm it matches the hash published beforehand.</p>
+    <p>Because the hash was committed <em>before</em> your seed existed, the operator could
+    not have chosen a server seed after seeing your bet. That is a real guarantee, and it is
+    checkable independently.</p>
+    <p>Now the limits, which are rarely printed next to the claim:</p>
+    <ul>
+      <li><strong>It does not prove the house edge.</strong> A provably fair game can be
+      provably fair at a 15% edge. Verification confirms the outcome was not tampered with;
+      it says nothing about how the paytable is priced.</li>
+      <li><strong>It does not prove you will be paid.</strong> Fairness of the roll and
+      willingness to honour a withdrawal are unrelated properties, and the second is the one
+      disputes are about.</li>
+      <li><strong>It only covers the operator&rsquo;s own games.</strong> Third-party pokies
+      and live tables on the same site are not provably fair, and usually most of the
+      library is third-party.</li>
+      <li><strong>Almost nobody checks.</strong> The guarantee holds only for players who
+      actually run the verification, and the seed-rotation step that makes it meaningful is
+      buried in settings.</li>
+    </ul>
+    <p>Treated correctly it is a genuine improvement on &ldquo;trust our RNG audit&rdquo;.
+    Treated as marketing it is a badge that implies a fairness it does not deliver.</p>
+
+    <h2>The New Zealand tax point almost nobody mentions</h2>
+    <p>Gambling winnings are generally not income for a recreational player in New Zealand,
+    which is why a <a href="/">Lotto or Keno</a> prize is paid in full. That is the fact
+    every page repeats.</p>
+    <p>Crypto is treated differently. Inland Revenue treats crypto-assets as property, and
+    disposing of them &mdash; selling, converting to another asset, or exchanging for New
+    Zealand dollars &mdash; can give rise to taxable income depending on why the asset was
+    acquired. Nothing about using it at a casino changes that analysis.</p>
+    <p>So a crypto casino session can involve a non-taxable gambling outcome sitting on top
+    of a disposal that may be taxable, and the two are assessed separately. This is general
+    information, not tax advice, and it is exactly the kind of question Inland Revenue or an
+    accountant should answer for your own circumstances &mdash; but it is worth knowing the
+    question exists, because no comparison page I read raised it.</p>
+
+    <h2>Where crypto genuinely helps, and where it does not</h2>
+    <div class="tw"><table>
+      <caption class="vh">Claims made for crypto casinos, assessed</caption>
+      <thead><tr><th>Claim</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Faster withdrawals</td><td><strong>Partly.</strong> The settlement step is fast. Approval, verification and pending periods are unchanged.</td></tr>
+        <tr><td>No identity verification</td><td><strong>Distrust it.</strong> Either untrue, or a sign the operator sits outside the regime that protects you.</td></tr>
+        <tr><td>Provably fair games</td><td><strong>Real, and narrower than sold.</strong> Proves the roll was not manipulated. Not the edge, not that you get paid.</td></tr>
+        <tr><td>Lower fees</td><td><strong>Rarely.</strong> Four conversions and network fees usually exceed a bank transfer.</td></tr>
+        <tr><td>Better odds</td><td><strong>No.</strong> Same games, same studios, same published return figures.</td></tr>
+        <tr><td>Avoids bank gambling blocks</td><td><strong>True</strong> &mdash; and worth pausing on if a block was something you chose.</td></tr>
+      </tbody>
+    </table></div>
+    <p>That last row deserves more than a table cell. Some New Zealand banks will block
+    gambling merchant categories on request, and people ask for it because friction is
+    protective. Routing around your own limit through an exchange is not a payment
+    convenience; it is the limit failing. If that is the appeal,
+    <a href="/gaming/getting-help/">help is free and confidential</a> &mdash; the Gambling
+    Helpline is <strong>0800&nbsp;654&nbsp;655</strong> or text <strong>8006</strong>.</p>
+
+    <h2>If you use one anyway</h2>
+    <ol>
+      <li><strong>Use a stablecoin</strong> unless you actively want the currency exposure.
+      It removes the second bet.</li>
+      <li><strong>Verify the account immediately</strong>, before there is a balance worth
+      arguing about.</li>
+      <li><strong>Price the round trip</strong> &mdash; all four conversions plus network
+      fees &mdash; before comparing anything to a bank transfer.</li>
+      <li><strong>Rotate your client seed</strong> and actually run one verification, or the
+      provably fair claim is doing nothing for you.</li>
+      <li><strong>Keep records of disposals.</strong> The tax question above is easier to
+      answer with dates and amounts than without.</li>
+      <li><strong>Read the withdrawal terms first.</strong> Caps and minimums in a crypto
+      unit can be considerably less convenient than they look.</li>
+    </ol>
+
+    <div class="notice warn">
+      <span class="notice-t">Licensing applies here too</span>
+      <p>A crypto casino is an online casino for the purposes of the
+      <a href="/gaming/online-casino-law/">Online Casino Gambling Act 2026</a>. From
+      <strong>1 December 2026</strong> only operators that won the right to apply for a
+      licence may serve New Zealand customers, and no operator holds a licence yet because
+      none has been issued. Paying in crypto changes nothing about that. See
+      <a href="/licensed-online-casinos/">licensing and the register</a>.</p>
+    </div>
+  </div>
+</div>
