@@ -237,8 +237,8 @@ PAGES = [
               'Gambling winnings are generally not income for tax purposes for a recreational player, and Lotto NZ states prize money is paid in full. What the money earns afterwards &mdash; interest, dividends, rent &mdash; is taxable in the ordinary way. That is general information rather than tax advice.'),
              ('Which casino games have the best odds?',
               'Blackjack played with basic strategy at a 3:2 table is the cheapest, at roughly a 0.5% house edge, followed by baccarat&rsquo;s banker bet at 1.06% and the craps pass line at 1.41%. Single-zero roulette costs 2.70% and double-zero 5.26% for an otherwise identical game. Typical pokies sit between 2% and 8%.'),
-             ('Why does this site not list the best online casinos?',
-              "Because online casino advertising is prohibited in New Zealand under the Gambling Act 2003, and the 2026 Act attaches penalties of up to NZ$5 million reaching whoever publishes an unlawful advertisement, with affiliate marketing named specifically. This section carries no recommendations, no referral links and no paid placements. See <a href='/how-we-rate-casinos/'>how we rate casinos</a>."),
+             ('Are the casinos listed on this page recommendations?',
+              "No. Every operator in the table is a commercial partner and every link is a paid placement, which is stated in the table itself. It is ordered alphabetically rather than by what each partner pays, and appearing in it means a commercial arrangement exists &mdash; a different fact from &ldquo;this is the best place to play&rdquo;. The criteria and the arithmetic are on <a href='/how-we-rate-casinos/'>how we rate casinos</a> and are unaffected by it."),
          ],
          title="Online Casinos in New Zealand (2026) | keno-results.co.nz",
          og="Online casinos in New Zealand",
@@ -517,11 +517,13 @@ GAMING = [
 ]
 
 
-# "More in this section" - the online casino cluster. Editorial and unpaid: it
-# carries no operator recommendations and no referral links, because online
-# casino advertising is prohibited here and the 2026 Act reaches the publisher.
+# "More in this section" - the online casino cluster. The hub carries a labelled
+# operator table; the other eight pages are unpaid, and nothing on them moves
+# for whoever is in it.
 # Flat slugs rather than a /casinos/ subtree: each page sits at the root on
 # the exact term it targets, so the URL itself carries the keyword.
+# The hub carries a labelled operator table; every other page in the cluster is
+# unpaid, and the arithmetic on them does not move for whoever is in that table.
 CASINOS = [
     ("online-casinos",            "Overview"),
     ("licensed-online-casinos",   "Licensing"),
@@ -969,6 +971,74 @@ def _load_offers():
             return json.load(fh).get("offers", [])
     except (FileNotFoundError, json.JSONDecodeError):
         return []
+
+
+def casino_table():
+    """The operator comparison table, rendered from offers.json.
+
+    Built from the same file as the rails and the bonus box so the three can
+    never disagree about what an operator is offering - drift between a table
+    and a banner is exactly what turns an affiliate page into a liability.
+
+    Every row is labelled as a paid placement and every link carries
+    rel="sponsored", because an undisclosed affiliate link is both a Search
+    policy violation and the thing that makes the disclosure elsewhere on the
+    page worthless. Ordering is alphabetical by name and stated as such on the
+    page, so "we do not rank by commission" is a checkable claim rather than an
+    assertion.
+    """
+    live = sorted((o for o in _load_offers() if o.get("active")),
+                  key=lambda o: o["name"].lower())
+    if not live:
+        return ""
+
+    rows = []
+    for o in live:
+        name = html.escape(o["name"])
+        logo = o.get("logoRev") or o.get("logo")
+        img = (f'<img class="ct-logo" src="{logo}" alt="{name}" '
+               f'loading="lazy" decoding="async" width="128" height="32">'
+               if logo else f'<span class="ct-word">{name}</span>')
+        pts = "".join(f"<li>{p}</li>" for p in o.get("points", [])[:3])
+        rows.append(
+            f'<tr>'
+            f'<td class="ct-brand"><span class="ct-mark">{img}</span>'
+            f'<span class="ct-name">{name}</span>'
+            f'<span class="ct-kind">{html.escape(o.get("kind", ""))}</span></td>'
+            f'<td class="ct-offer"><span class="ct-amt">{o.get("amount", "")}</span>'
+            f'<span class="ct-sub">{o.get("amountSub", "")}</span></td>'
+            f'<td class="ct-pts"><ul>{pts}</ul></td>'
+            f'<td class="ct-go"><a class="ct-cta" href="{o["url"]}" target="_blank" '
+            f'rel="sponsored nofollow noopener">{html.escape(o.get("cta", "Visit site"))}'
+            f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            f'<path d="M5 12h14M13 6l6 6-6 6"/></svg></a>'
+            f'<span class="ct-terms">18+. T&amp;Cs apply.</span></td>'
+            f'</tr>')
+
+    return (
+        '<section class="ct-wrap" aria-labelledby="ct-h">'
+        '<div class="ct-head">'
+        '<h2 id="ct-h">Operators accepting New Zealand players</h2>'
+        '<span class="ct-flag">Paid placements</span>'
+        '</div>'
+        '<p class="ct-note">Every operator below is a commercial partner and every '
+        'link is a paid placement. The table is ordered alphabetically, not by what '
+        'each pays, and appearing here is not a recommendation \u2014 see '
+        '<a href="/how-we-rate-casinos/">how we rate casinos</a> for the criteria and '
+        '<a href="/licensed-online-casinos/">licensing</a> for what changes on '
+        '1 December 2026.</p>'
+        '<div class="tw ct-tw"><table class="ct">'
+        '<caption class="vh">Commercial partners, listed alphabetically</caption>'
+        '<thead><tr><th>Operator</th><th>Welcome offer</th><th>Features</th>'
+        '<th><span class="vh">Visit</span></th></tr></thead>'
+        f'<tbody>{"".join(rows)}</tbody>'
+        '</table></div>'
+        '<p class="ct-legal">18+ only. Gambling carries a fixed house edge and returns '
+        'less than it takes in over time. Set a limit before you play. Free confidential '
+        'help: Gambling Helpline 0800 654 655 or text 8006 \u2014 '
+        '<a href="/gaming/getting-help/">getting help</a>.</p>'
+        '</section>')
 
 
 def rail_block(side="rail-right"):
@@ -1423,6 +1493,7 @@ def build():
                             subnav(slug, SUBNAVS.get(page.get("section")))
                             if page.get("section") else "")
                    .replace("{offers}", "" if page.get("noads") else offers_block())
+                   .replace("{casinotable}", casino_table())
                    .replace("{newslist}", entry_list("news"))
                    .replace("{bloglist}", entry_list("blog")))
                # outside the {content} chain: the slot lives in base.html, not
