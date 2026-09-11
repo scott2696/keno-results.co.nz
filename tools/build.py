@@ -1185,8 +1185,12 @@ def casino_table(page=None):
         # The card plates the mark on its own tile; where we hold no artwork the
         # plate is dropped rather than filled with a borrowed or invented logo.
         mark = (f'<span class="ct-mark">'
+                # No width/height attributes: the masters run 128x128 to
+                # 435x128, so one hard-coded pair would be wrong for nearly all
+                # of them. The plate is a fixed size and reserves the space, so
+                # there is no layout shift to guard against.
                 f'<img class="ct-logo" src="{logo}" alt="{name}" loading="lazy" '
-                f'decoding="async" width="128" height="32"></span>') if logo else ""
+                f'decoding="async"></span>') if logo else ""
 
         # Feature line: the operator's own points, mid-dot separated, plus the
         # licence and game count when those have been supplied to us.
