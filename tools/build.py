@@ -230,9 +230,9 @@ PAGES = [
     dict(slug="online-casinos", src="online-casinos", section="casinos", noads=True,
          faq=[
              ('Are online casinos legal in New Zealand?',
-              "They are being licensed for the first time. The Online Casino Gambling Act 2026 came into force on 1 May 2026, and from 1 December 2026 only operators that won the right to apply for a licence may serve New Zealand customers. Licences are expected from early 2027, capped at fifteen operators. See <a href='/licensed-online-casinos/'>licensing and the register</a>."),
+              "Playing has never been an offence for a New Zealander. The Gambling Act 2003 works by prohibition with exceptions, and online casino gambling was not among the authorised forms &mdash; so it was unlawful to offer from inside New Zealand, while playing on an offshore site was not an offence. New Zealand has since legislated to licence it. See <a href='/licensed-online-casinos/'>licensed online casinos</a>."),
              ('How do I know if an online casino is licensed in NZ?',
-              'Two ways, from early 2027. The Department of Internal Affairs will publish a public register of licensed operators, and licensed sites must display a unique registration icon. The register is the authoritative check &mdash; an icon that does not match a register entry is just an image.'),
+              'Find the regulator and company named in the footer, then search that regulator&rsquo;s own public register for the company &mdash; not the brand, since one company often runs several. It takes about two minutes. A licence number in a footer, or a seal that is an image rather than a link to a register entry, is a graphic rather than a licence.'),
              ('Do I pay tax on casino winnings in New Zealand?',
               'Gambling winnings are generally not income for tax purposes for a recreational player, and Lotto NZ states prize money is paid in full. What the money earns afterwards &mdash; interest, dividends, rent &mdash; is taxable in the ordinary way. That is general information rather than tax advice.'),
              ('Are online casinos safe in New Zealand?',
@@ -252,23 +252,23 @@ PAGES = [
          ],
          title="Best Online Casinos NZ 2026 \u2014 Real Money Casino Sites | keno-results.co.nz",
          og="Best online casinos in New Zealand",
-         desc="A guide to online casinos NZ players can use: what is legal, what changes on "
-              "1 December 2026, and how to judge a real money casino site on the numbers."),
+         desc="A guide to online casinos NZ players can use: what is legal, how to tell if a "
+              "site is safe, and how to judge a real money casino on the numbers rather than ads."),
     dict(slug="licensed-online-casinos", src="licensed-online-casinos",
          section="casinos", noads=True,
          faq=[
              ('Which online casinos are licensed in New Zealand?',
-              'None yet. The Department of Internal Affairs expects to begin issuing licences in early 2027, capped at fifteen operators, and will publish a public register at that point. Until the register exists, no site can truthfully claim a New Zealand online casino licence.'),
-             ('What happens on 1 December 2026?',
-              'The transition period ends. From that date only operators that won the right to apply for a licence may provide online casino gambling to customers in New Zealand. It is a separate milestone from licence issue, which is expected in early 2027.'),
+              'The Department of Internal Affairs administers the regime and publishes a register of licensed operators, capped at fifteen. Until a licence has been issued to a given operator, no site can truthfully claim to hold one here &mdash; so the register, rather than a badge on a casino&rsquo;s own page, is what settles it.'),
+             ('How does the New Zealand online casino licensing regime work?',
+              'The right to apply for one of the fifteen licences was allocated by auction rather than by assessment alone, which gives the regulator leverage it has never had over offshore operators. Winning at auction is not the same as holding a licence: suitability and harm-prevention obligations still have to be satisfied before one is issued.'),
              ('Is it illegal for me to play on an unlicensed site?',
               'The Act regulates operators and advertisers rather than criminalising players, so playing is not itself an offence. What you lose is the regulator: no New Zealand body to complain to, no enforceable local obligation on the operator, and no register entry to check.'),
              ('What does a New Zealand licence actually protect?',
-              'Principally, it gives you a complaints path that does not end at the operator &mdash; you will be able to complain to the casino or to the Department directly. It also makes harm-prevention and consumer-protection obligations enforceable licence conditions. It does not change the house edge or guarantee a withdrawal.'),
+              'Principally a complaints path that does not end at the operator, which matters because an internal complaints team works for the party you are complaining about. It also turns harm-prevention and consumer-protection duties into enforceable conditions, and gives the operator something it can lose. It does not change the house edge or guarantee a withdrawal.'),
              ('Is it legal to gamble online in New Zealand?',
-              'Playing has never been an offence for a New Zealander. Offering online casino gambling from within New Zealand was unlawful until the Online Casino Gambling Act 2026 created a licensing regime, and the Act regulates operators and advertisers rather than criminalising players. What changes from 1 December 2026 is which operators may lawfully take you.'),
-             ('What happens to offshore casinos in NZ in December 2026?',
-              'Their permission to serve New Zealand customers ends. Operators trading here before 1 May 2026 could continue through the transition without advertising; from 1 December only those that won the right to apply for a licence may provide online casino gambling to customers in New Zealand.'),
+              'Playing has never been an offence for a New Zealander, and it still is not. The Gambling Act 2003 works by prohibition with exceptions and online casino gambling was not among the authorised forms, so offering it from inside New Zealand was unlawful while playing on an offshore site was not. The law regulates operators and advertisers rather than criminalising players.'),
+             ('Are offshore online casinos legal for New Zealanders?',
+              'Using one has never been an offence for you. What you give up is the regulator: no New Zealand body to complain to, no locally enforceable obligation on the operator, and no local register entry to check. Your protection is whatever the operator&rsquo;s own licensing jurisdiction provides, and that varies enormously.'),
              ('Do I pay tax on casino winnings in NZ?',
               'Generally no. Gambling winnings are not income for tax purposes for a recreational player, and Lotto NZ states prize money is paid in full. What the money earns afterwards &mdash; interest, dividends, rent &mdash; is taxable in the ordinary way, and a win taken in cryptocurrency raises a separate question because Inland Revenue treats crypto-assets as property. General information, not tax advice.'),
              ('How many online casino licences will New Zealand issue?',
@@ -278,8 +278,8 @@ PAGES = [
          ],
          title="Licensed Online Casinos NZ \u2014 Are They Legal in 2026? | keno-results.co.nz",
          og="Licensed online casinos in NZ",
-         desc="Online gambling laws in New Zealand explained: which operators may lawfully "
-              "serve Kiwis from 1 December 2026, the DIA register, and what a licence protects."),
+         desc="Online gambling laws in New Zealand explained: what the Gambling Act allows, "
+              "who regulates it, what a casino licence protects, and how to check one yourself."),
     dict(slug="casino-bonus", src="casino-bonus",
          section="casinos", noads=True,
          faq=[
@@ -394,7 +394,7 @@ PAGES = [
              ('What is volatility on a pokie?',
               'The shape of the return rather than its size. Low-volatility games pay small amounts often; high-volatility games pay rarely and occasionally very large. Two games at the same RTP cost the same per dollar staked, but the high-volatility one has a median session outcome worse than its average.'),
              ('Are online pokies the same as pub pokies in New Zealand?',
-              'No. Pub and club machines are Class 4 gaming machines under the Gambling Act 2003 &mdash; capped stakes and prizes, returns set by gazetted game rules, and mandatory community returns. Online pokies have sat outside that framework entirely until the 2026 licensing regime.'),
+              'No. Pub and club machines are Class 4 gaming machines under the Gambling Act 2003 &mdash; capped stakes and prizes, returns set by gazetted game rules rather than chosen by the venue, mandatory community returns, and staff with harm-minimisation duties. Online pokies have no stake cap, run far faster, and nobody is standing next to you.'),
              ('Which online pokies pay the most in NZ?',
               'The ones with the highest published RTP that you enjoy playing. There is no title that pays more than its disclosed return, and the loosest online pokies are loose by a percentage point or two rather than by a category. Read the figure in the game&rsquo;s information panel on the site you are using, because some studios ship the same title in several RTP builds.'),
              ('Can I play free pokies with no download or registration?',
@@ -414,7 +414,7 @@ PAGES = [
          section="casinos", noads=True,
          faq=[
              ('How do live dealer casino games work?',
-              'A physical dealer runs a physical game in a studio, cameras capture it, optical recognition reads the cards or wheel, and bets settle against what actually happened. Most tables are run by specialist studios and streamed into many operators at once, so the rules of a table are set by the studio rather than the casino.'),
+              'A physical dealer runs a physical game in a studio, cameras capture it, optical recognition reads the cards or wheel, and bets settle against what actually happened. Most tables are run by specialist studios &mdash; Evolution is the largest &mdash; and streamed into dozens of operators at once, so the rules of a table are set by the studio rather than by the casino whose logo is on the page.'),
              ('Which live casino game has the lowest house edge?',
               'Blackjack with basic strategy at a 3:2 table, at roughly 0.5%. Baccarat&rsquo;s banker bet is 1.06%, single-zero roulette 2.70%, double-zero roulette 5.26%, and the baccarat tie bet 14.36%.'),
              ('Are live casino side bets worth taking?',
@@ -444,7 +444,7 @@ PAGES = [
              ('What is excluded from the rating and why?',
               'Bonus size on its own, &ldquo;exclusive&rdquo; offers, game counts, site design, operator-quoted payout percentages and user review scores. Each is either controlled by the operator, trivially inflated, or measuring something other than whether you get paid.'),
              ('How do I check if a casino is licensed in NZ?',
-              'From early 2027, against the Department of Internal Affairs register and the registration icon licensed operators must display &mdash; the register settles it, the icon is only a quick check. Before then, find the regulator named in the footer and confirm the company appears in that regulator&rsquo;s own searchable licence list. A licence number with nothing to check it against is a graphic.'),
+              'Three steps, about two minutes. Find the registered company and named regulator in the site&rsquo;s footer &mdash; the company, not the brand, since one company often runs several. Go to that regulator&rsquo;s own website and search its public licence register for the company. Check the entry is current and covers online casino gambling. A licence number with nothing to check it against, or a seal that is an image rather than a link to a register entry, is a graphic.'),
              ('What makes an online casino safe?',
               'A licence you can verify in a register, withdrawal terms published before you deposit, games from named studios that are audited independently of the operator, and a complaints path that does not end with the operator. Design, game count and bonus size are not safety signals, and user review scores are dominated by people who just won or just lost.'),
              ('Where do the house edge figures on this site come from?',
@@ -458,7 +458,7 @@ PAGES = [
          section="casinos", noads=True,
          faq=[
              ('What is the newest online casino in New Zealand?',
-              'There is a dated answer coming and it is not a site that rebranded last month. The Department of Internal Affairs expects to issue the first New Zealand online casino licences in early 2027, capped at fifteen operators, and will publish a public register. No operator holds a licence today because none has been issued to anyone.'),
+              'Usually not a new company at all. Most sites described as new are a new brand on an existing operator&rsquo;s licence, or a new skin on a white-label platform shared with dozens of other &ldquo;new&rdquo; casinos &mdash; same company, same terms, same cashier, new artwork. Check the registered company in the footer against the regulator&rsquo;s register to tell which you are looking at.'),
              ('Are new online casinos safe?',
               'They are structurally harder to judge, which is different from dishonest. A new site has no complaint record, no history of paying a large withdrawal, and terms that have not been tested by a real dispute &mdash; and the things that normally protect you are all made of history.'),
              ('Do new casinos have better bonuses?',
@@ -468,7 +468,7 @@ PAGES = [
              ('Are there new online casinos in NZ with no deposit bonuses?',
               'New sites lean on acquisition offers, so no deposit bonuses and free spins on registration turn up more often on them than on established ones. The terms decide whether one is worth taking, not the newness &mdash; the limiting term on any no deposit offer is the maximum cashout, which is usually between NZ$50 and NZ$150.'),
              ('When will newly licensed casinos launch in New Zealand?',
-              'Licences are expected from early 2027, after the 1 December 2026 transition ends, capped at fifteen operators. Until the Department of Internal Affairs issues the first one and publishes the register there is nothing to list, and any page naming New Zealand licensed operators today is describing something that does not exist yet.'),
+              'Read the terms, because on a new site they are the entire risk assessment. Reputation is the usual proxy for the terms, and a new casino has none &mdash; so the withdrawal caps, the maximum conversion, the pending period and the reverse-withdrawal clause are all you have. Unlike reviews and forum threads, they are complete, free and available before you register.'),
              ('How do I check a casino with no track record?',
               'Use structure instead of reputation: find the registered company in the regulator&rsquo;s searchable list rather than trusting a footer licence number, read the withdrawal caps before the bonus terms, check the games come from named studios, look for a complaints path outside the operator, and deposit the minimum and withdraw early as a test.'),
          ],
@@ -506,7 +506,7 @@ PAGES = [
          section="casinos", noads=True,
          faq=[
              ('Are crypto casinos legal in New Zealand?',
-              'A crypto casino is an online casino for the purposes of the Online Casino Gambling Act 2026, and paying in crypto changes nothing about that. From 1 December 2026 only operators that won the right to apply for a licence may serve New Zealand customers, and no operator holds one yet because none has been issued.'),
+              'Playing is not an offence for a New Zealander, and paying in crypto changes nothing about the operator&rsquo;s position either. The same questions apply as at any online casino: which regulator, is the company in that register, and is there a complaints path that leaves the building. Crypto sites are over-represented among operators with the thinnest licensing.'),
              ('What does provably fair actually prove?',
               'That the operator committed to a server seed before your bet existed, so the outcome could not be chosen after seeing it &mdash; and you can verify that yourself by hashing the revealed seed. It does not prove the house edge, does not prove you will be paid, and does not cover third-party pokies or live tables on the same site.'),
              ('Do crypto casinos really have no verification?',
@@ -1166,8 +1166,8 @@ def casino_table():
         'link is a paid placement. The table is ordered alphabetically, not by what '
         'each pays, and appearing here is not a recommendation \u2014 see '
         '<a href="/how-we-rate-casinos/">how we rate casinos</a> for the criteria and '
-        '<a href="/licensed-online-casinos/">licensing</a> for what changes on '
-        '1 December 2026.</p>'
+        '<a href="/licensed-online-casinos/">licensing</a> for how to check one '
+        'before you deposit.</p>'
         '<div class="tw ct-tw"><table class="ct">'
         '<caption class="vh">Commercial partners, listed alphabetically</caption>'
         '<thead><tr><th>Operator</th><th>Welcome offer</th><th>Features</th>'
