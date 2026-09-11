@@ -1,29 +1,7 @@
 {
-  "_note": "Commercial partners. `casino` and `sports` say what an operator offers; `urlCasino` and `urlSports` are the tracking links for each. A partner is eligible for a section only if the flag is true AND the matching link exists - Rooster.Bet offers casino games but supplies no casino link, so it never appears on a casino page. Revenue share is deliberately NOT stored here: this repo is the public web root, so anything in this file is served at /src/data/offers.json and readable by competitors and operators. Bonus figures are sourced from our own network sites; `offerSource` names which. Those sites disagree with each other on several operators, so a single source was chosen per operator rather than the figures being merged or averaged.",
+  "_note": "Commercial partners. `casino` and `sports` say what an operator offers; `urlCasino` and `urlSports` are the tracking links for each. A partner is eligible for a section only if the flag is true AND the matching link exists - Rooster.Bet offers casino games but supplies no casino link, so it never appears on a casino page. `order` is the display order set by the site owner; the table renders in it. Revenue share is deliberately NOT stored here: this repo is the public web root, so anything in this file is served at /src/data/offers.json and readable by competitors and operators. Bonus figures are sourced from our own network sites; `offerSource` names which. Those sites disagree with each other on several operators, so a single source was chosen per operator rather than the figures being merged or averaged.",
   "updated": "2026-09-11",
   "offers": [
-    {
-      "name": "SpinJo",
-      "casino": true,
-      "sports": false,
-      "crypto": true,
-      "urlCasino": "https://roosterspartners.com/aaznxby3ku",
-      "url": "https://roosterspartners.com/aaznxby3ku",
-      "kind": "Casino",
-      "points": [
-        "Pokies &amp; live casino",
-        "Crypto accepted",
-        "Jackpots &amp; Megaways"
-      ],
-      "logo": "/assets/img/partners/spinjo-128.png",
-      "placement": "rail-right",
-      "cta": "Claim bonus",
-      "active": true,
-      "offerText": "Up to NZ$5,000 + 300 free spins across four deposits",
-      "wagering": "40x",
-      "minDeposit": "NZ$30",
-      "offerSource": "teachin"
-    },
     {
       "name": "CrownSlots",
       "casino": true,
@@ -44,7 +22,52 @@
       "placement": "inline",
       "cta": "Claim bonus",
       "active": true,
-      "offerText": "390% welcome bonus up to NZ$3,700 + 175 free spins"
+      "offerText": "390% welcome bonus up to NZ$3,700 + 175 free spins",
+      "order": 0
+    },
+    {
+      "name": "SpinJo",
+      "casino": true,
+      "sports": false,
+      "crypto": true,
+      "urlCasino": "https://roosterspartners.com/aaznxby3ku",
+      "url": "https://roosterspartners.com/aaznxby3ku",
+      "kind": "Casino",
+      "points": [
+        "Pokies &amp; live casino",
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
+      ],
+      "logo": "/assets/img/partners/spinjo-128.png",
+      "placement": "rail-right",
+      "cta": "Claim bonus",
+      "active": true,
+      "offerText": "Up to NZ$5,000 + 300 free spins across four deposits",
+      "wagering": "40x",
+      "minDeposit": "NZ$30",
+      "offerSource": "teachin",
+      "order": 1
+    },
+    {
+      "name": "MadCasino",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
+      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
+      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/madcasino.png",
+      "offerText": "777% total up to NZ$14,700",
+      "offerSource": "queenstown",
+      "order": 2
     },
     {
       "name": "Gunsbet",
@@ -62,28 +85,77 @@
       "bonus": "Welcome bonus <b>NZ$7,500</b>",
       "cta": "Claim bonus",
       "active": true,
-      "offerText": "285% welcome offer up to NZ$7,500 + 285 free spins"
+      "offerText": "285% welcome offer up to NZ$7,500 + 285 free spins",
+      "order": 3
     },
     {
-      "name": "Lucky Circus",
+      "name": "Kingdom",
       "casino": true,
-      "sports": false,
+      "sports": true,
       "crypto": true,
-      "urlCasino": "https://luckycircus.partners/jwwwaee5m",
-      "url": "https://luckycircus.partners/jwwwaee5m",
-      "kind": "Casino",
+      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
+      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
+      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
+      "kind": "Casino & sports",
       "points": [
         "Pokies &amp; live casino",
-        "Crypto accepted",
-        "Jackpots &amp; Megaways"
+        "Sports &amp; e-sports",
+        "Crypto accepted"
       ],
       "cta": "Claim bonus",
       "active": true,
-      "logo": "/assets/img/partners/lucky-circus.jpg",
-      "offerText": "Up to NZ$8,000 + 450 free spins",
-      "wagering": "45x",
-      "minDeposit": "NZ$30",
-      "offerSource": "11woodward"
+      "logo": "/assets/img/partners/kingdom.png",
+      "offerText": "600% total up to NZ$18,500 across the opening deposits",
+      "wagering": "30x",
+      "minDeposit": "NZ$25",
+      "offerSource": "teachin",
+      "order": 4
+    },
+    {
+      "name": "Smash",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
+      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
+      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/smash.png",
+      "offerText": "600% total up to NZ$19,500 across the opening deposits",
+      "wagering": "35x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin",
+      "order": 5
+    },
+    {
+      "name": "Rivo",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
+      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
+      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/rivo.png",
+      "offerText": "1000% total up to NZ$19,500 across the opening deposits",
+      "wagering": "35x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin",
+      "order": 6
     },
     {
       "name": "Bet&Play",
@@ -103,7 +175,8 @@
       "offerText": "Casino package up to NZ$4,000 + 1,000 free spins",
       "wagering": "50x",
       "minDeposit": "NZ$20",
-      "offerSource": "teachin"
+      "offerSource": "teachin",
+      "order": 7
     },
     {
       "name": "Lucky7even",
@@ -124,7 +197,8 @@
       "offerText": "100% up to NZ$1,700 per deposit day, plus 20 no-deposit spins",
       "wagering": "50x",
       "minDeposit": "NZ$20",
-      "offerSource": "teachin"
+      "offerSource": "teachin",
+      "order": 8
     },
     {
       "name": "Lucky Vibe",
@@ -146,7 +220,8 @@
       "offerText": "Up to NZ$5,000 + 300 free spins over four deposits",
       "wagering": "40x",
       "minDeposit": "NZ$20",
-      "offerSource": "teachin"
+      "offerSource": "teachin",
+      "order": 9
     },
     {
       "name": "Rooster.Bet",
@@ -171,7 +246,8 @@
       "wagering": "40x",
       "minDeposit": "NZ$20",
       "offerSource": "teachin",
-      "logo": "/assets/img/partners/rooster-bet.png"
+      "logo": "/assets/img/partners/rooster-bet.png",
+      "order": 10
     },
     {
       "name": "Fortune Play",
@@ -193,93 +269,30 @@
       "offerText": "Up to NZ$5,000 + 300 free spins across four deposits",
       "wagering": "40x",
       "minDeposit": "NZ$25",
-      "offerSource": "teachin"
+      "offerSource": "teachin",
+      "order": 11
     },
     {
-      "name": "MadCasino",
+      "name": "Lucky Circus",
       "casino": true,
-      "sports": true,
+      "sports": false,
       "crypto": true,
-      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
-      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
-      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
-      "kind": "Casino & sports",
+      "urlCasino": "https://luckycircus.partners/jwwwaee5m",
+      "url": "https://luckycircus.partners/jwwwaee5m",
+      "kind": "Casino",
       "points": [
         "Pokies &amp; live casino",
-        "Sports &amp; e-sports",
-        "Crypto accepted"
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
       ],
       "cta": "Claim bonus",
       "active": true,
-      "logo": "/assets/img/partners/madcasino.png",
-      "offerText": "777% total up to NZ$14,700",
-      "offerSource": "queenstown"
-    },
-    {
-      "name": "Kingdom",
-      "casino": true,
-      "sports": true,
-      "crypto": true,
-      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
-      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
-      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
-      "kind": "Casino & sports",
-      "points": [
-        "Pokies &amp; live casino",
-        "Sports &amp; e-sports",
-        "Crypto accepted"
-      ],
-      "cta": "Claim bonus",
-      "active": true,
-      "logo": "/assets/img/partners/kingdom.png",
-      "offerText": "600% total up to NZ$18,500 across the opening deposits",
-      "wagering": "30x",
-      "minDeposit": "NZ$25",
-      "offerSource": "teachin"
-    },
-    {
-      "name": "Smash",
-      "casino": true,
-      "sports": true,
-      "crypto": true,
-      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
-      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
-      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
-      "kind": "Casino & sports",
-      "points": [
-        "Pokies &amp; live casino",
-        "Sports &amp; e-sports",
-        "Crypto accepted"
-      ],
-      "cta": "Claim bonus",
-      "active": true,
-      "logo": "/assets/img/partners/smash.png",
-      "offerText": "600% total up to NZ$19,500 across the opening deposits",
-      "wagering": "35x",
-      "minDeposit": "NZ$20",
-      "offerSource": "teachin"
-    },
-    {
-      "name": "Rivo",
-      "casino": true,
-      "sports": true,
-      "crypto": true,
-      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
-      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
-      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
-      "kind": "Casino & sports",
-      "points": [
-        "Pokies &amp; live casino",
-        "Sports &amp; e-sports",
-        "Crypto accepted"
-      ],
-      "cta": "Claim bonus",
-      "active": true,
-      "logo": "/assets/img/partners/rivo.png",
-      "offerText": "1000% total up to NZ$19,500 across the opening deposits",
-      "wagering": "35x",
-      "minDeposit": "NZ$20",
-      "offerSource": "teachin"
+      "logo": "/assets/img/partners/lucky-circus.jpg",
+      "offerText": "Up to NZ$8,000 + 450 free spins",
+      "wagering": "45x",
+      "minDeposit": "NZ$30",
+      "offerSource": "11woodward",
+      "order": 12
     },
     {
       "name": "Roby Casino",
@@ -301,7 +314,8 @@
       "offerText": "250% up to NZ$5,000 + 250 free spins",
       "wagering": "35x",
       "minDeposit": "NZ$40",
-      "offerSource": "11woodward"
+      "offerSource": "11woodward",
+      "order": 13
     },
     {
       "name": "Spino",
@@ -320,7 +334,8 @@
       "active": true,
       "logo": "/assets/img/partners/spino.jpg",
       "offerText": "20% cashback up to 2,000 USDT",
-      "offerSource": "11woodward"
+      "offerSource": "11woodward",
+      "order": 14
     },
     {
       "name": "Ivibet Casino",
@@ -341,7 +356,8 @@
       "offerText": "100% up to NZ$180 + 120 spins on the first deposit",
       "wagering": "40x",
       "minDeposit": "NZ$20",
-      "offerSource": "teachin"
+      "offerSource": "teachin",
+      "order": 15
     },
     {
       "name": "Ivibet Sportsbook",
@@ -357,7 +373,8 @@
       ],
       "cta": "Visit site",
       "active": true,
-      "logo": "/assets/img/partners/ivibet-sportsbook.jpg"
+      "logo": "/assets/img/partners/ivibet-sportsbook.jpg",
+      "order": 16
     },
     {
       "name": "Hellspin",
@@ -378,7 +395,8 @@
       "offerText": "100% up to NZ$300 + 100 free spins",
       "wagering": "40x",
       "minDeposit": "NZ$35",
-      "offerSource": "11woodward"
+      "offerSource": "11woodward",
+      "order": 17
     },
     {
       "name": "Slotsgem",
@@ -399,7 +417,8 @@
       "offerText": "120% up to NZ$1,200 + 125 free spins",
       "wagering": "40x",
       "minDeposit": "NZ$30",
-      "offerSource": "11woodward"
+      "offerSource": "11woodward",
+      "order": 18
     }
   ]
 }
