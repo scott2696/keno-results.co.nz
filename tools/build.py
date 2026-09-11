@@ -227,10 +227,10 @@ PAGES = [
     # noads throughout: online casino advertising is prohibited under the
     # Gambling Act 2003, and the 2026 Act attaches penalties reaching whoever
     # publishes or arranges to publish one. These pages rank on the arithmetic.
-    dict(slug="casinos", src="casinos", section="casinos", noads=True,
+    dict(slug="online-casinos", src="online-casinos", section="casinos", noads=True,
          faq=[
              ('Are online casinos legal in New Zealand?',
-              "They are being licensed for the first time. The Online Casino Gambling Act 2026 came into force on 1 May 2026, and from 1 December 2026 only operators that won the right to apply for a licence may serve New Zealand customers. Licences are expected from early 2027, capped at fifteen operators. See <a href='/casinos/licensing/'>licensing and the register</a>."),
+              "They are being licensed for the first time. The Online Casino Gambling Act 2026 came into force on 1 May 2026, and from 1 December 2026 only operators that won the right to apply for a licence may serve New Zealand customers. Licences are expected from early 2027, capped at fifteen operators. See <a href='/licensed-online-casinos/'>licensing and the register</a>."),
              ('How do I know if an online casino is licensed in NZ?',
               'Two ways, from early 2027. The Department of Internal Affairs will publish a public register of licensed operators, and licensed sites must display a unique registration icon. The register is the authoritative check &mdash; an icon that does not match a register entry is just an image.'),
              ('Do I pay tax on casino winnings in New Zealand?',
@@ -238,13 +238,13 @@ PAGES = [
              ('Which casino games have the best odds?',
               'Blackjack played with basic strategy at a 3:2 table is the cheapest, at roughly a 0.5% house edge, followed by baccarat&rsquo;s banker bet at 1.06% and the craps pass line at 1.41%. Single-zero roulette costs 2.70% and double-zero 5.26% for an otherwise identical game. Typical pokies sit between 2% and 8%.'),
              ('Why does this site not list the best online casinos?',
-              "Because online casino advertising is prohibited in New Zealand under the Gambling Act 2003, and the 2026 Act attaches penalties of up to NZ$5 million reaching whoever publishes an unlawful advertisement, with affiliate marketing named specifically. This section carries no recommendations, no referral links and no paid placements. See <a href='/casinos/how-we-rate/'>how we rate casinos</a>."),
+              "Because online casino advertising is prohibited in New Zealand under the Gambling Act 2003, and the 2026 Act attaches penalties of up to NZ$5 million reaching whoever publishes an unlawful advertisement, with affiliate marketing named specifically. This section carries no recommendations, no referral links and no paid placements. See <a href='/how-we-rate-casinos/'>how we rate casinos</a>."),
          ],
          title="Online Casinos in New Zealand (2026) | keno-results.co.nz",
          og="Online casinos in New Zealand",
          desc="What is legal, what changes on 1 December 2026, and how to judge an "
               "online casino on house edge and bonus arithmetic rather than on marketing."),
-    dict(slug="casinos/licensing", src="casinos-licensing",
+    dict(slug="licensed-online-casinos", src="licensed-online-casinos",
          section="casinos", noads=True,
          faq=[
              ('Which online casinos are licensed in New Zealand?',
@@ -262,7 +262,7 @@ PAGES = [
          og="Licensing and the register",
          desc="Which operators may lawfully serve New Zealanders from 1 December 2026, "
               "how the public register and registration icon work, and what a licence protects."),
-    dict(slug="casinos/bonuses", src="casinos-bonuses",
+    dict(slug="casino-bonus", src="casino-bonus",
          section="casinos", noads=True,
          faq=[
              ('What does 40x wagering actually mean?',
@@ -280,7 +280,7 @@ PAGES = [
          og="Casino bonuses, as arithmetic",
          desc="Work out what a casino bonus is really worth before you claim it. The "
               "break-even formula, a worked NZ$100 example, and the five terms that matter."),
-    dict(slug="casinos/payouts", src="casinos-payouts",
+    dict(slug="casino-payout-percentages", src="casino-payout-percentages",
          section="casinos", noads=True,
          faq=[
              ('What is RTP in an online casino?',
@@ -298,9 +298,13 @@ PAGES = [
          og="Payouts and RTP, explained",
          desc="What a 96% return-to-player figure promises and what it does not, how "
               "volatility changes the same number, and the house edge of every common game."),
-    dict(slug="casinos/withdrawals", src="casinos-withdrawals",
+    dict(slug="fast-payout-casinos", src="fast-payout-casinos",
          section="casinos", noads=True,
          faq=[
+             ('Which online casinos have the fastest payouts in New Zealand?',
+              'Payout speed is driven far more by your own account state and your chosen method than by which operator you pick. A verified account withdrawing to an e-wallet is fast almost anywhere; an unverified account withdrawing to a card is slow almost anywhere. Advertised operator times describe one stage of four, and they change month to month.'),
+             ('Are instant withdrawals real?',
+              'Not in the literal sense. &ldquo;Instant&rdquo; describes the final settlement step once an operator has already approved the payment &mdash; the pending period, identity verification and manual approval all happen before it. The fastest realistic outcome is same-day, and it needs verification completed in advance.'),
              ('How long do online casino withdrawals take?',
               'It depends on four separate stages run by three parties: a pending period set by the operator, identity verification required by anti-money-laundering law, manual approval in the operator&rsquo;s business hours, and settlement on the payment rail. Advertised times usually describe only one of them.'),
              ('Why is my casino withdrawal taking so long?',
@@ -312,11 +316,11 @@ PAGES = [
              ('Why must I withdraw to the method I deposited with?',
               'Anti-money-laundering rules make returning funds to their source the default. It means depositing by a method that cannot receive a withdrawal &mdash; a prepaid voucher, for instance &mdash; creates a problem you discover at the worst possible moment.'),
          ],
-         title="Casino Withdrawals NZ: What Causes the Delay | keno-results.co.nz",
-         og="Withdrawals and what delays them",
-         desc="The four stages a casino withdrawal passes through, why verification is not "
-              "optional, what reverse withdrawal really does, and what to check before depositing."),
-    dict(slug="casinos/payments", src="casinos-payments",
+         title="Fast Payout Casinos NZ — What Decides the Speed | keno-results.co.nz",
+         og="Fast payouts and what delays them",
+         desc="What actually decides how fast an online casino pays out in NZ: the four "
+              "stages, why verification is not optional, and what to check before you deposit."),
+    dict(slug="casino-payment-methods", src="casino-payment-methods",
          section="casinos", noads=True,
          faq=[
              ('Can I deposit in New Zealand dollars at an online casino?',
@@ -334,7 +338,7 @@ PAGES = [
          og="Payment methods for NZ players",
          desc="What each payment category actually costs, where the currency conversion "
               "hides, and how to use payment method as a spending limit."),
-    dict(slug="casinos/pokies", src="casinos-pokies",
+    dict(slug="online-pokies", src="online-pokies",
          section="casinos", noads=True,
          faq=[
              ('Are online pokies rigged?',
@@ -354,7 +358,7 @@ PAGES = [
          og="Online pokies, and how they work",
          desc="RNGs, RTP, volatility, hit frequency and progressive jackpots — what the "
               "mechanics mean for the money, and which beliefs about pokies are simply false."),
-    dict(slug="casinos/live-dealer", src="casinos-live-dealer",
+    dict(slug="live-casino", src="live-casino",
          section="casinos", noads=True,
          faq=[
              ('How do live dealer casino games work?',
@@ -372,7 +376,7 @@ PAGES = [
          og="Live dealer games",
          desc="How live dealer games are produced, the house edge on every common bet, the "
               "rule variants that change it, and why side bets cost many times the main game."),
-    dict(slug="casinos/how-we-rate", src="casinos-how-we-rate",
+    dict(slug="how-we-rate-casinos", src="how-we-rate-casinos",
          section="casinos", noads=True,
          faq=[
              ('How does keno-results.co.nz rate online casinos?',
@@ -484,6 +488,9 @@ PAGES = [
 REDIRECTS = {
     "keno-tools": "/statistics/",   # was a tools/statistics page
     "stra": "/odds/",               # "strategy" -> the actual arithmetic
+    # Same intent as /fast-payout-casinos/ - how fast do I get paid - so it
+    # consolidates onto that page rather than competing with it for the query.
+    "instant-withdrawals": "/fast-payout-casinos/",
 }
 
 # "More in this section" - the Keno guide cluster.
@@ -513,16 +520,18 @@ GAMING = [
 # "More in this section" - the online casino cluster. Editorial and unpaid: it
 # carries no operator recommendations and no referral links, because online
 # casino advertising is prohibited here and the 2026 Act reaches the publisher.
+# Flat slugs rather than a /casinos/ subtree: each page sits at the root on
+# the exact term it targets, so the URL itself carries the keyword.
 CASINOS = [
-    ("casinos",              "Overview"),
-    ("casinos/licensing",    "Licensing"),
-    ("casinos/bonuses",      "Bonuses"),
-    ("casinos/payouts",      "Payouts &amp; RTP"),
-    ("casinos/withdrawals",  "Withdrawals"),
-    ("casinos/payments",     "Payments"),
-    ("casinos/pokies",       "Pokies"),
-    ("casinos/live-dealer",  "Live dealer"),
-    ("casinos/how-we-rate",  "How we rate"),
+    ("online-casinos",            "Overview"),
+    ("licensed-online-casinos",   "Licensing"),
+    ("casino-bonus",              "Bonuses"),
+    ("casino-payout-percentages", "Payouts &amp; RTP"),
+    ("fast-payout-casinos",       "Fast payouts"),
+    ("casino-payment-methods",    "Payments"),
+    ("online-pokies",             "Pokies"),
+    ("live-casino",               "Live dealer"),
+    ("how-we-rate-casinos",       "How we rate"),
 ]
 
 # Which "more in this section" list a page's section name selects.
