@@ -66,6 +66,7 @@
     <div class="head-actions">
       <!-- Bonus box. Amber so it reads against the green bar without competing
            with the primary CTA beside it, which stays the loudest thing here. -->
+      <!--ADS:BTN-->
       <button class="bonus-btn" type="button" data-bb-open
               aria-haspopup="dialog" aria-controls="bonus-box">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
@@ -75,6 +76,7 @@
         <span class="bonus-btn-t">Bonus box</span>
         <span class="bonus-dot" aria-hidden="true"></span>
       </button>
+      <!--/ADS:BTN-->
       <a class="btn btn-primary" href="/check/">Check my numbers</a>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
         <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -94,7 +96,7 @@
 
 <div class="promo-top"></div>
 
-{band}
+<!--ADS:BAND-->{band}<!--/ADS:BAND-->
 <main id="main">
 {content}
 {faq}
@@ -147,6 +149,15 @@
         </ul>
       </div>
       <div>
+        <p class="foot-h">Gaming in NZ</p>
+        <ul class="foot-l">
+          <li><a href="/gaming/">Gambling in New Zealand</a></li>
+          <li><a href="/gaming/online-casino-law/">Online casino law</a></li>
+          <li><a href="/gaming/who-regulates-gambling/">Who regulates it</a></li>
+          <li><a href="/gaming/getting-help/">Getting help</a></li>
+        </ul>
+      </div>
+      <div>
         <p class="foot-h">This site</p>
         <ul class="foot-l">
           <li><a href="/about/">About us</a></li>
@@ -169,7 +180,7 @@
 
     <div class="foot-bottom">
       <span class="r18">R18</span>
-      <span>Gambling can be harmful. Free, confidential help is available from the <a href="https://gamblinghelpline.co.nz/" rel="noopener">Gambling Helpline Aotearoa</a> &mdash; see <a href="/responsible-gambling/">responsible gambling</a>.</span>
+      <span>Gambling can be harmful. Free, confidential help is available from the <a href="https://gamblinghelpline.co.nz/" rel="noopener">Gambling Helpline Aotearoa</a> &mdash; see <a href="/responsible-gambling/">responsible gambling</a> or <a href="/gaming/getting-help/">getting help</a>.</span>
       <span class="mono">&copy; {year} keno-results.co.nz</span>
     </div>
   </div>
@@ -195,6 +206,7 @@
      gambling or legal pages. Labelled as advertising in the same words as
      every other placement on the site - an unlabelled ad popup would
      contradict the disclosure sitting on all three rail units. -->
+<!--ADS:MODAL-->
 <div class="promo-modal" id="promo-modal" hidden>
   <div class="promo-backdrop" data-promo-close></div>
   <div class="promo-card" role="dialog" aria-modal="true"
@@ -243,6 +255,7 @@
   </div>
 </div>
 {bonusbox}
+<!--/ADS:MODAL-->
 {analytics}
 </body>
 </html>

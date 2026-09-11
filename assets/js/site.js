@@ -51,7 +51,7 @@
     try {
       promoPending = !!document.getElementById('promo-modal') &&
         localStorage.getItem('promo-seen') !== '1' &&
-        !/^\/(responsible-gambling|privacy-policy|cookie-policy|terms|authors)\//
+        !/^\/(responsible-gambling|privacy-policy|cookie-policy|terms|authors|gaming)\//
           .test(location.pathname);
     } catch (e) { promoPending = false; }
 
@@ -208,7 +208,7 @@
     var modal = document.getElementById('promo-modal');
     if (!modal) return;
 
-    var BLOCK = /^\/(responsible-gambling|privacy-policy|cookie-policy|terms|authors)\//;
+    var BLOCK = /^\/(responsible-gambling|privacy-policy|cookie-policy|terms|authors|gaming)\//;
     var SEEN = 'promo-seen';
     var seen = true;
     try { seen = localStorage.getItem(SEEN) === '1'; } catch (e) { seen = true; }

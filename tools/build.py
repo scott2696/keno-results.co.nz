@@ -164,6 +164,65 @@ PAGES = [
          desc="How NZ Keno is structured, who operates and regulates it, the age limit, "
               "how prizes are claimed, and where the binding rules live.",
          schema=[]),
+    dict(slug="gaming", src="gaming", section="gaming", noads=True,
+         faq=[
+             ('Is gambling legal in New Zealand?',
+              "Some of it. The Gambling Act 2003 works by prohibition with exceptions, so gambling is unlawful unless the Act specifically authorises it. What is permitted is Lotto NZ's games, betting through TAB NZ, gaming machines in pubs and clubs, and the six licensed land-based casinos."),
+             ('Is online gambling legal in New Zealand?',
+              "It is changing. Online casino gambling was never lawfully offered from within New Zealand, and the Online Casino Gambling Act 2026 creates a licensing regime for it. From 1 December 2026 only operators that won the right to apply for a licence may serve New Zealand customers. See <a href='/gaming/online-casino-law/'>the law change</a>."),
+             ('Do I pay tax on gambling winnings in New Zealand?',
+              'Lotto NZ states prize money is not taxed, so a prize is paid in full. What the money then earns afterwards &mdash; interest, dividends, rent &mdash; is taxable in the ordinary way. General information rather than tax advice.'),
+         ],
+         title="Gambling in New Zealand | keno-results.co.nz",
+         og="Gambling in New Zealand",
+         desc="What is legal, who regulates it, where the money goes, and what "
+              "changes on 1 December 2026 - sourced from the legislation itself."),
+    dict(slug="gaming/online-casino-law", src="gaming-online-casino-law",
+         section="gaming", noads=True,
+         faq=[
+             ('When does the online casino law change take effect?',
+              'The Act came into force on 1 May 2026 and the supporting regulations on 3 July 2026. The date that changes things for players is 1 December 2026, when only operators holding the right to apply for a licence may serve New Zealand customers. Licences themselves are expected to be issued from early 2027.'),
+             ('Can I still play on an offshore casino right now?',
+              'The regulator has said there are no changes for online casino customers during the transition. Operators that were serving New Zealand before 1 May 2026 may continue until 1 December 2026, though they are not permitted to advertise here during that period.'),
+             ('How will I know if an online casino is licensed in New Zealand?',
+              'Two ways. The Department of Internal Affairs will publish a public register of licensed operators, and licensed casinos will be required to display a unique registration icon on their platform and in any advertising. If a site shows neither, it is not licensed here.'),
+             ('What happens if I play on an unlicensed site?',
+              'You do not get the protections the licensing regime is built to provide, and there is no regulator to complain to. With a licensed operator you can complain to the casino or to the Department directly.'),
+             ('Does this affect sports betting?',
+              'No. Betting on sport and racing is regulated under the Racing Industry Act 2020 alongside the Gambling Act 2003, through TAB NZ, and the online casino changes do not alter it.'),
+         ],
+         title="NZ Online Casino Law Change 2026 | keno-results.co.nz",
+         og="The online casino law change",
+         desc="New Zealand licensed online casino gambling in 2026. The dates that "
+              "matter, what changes on 1 December, and how to spot a licensed site."),
+    dict(slug="gaming/who-regulates-gambling", src="gaming-who-regulates",
+         section="gaming", noads=True,
+         faq=[
+             ('Who regulates gambling in New Zealand?',
+              "The Department of Internal Affairs is the regulator &mdash; it licenses, inspects and enforces, and now administers the online casino regime. The Gambling Commission is a separate independent body that hears appeals against the Department's decisions and handles casino licensing matters."),
+             ('What are the four classes of gambling?',
+              'Class 1 is small-scale with no licence needed, such as a school raffle. Class 2 is larger community fundraising. Class 3 covers substantial prizes and requires a licence. Class 4 is gaming machines outside casinos &mdash; the pokies in pubs and clubs, and the most tightly controlled.'),
+             ('Where does New Zealand gambling money go?',
+              'Lotto NZ is a Crown entity, so its surplus goes to the Lottery Grants Board rather than to shareholders &mdash; a near-record $395 million in its 2025 financial year. Class 4 societies operating gaming machines must also return a minimum share of proceeds to authorised community purposes.'),
+         ],
+         title="Who Regulates Gambling in NZ | keno-results.co.nz",
+         og="Who regulates gambling",
+         desc="The Gambling Act 2003, the four classes of gambling, the Department "
+              "of Internal Affairs, and why sports betting sits under another law."),
+    dict(slug="gaming/getting-help", src="gaming-getting-help",
+         section="gaming", noads=True,
+         faq=[
+             ('Where can I get help with gambling in New Zealand?',
+              "The Gambling Helpline on 0800 654 655, or text 8006. It is free, confidential and available 24 hours, and you can call about your own gambling or someone else's. Safer Gambling Aotearoa at safergambling.org.nz has further support options."),
+             ("Can I call about someone else's gambling?",
+              "Yes. The helpline takes calls from family and friends, you do not need the person's permission or involvement, and you do not need to have worked out what to say first."),
+             ('How do I know if my gambling is a problem?',
+              'The clearest single signal is chasing &mdash; playing to win back what you lost rather than because you wanted to play, because it means the loss is now driving the decision. Hiding how much you play, using money meant for something else, and believing a number is due are the others worth taking seriously.'),
+         ],
+         title="Gambling Help NZ | keno-results.co.nz",
+         og="If gambling stops being fun",
+         desc="Free confidential gambling help in New Zealand, the warning signs "
+              "worth taking seriously, and practical limits that actually work."),
     dict(slug="about", src="about", nav="about",
          title="About & Data Sources | keno-results.co.nz",
          og="About this site",
@@ -276,9 +335,19 @@ SECTION = [
 ]
 
 
-def subnav(slug):
+# "More in this section" - the gaming cluster, which is editorial and carries
+# no commercial placements.
+GAMING = [
+    ("gaming",                        "Overview"),
+    ("gaming/online-casino-law",      "Online casino law"),
+    ("gaming/who-regulates-gambling", "Who regulates it"),
+    ("gaming/getting-help",           "Getting help"),
+]
+
+
+def subnav(slug, items_src=None):
     items = []
-    for s_, label in SECTION:
+    for s_, label in (items_src or SECTION):
         cur = ' aria-current="page"' if s_ == slug else ""
         items.append('<li><a href="/%s/"%s>%s</a></li>' % (s_, cur, label))
     return ('<nav class="subnav wrap" aria-label="More in this section">'
@@ -1060,6 +1129,22 @@ def faq_schema(faq, url):
     }
 
 
+ADS_RE = re.compile(r"<!--ADS:(\w+)-->.*?<!--/ADS:\1-->", re.S)
+
+
+def strip_ads(html):
+    """Remove every commercial placement from a page.
+
+    Used by /gaming/, which writes about online casino regulation. Carrying
+    casino advertising beside that would read badly and, per the DIA, the
+    advertising itself is prohibited - so those pages carry none of it.
+    Markers rather than a regex over nested markup, so removal is exact."""
+    html = ADS_RE.sub("", html)
+    for slot in ("{rail}", "{rail_left}", "{band}", "{bonusbox}"):
+        html = html.replace(slot, "")
+    return html
+
+
 def analytics_block():
     """Cloudflare Web Analytics, or nothing at all.
 
@@ -1118,7 +1203,7 @@ def build():
             f'<script src="/assets/js/{name}.js" defer></script>' for name in page.get("js", []))
 
         nav = page.get("nav")
-        out = base
+        out = strip_ads(base) if page.get("noads") else base
         for key in ("home", "check", "results", "stats", "howto", "odds", "tools", "blog", "news", "about", "contact"):
             out = out.replace("{c_%s}" % key, ' aria-current="page"' if nav == key else "")
 
@@ -1136,11 +1221,13 @@ def build():
                    .replace("{tw_card}", "summary")
                .replace("{head_extra}", head_extra)
                .replace("{scripts}", scripts)
-               .replace("{rail}", rail_block("rail-right"))
-               .replace("{rail_left}", rail_block("rail-left"))
+               .replace("{rail}", "" if page.get("noads") else rail_block("rail-right"))
+               .replace("{rail_left}", "" if page.get("noads") else rail_block("rail-left"))
                .replace("{content}", body.rstrip()
-                   .replace("{subnav}", subnav(slug) if page.get("section") else "")
-                   .replace("{offers}", offers_block())
+                   .replace("{subnav}",
+                            subnav(slug, GAMING if page.get("section") == "gaming"
+                                   else None) if page.get("section") else "")
+                   .replace("{offers}", "" if page.get("noads") else offers_block())
                    .replace("{newslist}", entry_list("news"))
                    .replace("{bloglist}", entry_list("blog")))
                # outside the {content} chain: the slot lives in base.html, not
