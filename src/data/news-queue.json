@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-11T03:27:43",
+  "updated": "2026-09-11T06:34:19",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -633,6 +633,16 @@
       "seen": "2026-09-10"
     },
     {
+      "title": "Lotto player wins $1 million as Powerball jackpot grows again",
+      "source": "Stuff",
+      "published": "Sat, 08 Aug 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQZ2NQbTFyNm1SMmMtSFJHeDNXdnA3RzBtbnBEc0pJZ3BzQzJJMXF3MDNUMDNFLVJxVDMycE4tUmw3dnhMSFVMX19OczFIYjBkNkN0NUxVdUU2TVJMVVhVbUVGTU5wRndhckhULV9MXzA2Ynhlc3ZCN0w3V3NmaVI0TzZkVWVvSVBVcnAxMnpHMVBvNkxKaGE4UGNlMTBJTDVoT01PYmQ2Q3c3Mzg?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-09-11"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1187,16 +1197,6 @@
       "source": "1News",
       "published": "Thu, 11 Jun 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOaHBiQmt5VXRMMVhaeXoyUXN4SmdxQWk1aGdYN3Z6TVctMUdYMjJjYl90amN3Wk9QaF9JLWRoRTdEQ2RuMjhQTnJ6NEl3dkJTbjBYRGZjTkFSZno0NnE3ZTV3TzVJTFBsYnQtZ1o1LWxxVlZMUmxBZTBua0p3WDNzN294bndoc2c3c3JFeUNxcVRZNHBrOE1vWFhJR0ZiZw?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Winning locations revealed after two players scoop $500,000 Lotto prizes",
-      "source": "Stuff",
-      "published": "Wed, 15 Jul 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSXRnOVpnekxkQzljdHB1T0lnVVhuRldFZFVFZzJVSklWcE9RdkoyR3JVbVNwbFBWWWVERzl3RElXVEdMMERrTnFyN3JDcU55RTZuOTBMOU1QLTBmb1FlXzB6b25VRmU4eTJRSXlyS0pRY0tlb2ZQZHlnZnRNaE5xbVRKUElQeTAxcVAweS1pVkJONk02LWtPeGlVZjVtNmdXMjRUak9wc0NQbmtNbzhOREx3?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
