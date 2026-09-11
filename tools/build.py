@@ -1171,38 +1171,81 @@ def casino_table(page=None):
         return ""
 
     rows = []
-    for o in live:
+    for i, o in enumerate(live, 1):
         name = html.escape(o["name"])
         logo = o.get("logoRev") or o.get("logo")
-        # No wordmark fallback here: unlike the rails, this row already prints
-        # the operator's name immediately below, and rendering both showed it
-        # twice.
-        img = (f'<img class="ct-logo" src="{logo}" alt="{name}" '
-               f'loading="lazy" decoding="async" width="128" height="32">'
-               if logo else "")
-        mark = f'<span class="ct-mark">{img}</span>' if img else ""
-        pts = "".join(f"<li>{p}</li>" for p in o.get("points", [])[:3])
-        # Most partners have supplied no bonus figure. Saying so is better than
-        # an empty cell, and far better than inventing one.
-        if o.get("amount"):
-            offer = (f'<span class="ct-amt">{o["amount"]}</span>'
-                     f'<span class="ct-sub">{o.get("amountSub", "")}</span>')
+        # The card plates the mark on its own tile; where we hold no artwork the
+        # plate is dropped rather than filled with a borrowed or invented logo.
+        mark = (f'<span class="ct-mark">'
+                f'<img class="ct-logo" src="{logo}" alt="{name}" loading="lazy" '
+                f'decoding="async" width="128" height="32"></span>') if logo else ""
+
+        # Feature line: the operator's own points, mid-dot separated, plus the
+        # licence and game count when those have been supplied to us.
+        bits = list(o.get("points", [])[:3])
+        if o.get("licence"):
+            bits.insert(0, html.escape(o["licence"]))
+        if o.get("games"):
+            bits.append(html.escape(o["games"]))
+        tagline = " &middot; ".join(bits)
+
+        # Score bar. Absent from the data for every partner, and deliberately so
+        # - /how-we-rate-casinos/ sets out why this site does not publish a
+        # composite score. Wired up so it can be switched on, not switched on.
+        score = o.get("score")
+        score_html = ""
+        if score:
+            pct = max(0.0, min(10.0, float(score))) * 10
+            score_html = (
+                f'<div class="ct-score">'
+                f'<div class="ct-bar"><span style="width:{pct:.0f}%"></span></div>'
+                f'<div class="ct-score-r"><span>Our score</span>'
+                f'<b>{float(score):.1f}/10</b></div></div>')
+
+        badge = (f'<span class="ct-badge">{html.escape(o["badge"])}</span>'
+                 if o.get("badge") else "")
+
+        # offerText is one readable phrase; amount/amountSub are the two-line
+        # split the rails and bonus box use, and reading them end to end gives
+        # "NZ$3,700 390% welcome bonus + 175 free spins".
+        text = o.get("offerText") or (
+            ("%s %s" % (o.get("amount", ""),
+                        (o.get("amountSub") or "").replace("<br>", " "))).strip())
+        if text:
+            offer = (f'<div class="ct-offer-box">'
+                     f'<span class="ct-offer-l">Welcome offer</span>'
+                     f'<span class="ct-offer-t">{text}</span></div>')
         else:
-            offer = ('<span class="ct-amt ct-none">&mdash;</span>'
-                     '<span class="ct-sub">no offer supplied to us</span>')
+            offer = ('<div class="ct-offer-box ct-offer-none">'
+                     '<span class="ct-offer-l">Welcome offer</span>'
+                     '<span class="ct-offer-t">None supplied to us</span></div>')
+
+        # Terms footnote: only facts we actually hold. 18+ and T&Cs always apply;
+        # wagering and minimum deposit appear per operator when supplied.
+        terms = []
+        if o.get("wagering"):
+            terms.append(html.escape(o["wagering"]) + " wagering")
+        if o.get("minDeposit"):
+            terms.append(html.escape(o["minDeposit"]) + " min deposit")
+        terms.append("18+ T&amp;Cs apply")
+        terms_html = " &middot; ".join(terms)
+
         rows.append(
             f'<tr>'
+            f'<td class="ct-rank"><span class="ct-num">{i:02d}</span>{badge}</td>'
             f'<td class="ct-brand">{mark}'
             f'<span class="ct-name">{name}</span>'
-            f'<span class="ct-kind">{html.escape(o.get("kind", ""))}</span></td>'
-            f'<td class="ct-offer">{offer}</td>'
-            f'<td class="ct-pts"><ul>{pts}</ul></td>'
-            f'<td class="ct-go"><a class="ct-cta" href="{o["urlCasino"]}" target="_blank" '
-            f'rel="sponsored nofollow noopener">{html.escape(o.get("cta", "Visit site"))}'
+            f'<span class="ct-kind">{html.escape(o.get("kind", ""))}</span>'
+            f'<span class="ct-tag">{tagline}</span></td>'
+            f'<td class="ct-offer">{score_html}{offer}</td>'
+            f'<td class="ct-go">'
+            f'<a class="ct-cta" href="{o["urlCasino"]}" target="_blank" '
+            f'rel="sponsored nofollow noopener">'
+            f'{html.escape(o.get("cta", "Visit site"))}'
             f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" '
             f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
             f'<path d="M5 12h14M13 6l6 6-6 6"/></svg></a>'
-            f'<span class="ct-terms">18+. T&amp;Cs apply.</span></td>'
+            f'<span class="ct-terms">{terms_html}</span></td>'
             f'</tr>')
 
     ct = (page or {}).get("ct") or {}
@@ -1223,8 +1266,8 @@ def casino_table(page=None):
         'before you deposit.</p>'
         '<div class="tw ct-tw"><table class="ct">'
         '<caption class="vh">Commercial partners, listed alphabetically</caption>'
-        '<thead><tr><th>Operator</th><th>Welcome offer</th><th>Features</th>'
-        '<th><span class="vh">Visit</span></th></tr></thead>'
+        '<thead><tr><th><span class="vh">Rank</span></th><th>Operator</th>'
+        '<th>Welcome offer</th><th><span class="vh">Visit</span></th></tr></thead>'
         f'<tbody>{"".join(rows)}</tbody>'
         '</table></div>'
         '<p class="ct-legal">18+ only. Gambling carries a fixed house edge and returns '

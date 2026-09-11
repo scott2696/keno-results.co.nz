@@ -40,7 +40,8 @@
       "logoRev": "/assets/img/partners/crownslots-rev@2x.png",
       "placement": "inline",
       "cta": "Claim bonus",
-      "active": true
+      "active": true,
+      "offerText": "390% welcome bonus up to NZ$3,700 + 175 free spins"
     },
     {
       "name": "Gunsbet",
@@ -57,7 +58,8 @@
       "amountSub": "285% welcome offer<br>+ 285 free spins",
       "bonus": "Welcome bonus <b>NZ$7,500</b>",
       "cta": "Claim bonus",
-      "active": true
+      "active": true,
+      "offerText": "285% welcome offer up to NZ$7,500 + 285 free spins"
     },
     {
       "name": "Lucky Circus",
@@ -142,7 +144,8 @@
       "logoRev": "/assets/img/partners/rooster-bet-rev@2x.png",
       "placement": "rail-left",
       "cta": "Claim bonus",
-      "active": true
+      "active": true,
+      "offerText": "100% matched free bet up to NZ$200"
     },
     {
       "name": "Fortune Play",

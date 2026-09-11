@@ -85,6 +85,8 @@
   --shadow-3:0 14px 34px -10px rgba(10,14,20,.14), 0 4px 8px -3px rgba(10,14,20,.06);
   --ring:0 0 0 3px rgba(10,110,60,.16);
 
+  --gold:#96711A;        /* 4.49:1 on --surface */
+  --gold-plate:#C8A24A;  /* #1B1405 ink on it: 7.59:1 */
   --r-sm:5px; --r-md:9px; --r-lg:13px; --r-xl:18px; --r-full:999px;
 
   /* One family, disciplined by weight and tracking rather than by mixing
@@ -105,6 +107,8 @@
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --ground:#0B0E13; --surface:#12161D; --surface-2:#171C25; --surface-3:#202631;
+  --gold:#D9BE77; --gold-plate:#C8A24A;
+    --gold:#D9BE77; --gold-plate:#C8A24A;   /* 10:1 on --surface */
     --ink:#E8ECF2; --ink-2:#C3CBD6; --muted:#8B95A5; --line:#1F252F; --line-2:#2B323E;
     --accent:#34D399; --accent-hover:#5EE7B4; --accent-soft:#0E2A1F; --accent-line:#1C4634;
     --on-accent:#04120A;
@@ -1619,7 +1623,10 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
 /* ---- operator comparison table -------------------------------------------
    A paid placement that has to read as one. The "Paid placements" flag sits in
    the heading row rather than in small print underneath, because a disclosure
-   the reader can miss is not a disclosure. */
+   the reader can miss is not a disclosure.
+
+   Desktop is a table. Below 760px each row becomes a ranked card: number,
+   logo plate, name, feature line, offer panel, full-width CTA, terms. */
 .ct-wrap{margin:34px 0 8px}
 .ct-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 14px; margin-bottom:8px}
 .ct-head h2{margin:0; font-size:clamp(19px,2.4vw,24px)}
@@ -1628,42 +1635,83 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
   border:1px solid var(--live-line); white-space:nowrap}
 .ct-note{font-size:13.5px; color:var(--muted); margin:0 0 16px; max-width:76ch; line-height:1.55}
 .ct-tw{margin:0}
-table.ct{min-width:660px}
-table.ct tbody td{padding:16px 15px; vertical-align:middle}
-.ct-brand{min-width:150px}
-.ct-mark{display:block; margin-bottom:7px}
+table.ct{min-width:680px}
+table.ct tbody td{padding:16px 14px; vertical-align:middle}
+
+.ct-rank{width:60px; text-align:center; white-space:nowrap}
+.ct-num{display:block; font-family:var(--display); font-size:24px; font-weight:700;
+  color:var(--gold); line-height:1; font-variant-numeric:tabular-nums}
+.ct-badge{display:inline-block; margin-top:7px; font-family:var(--mono); font-size:9px;
+  letter-spacing:.11em; text-transform:uppercase; padding:3px 8px; border-radius:999px;
+  background:var(--gold-plate); color:#1B1405; font-weight:600; white-space:nowrap}
+
+.ct-brand{min-width:190px}
+.ct-mark{display:block; margin-bottom:8px}
 .ct-logo{display:block; width:auto; height:30px; max-width:132px; object-fit:contain; object-position:left}
-.ct-word{font-family:var(--display); font-weight:660; font-size:17px; color:var(--ink)}
-.ct-name{display:block; font-weight:600; color:var(--ink); font-size:14.5px}
+.ct-name{display:block; font-weight:600; color:var(--ink); font-size:15.5px; line-height:1.25}
 .ct-kind{display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.09em;
-  text-transform:uppercase; color:var(--muted); margin-top:2px}
-.ct-amt{display:block; font-family:var(--display); font-size:21px; font-weight:660;
-  color:var(--accent); line-height:1.1; font-variant-numeric:tabular-nums}
-.ct-sub{display:block; font-size:12.5px; color:var(--muted); margin-top:4px; line-height:1.4}
-.ct-pts ul{margin:0; padding:0; list-style:none; display:grid; gap:4px}
-.ct-pts li{font-size:13px; color:var(--ink-2); padding-left:16px; position:relative; margin:0}
-.ct-pts li::before{content:""; position:absolute; left:0; top:.52em; width:6px; height:6px;
-  border-radius:50%; background:var(--accent-line)}
-.ct-go{text-align:right; white-space:nowrap}
-.ct-cta{display:inline-flex; align-items:center; gap:7px; padding:10px 16px; border-radius:var(--r-md);
-  background:var(--accent); color:var(--on-accent); font-weight:600; font-size:14px;
-  text-decoration:none; transition:filter .15s ease, transform .15s ease}
+  text-transform:uppercase; color:var(--muted); margin-top:3px}
+.ct-tag{display:block; font-size:12.5px; color:var(--ink-2); margin-top:6px; line-height:1.45}
+
+.ct-score{margin-bottom:10px}
+.ct-bar{height:6px; border-radius:999px; background:var(--line); overflow:hidden}
+.ct-bar span{display:block; height:100%; border-radius:999px;
+  background:linear-gradient(90deg,#A07B28,var(--gold))}
+.ct-score-r{display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+  margin-top:6px; font-size:12.5px; color:var(--muted)}
+.ct-score-r b{font-family:var(--display); font-size:16px; color:var(--ink);
+  font-variant-numeric:tabular-nums}
+
+.ct-offer-box{border:1px solid var(--accent-line); background:var(--accent-soft);
+  border-radius:var(--r-md); padding:11px 14px}
+.ct-offer-l{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:4px}
+.ct-offer-t{display:block; font-size:14px; font-weight:600; color:var(--ink); line-height:1.4}
+.ct-offer-none{border-color:var(--line); background:transparent}
+.ct-offer-none .ct-offer-l{color:var(--muted)}
+.ct-offer-none .ct-offer-t{font-weight:400; color:var(--muted)}
+
+.ct-go{text-align:right; white-space:nowrap; width:1%}
+.ct-cta{display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  padding:11px 18px; border-radius:var(--r-md); background:var(--accent);
+  color:var(--on-accent); font-weight:600; font-size:14.5px; text-decoration:none;
+  transition:filter .15s ease, transform .15s ease}
 .ct-cta svg{width:15px; height:15px}
 .ct-cta:hover{filter:brightness(1.06); transform:translateX(1px)}
 .ct-cta:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-.ct-terms{display:block; font-size:10.5px; color:var(--muted); margin-top:6px}
+.ct-terms{display:block; font-size:10.5px; color:var(--muted); margin-top:7px}
 .ct-legal{font-size:12px; color:var(--muted); margin:14px 0 0; max-width:78ch; line-height:1.55}
-@media (max-width:720px){
-  table.ct{min-width:0}
+
+/* ---- mobile: the ranked card ------------------------------------------- */
+@media (max-width:760px){
+  .ct-tw{border:none; background:none; overflow:visible}
+  table.ct{min-width:0; display:block}
   table.ct thead{display:none}
-  table.ct tbody td{display:block; padding:0; border:none}
-  table.ct tbody tr{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 14px;
-    padding:16px 2px; border-bottom:1px solid var(--line); align-items:center}
+  table.ct tbody{display:grid; gap:16px}
+  table.ct tbody tr{display:block; position:relative; padding:18px 18px 16px;
+    border:1px solid var(--line-2); border-radius:var(--r-lg); background:var(--surface);
+    text-align:center}
   table.ct tbody tr:hover td{background:none}
-  .ct-brand{grid-column:1; grid-row:1}
-  .ct-offer{grid-column:1; grid-row:2}
-  .ct-pts{grid-column:1; grid-row:3; margin-top:8px}
-  .ct-go{grid-column:2; grid-row:1 / span 2; text-align:right}
+  table.ct tbody td{display:block; padding:0; border:none; text-align:center}
+
+  /* number top-left, badge top-right, both out of the normal flow */
+  .ct-rank{position:static; width:auto; min-height:26px; margin-bottom:4px}
+  .ct-num{position:absolute; top:16px; left:18px; font-size:27px}
+  .ct-badge{position:absolute; top:16px; right:18px; margin:0}
+
+  .ct-mark{display:inline-block; margin:6px auto 12px; padding:10px 16px;
+    border:1px solid var(--line); border-radius:var(--r-md); background:var(--surface-2)}
+  .ct-logo{height:34px; max-width:170px; object-position:center}
+  .ct-name{font-size:21px; font-family:var(--display); font-weight:660}
+  .ct-tag{margin:8px auto 0; max-width:42ch; font-size:13.5px}
+  .ct-score{margin:14px 0 12px}
+  .ct-score-r{font-size:13px}
+  .ct-score-r b{font-size:17px}
+  .ct-offer-box{margin-top:12px; text-align:left}
+  .ct-offer-t{font-size:15px}
+  .ct-go{text-align:center; width:auto}
+  .ct-cta{display:flex; width:100%; margin-top:14px; padding:15px 18px; font-size:16px}
+  .ct-terms{margin-top:9px; font-size:11px}
 }
 
 /* Visible freshness stamp. Same date the sitemap reports, so the reader and the
