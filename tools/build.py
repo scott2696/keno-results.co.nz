@@ -228,7 +228,7 @@ PAGES = [
     # Gambling Act 2003, and the 2026 Act attaches penalties reaching whoever
     # publishes or arranges to publish one. These pages rank on the arithmetic.
     dict(slug="online-casinos", src="online-casinos", section="casinos", noads=True,
-         ct=dict(h="Ranked: the Best Online Casino Sites for NZ Players in 2026",
+         ct=dict(h="Best Online Casino Sites NZ &mdash; Ranked for {month}",
                  p="Fifteen operators, every one a commercial partner of this site, all listed alphabetically rather than by what they pay me. Most supplied a tracking link and no offer, and where that is so the table says so rather than inventing one. Where an offer does exist I have run it through the break-even wagering formula further down this page &mdash; on a typical pokie the line is 25&times;. The table is paid for; the arithmetic underneath it is not."),
          faq=[
              ('Are online casinos legal in New Zealand?',
@@ -252,12 +252,12 @@ PAGES = [
              ('Are the casinos listed on this page recommendations?',
               "No. Every operator in the table is a commercial partner and every link is a paid placement, which is stated in the table itself. It is ordered alphabetically rather than by what each partner pays, and appearing in it means a commercial arrangement exists &mdash; a different fact from &ldquo;this is the best place to play&rdquo;. The criteria and the arithmetic are on <a href='/how-we-rate-casinos/'>how we rate casinos</a> and are unaffected by it."),
          ],
-         title="Best Online Casino Sites NZ 2026 | Real Money Casinos | keno-results.co.nz",
+         title="Best Online Casino Sites NZ {month} | Real Money Casino | keno-results.co.nz",
          og="Best online casino sites NZ",
          desc="Best online casinos NZ 2026: real money casino sites compared on house edge, withdrawal terms and bonus arithmetic rather than on the size of the banner."),
     dict(slug="licensed-online-casinos", src="licensed-online-casinos",
          section="casinos", noads=True,
-         ct=dict(h="Licensed Online Casino Sites Accepting New Zealand Players",
+         ct=dict(h="Online Casino Sites Accepting New Zealand Players",
                  p="All fifteen are paid placements, listed alphabetically. Not one holds a New Zealand online casino licence, because the Department of Internal Affairs has not issued one to anyone yet &mdash; so below I show you how to check what licence a site does hold, rather than asking you to take a badge at face value."),
          faq=[
              ('Which online casinos are licensed in New Zealand?',
@@ -284,7 +284,7 @@ PAGES = [
          desc="Are online casinos legal in New Zealand? What the Gambling Act allows, who regulates it, what a licence protects, and how to check one yourself in two minutes."),
     dict(slug="casino-bonus", src="casino-bonus",
          section="casinos", noads=True,
-         ct=dict(h="Best Casino Bonus and Welcome Offers for NZ Players 2026",
+         ct=dict(h="Best Casino Bonuses NZ &mdash; Welcome Offers for {month}",
                  p="Paid placements, listed alphabetically. Most of these partners supplied a tracking link and no bonus figure, and the table says so rather than filling the gap with a guess. Where a figure was supplied I put it through the formula below before publishing it &mdash; a bonus breaks even at 1 &divide; the house edge, which is 25&times; wagering on a typical pokie."),
          faq=[
              ('What does 40x wagering actually mean?',
@@ -304,12 +304,12 @@ PAGES = [
              ('Why was my bonus voided?',
               'Most commonly for exceeding the maximum bet while wagering &mdash; usually around NZ$5 to NZ$8 per spin or hand. It only takes one bet, it is enforced automatically, and most terms allow the operator to void the bonus and everything won with it.'),
          ],
-         title="Best Casino Bonuses NZ 2026 | Welcome & Sign Up Offers | keno-results.co.nz",
+         title="Best Casino Bonuses NZ {month} | Welcome Offers | keno-results.co.nz",
          og="Best casino bonuses NZ",
          desc="Best casino bonuses NZ 2026: what a welcome offer is worth once you do the arithmetic. The break-even formula and a worked NZ$100 example."),
     dict(slug="casino-payout-percentages", src="casino-payout-percentages",
          section="casinos", noads=True,
-         ct=dict(h="Best Payout Casino Sites for New Zealand Players 2026",
+         ct=dict(h="Best Payout Casinos NZ &mdash; Highest RTP Sites for {month}",
                  p="Paid placements, listed alphabetically. I am not going to tell you which pays out the most, because no casino pays out the most &mdash; games do, and these fifteen run largely the same titles from the same studios. The table below gives the house edge of every common game, derived from the rules rather than quoted."),
          faq=[
              ('What is RTP in an online casino?',
@@ -329,12 +329,12 @@ PAGES = [
              ('Are audited payout percentages useful?',
               'Barely. They are aggregates across every player and every game on a platform, weighted by turnover, so a site with heavy table-game volume shows a higher figure without a single game differing. The per-game RTP is the number that applies to what you actually play.'),
          ],
-         title="Best Payout Online Casinos NZ 2026 | Highest RTP | keno-results.co.nz",
+         title="Best Payout Online Casino NZ {month} | Highest RTP | keno-results.co.nz",
          og="Best payout online casinos NZ",
          desc="Best payout casinos NZ 2026: what RTP means, house edge vs RTP, and why the highest paying online casino has no site-level answer \u2014 only a game-level one."),
     dict(slug="fast-payout-casinos", src="fast-payout-casinos",
          section="casinos", noads=True,
-         ct=dict(h="Ranked as the Best Fast Payout Casino Sites 2026",
+         ct=dict(h="Best Fast Payout Casinos NZ &mdash; Instant Withdrawals for {month}",
                  p="Fifteen paid placements, ordered alphabetically. I will not rank them by withdrawal speed, and no honest page can: a verified account paying to an e-wallet is same-day almost anywhere, and an unverified one paying to a card is a week almost anywhere. Most of the variance is in your account, not their queue. The four stages below show exactly where the time goes."),
          faq=[
              ('Which online casinos have the fastest payouts in New Zealand?',
@@ -358,12 +358,12 @@ PAGES = [
              ('Why must I withdraw to the method I deposited with?',
               'Anti-money-laundering rules make returning funds to their source the default. It means depositing by a method that cannot receive a withdrawal &mdash; a prepaid voucher, for instance &mdash; creates a problem you discover at the worst possible moment.'),
          ],
-         title="Fast Payout Casinos NZ 2026 | Instant Withdrawals | keno-results.co.nz",
+         title="Fast Payout Casinos NZ {month} | Instant Withdrawals | keno-results.co.nz",
          og="Fast payout casinos NZ",
          desc="Fast payout casinos NZ 2026: how long withdrawals really take, why yours is pending, and how to speed one up \u2014 the mechanism, not operator claims."),
     dict(slug="casino-payment-methods", src="casino-payment-methods",
          section="casinos", noads=True,
-         ct=dict(h="Online Casinos Accepting NZD, POLi and Crypto in 2026",
+         ct=dict(h="Best Casino Payment Methods NZ &mdash; NZD, POLi, Crypto for {month}",
                  p="Paid placements, listed alphabetically. I have deliberately not put accepted payment methods in this table: availability changes without notice, I do not control it, and a paid placement does not make me a reliable source on what a third party accepts this month. The cashier page is the only current source, for these fifteen as much as for anyone."),
          faq=[
              ('Can I deposit in New Zealand dollars at an online casino?',
@@ -385,12 +385,12 @@ PAGES = [
              ('Should I use a credit card at an online casino?',
               'Some New Zealand issuers decline gambling transactions or treat them as a cash advance, which attracts interest immediately with no grace period. Gambling with borrowed money is also one of the clearest markers in every harm-screening framework.'),
          ],
-         title="Casino Payment Methods NZ 2026 | POLi, NZD & Crypto | keno-results.co.nz",
+         title="Casino Payment Methods NZ {month} | POLi & NZD | keno-results.co.nz",
          og="Casino payment methods NZ",
          desc="Casino payment methods NZ 2026: POLi, PayPal, Apple Pay, Paysafecard, bank transfer and crypto compared \u2014 what each costs, and where the conversion fee hides."),
     dict(slug="online-pokies", src="online-pokies",
          section="casinos", noads=True,
-         ct=dict(h="Best Real Money Online Pokies Sites for NZ Players 2026",
+         ct=dict(h="Best Real Money Online Pokies Sites NZ for {month}",
                  p="Fifteen paid placements, listed alphabetically. Worth knowing before you pick one: online pokies come from a small number of studios that supply hundreds of casinos, so these sites run largely the same games at largely the same published returns. What differs is who holds your money, not what you are playing."),
          faq=[
              ('Are online pokies rigged?',
@@ -414,12 +414,12 @@ PAGES = [
              ('Do progressive jackpots have worse odds?',
               'Their advertised RTP includes the jackpot contribution, and almost no one wins the pool &mdash; so the return a typical player experiences is lower than the headline figure. A 96% progressive contributing 2% to the pool behaves much like a 94% game with a lottery ticket attached.'),
          ],
-         title="Online Pokies NZ 2026 | Best Real Money Pokie Sites | keno-results.co.nz",
+         title="Online Pokies NZ {month} | Best Real Money Pokies | keno-results.co.nz",
          og="Online pokies NZ",
          desc="Online pokies NZ 2026: how real money pokies work, RTP, volatility, Megaways, progressive jackpots and bonus buys \u2014 and which beliefs about pokies are false."),
     dict(slug="live-casino", src="live-casino",
          section="casinos", noads=True,
-         ct=dict(h="Best Live Dealer Casino Sites for New Zealand Players 2026",
+         ct=dict(h="Best Live Casino Sites NZ &mdash; Live Dealer Tables for {month}",
                  p="Paid placements, alphabetical. A caveat that matters more here than anywhere else on this site: live tables are run by a handful of studios and streamed into dozens of operators at once, so many of these will be showing you the identical table. Which site you choose barely matters. Which table you sit at changes the house edge threefold."),
          faq=[
              ('How do live dealer casino games work?',
@@ -439,7 +439,7 @@ PAGES = [
              ('Can you count cards in live dealer blackjack?',
               'Not usefully. Shoes are shuffled early and often, deck penetration is shallow, and bet-spread limits are enforced. The technique needs conditions the format is specifically arranged not to provide.'),
          ],
-         title="Live Casino NZ 2026 | Best Live Dealer Sites & Tables | keno-results.co.nz",
+         title="Live Casino NZ {month} | Best Live Dealer Tables | keno-results.co.nz",
          og="Live casino NZ",
          desc="Live casino NZ 2026: how live dealer games work, the house edge on live roulette, blackjack and baccarat, and why side bets cost many times the main game."),
     dict(slug="how-we-rate-casinos", src="how-we-rate-casinos",
@@ -465,7 +465,7 @@ PAGES = [
          desc="How to tell if an online casino is legit: the criteria, the weighting, what is excluded and who pays for what \u2014 published so you can check rather than trust."),
     dict(slug="new-casinos-nz", src="new-casinos-nz",
          section="casinos", noads=True,
-         ct=dict(h="The Newest Online Casino Sites Accepting NZ Players",
+         ct=dict(h="Newest Online Casino Sites NZ &mdash; New Casinos for {month}",
                  p="Paid placements, listed alphabetically. Several share a platform and a licensing structure with each other, which is the point of this page: most sites marketed as new turn out to be a fresh brand on an existing licence, or a skin on a shared platform. The genuinely new ones have no complaint record, which is the single most useful thing you can know about a casino."),
          faq=[
              ('What is the newest online casino in New Zealand?',
@@ -483,12 +483,12 @@ PAGES = [
              ('How do I check a casino with no track record?',
               'Use structure instead of reputation: find the registered company in the regulator&rsquo;s searchable list rather than trusting a footer licence number, read the withdrawal caps before the bonus terms, check the games come from named studios, look for a complaints path outside the operator, and deposit the minimum and withdraw early as a test.'),
          ],
-         title="New Online Casinos NZ 2026 | Newest Casino Sites | keno-results.co.nz",
+         title="New Online Casinos NZ {month} | Newest Sites | keno-results.co.nz",
          og="New online casinos NZ",
          desc="New online casinos NZ 2026: why new casino sites are riskier, what a white label really is, and how to research a site with no track record."),
     dict(slug="no-deposit-bonus", src="no-deposit-bonus",
          section="casinos", noads=True,
-         ct=dict(h="No Deposit Bonus and Free Spins Offers for Kiwi Players",
+         ct=dict(h="Best No Deposit Bonus NZ &mdash; Free Spins for {month}",
                  p="Paid placements, listed alphabetically, and none of them is a no deposit offer &mdash; I am not going to relabel a welcome bonus to match the page it sits on. On any genuine no deposit bonus the number that decides its value is the maximum cashout, usually NZ$50 to NZ$150, and the section below shows why 100 free spins can be worth a third of 20."),
          faq=[
              ('What is a no deposit bonus?',
@@ -510,12 +510,12 @@ PAGES = [
              ('Do I have to deposit to withdraw a no deposit bonus?',
               'Sometimes, and it is the clause to look for. Some terms require a qualifying deposit before the bonus can be cashed out at all, which quietly makes it a deposit offer. It is rarely stated on the landing page.'),
          ],
-         title="No Deposit Bonus NZ 2026 | Free Spins on Sign Up | keno-results.co.nz",
+         title="No Deposit Bonus NZ {month} | Free Spins on Sign Up | keno-results.co.nz",
          og="No deposit bonus NZ",
          desc="No deposit bonus NZ 2026 and free spins on sign up: why maximum cashout, not bonus size, decides what an offer is actually worth."),
     dict(slug="crypto-casinos-nz", src="crypto-casinos-nz",
          section="casinos", noads=True,
-         ct=dict(h="Best Crypto and Bitcoin Casino Sites for NZ Players 2026",
+         ct=dict(h="Best Crypto Casinos NZ &mdash; Bitcoin Sites for {month}",
                  p="Paid placements, alphabetical, and all of them accept crypto. Read the round trip before the bonus: paying in crypto means four currency conversions rather than two, each with a spread, plus network fees &mdash; which on a short session can cost more than the entire house edge of single-zero roulette."),
          faq=[
              ('Are crypto casinos legal in New Zealand?',
@@ -537,7 +537,7 @@ PAGES = [
              ('Do crypto casinos have better odds?',
               'No. Same games, same studios, same published return figures. A round trip is also four conversions rather than two, and the spreads plus network fees frequently exceed what a bank transfer would have cost.'),
          ],
-         title="Best Crypto Casinos NZ 2026 | Bitcoin & USDT Sites | keno-results.co.nz",
+         title="Best Crypto Casinos NZ {month} | Bitcoin & USDT | keno-results.co.nz",
          og="Best crypto casinos NZ",
          desc="Crypto casinos NZ 2026: what provably fair really proves, why \u201cno verification\u201d is the claim to distrust, and the crypto tax point nobody mentions."),
     dict(slug="about", src="about", nav="about",
@@ -899,6 +899,14 @@ SCHEMA = {
 
 
 GOLD = "#E8D5A3"
+
+# Month stamp for H1s and ledes, in NZ time. Regenerated every build rather
+# than typed into a page, so a month-stamped headline can never be stale.
+try:
+    from zoneinfo import ZoneInfo
+    NZ_MONTH = datetime.datetime.now(ZoneInfo("Pacific/Auckland")).strftime("%B %Y")
+except Exception:                      # no tzdata: the month is still right
+    NZ_MONTH = datetime.datetime.now().strftime("%B %Y")
 
 
 # Two content sections, same machinery. "blog" is evergreen analysis and
@@ -1709,7 +1717,7 @@ def build():
         out = (out
                .replace("{page_id}", slug or "home")
                .replace("{page_art}", page_deco(slug or "home"))
-               .replace("{title}", html.escape(page["title"]))
+               .replace("{title}", html.escape(page["title"]).replace("{month}", NZ_MONTH))
                .replace("{og_title}", html.escape(page["og"]))
                .replace("{description}", html.escape(page["desc"]))
                .replace("{canonical}", canonical)
@@ -1728,6 +1736,7 @@ def build():
                             if page.get("section") else "")
                    .replace("{offers}", "" if page.get("noads") else offers_block())
                    .replace("{casinotable}", casino_table(page))
+                   .replace("{month}", NZ_MONTH)
                    # visible freshness stamp. Same source as the sitemap's
                    # lastmod, so what the reader sees and what a crawler is told
                    # are one fact rather than two that can drift apart.
