@@ -223,6 +223,171 @@ PAGES = [
          og="If gambling stops being fun",
          desc="Free confidential gambling help in New Zealand, the warning signs "
               "worth taking seriously, and practical limits that actually work."),
+    # ---- the online casino cluster -------------------------------------
+    # noads throughout: online casino advertising is prohibited under the
+    # Gambling Act 2003, and the 2026 Act attaches penalties reaching whoever
+    # publishes or arranges to publish one. These pages rank on the arithmetic.
+    dict(slug="casinos", src="casinos", section="casinos", noads=True,
+         faq=[
+             ('Are online casinos legal in New Zealand?',
+              "They are being licensed for the first time. The Online Casino Gambling Act 2026 came into force on 1 May 2026, and from 1 December 2026 only operators that won the right to apply for a licence may serve New Zealand customers. Licences are expected from early 2027, capped at fifteen operators. See <a href='/casinos/licensing/'>licensing and the register</a>."),
+             ('How do I know if an online casino is licensed in NZ?',
+              'Two ways, from early 2027. The Department of Internal Affairs will publish a public register of licensed operators, and licensed sites must display a unique registration icon. The register is the authoritative check &mdash; an icon that does not match a register entry is just an image.'),
+             ('Do I pay tax on casino winnings in New Zealand?',
+              'Gambling winnings are generally not income for tax purposes for a recreational player, and Lotto NZ states prize money is paid in full. What the money earns afterwards &mdash; interest, dividends, rent &mdash; is taxable in the ordinary way. That is general information rather than tax advice.'),
+             ('Which casino games have the best odds?',
+              'Blackjack played with basic strategy at a 3:2 table is the cheapest, at roughly a 0.5% house edge, followed by baccarat&rsquo;s banker bet at 1.06% and the craps pass line at 1.41%. Single-zero roulette costs 2.70% and double-zero 5.26% for an otherwise identical game. Typical pokies sit between 2% and 8%.'),
+             ('Why does this site not list the best online casinos?',
+              "Because online casino advertising is prohibited in New Zealand under the Gambling Act 2003, and the 2026 Act attaches penalties of up to NZ$5 million reaching whoever publishes an unlawful advertisement, with affiliate marketing named specifically. This section carries no recommendations, no referral links and no paid placements. See <a href='/casinos/how-we-rate/'>how we rate casinos</a>."),
+         ],
+         title="Online Casinos in New Zealand (2026) | keno-results.co.nz",
+         og="Online casinos in New Zealand",
+         desc="What is legal, what changes on 1 December 2026, and how to judge an "
+              "online casino on house edge and bonus arithmetic rather than on marketing."),
+    dict(slug="casinos/licensing", src="casinos-licensing",
+         section="casinos", noads=True,
+         faq=[
+             ('Which online casinos are licensed in New Zealand?',
+              'None yet. The Department of Internal Affairs expects to begin issuing licences in early 2027, capped at fifteen operators, and will publish a public register at that point. Until the register exists, no site can truthfully claim a New Zealand online casino licence.'),
+             ('What happens on 1 December 2026?',
+              'The transition period ends. From that date only operators that won the right to apply for a licence may provide online casino gambling to customers in New Zealand. It is a separate milestone from licence issue, which is expected in early 2027.'),
+             ('Is it illegal for me to play on an unlicensed site?',
+              'The Act regulates operators and advertisers rather than criminalising players, so playing is not itself an offence. What you lose is the regulator: no New Zealand body to complain to, no enforceable local obligation on the operator, and no register entry to check.'),
+             ('What does a New Zealand licence actually protect?',
+              'Principally, it gives you a complaints path that does not end at the operator &mdash; you will be able to complain to the casino or to the Department directly. It also makes harm-prevention and consumer-protection obligations enforceable licence conditions. It does not change the house edge or guarantee a withdrawal.'),
+             ('Does this affect sports betting or Lotto?',
+              'No. Sports and racing betting is regulated under the Racing Industry Act 2020 alongside the Gambling Act 2003, through TAB NZ. Lotto NZ&rsquo;s games, Keno included, are run by a Crown entity under its own authority. Neither is affected by the online casino regime.'),
+         ],
+         title="Licensed Online Casinos NZ — The 2026 Register | keno-results.co.nz",
+         og="Licensing and the register",
+         desc="Which operators may lawfully serve New Zealanders from 1 December 2026, "
+              "how the public register and registration icon work, and what a licence protects."),
+    dict(slug="casinos/bonuses", src="casinos-bonuses",
+         section="casinos", noads=True,
+         faq=[
+             ('What does 40x wagering actually mean?',
+              'That you must stake forty times the bonus before bonus funds become withdrawable. On a NZ$100 bonus that is NZ$4,000 of turnover &mdash; or NZ$8,000 if the multiple applies to deposit plus bonus rather than to the bonus alone.'),
+             ('At what wagering requirement is a casino bonus worth taking?',
+              'The break-even multiple is 1 divided by the house edge, and the bonus amount cancels out entirely. On a typical pokie at a 4% edge that is 25&times;. Below 25&times; the offer has positive expected value; above it you are paying more in expected turnover cost than the bonus is worth.'),
+             ('Is a bigger casino bonus better?',
+              'No &mdash; bonus size has no bearing on whether an offer is good, because it cancels out of the break-even calculation. Only the wagering multiple, the game weighting and the house edge of what you play decide it. A 50% bonus at 20&times; beats a 200% bonus at 35&times;.'),
+             ('What is game weighting on a bonus?',
+              'The proportion of each dollar staked that counts toward the requirement. Pokies usually count 100%, table games often 10% or less. Divide the stated multiple by the weighting to get the effective one: a nominal 40&times; at 10% weighting is really 400&times;.'),
+             ('Why was my bonus voided?',
+              'Most commonly for exceeding the maximum bet while wagering &mdash; usually around NZ$5 to NZ$8 per spin or hand. It only takes one bet, it is enforced automatically, and most terms allow the operator to void the bonus and everything won with it.'),
+         ],
+         title="NZ Casino Bonuses: What 40x Wagering Actually Costs | keno-results.co.nz",
+         og="Casino bonuses, as arithmetic",
+         desc="Work out what a casino bonus is really worth before you claim it. The "
+              "break-even formula, a worked NZ$100 example, and the five terms that matter."),
+    dict(slug="casinos/payouts", src="casinos-payouts",
+         section="casinos", noads=True,
+         faq=[
+             ('What is RTP in an online casino?',
+              'Return to player: the share of everything staked that a game pays back across its full theoretical cycle. Its complement is the house edge &mdash; a 96% RTP game has a 4% edge, costing about NZ$4 per NZ$100 staked in the long run.'),
+             ('Does a high RTP mean I will win?',
+              'No. RTP is calculated over the game&rsquo;s complete theoretical distribution, often tens of millions of spins, and much of it can sit inside rare outcomes most players never see. It describes the long-run cost of staking, not what happens tonight, and a game is never &ldquo;due&rdquo; to return to it.'),
+             ('Can a casino change a game’s RTP?',
+              'Sometimes. A number of studios ship the same title in several RTP builds &mdash; a 96% and a 94% version of an identical-looking game &mdash; and the operator selects which to run. Read the figure in the game&rsquo;s own information panel on the site you are playing.'),
+             ('What is the difference between RTP and volatility?',
+              'RTP is the size of the return; volatility is its shape. Two 96% games cost the same per dollar staked, but a high-volatility one concentrates the return in rare large wins, so the median session lands below the average even though the average is identical.'),
+             ('Are audited payout percentages useful?',
+              'Barely. They are aggregates across every player and every game on a platform, weighted by turnover, so a site with heavy table-game volume shows a higher figure without a single game differing. The per-game RTP is the number that applies to what you actually play.'),
+         ],
+         title="Casino Payouts & RTP Explained (NZ) | keno-results.co.nz",
+         og="Payouts and RTP, explained",
+         desc="What a 96% return-to-player figure promises and what it does not, how "
+              "volatility changes the same number, and the house edge of every common game."),
+    dict(slug="casinos/withdrawals", src="casinos-withdrawals",
+         section="casinos", noads=True,
+         faq=[
+             ('How long do online casino withdrawals take?',
+              'It depends on four separate stages run by three parties: a pending period set by the operator, identity verification required by anti-money-laundering law, manual approval in the operator&rsquo;s business hours, and settlement on the payment rail. Advertised times usually describe only one of them.'),
+             ('Why is my casino withdrawal taking so long?',
+              'Most often verification. If identity, address and payment-ownership documents were not submitted when the account opened, the first withdrawal and the first document request arrive together. Completing verification before you have won anything is the single most effective thing you can do about withdrawal speed.'),
+             ('What is a reverse withdrawal?',
+              'A feature letting you pull a pending withdrawal back into your playable balance. It is presented as flexibility and it is a mechanism for un-winning &mdash; a long pending period combined with easy reversal is the most harmful design choice on a cashier page.'),
+             ('Can a casino refuse to pay out?',
+              'Yes, and most refusals turn on a term the player breached: exceeding the maximum bet while wagering a bonus, a name mismatch between account, ID and payment method, incomplete verification, or a duplicate account. Ask for the specific clause relied on, in writing.'),
+             ('Why must I withdraw to the method I deposited with?',
+              'Anti-money-laundering rules make returning funds to their source the default. It means depositing by a method that cannot receive a withdrawal &mdash; a prepaid voucher, for instance &mdash; creates a problem you discover at the worst possible moment.'),
+         ],
+         title="Casino Withdrawals NZ: What Causes the Delay | keno-results.co.nz",
+         og="Withdrawals and what delays them",
+         desc="The four stages a casino withdrawal passes through, why verification is not "
+              "optional, what reverse withdrawal really does, and what to check before depositing."),
+    dict(slug="casinos/payments", src="casinos-payments",
+         section="casinos", noads=True,
+         faq=[
+             ('Can I deposit in New Zealand dollars at an online casino?',
+              'Some operators offer genuine NZD accounts and many do not, converting your deposit into euros, US or Australian dollars instead. Check the cashier rather than the banner: a real NZD account shows your balance, bets and withdrawal in NZD with no conversion line on the transaction.'),
+             ('What is the cheapest way to pay at an online casino?',
+              'Whichever avoids a currency conversion. Two conversions plus a card issuer&rsquo;s foreign transaction fee can cost several percent of a round trip &mdash; comparable to the entire house edge of single-zero roulette, and larger than any difference between sites&rsquo; withdrawal speeds.'),
+             ('Which payment method has the fastest withdrawal?',
+              'E-wallets, because the operator pushes funds to the wallet with no bank clearing step. Cards are slower and issuer-dependent, since withdrawals are often processed as a refund against the original deposit. Bank transfer is slowest and most transparent.'),
+             ('Can I withdraw to a prepaid voucher?',
+              'No. Vouchers are deposit-only, so a second verified method is needed before you can take money out. Their real strength is as a hard spending cap &mdash; you cannot deposit more than the voucher holds.'),
+             ('Should I use a credit card at an online casino?',
+              'Some New Zealand issuers decline gambling transactions or treat them as a cash advance, which attracts interest immediately with no grace period. Gambling with borrowed money is also one of the clearest markers in every harm-screening framework.'),
+         ],
+         title="Casino Payment Methods for NZ Players | keno-results.co.nz",
+         og="Payment methods for NZ players",
+         desc="What each payment category actually costs, where the currency conversion "
+              "hides, and how to use payment method as a spending limit."),
+    dict(slug="casinos/pokies", src="casinos-pokies",
+         section="casinos", noads=True,
+         faq=[
+             ('Are online pokies rigged?',
+              'They are not rigged, and they are not fair in the sense people mean. Each spin is an independent draw from a random number generator, and the game is built so that across enough play it returns less than it takes in. That is disclosed, legal and unavoidable &mdash; typically 2% to 8% of everything staked.'),
+             ('Is a pokie ever “due” to pay?',
+              'No. Every spin is independent of every previous one, so a game that has paid nothing for two hours has exactly the same probability on the next spin as one that just paid a jackpot. There is no memory and no schedule.'),
+             ('Does stopping the reels change the result?',
+              'No. The outcome is determined the moment you press spin; the reels animate a result that already exists. The stop button shortens the animation and nothing else.'),
+             ('What is volatility on a pokie?',
+              'The shape of the return rather than its size. Low-volatility games pay small amounts often; high-volatility games pay rarely and occasionally very large. Two games at the same RTP cost the same per dollar staked, but the high-volatility one has a median session outcome worse than its average.'),
+             ('Are online pokies the same as pub pokies in New Zealand?',
+              'No. Pub and club machines are Class 4 gaming machines under the Gambling Act 2003 &mdash; capped stakes and prizes, returns set by gazetted game rules, and mandatory community returns. Online pokies have sat outside that framework entirely until the 2026 licensing regime.'),
+             ('Do progressive jackpots have worse odds?',
+              'Their advertised RTP includes the jackpot contribution, and almost no one wins the pool &mdash; so the return a typical player experiences is lower than the headline figure. A 96% progressive contributing 2% to the pool behaves much like a 94% game with a lottery ticket attached.'),
+         ],
+         title="Online Pokies NZ: How They Actually Work | keno-results.co.nz",
+         og="Online pokies, and how they work",
+         desc="RNGs, RTP, volatility, hit frequency and progressive jackpots — what the "
+              "mechanics mean for the money, and which beliefs about pokies are simply false."),
+    dict(slug="casinos/live-dealer", src="casinos-live-dealer",
+         section="casinos", noads=True,
+         faq=[
+             ('How do live dealer casino games work?',
+              'A physical dealer runs a physical game in a studio, cameras capture it, optical recognition reads the cards or wheel, and bets settle against what actually happened. Most tables are run by specialist studios and streamed into many operators at once, so the rules of a table are set by the studio rather than the casino.'),
+             ('Which live casino game has the lowest house edge?',
+              'Blackjack with basic strategy at a 3:2 table, at roughly 0.5%. Baccarat&rsquo;s banker bet is 1.06%, single-zero roulette 2.70%, double-zero roulette 5.26%, and the baccarat tie bet 14.36%.'),
+             ('Are live casino side bets worth taking?',
+              'No, on the arithmetic. Side bets typically carry house edges between 5% and 15%, against 0.5% to 2.7% on the main game. A NZ$5 side bet alongside a NZ$25 blackjack hand can cost more in expectation than the hand itself.'),
+             ('What is the difference between 3:2 and 6:5 blackjack?',
+              'Roughly 1.4% of house edge &mdash; the largest single rule effect at the table. A 6:5 payout on a natural blackjack turns the cheapest game in the casino into a mid-range one, and it is advertised identically. The payout is written on the felt.'),
+             ('Can you count cards in live dealer blackjack?',
+              'Not usefully. Shoes are shuffled early and often, deck penetration is shallow, and bet-spread limits are enforced. The technique needs conditions the format is specifically arranged not to provide.'),
+         ],
+         title="Live Dealer Casino Games NZ | keno-results.co.nz",
+         og="Live dealer games",
+         desc="How live dealer games are produced, the house edge on every common bet, the "
+              "rule variants that change it, and why side bets cost many times the main game."),
+    dict(slug="casinos/how-we-rate", src="casinos-how-we-rate",
+         section="casinos", noads=True,
+         faq=[
+             ('How does keno-results.co.nz rate online casinos?',
+              "It does not publish a ranked list. The five criteria &mdash; legal standing, withdrawal behaviour, bonus arithmetic, published return figures, and an external complaints path &mdash; are published for you to apply, because online casino advertising is prohibited in New Zealand and the 2026 Act reaches whoever publishes one."),
+             ('Why does this site not accept casino affiliate commissions?',
+              'The Online Casino Gambling Act 2026 attaches penalties of up to NZ$5 million to whoever publishes an unlawful advertisement or arranges to publish one, and Cabinet&rsquo;s initial advertising decisions name affiliate marketing and paid endorsements specifically. Nothing in this section is paid for.'),
+             ('What is excluded from the rating and why?',
+              'Bonus size on its own, &ldquo;exclusive&rdquo; offers, game counts, site design, operator-quoted payout percentages and user review scores. Each is either controlled by the operator, trivially inflated, or measuring something other than whether you get paid.'),
+             ('Where do the house edge figures on this site come from?',
+              'They are derived from the published rules of each game rather than quoted from another site &mdash; single-zero roulette&rsquo;s 2.70% is 1 divided by 37. Where a figure cannot be derived or sourced, it does not appear, which is why withdrawal times and payment availability are not asserted here as facts.'),
+         ],
+         title="How We Rate Online Casinos | keno-results.co.nz",
+         og="How we rate casinos",
+         desc="The criteria, the weighting, what is deliberately excluded, and who pays for "
+              "what — published so you can check the claim rather than take it."),
     dict(slug="about", src="about", nav="about",
          title="About & Data Sources | keno-results.co.nz",
          og="About this site",
@@ -343,6 +508,27 @@ GAMING = [
     ("gaming/who-regulates-gambling", "Who regulates it"),
     ("gaming/getting-help",           "Getting help"),
 ]
+
+
+# "More in this section" - the online casino cluster. Editorial and unpaid: it
+# carries no operator recommendations and no referral links, because online
+# casino advertising is prohibited here and the 2026 Act reaches the publisher.
+CASINOS = [
+    ("casinos",              "Overview"),
+    ("casinos/licensing",    "Licensing"),
+    ("casinos/bonuses",      "Bonuses"),
+    ("casinos/payouts",      "Payouts &amp; RTP"),
+    ("casinos/withdrawals",  "Withdrawals"),
+    ("casinos/payments",     "Payments"),
+    ("casinos/pokies",       "Pokies"),
+    ("casinos/live-dealer",  "Live dealer"),
+    ("casinos/how-we-rate",  "How we rate"),
+]
+
+# Which "more in this section" list a page's section name selects.
+SUBNAVS = {"gaming": None, "casinos": None}   # filled below, after GAMING/CASINOS exist
+SUBNAVS["gaming"] = GAMING
+SUBNAVS["casinos"] = CASINOS
 
 
 def subnav(slug, items_src=None):
@@ -1225,8 +1411,8 @@ def build():
                .replace("{rail_left}", "" if page.get("noads") else rail_block("rail-left"))
                .replace("{content}", body.rstrip()
                    .replace("{subnav}",
-                            subnav(slug, GAMING if page.get("section") == "gaming"
-                                   else None) if page.get("section") else "")
+                            subnav(slug, SUBNAVS.get(page.get("section")))
+                            if page.get("section") else "")
                    .replace("{offers}", "" if page.get("noads") else offers_block())
                    .replace("{newslist}", entry_list("news"))
                    .replace("{bloglist}", entry_list("blog")))
