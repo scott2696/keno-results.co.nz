@@ -1,88 +1,329 @@
 {
-  "_note": "Affiliate placements. 'bonus' is display copy - confirm it matches the partner's current NZ-facing offer before launch. Links must stay rel='sponsored nofollow noopener'. placement: 'inline' renders under the latest draw; 'rail' renders in the right-hand sticky rail on wide screens. Drop a logo file in assets/img/partners/ and set 'logo' to use it; without one the partner name is set as a wordmark. placement: 'inline' | 'rail-left' | 'rail-right'. NOTE: Rooster.Bet has no bonus figure - none was supplied. Add 'amount'/'amountSub' when you have the current NZ-facing offer.",
+  "_note": "Commercial partners. `casino` and `sports` say what an operator offers; `urlCasino` and `urlSports` are the tracking links for each. A partner is eligible for a section only if the flag is true AND the matching link exists - Rooster.Bet offers casino games but supplies no casino link, so it never appears on a casino page. Revenue share is deliberately NOT stored here: this repo is the public web root, so anything in this file is served at /src/data/offers.json and readable by competitors and operators.",
+  "updated": "2026-09-11",
   "offers": [
     {
-      "name": "CrownSlots",
-      "logo": "/assets/img/partners/crownslots.jpg",
-      "url": "https://crownslotslink.com/h9tfr7emt",
-      "bonus": "Welcome bonus <b>390% up to NZ$3,700</b> + 175 free spins",
-      "cta": "Claim bonus",
-      "active": true,
-      "placement": "inline",
-      "theme": {
-        "deep": "#160A28",
-        "base": "#22103A",
-        "raised": "#31174F",
-        "violet": "#C084FC",
-        "cyan": "#E9B44C",
-        "ctaFrom": "#7C3AED",
-        "ctaTo": "#A21CAF",
-        "style": "royal"
-      },
-      "amount": "NZ$3,700",
-      "amountSub": "390% welcome bonus<br>+ 175 free spins",
-      "points": [
-        "Slots &amp; jackpots",
-        "Live dealer",
-        "Fast payouts"
-      ],
+      "name": "SpinJo",
+      "casino": true,
+      "sports": false,
+      "crypto": true,
+      "urlCasino": "https://roosterspartners.com/aaznxby3ku",
+      "url": "https://roosterspartners.com/aaznxby3ku",
       "kind": "Casino",
-      "logoRev": "/assets/img/partners/crownslots-rev@2x.png"
+      "points": [
+        "Pokies &amp; live casino",
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
+      ],
+      "logo": "/assets/img/partners/spinjo@2x.png",
+      "placement": "rail-right",
+      "cta": "Visit site",
+      "active": true
     },
     {
-      "name": "SpinJo",
-      "logo": "/assets/img/partners/spinjo@2x.png",
-      "url": "https://roosterspartners.com/aaznxby3ku",
-      "bonus": "Up to <b>NZ$5,000</b> + 300 free spins",
-      "cta": "Claim bonus",
-      "placement": "rail-right",
-      "active": true,
-      "theme": {
-        "deep": "#050522",
-        "base": "#111135",
-        "raised": "#1D1D4C",
-        "violet": "#8254FF",
-        "cyan": "#00F0F1",
-        "ctaFrom": "#6A2BE8",
-        "ctaTo": "#2F6FD6",
-        "style": "space"
-      },
+      "name": "CrownSlots",
+      "casino": true,
+      "sports": false,
+      "crypto": true,
+      "urlCasino": "https://crownslotslink.com/h9tfr7emt",
+      "url": "https://crownslotslink.com/h9tfr7emt",
+      "kind": "Casino",
       "points": [
-        "Slots &amp; Megaways",
-        "Live casino",
-        "Jackpots &amp; Drops"
+        "Pokies &amp; live casino",
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
       ],
-      "amount": "NZ$5,000",
-      "amountSub": "welcome bonus<br>+ 300 free spins",
-      "kind": "Casino"
+      "amount": "NZ$3,700",
+      "amountSub": "390% welcome bonus<br>+ 175 free spins",
+      "bonus": "Welcome bonus <b>NZ$3,700</b>",
+      "logo": "/assets/img/partners/crownslots.jpg",
+      "logoRev": "/assets/img/partners/crownslots-rev@2x.png",
+      "placement": "inline",
+      "cta": "Claim bonus",
+      "active": true
+    },
+    {
+      "name": "Gunsbet",
+      "casino": false,
+      "sports": true,
+      "crypto": false,
+      "urlSports": "https://gunsbetlink.com/hiurykdlb",
+      "url": "https://gunsbetlink.com/hiurykdlb",
+      "kind": "Sports betting",
+      "points": [
+        "Sports &amp; e-sports"
+      ],
+      "amount": "NZ$7,500",
+      "amountSub": "285% welcome offer<br>+ 285 free spins",
+      "bonus": "Welcome bonus <b>NZ$7,500</b>",
+      "cta": "Claim bonus",
+      "active": true
+    },
+    {
+      "name": "Lucky Circus",
+      "casino": true,
+      "sports": false,
+      "crypto": true,
+      "urlCasino": "https://luckycircus.partners/jwwwaee5m",
+      "url": "https://luckycircus.partners/jwwwaee5m",
+      "kind": "Casino",
+      "points": [
+        "Pokies &amp; live casino",
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Bet&Play",
+      "casino": false,
+      "sports": true,
+      "crypto": true,
+      "urlSports": "https://betandplay.partners/jtukqxlzl",
+      "url": "https://betandplay.partners/jtukqxlzl",
+      "kind": "Sports betting",
+      "points": [
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Lucky7even",
+      "casino": true,
+      "sports": false,
+      "crypto": true,
+      "urlCasino": "https://roosterpartners.media/aa750ngrue",
+      "url": "https://roosterpartners.media/aa750ngrue",
+      "kind": "Casino",
+      "points": [
+        "Pokies &amp; live casino",
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Lucky Vibe",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://roosters-partner.com/aaybajyf7k",
+      "urlSports": "https://roosters-partner.com/aaybajyf7k",
+      "url": "https://roosters-partner.com/aaybajyf7k",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
     },
     {
       "name": "Rooster.Bet",
-      "logo": "/assets/img/partners/rooster-bet-rev@2x.png",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlSports": "https://roosterpartner.media/aazsy7czse",
       "url": "https://roosterpartner.media/aazsy7czse",
-      "kicker": "Sports betting",
+      "kind": "Casino & sports",
       "points": [
+        "Pokies &amp; live casino",
         "Sports &amp; e-sports",
-        "Live betting",
-        "Casino &amp; live casino"
+        "Crypto accepted"
       ],
-      "cta": "Visit Rooster.Bet",
-      "placement": "rail-left",
-      "theme": {
-        "deep": "#0F0F14",
-        "base": "#1A1A22",
-        "raised": "#22222B",
-        "violet": "#FC311D",
-        "cyan": "#FF7A5C",
-        "ctaFrom": "#E02309",
-        "ctaTo": "#A81605",
-        "style": "sport"
-      },
-      "active": true,
       "amount": "NZ$200",
       "amountSub": "free bet<br>100% matched",
+      "bonus": "Welcome bonus <b>NZ$200</b>",
+      "logoRev": "/assets/img/partners/rooster-bet-rev@2x.png",
+      "placement": "rail-left",
+      "cta": "Claim bonus",
+      "active": true
+    },
+    {
+      "name": "Fortune Play",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://mediaroosters.com/aaud6h1mdk",
+      "urlSports": "https://mediaroosters.com/aaud6h1mdk",
+      "url": "https://mediaroosters.com/aaud6h1mdk",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "MadCasino",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
+      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
+      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5371",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Kingdom",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
+      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
+      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5356",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Smash",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
+      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
+      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5376",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Rivo",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
+      "urlSports": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
+      "url": "https://go.afftrackio.com/visit/?bta=36498&nci=5387",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Roby Casino",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://rbyc.myloric.com/?mid=388744_2241193",
+      "urlSports": "https://rbyc.myloric.com/?mid=388744_2241193",
+      "url": "https://rbyc.myloric.com/?mid=388744_2241193",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Spino",
+      "casino": true,
+      "sports": true,
+      "crypto": true,
+      "urlCasino": "https://zaplypulse.com/_KhUegrO770yvDqzoZ5dbn2Nd7ZgqdRLk/1/",
+      "url": "https://zaplypulse.com/_KhUegrO770yvDqzoZ5dbn2Nd7ZgqdRLk/1/",
+      "kind": "Casino & sports",
+      "points": [
+        "Pokies &amp; live casino",
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Ivibet Casino",
+      "casino": true,
+      "sports": false,
+      "crypto": true,
+      "urlCasino": "https://mio.novarao.com/redirect.aspx?pid=110262&bid=1478&lpid=46",
+      "url": "https://mio.novarao.com/redirect.aspx?pid=110262&bid=1478&lpid=46",
+      "kind": "Casino",
+      "points": [
+        "Pokies &amp; live casino",
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Ivibet Sportsbook",
+      "casino": false,
+      "sports": true,
+      "crypto": true,
+      "urlSports": "https://mio.novarao.com/redirect.aspx?pid=110262&bid=1478&lpid=46",
+      "url": "https://mio.novarao.com/redirect.aspx?pid=110262&bid=1478&lpid=46",
       "kind": "Sports betting",
-      "bonus": "Free bet <b>100% up to NZ$200</b>"
+      "points": [
+        "Sports &amp; e-sports",
+        "Crypto accepted"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Hellspin",
+      "casino": true,
+      "sports": false,
+      "crypto": true,
+      "urlCasino": "https://mio.novarao.com/redirect.aspx?pid=110262&bid=1466&lpid=6",
+      "url": "https://mio.novarao.com/redirect.aspx?pid=110262&bid=1466&lpid=6",
+      "kind": "Casino",
+      "points": [
+        "Pokies &amp; live casino",
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
+      ],
+      "cta": "Visit site",
+      "active": true
+    },
+    {
+      "name": "Slotsgem",
+      "casino": true,
+      "sports": false,
+      "crypto": true,
+      "urlCasino": "https://mio.novarao.com/redirect.aspx?pid=110262&bid=1487&lpid=601",
+      "url": "https://mio.novarao.com/redirect.aspx?pid=110262&bid=1487&lpid=601",
+      "kind": "Casino",
+      "points": [
+        "Pokies &amp; live casino",
+        "Crypto accepted",
+        "Jackpots &amp; Megaways"
+      ],
+      "cta": "Visit site",
+      "active": true
     }
   ]
 }

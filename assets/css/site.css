@@ -1672,3 +1672,7 @@ table.ct tbody td{padding:16px 15px; vertical-align:middle}
   text-transform:uppercase; color:var(--muted)}
 .reviewed::before{content:""; display:inline-block; width:6px; height:6px; border-radius:50%;
   background:var(--accent); margin-right:8px; vertical-align:middle}
+
+/* Partner with no bonus figure supplied. Muted so a real offer beside it still
+   reads as the loudest thing in the column. */
+.ct-amt.ct-none{color:var(--muted); font-size:19px}

@@ -229,7 +229,7 @@ PAGES = [
     # publishes or arranges to publish one. These pages rank on the arithmetic.
     dict(slug="online-casinos", src="online-casinos", section="casinos", noads=True,
          ct=dict(h="Ranked: the Best Online Casino Sites for NZ Players in 2026",
-                 p="Three operators, all commercial partners of this site, all listed alphabetically rather than by what they pay me. I have run every welcome offer here through the break-even wagering formula further down this page &mdash; on a typical pokie the line is 25&times;, and two of these three sit above it. The table is paid for; the arithmetic underneath it is not."),
+                 p="Fifteen operators, every one a commercial partner of this site, all listed alphabetically rather than by what they pay me. Most supplied a tracking link and no offer, and where that is so the table says so rather than inventing one. Where an offer does exist I have run it through the break-even wagering formula further down this page &mdash; on a typical pokie the line is 25&times;. The table is paid for; the arithmetic underneath it is not."),
          faq=[
              ('Are online casinos legal in New Zealand?',
               "Playing has never been an offence for a New Zealander. The Gambling Act 2003 works by prohibition with exceptions, and online casino gambling was not among the authorised forms &mdash; so it was unlawful to offer from inside New Zealand, while playing on an offshore site was not an offence. New Zealand has since legislated to licence it. See <a href='/licensed-online-casinos/'>licensed online casinos</a>."),
@@ -258,7 +258,7 @@ PAGES = [
     dict(slug="licensed-online-casinos", src="licensed-online-casinos",
          section="casinos", noads=True,
          ct=dict(h="Licensed Online Casino Sites Accepting New Zealand Players",
-                 p="These three are paid placements, listed alphabetically. Not one of them holds a New Zealand online casino licence, because the Department of Internal Affairs has not issued one to anyone yet &mdash; so I will show you how to check what licence a site does hold instead of asking you to take a badge at face value."),
+                 p="All fifteen are paid placements, listed alphabetically. Not one holds a New Zealand online casino licence, because the Department of Internal Affairs has not issued one to anyone yet &mdash; so below I show you how to check what licence a site does hold, rather than asking you to take a badge at face value."),
          faq=[
              ('Which online casinos are licensed in New Zealand?',
               'The Department of Internal Affairs administers the regime and publishes a register of licensed operators, capped at fifteen. Until a licence has been issued to a given operator, no site can truthfully claim to hold one here &mdash; so the register, rather than a badge on a casino&rsquo;s own page, is what settles it.'),
@@ -285,7 +285,7 @@ PAGES = [
     dict(slug="casino-bonus", src="casino-bonus",
          section="casinos", noads=True,
          ct=dict(h="Best Casino Bonus and Welcome Offers for NZ Players 2026",
-                 p="I put all three of these welcome offers through the formula below before publishing them. A bonus breaks even at 1 &divide; the house edge &mdash; 25&times; wagering on a typical pokie &mdash; and two of these three are on the wrong side of that line. They are paid placements. The number that judges them is not."),
+                 p="Paid placements, listed alphabetically. Most of these partners supplied a tracking link and no bonus figure, and the table says so rather than filling the gap with a guess. Where a figure was supplied I put it through the formula below before publishing it &mdash; a bonus breaks even at 1 &divide; the house edge, which is 25&times; wagering on a typical pokie."),
          faq=[
              ('What does 40x wagering actually mean?',
               'That you must stake forty times the bonus before bonus funds become withdrawable. On a NZ$100 bonus that is NZ$4,000 of turnover &mdash; or NZ$8,000 if the multiple applies to deposit plus bonus rather than to the bonus alone.'),
@@ -310,7 +310,7 @@ PAGES = [
     dict(slug="casino-payout-percentages", src="casino-payout-percentages",
          section="casinos", noads=True,
          ct=dict(h="Best Payout Casino Sites for New Zealand Players 2026",
-                 p="Paid placements, listed alphabetically. I am not going to tell you which of them pays out the most, because no casino pays out the most &mdash; games do, and these three run the same titles from the same studios. The table below gives the house edge of every common game, derived from the rules rather than quoted."),
+                 p="Paid placements, listed alphabetically. I am not going to tell you which pays out the most, because no casino pays out the most &mdash; games do, and these fifteen run largely the same titles from the same studios. The table below gives the house edge of every common game, derived from the rules rather than quoted."),
          faq=[
              ('What is RTP in an online casino?',
               'Return to player: the share of everything staked that a game pays back across its full theoretical cycle. Its complement is the house edge &mdash; a 96% RTP game has a 4% edge, costing about NZ$4 per NZ$100 staked in the long run.'),
@@ -335,7 +335,7 @@ PAGES = [
     dict(slug="fast-payout-casinos", src="fast-payout-casinos",
          section="casinos", noads=True,
          ct=dict(h="Ranked as the Best Fast Payout Casino Sites 2026",
-                 p="All three are paid placements, ordered alphabetically. I will not rank them by withdrawal speed, and no honest page can: a verified account paying to an e-wallet is same-day almost anywhere, and an unverified one paying to a card is a week almost anywhere. Most of the variance is in your account, not their queue. The four stages below show exactly where the time goes."),
+                 p="Fifteen paid placements, ordered alphabetically. I will not rank them by withdrawal speed, and no honest page can: a verified account paying to an e-wallet is same-day almost anywhere, and an unverified one paying to a card is a week almost anywhere. Most of the variance is in your account, not their queue. The four stages below show exactly where the time goes."),
          faq=[
              ('Which online casinos have the fastest payouts in New Zealand?',
               'Payout speed is driven far more by your own account state and your chosen method than by which operator you pick. A verified account withdrawing to an e-wallet is fast almost anywhere; an unverified account withdrawing to a card is slow almost anywhere. Advertised operator times describe one stage of four, and they change month to month.'),
@@ -364,7 +364,7 @@ PAGES = [
     dict(slug="casino-payment-methods", src="casino-payment-methods",
          section="casinos", noads=True,
          ct=dict(h="Online Casinos Accepting NZD, POLi and Crypto in 2026",
-                 p="Paid placements, listed alphabetically. I have deliberately not put their accepted payment methods in this table: availability changes without notice, I do not control it, and a paid placement does not make me a reliable source on what a third party accepts this month. The cashier page is the only current source, for these three as much as for anyone."),
+                 p="Paid placements, listed alphabetically. I have deliberately not put accepted payment methods in this table: availability changes without notice, I do not control it, and a paid placement does not make me a reliable source on what a third party accepts this month. The cashier page is the only current source, for these fifteen as much as for anyone."),
          faq=[
              ('Can I deposit in New Zealand dollars at an online casino?',
               'Some operators offer genuine NZD accounts and many do not, converting your deposit into euros, US or Australian dollars instead. Check the cashier rather than the banner: a real NZD account shows your balance, bets and withdrawal in NZD with no conversion line on the transaction.'),
@@ -391,7 +391,7 @@ PAGES = [
     dict(slug="online-pokies", src="online-pokies",
          section="casinos", noads=True,
          ct=dict(h="Best Real Money Online Pokies Sites for NZ Players 2026",
-                 p="Three paid placements, listed alphabetically. Worth knowing before you pick one: online pokies come from a small number of studios that supply hundreds of casinos, so all three of these run largely the same games at largely the same published returns. What differs is who holds your money, not what you are playing."),
+                 p="Fifteen paid placements, listed alphabetically. Worth knowing before you pick one: online pokies come from a small number of studios that supply hundreds of casinos, so these sites run largely the same games at largely the same published returns. What differs is who holds your money, not what you are playing."),
          faq=[
              ('Are online pokies rigged?',
               'They are not rigged, and they are not fair in the sense people mean. Each spin is an independent draw from a random number generator, and the game is built so that across enough play it returns less than it takes in. That is disclosed, legal and unavoidable &mdash; typically 2% to 8% of everything staked.'),
@@ -420,7 +420,7 @@ PAGES = [
     dict(slug="live-casino", src="live-casino",
          section="casinos", noads=True,
          ct=dict(h="Best Live Dealer Casino Sites for New Zealand Players 2026",
-                 p="Paid placements, alphabetical. A caveat that matters more here than anywhere else on this site: live tables are run by a handful of studios and streamed into dozens of operators at once, so all three of these may be showing you the identical table. Which site you choose barely matters. Which table you sit at changes the house edge threefold."),
+                 p="Paid placements, alphabetical. A caveat that matters more here than anywhere else on this site: live tables are run by a handful of studios and streamed into dozens of operators at once, so many of these will be showing you the identical table. Which site you choose barely matters. Which table you sit at changes the house edge threefold."),
          faq=[
              ('How do live dealer casino games work?',
               'A physical dealer runs a physical game in a studio, cameras capture it, optical recognition reads the cards or wheel, and bets settle against what actually happened. Most tables are run by specialist studios &mdash; Evolution is the largest &mdash; and streamed into dozens of operators at once, so the rules of a table are set by the studio rather than by the casino whose logo is on the page.'),
@@ -445,7 +445,7 @@ PAGES = [
     dict(slug="how-we-rate-casinos", src="how-we-rate-casinos",
          section="casinos", noads=True,
          ct=dict(h="The Operators This Site Has Commercial Arrangements With",
-                 p="Every page in this section carries this table, and this is the page that explains it. All three are paid placements, ordered alphabetically in the builder rather than by hand. Nothing below this line is paid for, and the test of whether that claim is worth anything is set out further down."),
+                 p="Every page in this section carries this table, and this is the page that explains it. All fifteen are paid placements, ordered alphabetically in the builder rather than by hand, and partners that supplied no offer figure are shown with none rather than a guess. Nothing below this line is paid for, and the test of whether that claim is worth anything is set out further down."),
          faq=[
              ('How does keno-results.co.nz rate online casinos?',
               "It does not publish a ranked list. The five criteria &mdash; legal standing, withdrawal behaviour, bonus arithmetic, published return figures, and an external complaints path &mdash; are published for you to apply, because online casino advertising is prohibited in New Zealand and the 2026 Act reaches whoever publishes one."),
@@ -466,7 +466,7 @@ PAGES = [
     dict(slug="new-casinos-nz", src="new-casinos-nz",
          section="casinos", noads=True,
          ct=dict(h="The Newest Online Casino Sites Accepting NZ Players",
-                 p="Paid placements, listed alphabetically, and none of them new &mdash; which is the point of this page. Most sites marketed as new turn out to be a fresh brand on an existing licence or a skin on a shared platform, and the genuinely new ones have no complaint record, which is the single most useful thing you can know about a casino."),
+                 p="Paid placements, listed alphabetically. Several share a platform and a licensing structure with each other, which is the point of this page: most sites marketed as new turn out to be a fresh brand on an existing licence, or a skin on a shared platform. The genuinely new ones have no complaint record, which is the single most useful thing you can know about a casino."),
          faq=[
              ('What is the newest online casino in New Zealand?',
               'Usually not a new company at all. Most sites described as new are a new brand on an existing operator&rsquo;s licence, or a new skin on a white-label platform shared with dozens of other &ldquo;new&rdquo; casinos &mdash; same company, same terms, same cashier, new artwork. Check the registered company in the footer against the regulator&rsquo;s register to tell which you are looking at.'),
@@ -489,7 +489,7 @@ PAGES = [
     dict(slug="no-deposit-bonus", src="no-deposit-bonus",
          section="casinos", noads=True,
          ct=dict(h="No Deposit Bonus and Free Spins Offers for Kiwi Players",
-                 p="These are paid placements and they are deposit offers, not no deposit ones &mdash; I am not going to relabel them to match the page. On any genuine no deposit bonus the number that decides its value is the maximum cashout, usually NZ$50 to NZ$150, and the section below shows why 100 free spins can be worth a third of 20."),
+                 p="Paid placements, listed alphabetically, and none of them is a no deposit offer &mdash; I am not going to relabel a welcome bonus to match the page it sits on. On any genuine no deposit bonus the number that decides its value is the maximum cashout, usually NZ$50 to NZ$150, and the section below shows why 100 free spins can be worth a third of 20."),
          faq=[
              ('What is a no deposit bonus?',
               'A small credit &mdash; cash or free spins &mdash; given for registering an account, with no deposit required. The figure that decides what it is worth is not the bonus size but the maximum conversion: a cap on what it can become no matter how much you win with it, commonly NZ$50 to NZ$150.'),
@@ -516,7 +516,7 @@ PAGES = [
     dict(slug="crypto-casinos-nz", src="crypto-casinos-nz",
          section="casinos", noads=True,
          ct=dict(h="Best Crypto and Bitcoin Casino Sites for NZ Players 2026",
-                 p="Paid placements, alphabetical. Read the round trip before the bonus: paying in crypto means four currency conversions rather than two, each with a spread, plus network fees &mdash; which on a short session can cost more than the entire house edge of single-zero roulette."),
+                 p="Paid placements, alphabetical, and all of them accept crypto. Read the round trip before the bonus: paying in crypto means four currency conversions rather than two, each with a spread, plus network fees &mdash; which on a short session can cost more than the entire house edge of single-zero roulette."),
          faq=[
              ('Are crypto casinos legal in New Zealand?',
               'Playing is not an offence for a New Zealander, and paying in crypto changes nothing about the operator&rsquo;s position either. The same questions apply as at any online casino: which regulator, is the company in that register, and is there a complaints path that leaves the building. Crypto sites are over-represented among operators with the thinnest licensing.'),
@@ -1089,11 +1089,11 @@ def offers_block():
             f'rel="sponsored nofollow noopener">'
             f'<span class="offer-art" aria-hidden="true">{crown}{coins}</span>'
             f'<span class="offer-brand">'
-            f'<img src="{o["logo"]}" alt="{name}" width="150" height="47" loading="lazy">'
-            f'</span>'
+            + _mark(o, "", "offer-word")
+            + f'</span>'
             f'<span class="offer-body">'
             f'<span class="offer-name">{name}</span>'
-            f'<span class="offer-bonus">{o["bonus"]}</span>'
+            f'<span class="offer-bonus">{o.get("bonus", "")}</span>'
             f'<span class="offer-terms">18+. New players only. Wagering requirements and '
             f'full terms apply &mdash; see the operator&rsquo;s site. Gamble responsibly.'
             f'</span></span>'
@@ -1124,6 +1124,21 @@ def _load_offers():
         return []
 
 
+def _mark(o, img_cls, word_cls):
+    """An operator's logo, or a typographic wordmark when we hold no artwork.
+
+    Most of the roster supplied a tracking link and nothing else. Borrowing an
+    operator's logo from their own site is not ours to do, and inventing one is
+    worse, so the name is set in the display face instead.
+    """
+    src = o.get("logoRev") or o.get("logo")
+    name = html.escape(o["name"])
+    if not src:
+        return '<span class="%s">%s</span>' % (word_cls, name)
+    cls = ' class="%s"' % img_cls if img_cls else ""
+    return '<img%s src="%s" alt="%s" loading="lazy" decoding="async">' % (cls, src, name)
+
+
 def casino_table(page=None):
     """The operator comparison table, rendered from offers.json.
 
@@ -1144,7 +1159,13 @@ def casino_table(page=None):
     page, so "we do not rank by commission" is a checkable claim rather than an
     assertion.
     """
-    live = sorted((o for o in _load_offers() if o.get("active")),
+    # A partner qualifies for this table only if it offers casino games AND
+    # supplied a casino tracking link. Both halves matter: Rooster.Bet has
+    # casino=true but gave us only a sportsbook link, so linking it from a
+    # casino page would send readers to the wrong product and the click would
+    # not track. Sports-only partners are excluded outright.
+    live = sorted((o for o in _load_offers()
+                   if o.get("active") and o.get("casino") and o.get("urlCasino")),
                   key=lambda o: o["name"].lower())
     if not live:
         return ""
@@ -1153,19 +1174,30 @@ def casino_table(page=None):
     for o in live:
         name = html.escape(o["name"])
         logo = o.get("logoRev") or o.get("logo")
+        # No wordmark fallback here: unlike the rails, this row already prints
+        # the operator's name immediately below, and rendering both showed it
+        # twice.
         img = (f'<img class="ct-logo" src="{logo}" alt="{name}" '
                f'loading="lazy" decoding="async" width="128" height="32">'
-               if logo else f'<span class="ct-word">{name}</span>')
+               if logo else "")
+        mark = f'<span class="ct-mark">{img}</span>' if img else ""
         pts = "".join(f"<li>{p}</li>" for p in o.get("points", [])[:3])
+        # Most partners have supplied no bonus figure. Saying so is better than
+        # an empty cell, and far better than inventing one.
+        if o.get("amount"):
+            offer = (f'<span class="ct-amt">{o["amount"]}</span>'
+                     f'<span class="ct-sub">{o.get("amountSub", "")}</span>')
+        else:
+            offer = ('<span class="ct-amt ct-none">&mdash;</span>'
+                     '<span class="ct-sub">no offer supplied to us</span>')
         rows.append(
             f'<tr>'
-            f'<td class="ct-brand"><span class="ct-mark">{img}</span>'
+            f'<td class="ct-brand">{mark}'
             f'<span class="ct-name">{name}</span>'
             f'<span class="ct-kind">{html.escape(o.get("kind", ""))}</span></td>'
-            f'<td class="ct-offer"><span class="ct-amt">{o.get("amount", "")}</span>'
-            f'<span class="ct-sub">{o.get("amountSub", "")}</span></td>'
+            f'<td class="ct-offer">{offer}</td>'
             f'<td class="ct-pts"><ul>{pts}</ul></td>'
-            f'<td class="ct-go"><a class="ct-cta" href="{o["url"]}" target="_blank" '
+            f'<td class="ct-go"><a class="ct-cta" href="{o["urlCasino"]}" target="_blank" '
             f'rel="sponsored nofollow noopener">{html.escape(o.get("cta", "Visit site"))}'
             f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" '
             f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
@@ -1256,7 +1288,7 @@ def rail_block(side="rail-right"):
             art = f'<span class="rail-art" aria-hidden="true">{"".join(stars)}</span>'
 
         if o.get("logo"):
-            mark = f'<img class="rail-logo" src="{o["logo"]}" alt="{name}" loading="lazy">'
+            mark = _mark(o, "rail-logo", "rail-word")
         else:
             cut = next((i for i in range(1, len(name)) if name[i].isupper()),
                        len(name) // 2)
@@ -1273,7 +1305,7 @@ def rail_block(side="rail-right"):
                         f'<span class="rail-sub">{sub}</span>' if sub
                         else f'<span class="rail-amt">{amt}</span>')
         else:
-            headline = (f'<span class="rail-bonus">{o["bonus"]}</span>'
+            headline = (f'<span class="rail-bonus">{o.get("bonus", "")}</span>'
                         if o.get("bonus") else "")
 
         points = ""
@@ -1435,9 +1467,8 @@ def band_block():
         f'<a class="band-in" href="{o["url"]}" target="_blank" '
         f'rel="sponsored nofollow noopener">'
         f'<span class="band-flag">Ad</span>'
-        f'<img class="band-logo" src="{o.get("logoRev") or o["logo"]}" '
-        f'alt="{html.escape(o["name"])}" loading="lazy" decoding="async">'
-        f'<span class="band-copy">'
+        + _mark(o, "band-logo", "band-word")
+        + f'<span class="band-copy">'
         f'<span class="band-amt">{o.get("amount", "")}</span>'
         # the rail breaks this over two lines; here it is one, so the <br>
         # becomes a space rather than being hidden and closing the gap
@@ -1473,9 +1504,8 @@ def bonusbox_block():
             f'<span class="bb-kind">{html.escape(o.get("kind", "Offer"))}</span>'
             # logoRev where an operator's mark is dark-on-white: the inline
             # banner sets that one on a white plate, these cards do not.
-            f'<img class="bb-logo" src="{o.get("logoRev") or o["logo"]}" '
-            f'alt="{html.escape(o["name"])}" loading="lazy" decoding="async">'
-            f'<span class="bb-amount">{o.get("amount", "")}</span>'
+            + _mark(o, "bb-logo", "bb-word")
+            + f'<span class="bb-amount">{o.get("amount", "")}</span>'
             f'<span class="bb-sub">{o.get("amountSub", "")}</span>'
             f'<ul class="bb-points">{pts}</ul>'
             f'<a class="bb-cta" href="{o["url"]}" target="_blank" '
