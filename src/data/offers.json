@@ -1,5 +1,5 @@
 {
-  "_note": "Commercial partners. `casino` and `sports` say what an operator offers; `urlCasino` and `urlSports` are the tracking links for each. A partner is eligible for a section only if the flag is true AND the matching link exists - Rooster.Bet offers casino games but supplies no casino link, so it never appears on a casino page. Revenue share is deliberately NOT stored here: this repo is the public web root, so anything in this file is served at /src/data/offers.json and readable by competitors and operators.",
+  "_note": "Commercial partners. `casino` and `sports` say what an operator offers; `urlCasino` and `urlSports` are the tracking links for each. A partner is eligible for a section only if the flag is true AND the matching link exists - Rooster.Bet offers casino games but supplies no casino link, so it never appears on a casino page. Revenue share is deliberately NOT stored here: this repo is the public web root, so anything in this file is served at /src/data/offers.json and readable by competitors and operators. Bonus figures are sourced from our own network sites; `offerSource` names which. Those sites disagree with each other on several operators, so a single source was chosen per operator rather than the figures being merged or averaged.",
   "updated": "2026-09-11",
   "offers": [
     {
@@ -17,8 +17,12 @@
       ],
       "logo": "/assets/img/partners/spinjo@2x.png",
       "placement": "rail-right",
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "offerText": "Up to NZ$5,000 + 300 free spins across four deposits",
+      "wagering": "40x",
+      "minDeposit": "NZ$30",
+      "offerSource": "teachin"
     },
     {
       "name": "CrownSlots",
@@ -74,8 +78,13 @@
         "Crypto accepted",
         "Jackpots &amp; Megaways"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/lucky-circus.jpg",
+      "offerText": "Up to NZ$8,000 + 450 free spins",
+      "wagering": "45x",
+      "minDeposit": "NZ$30",
+      "offerSource": "11woodward"
     },
     {
       "name": "Bet&Play",
@@ -89,8 +98,13 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/betandplay.png",
+      "offerText": "Casino package up to NZ$4,000 + 1,000 free spins",
+      "wagering": "50x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin"
     },
     {
       "name": "Lucky7even",
@@ -105,8 +119,13 @@
         "Crypto accepted",
         "Jackpots &amp; Megaways"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/lucky7even.jpg",
+      "offerText": "100% up to NZ$1,700 per deposit day, plus 20 no-deposit spins",
+      "wagering": "50x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin"
     },
     {
       "name": "Lucky Vibe",
@@ -122,8 +141,13 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/lucky-vibe.jpg",
+      "offerText": "Up to NZ$5,000 + 300 free spins over four deposits",
+      "wagering": "40x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin"
     },
     {
       "name": "Rooster.Bet",
@@ -145,7 +169,10 @@
       "placement": "rail-left",
       "cta": "Claim bonus",
       "active": true,
-      "offerText": "100% matched free bet up to NZ$200"
+      "offerText": "Up to NZ$5,000 + 300 free spins across the opening deposits",
+      "wagering": "40x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin"
     },
     {
       "name": "Fortune Play",
@@ -161,8 +188,13 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/fortune-play.png",
+      "offerText": "Up to NZ$5,000 + 300 free spins across four deposits",
+      "wagering": "40x",
+      "minDeposit": "NZ$25",
+      "offerSource": "teachin"
     },
     {
       "name": "MadCasino",
@@ -178,8 +210,11 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/madcasino.png",
+      "offerText": "777% total up to NZ$14,700",
+      "offerSource": "queenstown"
     },
     {
       "name": "Kingdom",
@@ -195,8 +230,13 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/kingdom.png",
+      "offerText": "600% total up to NZ$18,500 across the opening deposits",
+      "wagering": "30x",
+      "minDeposit": "NZ$25",
+      "offerSource": "teachin"
     },
     {
       "name": "Smash",
@@ -212,8 +252,13 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/smash.png",
+      "offerText": "600% total up to NZ$19,500 across the opening deposits",
+      "wagering": "35x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin"
     },
     {
       "name": "Rivo",
@@ -229,8 +274,13 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/rivo.png",
+      "offerText": "1000% total up to NZ$19,500 across the opening deposits",
+      "wagering": "35x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin"
     },
     {
       "name": "Roby Casino",
@@ -246,8 +296,13 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/roby-casino.jpg",
+      "offerText": "250% up to NZ$5,000 + 250 free spins",
+      "wagering": "35x",
+      "minDeposit": "NZ$40",
+      "offerSource": "11woodward"
     },
     {
       "name": "Spino",
@@ -262,8 +317,11 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/spino.jpg",
+      "offerText": "20% cashback up to 2,000 USDT",
+      "offerSource": "11woodward"
     },
     {
       "name": "Ivibet Casino",
@@ -278,8 +336,13 @@
         "Crypto accepted",
         "Jackpots &amp; Megaways"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/ivibet.png",
+      "offerText": "100% up to NZ$180 + 120 spins on the first deposit",
+      "wagering": "40x",
+      "minDeposit": "NZ$20",
+      "offerSource": "teachin"
     },
     {
       "name": "Ivibet Sportsbook",
@@ -294,7 +357,8 @@
         "Crypto accepted"
       ],
       "cta": "Visit site",
-      "active": true
+      "active": true,
+      "logo": "/assets/img/partners/ivibet-sportsbook.jpg"
     },
     {
       "name": "Hellspin",
@@ -309,8 +373,13 @@
         "Crypto accepted",
         "Jackpots &amp; Megaways"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/hellspin.jpg",
+      "offerText": "100% up to NZ$300 + 100 free spins",
+      "wagering": "40x",
+      "minDeposit": "NZ$35",
+      "offerSource": "11woodward"
     },
     {
       "name": "Slotsgem",
@@ -325,8 +394,13 @@
         "Crypto accepted",
         "Jackpots &amp; Megaways"
       ],
-      "cta": "Visit site",
-      "active": true
+      "cta": "Claim bonus",
+      "active": true,
+      "logo": "/assets/img/partners/slotgem.png",
+      "offerText": "120% up to NZ$1,200 + 125 free spins",
+      "wagering": "40x",
+      "minDeposit": "NZ$30",
+      "offerSource": "11woodward"
     }
   ]
 }
