@@ -1,6 +1,6 @@
 {
   "_note": "URLs already sent to RalfyIndex. A URL is recorded only once the API has accepted it, so a failed run simply retries next time.",
-  "updated": "2026-09-11T06:34:22",
+  "updated": "2026-09-11T23:19:05",
   "submitted": {
     "https://keno-results.co.nz/": "2026-09-10",
     "https://keno-results.co.nz/check/": "2026-09-10",
@@ -302,6 +302,11 @@
     "https://keno-results.co.nz/results/2026-09-11/27732/": "2026-09-10",
     "https://keno-results.co.nz/results/2026-09-11/27733/": "2026-09-11",
     "https://keno-results.co.nz/results/2026-09-11/27734/": "2026-09-11",
-    "https://keno-results.co.nz/results/2026-09-11/27735/": "2026-09-11"
+    "https://keno-results.co.nz/results/2026-09-11/27735/": "2026-09-11",
+    "https://keno-results.co.nz/gaming/": "2026-09-11",
+    "https://keno-results.co.nz/gaming/online-casino-law/": "2026-09-11",
+    "https://keno-results.co.nz/gaming/who-regulates-gambling/": "2026-09-11",
+    "https://keno-results.co.nz/gaming/getting-help/": "2026-09-11",
+    "https://keno-results.co.nz/results/2026-09-12/27736/": "2026-09-11"
   }
 }
