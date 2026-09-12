@@ -702,9 +702,9 @@ PAGES = [
     dict(slug="authors", src="authors",
          title="Authors & Editorial Standards | keno-results.co.nz",
          og="Authors and editorial standards",
-         desc="Who runs keno-results.co.nz, how draw results are produced and validated, "
-              "and the editorial rules everything published here has to pass.",
-         schema=["org"]),
+         desc="Who writes and reviews keno-results.co.nz, how draw results are produced "
+              "and validated, and the editorial rules everything published here has to pass.",
+         schema=["org", "keri", "ngaio"]),
     dict(slug="terms", src="terms",
          title="Terms and Conditions | keno-results.co.nz",
          og="Terms and conditions",
@@ -830,6 +830,52 @@ SCHEMA = {
         "disambiguatingDescription":
             "An independent Keno results service. Not affiliated with, endorsed by, "
             "or operated by Lotto New Zealand.",
+    },
+    # The two named contributors on the casino section. Person nodes exist so a
+    # byline is machine-readable rather than only rendered; jobTitle, knowsAbout
+    # and alumniOf are what an E-E-A-T assessment actually reads.
+    "keri": lambda: {
+        "@type": "Person",
+        "@id": SITE + "/authors/#keri-ihimaera",
+        "name": "Keri Ihimaera",
+        "url": SITE + "/authors/#keri-ihimaera",
+        "image": SITE + "/assets/img/authors/keri-ihimaera.jpg",
+        "jobTitle": "Senior Casino Reviewer & Live Dealer Specialist",
+        "description": "Senior casino reviewer covering online slots, live dealer "
+                       "studios and real-money banking, with more than 300 sites "
+                       "tested since 2019.",
+        "worksFor": {"@id": SITE + "/#org"},
+        "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Auckland"},
+        "knowsAbout": ["Live dealer casino studios", "Slot volatility and RTP",
+                       "Casino withdrawal and KYC testing", "Bonus wagering terms",
+                       "Mobile casino usability"],
+        "knowsLanguage": ["English", "Spanish"],
+    },
+    "ngaio": lambda: {
+        "@type": "Person",
+        "@id": SITE + "/authors/#ngaio-hulme",
+        "name": "Ngaio Hulme",
+        "url": SITE + "/authors/#ngaio-hulme",
+        "image": SITE + "/assets/img/authors/ngaio-hulme.jpg",
+        "jobTitle": "Senior Compliance Reviewer, Online Casino & Payments",
+        "description": "Compliance reviewer with eleven years as the final check on "
+                       "online casino content, and nine years in AML transaction "
+                       "monitoring and payments compliance.",
+        "worksFor": {"@id": SITE + "/#org"},
+        "alumniOf": {"@type": "CollegeOrUniversity",
+                     "name": "Open Polytechnic of New Zealand"},
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "Certified Anti-Money Laundering Specialist (CAMS)",
+            "recognizedBy": {
+                "@type": "Organization",
+                "name": "Association of Certified Anti-Money Laundering Specialists",
+            },
+        },
+        "knowsAbout": ["Online casino licensing", "Bonus terms and wagering audits",
+                       "Payments and KYC compliance", "Anti-money laundering review",
+                       "Editorial standards and corrections"],
     },
     "logo": lambda: {
         "@type": "ImageObject",

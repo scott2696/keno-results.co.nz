@@ -1781,6 +1781,44 @@ table.ct tbody td{padding:16px 14px; vertical-align:middle}
     margin:22px 0 0; padding:0 2px}
 }
 
+/* ---- contributor profiles (/authors/) -------------------------------------
+   Deliberately outside .prose: a 68ch measure cannot hold a portrait beside
+   three columns of credentials without crushing all four. */
+.authors{margin-top:44px}
+.authors-intro{color:var(--ink-2); max-width:74ch; margin:0 0 26px; line-height:1.6}
+.author{display:grid; grid-template-columns:160px 1fr; gap:28px; align-items:start;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+  padding:26px; box-shadow:var(--shadow-1); margin:0 0 22px}
+.author-id{display:flex; flex-direction:column; align-items:center; gap:12px}
+.author-pic{width:160px; height:160px; border-radius:var(--r-lg); object-fit:cover;
+  display:block; border:1px solid var(--line-2)}
+.author-role{margin:0}
+.author-tag{display:inline-block; font-family:var(--mono); font-size:9.5px;
+  letter-spacing:.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px;
+  background:var(--gold-plate); color:#1B1405; font-weight:600; white-space:nowrap}
+.author-tag-rev{background:var(--accent-soft); color:var(--accent);
+  border:1px solid var(--accent-line)}
+.author-body h3{margin:0 0 2px; font-size:22px}
+.author-title{margin:0 0 14px; color:var(--muted); font-size:13.5px; font-weight:500}
+.author-body p{margin:0 0 1em; line-height:1.62}
+.author-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:20px;
+  padding-top:20px; border-top:1px solid var(--line)}
+.author-cols h4{font-family:var(--mono); font-size:10px; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 9px; font-weight:600}
+.author-cols ul{margin:0; padding-left:16px}
+.author-cols li{font-size:13px; line-height:1.5; margin-bottom:6px; color:var(--ink-2)}
+.author-cols li::marker{color:var(--line-2)}
+
+@media (max-width:860px){
+  .author-cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .author{grid-template-columns:1fr; gap:18px; padding:20px}
+  .author-id{flex-direction:row; align-items:center; gap:14px}
+  .author-pic{width:88px; height:88px}
+  .author-cols{grid-template-columns:1fr; gap:16px}
+}
+
 /* Visible freshness stamp. Same date the sitemap reports, so the reader and the
    crawler are told one fact rather than two that can drift. */
 .reviewed{margin:18px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.07em;
