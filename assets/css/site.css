@@ -1731,8 +1731,18 @@ table.ct tbody td{padding:16px 14px; vertical-align:middle}
 }
 
 /* ---- byline: attribution + review date, directly under the H1 ----------- */
-.byline{display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin:16px 0 0;
-  font-size:13px; color:var(--muted)}
+/* centred to match .page-head, which is text-align:center - the byline is a
+   flex row, so it never picked that up and sat left under a centred H1 */
+.byline{display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:7px; margin:16px 0 0; font-size:13px; color:var(--muted)}
+.byline-by{color:var(--muted)}
+/* the two names are the point of the line, so they get a soft tint rather than
+   the plain underline the site link carries */
+.byline-au{color:var(--ink-2); font-weight:600; text-decoration:none;
+  background:var(--accent-soft); border:1px solid var(--accent-line);
+  padding:2px 9px; border-radius:999px; white-space:nowrap;
+  transition:color .15s ease, border-color .15s ease}
+.byline-au:hover{color:var(--accent); border-color:var(--accent)}
 .byline-a{color:var(--ink-2); font-weight:500; text-decoration:none;
   border-bottom:1px solid var(--line-2)}
 .byline-a:hover{color:var(--accent); border-bottom-color:var(--accent)}

@@ -1316,10 +1316,11 @@ def _mark(o, img_cls, word_cls):
 def byline_block(page):
     """Attribution and review date, as one line under the H1.
 
-    Attributed to the site rather than to a person because no named author
-    exists yet - /authors/ says so explicitly and explains why inventing one is
-    the exact failure this site is built to avoid. An Organization author is
-    legitimate and verifiable; a fabricated Person is not.
+    The casino section is written and reviewed by the two named contributors on
+    /authors/, so those pages carry a person byline. Everywhere else stays
+    attributed to the site: the draw results are machine-produced and the Keno
+    guides are the owner's, and claiming otherwise in a byline would be the one
+    thing /authors/ exists to rule out.
 
     The date is page_lastmod(), the same value the sitemap reports, so the
     visible stamp and the machine-readable one cannot drift apart.
@@ -1333,12 +1334,19 @@ def byline_block(page):
         third = '<a class="byline-m" href="/authors/">Editorial standards</a>'
     else:
         third = '<a class="byline-m" href="/how-we-rate-casinos/">How we rate</a>'
-    return ('<p class="byline">'
-            '<a class="byline-a" href="/authors/">keno-results.co.nz</a>'
-            '<span class="byline-sep" aria-hidden="true">&middot;</span>'
+    sep = '<span class="byline-sep" aria-hidden="true">&middot;</span>'
+    if page.get("section") == "casinos":
+        who = ('<span class="byline-by">By '
+               '<a class="byline-au" href="/authors/#keri-ihimaera" rel="author">'
+               'Keri Ihimaera</a></span>' + sep +
+               '<span class="byline-by">Reviewed by '
+               '<a class="byline-au" href="/authors/#ngaio-hulme">'
+               'Ngaio Hulme</a></span>')
+    else:
+        who = '<a class="byline-a" href="/authors/">keno-results.co.nz</a>'
+    return ('<p class="byline">' + who + sep +
             '<span class="byline-d">Updated <time datetime="%s">%s</time></span>'
-            '<span class="byline-sep" aria-hidden="true">&middot;</span>'
-            + third + '</p>') % (page_lastmod(page), d)
+            + sep + third + '</p>') % (page_lastmod(page), d)
 
 
 def operator_itemlist(url):
@@ -1653,7 +1661,7 @@ def crumb_list(url, trail):
 
 def page_graph(url, name, description, *, page_type="WebPage", modified=None,
                published=None, crumbs=None, nodes=(), main_entity=None,
-               image=None):
+               image=None, author=None, reviewer=None):
     """The full JSON-LD graph for one page.
 
     Organization and WebSite ship on *every* page, not just the homepage. Nearly
@@ -1672,12 +1680,15 @@ def page_graph(url, name, description, *, page_type="WebPage", modified=None,
         "isPartOf": {"@id": SITE + "/#website"},
         "about": {"@id": SITE + "/#org"},
         "publisher": {"@id": SITE + "/#org"},
-        # Organization, not Person: no named author exists, and /authors/ says
-        # so on purpose. A fabricated Person here would be the single most
-        # damaging thing that could sit on an E-E-A-T page.
-        "author": {"@id": SITE + "/#org"},
+        # Defaults to the Organization. A page passes a Person only where a
+        # named contributor really is responsible for it, and the matching
+        # Person node has to ship in this same graph - an @id resolves only
+        # within the page Google is reading.
+        "author": {"@id": author or (SITE + "/#org")},
         "inLanguage": "en-NZ",
     }
+    if reviewer:
+        wp["reviewedBy"] = {"@id": reviewer}
     if published:
         wp["datePublished"] = published
     if modified:
@@ -1953,8 +1964,11 @@ def build():
         if page.get("path"):
             canonical = f"{SITE}/{page['path']}"
 
-        extra = [SCHEMA[k]() for k in page.get("schema", [])
-                 if k not in ("org", "website")]
+        keys = list(page.get("schema", []))
+        # a person byline needs its Person node on the same page
+        if page.get("section") == "casinos":
+            keys += [k for k in ("keri", "ngaio") if k not in keys]
+        extra = [SCHEMA[k]() for k in keys if k not in ("org", "website")]
         ptype = PAGE_TYPES.get(slug) or ("CollectionPage" if slug in COLLECTIONS
                                          else "WebPage")
         pfaq = faq_schema(page.get("faq"), canonical)
@@ -1981,7 +1995,11 @@ def build():
         head_extra = "" if page.get("robots", "").startswith("noindex") else ld_script(
             page_graph(canonical, page["og"], page["desc"], page_type=ptype,
                        modified=page_lastmod(page), crumbs=breadcrumbs(page),
-                       nodes=extra, main_entity=main))
+                       nodes=extra, main_entity=main,
+                       author=(SITE + "/authors/#keri-ihimaera"
+                               if page.get("section") == "casinos" else None),
+                       reviewer=(SITE + "/authors/#ngaio-hulme"
+                                 if page.get("section") == "casinos" else None)))
 
         scripts = "".join(
             f'<script src="/assets/js/{name}.js" defer></script>' for name in page.get("js", []))
