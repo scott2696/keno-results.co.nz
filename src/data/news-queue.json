@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-12T10:50:43",
+  "updated": "2026-09-12T23:04:49",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -157,6 +157,16 @@
       "source": "NZ Herald",
       "published": "Sat, 12 Sep 2026 09:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNRXJsOGJmX244ZVZQNlFSWkxWcFBkekNjajVHU0NtYXJFMW9ta0hLaW9sakVpUGVHUDA4ZzdtYmQyNFhTWDdPYWN0ZzVfSUZ6N3BPQXpsSmZvbjM1T25ma18xazBhbUFSSVc0VzhQTGFPY1NIcFEzcURJTlJIcGRwNWs4aG0zX3o1OXh1UVJ1LWhMZHA5cklVX1UtS1dvZjl1NDR6UDJ0RVpmTzlWTU9tWGZNSTFHNlA2bmprM3d2YUd6QQ?oc=5",
+      "topic": "rules",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-12"
+    },
+    {
+      "title": "Two winners split $10 million must-be-won Lotto prize",
+      "source": "1News",
+      "published": "Sat, 12 Sep 2026 21:55:01 GMT",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPTmdTLTZDeHowVksxYlhWc2QyN0FHWUFLcXJWaXgtTkJiTG53Y0lQZWdNT05OY3Z0cl9PTGJQZlhxXy1sZFM4UnBidHE3bEtNa3VUb21naHBTckI5QzdCeGRWYjdSZ01Tc2hkNldBZkN3TnotT25LR0VjNmVvdkV2VWx3MmM1d1FObXAtbXRkNDNFQQ?oc=5",
       "topic": "rules",
       "priority": 1,
       "covered": false,
@@ -1187,16 +1197,6 @@
       "source": "1News",
       "published": "Thu, 30 Jul 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQS3lfMnBmY040T1lrWERGNGJydi11R1B4anZkV0ItcS1RWm94WkgyR1RGdmFlWXJIckQyZzhIdUtveVA0UmpkaWgtOVBZcDd4QXJmazFzbERablJuNzFtYmVMa0V5MkNYWE1GU2Z0RkFVOW9MZ3JQMi0wbHFMLXpvSk1hZDExYVJ4QzRCSjhuY2xWYU4xbW1UVkNwSWF4N2c?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Ashburton player scoops $28m in Lotto Powerball",
-      "source": "1News",
-      "published": "Thu, 04 Jun 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSk14QnJyRl93REpIcVozMVMzOU40dndBYkV6NldZNVhpenc3R25teUlTcjVEWVVqYkg2NE1aMDEtdjJuVjBQaXhCZlMtTG9Eb1k0YUstZ0xwZWM1OV9OemJYdmtQaEtrdjYxSUhsczFjVHZqRHp4dnN4SGV0MnNOdGdWSWlnOGlJSUE?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
