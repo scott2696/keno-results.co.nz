@@ -1633,6 +1633,9 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
 .ct-flag{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
   padding:3px 9px; border-radius:999px; color:var(--live); background:var(--live-soft);
   border:1px solid var(--live-line); white-space:nowrap}
+/* the disclosure that must sit against the links, in every layout */
+.ct-disc{font-size:13.5px; color:var(--ink-2); margin:0 0 8px; max-width:76ch; line-height:1.55}
+.ct-disc strong{color:var(--ink)}
 .ct-note{font-size:13.5px; color:var(--muted); margin:0 0 16px; max-width:76ch; line-height:1.55}
 .ct-tw{margin:0}
 table.ct{min-width:680px}
@@ -1716,6 +1719,58 @@ table.ct tbody td{padding:16px 14px; vertical-align:middle}
   .ct-go{text-align:center; width:auto}
   .ct-cta{display:flex; width:100%; margin-top:14px; padding:15px 18px; font-size:16px}
   .ct-terms{margin-top:9px; font-size:11px}
+}
+
+/* ---- byline: attribution + review date, directly under the H1 ----------- */
+.byline{display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin:16px 0 0;
+  font-size:13px; color:var(--muted)}
+.byline-a{color:var(--ink-2); font-weight:500; text-decoration:none;
+  border-bottom:1px solid var(--line-2)}
+.byline-a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+.byline-sep{color:var(--line-2)}
+.byline-m{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line)}
+.byline-m:hover{color:var(--accent)}
+.byline-d time{font-variant-numeric:tabular-nums}
+
+/* ---- above the fold on mobile ------------------------------------------
+   The lede and the two-row subnav together push the operator table roughly
+   210px down the page, which on a phone puts it entirely below the fold. On
+   .atf pages they move below the table instead.
+
+   display:contents on .page-head promotes the eyebrow, H1 and lede to direct
+   flex children of .wrap, so each can be ordered independently without
+   duplicating any of them in the markup. DOM order still reads correctly for
+   assistive tech and for a no-CSS render. */
+@media (max-width:760px){
+  .atf{display:flex; flex-direction:column}
+  /* flex items default to min-width:auto, which refuses to shrink below the
+     widest unbreakable content and pushed the prose off the right edge */
+  .atf > *{min-width:0; max-width:100%}
+  .atf .page-head{display:contents}
+  .atf .eyebrow{order:1}
+  .atf h1{order:2}
+  .atf .byline{order:3; margin-top:12px; justify-content:center}
+  .atf .ct-wrap{order:4; margin-top:22px; display:flex; flex-direction:column}
+  .atf .ct-head{order:1} .atf .ct-disc{order:2} .atf .ct-tw{order:3}
+  .atf .ct-legal{order:5}
+  .atf .subnav{order:5}
+  /* the lede now sits with the prose rather than under the H1, so it reads
+     as body copy and is aligned like it */
+  .atf .lede{order:6; margin-top:4px; text-align:left}
+  .atf .prose{order:7}
+  .atf .page-head{text-align:center}
+  /* the H1 has to earn its space now that three things sit under it */
+  .atf h1{font-size:clamp(26px,7vw,34px); line-height:1.15}
+  .atf .ct-head{justify-content:center}
+  .atf .ct-head h2{font-size:19px}
+  /* the disclosure standfirst is long; it stays with the table but the detail
+     collapses to the sentence that matters until the reader opens it */
+  .atf .ct-disc{font-size:13px; text-align:left; margin-bottom:14px}
+  /* the commentary is ten lines on a phone; it drops below the table so the
+     first operator card is visible without scrolling. The disclosure above
+     does not move. */
+  .atf .ct-note{order:6; font-size:13px; text-align:left; color:var(--muted);
+    margin:22px 0 0; padding:0 2px}
 }
 
 /* Visible freshness stamp. Same date the sitemap reports, so the reader and the

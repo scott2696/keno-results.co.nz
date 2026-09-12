@@ -1147,6 +1147,34 @@ def _mark(o, img_cls, word_cls):
     return '<img%s src="%s" alt="%s" loading="lazy" decoding="async">' % (cls, src, name)
 
 
+def byline_block(page):
+    """Attribution and review date, as one line under the H1.
+
+    Attributed to the site rather than to a person because no named author
+    exists yet - /authors/ says so explicitly and explains why inventing one is
+    the exact failure this site is built to avoid. An Organization author is
+    legitimate and verifiable; a fabricated Person is not.
+
+    The date is page_lastmod(), the same value the sitemap reports, so the
+    visible stamp and the machine-readable one cannot drift apart.
+    """
+    d = datetime.date.fromisoformat(page_lastmod(page)).strftime("%-d %B %Y")
+    # The methodology link is a casino-section page and that section carries
+    # paid placements. /gaming/ states it keeps advertising off, so it gets the
+    # editorial-standards link instead - the byline should not be the one place
+    # that quietly routes an unpaid page into a commercial one.
+    if page.get("section") == "gaming":
+        third = '<a class="byline-m" href="/authors/">Editorial standards</a>'
+    else:
+        third = '<a class="byline-m" href="/how-we-rate-casinos/">How we rate</a>'
+    return ('<p class="byline">'
+            '<a class="byline-a" href="/authors/">keno-results.co.nz</a>'
+            '<span class="byline-sep" aria-hidden="true">&middot;</span>'
+            '<span class="byline-d">Updated <time datetime="%s">%s</time></span>'
+            '<span class="byline-sep" aria-hidden="true">&middot;</span>'
+            + third + '</p>') % (page_lastmod(page), d)
+
+
 def operator_itemlist(url):
     """An ItemList naming the operators the page lists, in display order.
 
@@ -1301,14 +1329,21 @@ def casino_table(page=None):
                        'link below is paid, and the order is ours rather than a ranking '
                        'earned on merit.')
 
+    # Two paragraphs, not one. The first is the disclosure that has to sit
+    # against the links no matter what, so it stays above the table in every
+    # layout. The second is the per-page commentary, which on mobile drops
+    # below the table - it was ten lines deep on a phone and pushed the first
+    # operator card off the screen entirely.
     return (
         '<section class="ct-wrap" aria-labelledby="ct-h">'
         '<div class="ct-head">'
         '<h2 id="ct-h">' + heading + '</h2>'
         '<span class="ct-flag">Paid placements</span>'
         '</div>'
-        '<p class="ct-note">' + note + ' Appearing here is not a recommendation \u2014 '
-        'see <a href="/how-we-rate-casinos/">how we rate casinos</a> for the criteria '
+        '<p class="ct-disc"><strong>Every operator below is a commercial partner and '
+        'every link is paid.</strong> Appearing here is not a recommendation.</p>'
+        '<p class="ct-note">' + note + ' See '
+        '<a href="/how-we-rate-casinos/">how we rate casinos</a> for the criteria '
         'and <a href="/licensed-online-casinos/">licensing</a> for how to check a site '
         'before you deposit.</p>'
         '<div class="tw ct-tw"><table class="ct">'
@@ -1471,6 +1506,10 @@ def page_graph(url, name, description, *, page_type="WebPage", modified=None,
         "isPartOf": {"@id": SITE + "/#website"},
         "about": {"@id": SITE + "/#org"},
         "publisher": {"@id": SITE + "/#org"},
+        # Organization, not Person: no named author exists, and /authors/ says
+        # so on purpose. A fabricated Person here would be the single most
+        # damaging thing that could sit on an E-E-A-T page.
+        "author": {"@id": SITE + "/#org"},
         "inLanguage": "en-NZ",
     }
     if published:
@@ -1801,9 +1840,7 @@ def build():
                    # visible freshness stamp. Same source as the sitemap's
                    # lastmod, so what the reader sees and what a crawler is told
                    # are one fact rather than two that can drift apart.
-                   .replace("{reviewed}", '<p class="reviewed">Last reviewed '
-                            + datetime.date.fromisoformat(page_lastmod(page))
-                                      .strftime("%-d %B %Y") + "</p>")
+                   .replace("{byline}", byline_block(page))
                    .replace("{newslist}", entry_list("news"))
                    .replace("{bloglist}", entry_list("blog")))
                # outside the {content} chain: the slot lives in base.html, not
