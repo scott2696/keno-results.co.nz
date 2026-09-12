@@ -1833,6 +1833,29 @@ table.ct tbody td{padding:16px 14px; vertical-align:middle}
   .author-cols{grid-template-columns:1fr; gap:16px}
 }
 
+/* ---- the author's closing verdict, above the FAQ ------------------------- */
+.verdict-card{display:grid; grid-template-columns:auto 1fr; gap:0 22px;
+  background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--gold);
+  border-radius:var(--r-lg); padding:24px 26px; box-shadow:var(--shadow-1)}
+.verdict-by{display:flex; flex-direction:column; align-items:center; gap:9px; width:104px}
+.verdict-pic{width:56px; height:56px; border-radius:50%; object-fit:cover;
+  border:1px solid var(--line-2); display:block}
+.verdict-who{display:flex; flex-direction:column; align-items:center; gap:2px; text-align:center}
+.verdict-who a{font-size:13px; font-weight:600; color:var(--ink-2); text-decoration:none;
+  border-bottom:1px solid var(--line-2); line-height:1.3}
+.verdict-who a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+.verdict-role{font-family:var(--mono); font-size:9px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); line-height:1.4}
+.verdict-text p{margin:0 0 1em; line-height:1.66}
+.verdict-text p:last-child{margin-bottom:0}
+.verdict-text p:first-child{font-size:16.5px; color:var(--ink)}
+
+@media (max-width:620px){
+  .verdict-card{grid-template-columns:1fr; gap:16px; padding:20px}
+  .verdict-by{flex-direction:row; width:auto; gap:12px}
+  .verdict-who{align-items:flex-start; text-align:left}
+}
+
 /* Visible freshness stamp. Same date the sitemap reports, so the reader and the
    crawler are told one fact rather than two that can drift. */
 .reviewed{margin:18px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.07em;

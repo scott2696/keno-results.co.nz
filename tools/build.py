@@ -323,7 +323,9 @@ PAGES = [
     # Gambling Act 2003, and the 2026 Act attaches penalties reaching whoever
     # publishes or arranges to publish one. These pages rank on the arithmetic.
     dict(slug="online-casinos", faqtopic="Online Casinos", src="online-casinos", section="casinos", noads=True,
-         ct=dict(h="Best Online Casino Sites NZ &mdash; Ranked for {month}",
+         verdict=("Online Casinos in NZ",
+              "After more than 300 of these accounts, my honest view is that the choice of site matters far less than New Zealanders are encouraged to believe. The lobbies overlap because a handful of studios supply all of them, so the real spread sits inside the games: blackjack at a 3:2 table returns about 99.5% with basic strategy, a typical pokie 96%. That gap is worth more over a year than any welcome offer on this page.\n\nWhat genuinely differs between operators is the cashier &mdash; whether verification is demanded before your first withdrawal rather than after it, and whether a pending period sits between you and your money. That is what I would choose on, and it is the one thing the marketing never leads with."),
+                  ct=dict(h="Best Online Casino Sites NZ &mdash; Ranked for {month}",
                  p="Fifteen online casinos take New Zealand players right now, and every welcome offer on this page has been through the same wagering maths before it went up. You get the bonus, the multiple and the minimum deposit side by side, so you can see in about ten seconds which ones are worth claiming and which are marketing."),
          faq=[
              ('Are online casinos legal in New Zealand?',
@@ -351,7 +353,9 @@ PAGES = [
          og="Best online casino sites NZ",
          desc="Compare the top online casinos NZ players use in 2026. Real money casino NZ sites measured on house edge, withdrawal terms and bonus maths, not banner size."),
     dict(slug="licensed-online-casinos", faqtopic="Licensed Online Casinos", src="licensed-online-casinos",
-         section="casinos", noads=True,
+         verdict=("Licensed Online Casinos in NZ",
+              "Most people arrive here asking whether online casinos are legal, and the answer is that playing has never been an offence for a New Zealander. The more useful question is who licenses the site you are actually on, because at the moment nobody holds a New Zealand licence &mdash; none has been issued to anyone. Every operator taking Kiwi players is offshore-licensed, and those regimes are not interchangeable.\n\nMy position is unglamorous and it takes two minutes: find the regulator and the company name in the footer, then search that regulator&rsquo;s own public register for the company rather than the brand. A seal that is an image instead of a link to a register entry has already told you something."),
+                  section="casinos", noads=True,
          ct=dict(h="Online Casino Sites Accepting New Zealand Players",
                  p="Fifteen casinos accepting New Zealand players, with the licence question answered properly for each: not one of them holds a New Zealand online casino licence, because the Department of Internal Affairs has not issued one to anyone yet. Below the table is the two-minute check that tells you what licence a site does hold."),
          faq=[
@@ -378,7 +382,9 @@ PAGES = [
          og="Legal and licensed online casinos NZ",
          desc="Are online casinos legal in New Zealand? Check licensed online casinos NZ against the Gambling Act, see who regulates them, and verify a licence in two minutes."),
     dict(slug="casino-bonus", faqtopic="Casino Bonuses", src="casino-bonus",
-         section="casinos", noads=True,
+         verdict=("Casino Bonuses in NZ",
+              "I price every welcome offer the same way before it goes up, and the answer is consistent enough to state plainly: a bonus breaks even at about 25&times; wagering on a typical 4% pokie, and every offer in the table above sits on the wrong side of that line. That does not make them frauds. It makes them entertainment you are paying for, which is a different proposition from the free money the headline implies.\n\nIf you are going to claim one anyway, read the multiple rather than the maximum. A 100% match at 40&times; costs you more expected turnover than a smaller offer at 20&times;, every single time."),
+                  section="casinos", noads=True,
          ct=dict(h="Best Casino Bonuses NZ &mdash; Welcome Offers for {month}",
                  p="Every welcome bonus here has been run through one division before publication. A bonus breaks even at 25&times; wagering on a typical pokie; these run from 30&times; to 50&times;, and the multiple sits under each button so you can do the sum yourself. That is the difference between a NZ$18,500 headline and NZ$18,500 you can withdraw."),
          faq=[
@@ -403,7 +409,9 @@ PAGES = [
          og="Best casino bonuses NZ",
          desc="Compare the best casino bonuses NZ offers in 2026: what a casino sign up bonus NZ is really worth after the wagering maths, plus $1 deposit casino NZ terms."),
     dict(slug="casino-payout-percentages", faqtopic="Casino Payout Percentages", src="casino-payout-percentages",
-         section="casinos", noads=True,
+         verdict=("Casino Payout Percentages in NZ",
+              "No casino pays out the most. Games do, and that is the entire answer to the question that brings most people to this page. The highest published returns on any New Zealand floor are Ugga Bugga at 99.07%, with Mega Joker and Book of 99 at 99%, against a typical pokie&rsquo;s 96% &mdash; and nearly every site in the table above carries those same titles.\n\nA site-level payout percentage is an average of whatever that casino&rsquo;s customers happened to play, which tells you about them and not about the operator. The RTP in the game&rsquo;s own information panel is the only figure on this subject that is about you."),
+                  section="casinos", noads=True,
          ct=dict(h="Best Payout Casinos NZ &mdash; Highest RTP Sites for {month}",
                  p="Fifteen casinos serving New Zealand, running largely the same games from the same studios. Which is the point: no casino pays out the most, games do. The house edge of every common game is set out below, derived from the published rules rather than quoted &mdash; from blackjack at 0.5% to the baccarat tie at 14.36%."),
          faq=[
@@ -428,7 +436,9 @@ PAGES = [
          og="Best payout online casinos NZ",
          desc="What is RTP in pokies, and which is the best payout online casino NZ? Casino payout percentage and highest RTP casinos NZ, worked from published game rules."),
     dict(slug="fast-payout-casinos", faqtopic="Fast Payout Casinos", src="fast-payout-casinos",
-         section="casinos", noads=True,
+         verdict=("Fast Payout Casinos in NZ",
+              "Having tested withdrawals at more sites than I can now list individually, my conclusion is that the operator is rarely the reason your money is slow. Your own account is. A fully verified account paying to an e-wallet is same-day at most sites; an unverified account paying to a card is a week almost anywhere, and no amount of instant-withdrawal marketing moves either figure.\n\nSo the useful move is not finding a faster casino. It is completing verification before you have a balance worth waiting on, and checking whether a pending period sits in front of processing. Do those two things and you have removed most of the delay you would otherwise blame on the brand."),
+                  section="casinos", noads=True,
          ct=dict(h="Best Fast Payout Casinos NZ &mdash; Instant Withdrawals for {month}",
                  p="Fifteen casinos accepting New Zealand players, with the minimum deposit and wagering on each. On withdrawal speed the honest answer is that your own account decides it: a verified account paying to an e-wallet is same-day almost anywhere, an unverified one paying to a card is a week almost anywhere. Below is how to be in the first group."),
          faq=[
@@ -457,7 +467,9 @@ PAGES = [
          og="Fast payout casinos NZ",
          desc="How long do casino withdrawals take NZ? Compare fast payout casinos NZ and instant withdrawal casino NZ claims against what the payment rails actually clear."),
     dict(slug="casino-payment-methods", faqtopic="Casino Payment Methods", src="casino-payment-methods",
-         section="casinos", noads=True,
+         verdict=("Casino Payment Methods in NZ",
+              "The cost that matters on a deposit is the one nobody prints. A round trip through a non-NZD account runs several percent in conversion spread and card fees &mdash; more than the entire 2.70% house edge of single-zero roulette &mdash; which means the payment method can cost you more than the game does.\n\nTreat NZD acceptance as the first filter and the method as the second, because a spread you pay on the way in and again on the way out is charged whether you win or lose. I have deliberately not published an availability table here: those change without notice, and the cashier page is the only source current enough to trust."),
+                  section="casinos", noads=True,
          ct=dict(h="Best Casino Payment Methods NZ &mdash; NZD, POLi, Crypto for {month}",
                  p="Fifteen casinos taking New Zealand players, with the minimum deposit on each. What the table deliberately does not list is accepted payment methods &mdash; those change without notice and the cashier page is the only current source. What the guide below gives you is the cost nobody prints: the conversion spread on a non-NZD account."),
          faq=[
@@ -484,7 +496,9 @@ PAGES = [
          og="Casino payment methods NZ",
          desc="Casino payment methods NZ on fee and speed: online casino deposit methods NZ including PayPal casino NZ, Paysafecard casino NZ and casinos that accept POLi NZ."),
     dict(slug="online-pokies", faqtopic="Online Pokies", src="online-pokies",
-         section="casinos", noads=True,
+         verdict=("Online Pokies in NZ",
+              "Two things decide what a pokie costs you and neither appears on the banner. The first is RTP: the spread between Ugga Bugga at 99.07% and a typical title at 96% is three points, worth more over any real session than the difference between any two welcome offers on this site. The second is volatility, which is why two 96% games feel nothing alike &mdash; the same return delivered in rarer, larger pieces.\n\nThe number is nearly always there, in an information tab almost nobody opens. Opening it is the highest-value habit a pokie player can build, and everything else on a lobby page is decoration."),
+                  section="casinos", noads=True,
          ct=dict(h="Best Real Money Online Pokies Sites NZ for {month}",
                  p="Fifteen casinos with real money pokies for New Zealand players, and the welcome offer on each. The libraries overlap heavily because a handful of studios supply everyone, so what actually separates these sites is the cashier &mdash; and what separates the games is RTP, which runs from 92% to 99.07% and is disclosed in a tab nobody opens."),
          faq=[
@@ -513,7 +527,9 @@ PAGES = [
          og="Online pokies NZ",
          desc="Best online pokies NZ for 2026: how online pokies real money NZ games work, what RTP and volatility actually change, and where free pokies NZ demos mislead."),
     dict(slug="live-casino", faqtopic="Live Casino Games", src="live-casino",
-         section="casinos", noads=True,
+         verdict=("Live Casino Games in NZ",
+              "The table sets the house edge and the casino does not, which makes where you sit far more consequential than which site you joined. The cheapest seat in any New Zealand live lobby is baccarat&rsquo;s banker bet at 1.06%, with French roulette under la partage at 1.35% just behind &mdash; and the same studios stream those tables into nearly every operator listed here.\n\nWhat will cost you is the rule variant and the side bet. A 6:5 blackjack table takes about 1.4% more than a 3:2 one, and the side bets run several times the main game. Both are printed on the felt, so read the felt before you read any review."),
+                  section="casinos", noads=True,
          ct=dict(h="Best Live Casino Sites NZ &mdash; Live Dealer Tables for {month}",
                  p="Fifteen casinos with live dealer tables for New Zealand players. The tables themselves come from a handful of studios and are streamed into all of them, so the site matters less than the table: French roulette with la partage runs a 1.35% house edge, and 6:5 blackjack costs 1.4% more than 3:2. Both are printed on the felt."),
          faq=[
@@ -538,7 +554,9 @@ PAGES = [
          og="Live casino NZ",
          desc="Best live casino NZ guide for 2026: how live dealer casino NZ games work, and the real house edge on live roulette NZ, live blackjack NZ and baccarat tables."),
     dict(slug="how-we-rate-casinos", faqtopic="How We Rate Casinos", src="how-we-rate-casinos",
-         section="casinos", noads=True,
+         verdict=("How We Rate Casinos",
+              "There is no score out of ten on this site, and that is the deliberate part. A single number is the most persuasive thing a review page can publish and the least checkable, because the weights behind it are never shown to anyone.\n\nWhat is published here instead is the criteria, the arithmetic, and a plain statement of what is paid for: the operator table is advertising and the order is ours. My own test for whether any of this is worth anything sits on the bonus page, where the break-even wagering multiple is printed directly under the same offers and several of them fail it. Apply that test to us before you apply anything here to a casino."),
+                  section="casinos", noads=True,
          ct=dict(h="The Operators This Site Has Commercial Arrangements With",
                  p="Fifteen casinos accepting New Zealand players, shown on every page in this section. This is the page that explains how they got there, what we check, what we deliberately ignore, and who pays for what &mdash; published as criteria and arithmetic rather than a score out of ten, so you can apply it yourself."),
          faq=[
@@ -559,7 +577,9 @@ PAGES = [
          og="How to choose a safe online casino",
          desc="How to tell if an online casino is legit: our online casino review methodology, casino licensing explained, and how to check if a casino is licensed NZ-side."),
     dict(slug="new-casinos-nz", faqtopic="New Online Casinos", src="new-casinos-nz",
-         section="casinos", noads=True,
+         verdict=("New Online Casinos in NZ",
+              "New is a risk rather than a feature, and I have not yet had a month where that conclusion changed. Most sites marketed as new turn out to be a fresh brand on an existing licence, or a skin on a shared platform running identical terms &mdash; the novelty is the logo.\n\nThe genuinely new ones have the opposite problem: no complaint record at all, which happens to be the most useful thing there is to know about a casino and the one thing a launch cannot give you. If a new site is offering something an established one is not, ask what it is being offered in exchange for, and keep deposits small until you have taken a withdrawal all the way out."),
+                  section="casinos", noads=True,
          ct=dict(h="Newest Online Casino Sites NZ &mdash; New Casinos for {month}",
                  p="Fifteen casinos accepting New Zealand players, with the welcome offer and wagering on each. None is genuinely new, which is the point of this page: most sites marketed as new turn out to be a fresh brand on an existing licence, and the truly new ones have no complaint record &mdash; the most useful thing there is to know about a casino."),
          faq=[
@@ -582,7 +602,9 @@ PAGES = [
          og="New online casinos NZ",
          desc="New online casinos NZ for 2026: what the newest online casinos NZ and new casino sites NZ will not tell you, and how to check one with no track record."),
     dict(slug="no-deposit-bonus", faqtopic="No Deposit Bonuses", src="no-deposit-bonus",
-         section="casinos", noads=True,
+         verdict=("No Deposit Bonuses in NZ",
+              "The number that decides what a no deposit offer is worth is the maximum cashout, and it is never the number in the headline. On a typical New Zealand offer that cap runs NZ$50 to NZ$150, so a NZ$4,000 win pays NZ$100 and the rest simply evaporates.\n\nOnce you know that, the arithmetic stops being about spin counts: 100 spins capped at NZ$50 are worth less than 20 spins capped at NZ$150. My verdict is that these are worth claiming as a free look at a lobby and nothing more. Treat the cap as the actual prize and one will never disappoint you."),
+                  section="casinos", noads=True,
          ct=dict(h="Best No Deposit Bonus NZ &mdash; Free Spins for {month}",
                  p="Fifteen casinos accepting Kiwi players, with the wagering and minimum deposit on every welcome offer. One of them &mdash; Lucky7even &mdash; hands you 20 spins before you deposit anything. On any no deposit bonus the figure that decides its value is the maximum cashout, and that is what the guide below is about."),
          faq=[
@@ -609,7 +631,9 @@ PAGES = [
          og="No deposit bonus NZ",
          desc="Find no deposit bonus NZ offers and free spins no deposit NZ deals, with no deposit bonus codes NZ checked against the max cashout that decides their value."),
     dict(slug="crypto-casinos-nz", faqtopic="Crypto Casinos", src="crypto-casinos-nz",
-         section="casinos", noads=True,
+         verdict=("Crypto Casinos in NZ",
+              "Paying in crypto means making two bets rather than one, and only one of them is the game. The round trip costs four currency conversions instead of two, and on a short session that spread plus network fees runs more than the entire 2.70% house edge of single-zero roulette. You can win at the table and still finish the night down.\n\nThe claim I would treat as a warning rather than a feature is &ldquo;no verification&rdquo;. An operator that will not identify you at deposit has not spared you the paperwork; it has kept the option of demanding it at withdrawal, when it is holding your balance. Provably fair shows the deal was not rigged. It shows nothing about whether you get paid."),
+                  section="casinos", noads=True,
          ct=dict(h="Best Crypto Casinos NZ &mdash; Bitcoin Sites for {month}",
                  p="Fifteen casinos that take New Zealand players and accept crypto, with the welcome offer and wagering on each. Before the bonus, price the round trip: paying in crypto means four currency conversions rather than two, and on a short session the spread costs more than the entire 2.70% house edge of single-zero roulette."),
          faq=[
@@ -1872,6 +1896,37 @@ def hreflang_block(canonical, robots=""):
         for lang in ("en-NZ", "en-AU", "x-default"))
 
 
+
+def verdict_block(page):
+    """The author's closing judgement, above the FAQ.
+
+    Only on pages that carry a person byline. A signed verdict on a page
+    attributed to the organisation would be attributing an opinion to nobody,
+    and the Keno pages are not hers to sign.
+
+    Each one is written against what that page actually argues and repeats its
+    figures, so it reads as a conclusion rather than a summary bolted on.
+    """
+    v = page.get("verdict")
+    if not v or page.get("section") != "casinos":
+        return ""
+    topic, text = v
+    paras = "".join("<p>%s</p>" % para.strip() for para in text.strip().split("\n\n"))
+    return (
+        '<div class="wrap"><section class="verdict" aria-labelledby="verdict-h">'
+        '<div class="sec-h"><h2 id="verdict-h">The Final Verdict on %s</h2></div>'
+        '<div class="verdict-card">'
+        '<div class="verdict-by">'
+        '<img class="verdict-pic" src="/assets/img/authors/keri-ihimaera.jpg" '
+        'width="56" height="56" alt="Keri Ihimaera" loading="lazy" decoding="async">'
+        '<span class="verdict-who">'
+        '<a href="/authors/#keri-ihimaera" rel="author">Keri Ihimaera</a>'
+        '<span class="verdict-role">Senior Casino Reviewer</span></span>'
+        '</div>'
+        '<div class="verdict-text">%s</div>'
+        '</div></section></div>' % (html.escape(topic), paras))
+
+
 def faq_block(faq, page=None):
     """Per-page questions, rendered as the same disclosure list /faqs/ uses.
 
@@ -2040,6 +2095,7 @@ def build():
                    .replace("{bloglist}", entry_list("blog")))
                # outside the {content} chain: the slot lives in base.html, not
                # in the page body, so replacing it on `body` never matched
+               .replace("{verdict}", verdict_block(page))
                .replace("{faq}", faq_block(page.get("faq"), page))
                .replace("{year}", str(YEAR)))
 
@@ -2175,7 +2231,7 @@ def build():
                    .replace("{hreflang}", hreflang_block(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
-                   .replace("{faq}", "")
+                   .replace("{faq}", "").replace("{verdict}", "")
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
                    .replace("{tw_card}", "summary")
                .replace("{head_extra}", head_links + '<script type="application/ld+json">'
@@ -2284,7 +2340,7 @@ def build():
                    .replace("{hreflang}", hreflang_block(o_url))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                .replace("{site}", SITE)
-                   .replace("{faq}", "")
+                   .replace("{faq}", "").replace("{verdict}", "")
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
                    .replace("{tw_card}", "summary")
                .replace("{head_extra}", '<script type="application/ld+json">'
@@ -2468,7 +2524,7 @@ def build():
                    .replace("{hreflang}", hreflang_block(st_url))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
-                   .replace("{faq}", "")
+                   .replace("{faq}", "").replace("{verdict}", "")
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
                    .replace("{tw_card}", "summary")
                    .replace("{head_extra}", '<script type="application/ld+json">'
@@ -2610,7 +2666,7 @@ def build():
                    .replace("{hreflang}", hreflang_block(canonical))
                    .replace("{robots}", "index, follow, max-image-preview:large")
                    .replace("{site}", SITE)
-                   .replace("{faq}", "")
+                   .replace("{faq}", "").replace("{verdict}", "")
                    .replace("{og_image}", SITE + "/assets/img/icon-512.png")
                    .replace("{tw_card}", "summary")
                    .replace("{head_extra}", '<script type="application/ld+json">'
