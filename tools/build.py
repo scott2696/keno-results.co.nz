@@ -350,7 +350,7 @@ PAGES = [
               "No. Every operator in the table is a commercial partner and every link is a paid placement, which is stated in the table itself. The order is one this site chose rather than a ranking any operator earned, and appearing in it means a commercial arrangement exists &mdash; a different fact from &ldquo;this is the best place to play&rdquo;. The criteria and the arithmetic are on <a href='/how-we-rate-casinos/'>how we rate casinos</a> and are unaffected by it."),
          ],
          title="Best Online Casino NZ 2026 | Real Money Casino Sites Compared | keno-results.co.nz",
-         og="Best online casino sites NZ",
+         og="Top online casinos NZ",
          desc="Compare the top online casinos NZ players use in 2026. Real money casino NZ sites measured on house edge, withdrawal terms and bonus maths, not banner size."),
     dict(slug="licensed-online-casinos", faqtopic="Licensed Online Casinos", src="licensed-online-casinos",
          verdict=("Licensed Online Casinos in NZ",
@@ -406,7 +406,7 @@ PAGES = [
               'Most commonly for exceeding the maximum bet while wagering &mdash; usually around NZ$5 to NZ$8 per spin or hand. It only takes one bet, it is enforced automatically, and most terms allow the operator to void the bonus and everything won with it.'),
          ],
          title="Best Casino Bonuses NZ 2026 | Welcome Offers Priced on Wagering | keno-results.co.nz",
-         og="Best casino bonuses NZ",
+         og="Casino bonus NZ",
          desc="Compare the best casino bonuses NZ offers in 2026: what a casino sign up bonus NZ is really worth after the wagering maths, plus $1 deposit casino NZ terms."),
     dict(slug="casino-payout-percentages", faqtopic="Casino Payout Percentages", src="casino-payout-percentages",
          verdict=("Casino Payout Percentages in NZ",
@@ -433,7 +433,7 @@ PAGES = [
               'Barely. They are aggregates across every player and every game on a platform, weighted by turnover, so a site with heavy table-game volume shows a higher figure without a single game differing. The per-game RTP is the number that applies to what you actually play.'),
          ],
          title="Best Payout Online Casino NZ 2026 | Highest RTP Casinos NZ | keno-results.co.nz",
-         og="Best payout online casinos NZ",
+         og="Casino payout percentage and RTP",
          desc="What is RTP in pokies, and which is the best payout online casino NZ? Casino payout percentage and highest RTP casinos NZ, worked from published game rules."),
     dict(slug="fast-payout-casinos", faqtopic="Fast Payout Casinos", src="fast-payout-casinos",
          verdict=("Fast Payout Casinos in NZ",
@@ -464,7 +464,7 @@ PAGES = [
               'Anti-money-laundering rules make returning funds to their source the default. It means depositing by a method that cannot receive a withdrawal &mdash; a prepaid voucher, for instance &mdash; creates a problem you discover at the worst possible moment.'),
          ],
          title="Fast Payout Casinos NZ 2026 | Instant Withdrawal Casino Sites | keno-results.co.nz",
-         og="Fast payout casinos NZ",
+         og="Fastest paying online casino NZ",
          desc="How long do casino withdrawals take NZ? Compare fast payout casinos NZ and instant withdrawal casino NZ claims against what the payment rails actually clear."),
     dict(slug="casino-payment-methods", faqtopic="Casino Payment Methods", src="casino-payment-methods",
          verdict=("Casino Payment Methods in NZ",
@@ -493,7 +493,7 @@ PAGES = [
               'Some New Zealand issuers decline gambling transactions or treat them as a cash advance, which attracts interest immediately with no grace period. Gambling with borrowed money is also one of the clearest markers in every harm-screening framework.'),
          ],
          title="Casino Payment Methods NZ 2026 | PayPal, POLi and Paysafecard | keno-results.co.nz",
-         og="Casino payment methods NZ",
+         og="Online casino deposit methods NZ",
          desc="Casino payment methods NZ on fee and speed: online casino deposit methods NZ including PayPal casino NZ, Paysafecard casino NZ and casinos that accept POLi NZ."),
     dict(slug="online-pokies", faqtopic="Online Pokies", src="online-pokies",
          verdict=("Online Pokies in NZ",
@@ -524,7 +524,7 @@ PAGES = [
               'Their advertised RTP includes the jackpot contribution, and almost no one wins the pool &mdash; so the return a typical player experiences is lower than the headline figure. A 96% progressive contributing 2% to the pool behaves much like a 94% game with a lottery ticket attached.'),
          ],
          title="Online Pokies NZ 2026 | Real Money Pokies Sites Compared | keno-results.co.nz",
-         og="Online pokies NZ",
+         og="Best online pokies NZ",
          desc="Best online pokies NZ for 2026: how online pokies real money NZ games work, what RTP and volatility actually change, and where free pokies NZ demos mislead."),
     dict(slug="live-casino", faqtopic="Live Casino Games", src="live-casino",
          verdict=("Live Casino Games in NZ",
@@ -551,7 +551,7 @@ PAGES = [
               'Not usefully. Shoes are shuffled early and often, deck penetration is shallow, and bet-spread limits are enforced. The technique needs conditions the format is specifically arranged not to provide.'),
          ],
          title="Live Casino NZ 2026 | Live Dealer Casino Sites and Tables | keno-results.co.nz",
-         og="Live casino NZ",
+         og="Best live casino NZ",
          desc="Best live casino NZ guide for 2026: how live dealer casino NZ games work, and the real house edge on live roulette NZ, live blackjack NZ and baccarat tables."),
     dict(slug="how-we-rate-casinos", faqtopic="How We Rate Casinos", src="how-we-rate-casinos",
          verdict=("How We Rate Casinos",
@@ -574,7 +574,7 @@ PAGES = [
               'They are derived from the published rules of each game rather than quoted from another site &mdash; single-zero roulette&rsquo;s 2.70% is 1 divided by 37. Where a figure cannot be derived or sourced, it does not appear, which is why withdrawal times and payment availability are not asserted here as facts.'),
          ],
          title="How to Choose an Online Casino NZ | Our Review Methodology | keno-results.co.nz",
-         og="How to choose a safe online casino",
+         og="How to tell if an online casino is legit",
          desc="How to tell if an online casino is legit: our online casino review methodology, casino licensing explained, and how to check if a casino is licensed NZ-side."),
     dict(slug="new-casinos-nz", faqtopic="New Online Casinos", src="new-casinos-nz",
          verdict=("New Online Casinos in NZ",
@@ -599,7 +599,7 @@ PAGES = [
               'Use structure instead of reputation: find the registered company in the regulator&rsquo;s searchable list rather than trusting a footer licence number, read the withdrawal caps before the bonus terms, check the games come from named studios, look for a complaints path outside the operator, and deposit the minimum and withdraw early as a test.'),
          ],
          title="New Online Casinos NZ 2026 | Newest Casino Sites Checked | keno-results.co.nz",
-         og="New online casinos NZ",
+         og="New casinos NZ",
          desc="New online casinos NZ for 2026: what the newest online casinos NZ and new casino sites NZ will not tell you, and how to check one with no track record."),
     dict(slug="no-deposit-bonus", faqtopic="No Deposit Bonuses", src="no-deposit-bonus",
          verdict=("No Deposit Bonuses in NZ",
@@ -628,7 +628,7 @@ PAGES = [
               'Sometimes, and it is the clause to look for. Some terms require a qualifying deposit before the bonus can be cashed out at all, which quietly makes it a deposit offer. It is rarely stated on the landing page.'),
          ],
          title="No Deposit Bonus NZ 2026 | Free Spins No Deposit Offers | keno-results.co.nz",
-         og="No deposit bonus NZ",
+         og="No deposit casino NZ",
          desc="Find no deposit bonus NZ offers and free spins no deposit NZ deals, with no deposit bonus codes NZ checked against the max cashout that decides their value."),
     dict(slug="crypto-casinos-nz", faqtopic="Crypto Casinos", src="crypto-casinos-nz",
          verdict=("Crypto Casinos in NZ",
@@ -657,7 +657,7 @@ PAGES = [
               'No. Same games, same studios, same published return figures. A round trip is also four conversions rather than two, and the spreads plus network fees frequently exceed what a bank transfer would have cost.'),
          ],
          title="Crypto Casino NZ 2026 | Bitcoin Casino Sites and Real Costs | keno-results.co.nz",
-         og="Best crypto casinos NZ",
+         og="Best crypto casino NZ",
          desc="Best crypto casino NZ guide for 2026: what bitcoin casino NZ sites prove with provably fair, what bitcoin gambling NZ costs you in spread, and the tax point."),
     dict(slug="about", src="about", nav="about",
          title="About & Data Sources | keno-results.co.nz",
@@ -863,7 +863,13 @@ SCHEMA = {
         "@id": SITE + "/authors/#keri-ihimaera",
         "name": "Keri Ihimaera",
         "url": SITE + "/authors/#keri-ihimaera",
-        "image": SITE + "/assets/img/authors/keri-ihimaera.jpg",
+        "image": {
+            "@type": "ImageObject",
+            "@id": SITE + "/authors/#keri-ihimaera-photo",
+            "url": SITE + "/assets/img/authors/keri-ihimaera.jpg",
+            "contentUrl": SITE + "/assets/img/authors/keri-ihimaera.jpg",
+            "width": 320, "height": 320,
+        },
         "jobTitle": "Senior Casino Reviewer & Live Dealer Specialist",
         "description": "Senior casino reviewer covering online slots, live dealer "
                        "studios and real-money banking, with more than 300 sites "
@@ -880,7 +886,13 @@ SCHEMA = {
         "@id": SITE + "/authors/#ngaio-hulme",
         "name": "Ngaio Hulme",
         "url": SITE + "/authors/#ngaio-hulme",
-        "image": SITE + "/assets/img/authors/ngaio-hulme.jpg",
+        "image": {
+            "@type": "ImageObject",
+            "@id": SITE + "/authors/#ngaio-hulme-photo",
+            "url": SITE + "/assets/img/authors/ngaio-hulme.jpg",
+            "contentUrl": SITE + "/assets/img/authors/ngaio-hulme.jpg",
+            "width": 320, "height": 320,
+        },
         "jobTitle": "Senior Compliance Reviewer, Online Casino & Payments",
         "description": "Compliance reviewer with eleven years as the final check on "
                        "online casino content, and nine years in AML transaction "
@@ -1205,12 +1217,69 @@ def latest_draw_ymd():
     return max((_nz_dt(d["drawnAt"])[2] for d in ds), default=None)
 
 
+CONTENT_DATES = os.path.join(SRC, "data", "content-dates.json")
+# The page fields that are content. Everything else in a PAGES entry - js,
+# schema keys, nav, section - is plumbing, and changing it is not a page edit.
+CONTENT_KEYS = ("title", "og", "desc", "ct", "faq", "faqtopic", "verdict")
+
+
+def _content_fingerprint(page):
+    """A hash of the copy this page carries inside build.py.
+
+    Titles, descriptions, FAQ questions, table standfirsts and the author's
+    verdict all live here rather than in src/pages, so a git date on the source
+    file cannot see them change. {month} is normalised out: a month-stamp
+    rolling over is not an edit, and treating it as one would bump every casino
+    page on the first of the month for nothing.
+    """
+    blob = json.dumps([page.get(k) for k in CONTENT_KEYS],
+                      sort_keys=True, ensure_ascii=False, default=str)
+    blob = blob.replace("{month}", "")
+    return hashlib.sha1(blob.encode("utf-8")).hexdigest()[:16]
+
+
+def _content_dates():
+    """slug -> {hash, date}, persisted so the date survives the next build."""
+    if not hasattr(_content_dates, "_c"):
+        try:
+            with open(CONTENT_DATES, encoding="utf-8") as fh:
+                _content_dates._c = json.load(fh)
+        except (FileNotFoundError, json.JSONDecodeError):
+            _content_dates._c = {}
+        _content_dates._dirty = False
+    return _content_dates._c
+
+
+def content_date(page):
+    """The day this page's build.py copy last changed, recorded on first sight."""
+    store = _content_dates()
+    key = page["slug"] or "index"
+    fp = _content_fingerprint(page)
+    rec = store.get(key)
+    if not rec or rec.get("hash") != fp:
+        store[key] = {"hash": fp, "date": datetime.date.today().isoformat()}
+        _content_dates._dirty = True
+    return store[key]["date"]
+
+
+def flush_content_dates():
+    if getattr(_content_dates, "_dirty", False):
+        os.makedirs(os.path.dirname(CONTENT_DATES), exist_ok=True)
+        with open(CONTENT_DATES, "w", encoding="utf-8") as fh:
+            json.dump(_content_dates(), fh, indent=1, sort_keys=True)
+            fh.write("\n")
+
+
 def page_lastmod(page):
     """When this page's content last actually changed.
 
     Deliberately ignores base.html and the stylesheet: re-skinning a page is not
-    a content change, and treating it as one is exactly what devalues the field."""
-    cand = [git_dates().get("src/pages/%s.html" % page["src"])]
+    a content change, and treating it as one is exactly what devalues the field.
+
+    Two sources, because a page's copy lives in two places: the body in
+    src/pages, and the title, description, FAQ, standfirst and verdict in the
+    PAGES entry here."""
+    cand = [git_dates().get("src/pages/%s.html" % page["src"]), content_date(page)]
     if page["slug"] in DATA_PAGES:
         cand.append(latest_draw_ymd())
     cand = [d for d in cand if d]
@@ -2007,6 +2076,23 @@ def analytics_block():
             'data-cf-beacon=\'{"token":"%s"}\'></script>' % html.escape(token, quote=True))
 
 
+# Images worth declaring. Only the ones that carry meaning - the contributor
+# portraits and the article artwork. Icons and the logo are chrome, and listing
+# them would pad the file without telling a crawler anything.
+SITEMAP_IMAGES = {
+    "authors": [("/assets/img/authors/keri-ihimaera.jpg", "Keri Ihimaera"),
+                ("/assets/img/authors/ngaio-hulme.jpg", "Ngaio Hulme")],
+}
+
+
+def _sitemap_images(page):
+    out = []
+    for src, title in SITEMAP_IMAGES.get(page["slug"], []):
+        out.append(f"<image:image><image:loc>{SITE}{src}</image:loc>"
+                   f"<image:title>{html.escape(title)}</image:title></image:image>")
+    return "".join(out)
+
+
 def build():
     base = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block()).replace("{band}", band_block())
     written = []
@@ -2719,7 +2805,8 @@ def build():
             continue
         loc = SITE + "/" if not page["slug"] else f"{SITE}/{page['slug']}/"
         urls.append(f"  <url><loc>{loc}</loc>"
-                    f"<lastmod>{page_lastmod(page)}</lastmod></url>")
+                    f"<lastmod>{page_lastmod(page)}</lastmod>"
+                    f"{_sitemap_images(page)}</url>")
     for extra, mod in urls_extra:
         urls.append(f"  <url><loc>{SITE}/{extra}</loc><lastmod>{mod}</lastmod></url>")
     for d in all_draws:
@@ -2730,13 +2817,23 @@ def build():
                     f"<lastmod>{ymd}</lastmod></url>")
     for kind in SECTIONS:
         for a in _entries(kind):
+            img = ""
+            for ext in (".png", ".svg"):
+                rel = f"assets/img/articles/{a['slug']}{ext}"
+                if os.path.exists(os.path.join(ROOT, rel)):
+                    img = (f"<image:image><image:loc>{SITE}/{rel}</image:loc>"
+                           f"<image:title>{html.escape(a['title'])}</image:title>"
+                           f"</image:image>")
+                    break
             urls.append(f"  <url><loc>{SITE}/{kind}/{a['slug']}/</loc>"
-                        f"<lastmod>{a.get('updated', a['date'])}</lastmod></url>")
+                        f"<lastmod>{a.get('updated', a['date'])}</lastmod>{img}</url>")
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n'
-                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+                 '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
                  + "\n".join(urls) + "\n</urlset>\n")
     written.append("sitemap.xml")
+    flush_content_dates()
 
     blocked = ["AhrefsBot", "SemrushBot", "MJ12bot", "DotBot", "Rogerbot",
                "serpstatbot", "SistrixBot"]
