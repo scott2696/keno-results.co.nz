@@ -23,6 +23,100 @@ SRC = os.path.join(ROOT, "src")
 SITE = "https://keno-results.co.nz"
 YEAR = datetime.date.today().year
 
+
+# ---- Title Case ---------------------------------------------------------
+# Headings across the site are Title Case. A run is left exactly as written if
+# it carries a digit (35x, $1, "1."), and a hyphen-part is left alone if it
+# already carries a capital, so NZ, NZD, RTP, PayPal and New survive while the
+# tail of Buy-now-pay-later still gets cased.
+
+# AP-style: articles, coordinating conjunctions and prepositions of <=3 letters.
+# "up" is deliberately absent - on this site it is always a particle ("sign up",
+# "speed up"), never a preposition.
+SMALL_WORDS = {"a", "an", "the", "and", "but", "or", "nor", "for", "yet", "so",
+               "at", "by", "in", "of", "on", "to", "as", "per", "via", "vs"}
+
+_ENT = re.compile(r"&(?:[a-zA-Z]+|#\d+);")
+_TAG = re.compile(r"<[^>]+>")
+_PH = re.compile(r"\{[^}]*\}")
+
+
+def _tc_core(run):
+    """The bare word: entities collapsed, surrounding punctuation stripped."""
+    return _PH.sub("", _ENT.sub("'", run)).strip("\"'()[]{}.,;:!?\u2014\u2013-\u2026")
+
+
+def _tc_part_upper(run, start):
+    """Does the hyphen-part beginning at `start` already carry a capital?"""
+    return any(c.isupper() for c in _ENT.sub("", run[start:].split("-", 1)[0]))
+
+
+def _tc_cap(run):
+    """Uppercase the first letter of each hyphen-part that lacks one."""
+    out, boundary, part = [], True, _tc_part_upper(run, 0)
+    i = 0
+    while i < len(run):
+        m = _ENT.match(run, i) or _PH.match(run, i)
+        if m:                        # entity/placeholder: copy, not a boundary
+            out.append(m.group(0)); i = m.end(); continue
+        ch = run[i]
+        if boundary and ch.isalpha() and not part:
+            out.append(ch.upper()); boundary = False
+        else:
+            out.append(ch)
+            if ch.isalpha():
+                boundary = False
+            if ch == "-":
+                boundary = True
+                part = _tc_part_upper(run, i + 1)
+        i += 1
+    return "".join(out)
+
+
+def _tc_lower(run):
+    """Lowercase a small word that a previous pass had capitalised."""
+    for i, ch in enumerate(run):
+        if ch.isalpha():
+            return run[:i] + ch.lower() + run[i + 1:]
+    return run
+
+
+def title_case(text):
+    """Title-case heading text, leaving tags and their attributes alone."""
+    parts, tags = _TAG.split(text), _TAG.findall(text)
+    runs, index = [], []
+    for chunk in parts:
+        toks = re.split(r"(\s+)", chunk)
+        index.append([len(runs) + i for i, t in enumerate(toks)])
+        runs.extend(toks)
+
+    words = [i for i, r in enumerate(runs) if r.strip()]
+    if not words:
+        return text
+    first, last = words[0], words[-1]
+
+    for n, i in enumerate(words):
+        run = runs[i]
+        core = _tc_core(run)
+        if not core or any(c.isdigit() for c in core):
+            continue                                  # 35x, $1, 18+, "1."
+        prev = runs[words[n - 1]] if n else ""
+        # test `prev` as written: stripping punctuation first would hide the
+        # very full stop or question mark we are looking for
+        new_sentence = bool(re.search(
+            r"(?:[.!?:]|&mdash;|&ndash;|[\u2014\u2013])[\"'\)\]]*\s*$", prev))
+        if i == first or i == last or new_sentence or core.lower() not in SMALL_WORDS:
+            runs[i] = _tc_cap(run)
+        else:
+            runs[i] = _tc_lower(run)
+
+    rebuilt = ["".join(runs[j] for j in ids) for ids in index]
+    out = rebuilt[0]
+    for t, seg in zip(tags, rebuilt[1:]):
+        out += t + seg
+    return out
+
+
 # slug -> page definition. slug "" is the homepage.
 PAGES = [
     dict(slug="", src="index", nav="home",
@@ -915,12 +1009,12 @@ SECTIONS = {
     "blog": {"file": "blog.json", "key": "posts", "label": "Blog",
              "schema": "Article",
              "eyebrow": "Analysis &amp; reference",
-             "empty_h": "Nothing published yet",
+             "empty_h": "Nothing Published Yet",
              "empty_p": "Analysis and reference posts will appear here."},
     "news": {"file": "news.json", "key": "articles", "label": "News",
              "schema": "NewsArticle",
              "eyebrow": "News",
-             "empty_h": "No news yet",
+             "empty_h": "No News Yet",
              "empty_p": "Timely Keno and lottery news will appear here as we publish it."},
 }
 
@@ -932,7 +1026,27 @@ def _entries(kind):
             items = json.load(fh).get(cfg["key"], [])
     except (FileNotFoundError, json.JSONDecodeError):
         return []
+    items = [_tc_entry(a) for a in items]
     return sorted(items, key=lambda a: a.get("date", ""), reverse=True)
+
+
+_BODY_H = re.compile(r"(<h([1-6])(?:\s[^>]*)?>)(.*?)(</h\2>)", re.S)
+
+
+def _tc_entry(a):
+    """Title Case an article's headline and its in-body section headings.
+
+    Done at load rather than in the JSON so it also covers whatever
+    auto_news.py writes next, and so the headline, the listing card, the
+    <title>, og:title and the schema headline cannot drift apart.
+    """
+    out = dict(a)
+    if a.get("title"):
+        out["title"] = title_case(a["title"])
+    if a.get("body"):
+        out["body"] = _BODY_H.sub(
+            lambda m: m.group(1) + title_case(m.group(3)) + m.group(4), a["body"])
+    return out
 
 
 def _pretty_date(iso):
@@ -1668,7 +1782,7 @@ def bonusbox_block():
         '</button>'
         '<span class="bb-flag">Advertisement</span>'
         '<p class="bb-eyebrow">Bonus box</p>'
-        f'<h2 class="bb-title" id="bb-title">{len(cards)} welcome offers</h2>'
+        f'<h2 class="bb-title" id="bb-title">{len(cards)} Welcome Offers</h2>'
         '<p class="bb-lede">From the operators we carry. Not a prize draw &mdash; '
         'these are the same paid placements you see on the page, in one place.</p>'
         f'<ul class="bb-grid">{"".join(cards)}</ul>'
@@ -1710,7 +1824,7 @@ def faq_block(faq):
         '<details%s><summary>%s</summary><div class="a">%s</div></details>'
         % (" open" if i == 0 else "", html.escape(q), a)
         for i, (q, a) in enumerate(faq))
-    return ('<section><div class="sec-h"><h2>Common questions</h2></div>'
+    return ('<section><div class="sec-h"><h2>Common Questions</h2></div>'
             '<div class="faq">%s</div></section>' % items)
 
 
@@ -1927,7 +2041,7 @@ def build():
             '<div class="wrap">'
             '<div class="page-head">'
             '<p class="eyebrow">Keno draw result</p>'
-            f'<h1>Keno results: draw {did}</h1>'
+            f'<h1>Keno Results: Draw {did}</h1>'
             f'<p class="lede">{day} at {tod} New Zealand time. '
             'Twenty numbers drawn from 1 to 80.</p>'
             '</div>'
@@ -1944,7 +2058,7 @@ def build():
             f'<strong>{html.escape(src_label)}</strong></a></span>'
             '<span><a href="/about/#corrections">Report an error</a></span>'
             '</div></div></section>'
-            '<section><div class="sec-h"><h2>This draw against all 80 numbers</h2></div>'
+            '<section><div class="sec-h"><h2>This Draw Against All 80 Numbers</h2></div>'
             + draw_grid(d["numbers"]) +
             '<p class="muted" style="font-size:13px; margin-top:14px; text-align:center">'
             'Twenty of eighty come out each draw, so any given number appears '
@@ -1954,7 +2068,7 @@ def build():
             '<section><div class="btn-row" style="justify-content:center">'
             + "".join(nav_links) + '</div></section>'
             '<section><div class="card" style="text-align:center">'
-            '<h2 style="font-size:19px">Did your numbers come up?</h2>'
+            '<h2 style="font-size:19px">Did Your Numbers Come Up?</h2>'
             '<p class="muted" style="font-size:14.5px; max-width:56ch; margin:0 auto 16px">'
             'Check a ticket against this draw. Your numbers stay in your browser.</p>'
             f'<a class="btn btn-primary" href="/check/?draw={did}">Check my numbers</a>'
@@ -2030,7 +2144,7 @@ def build():
             '<div class="wrap">'
             '<div class="page-head">'
             '<p class="eyebrow">Keno odds</p>'
-            f'<h1>{spots} spot Keno odds</h1>'
+            f'<h1>{spots} Spot Keno Odds</h1>'
             f'<p class="lede">Every prize tier for a {spots}-spot Keno ticket, calculated '
             'from the rules of the game. Matching all '
             f'{spots} happens about once in {1/p_top:,.0f} tickets.</p>'
@@ -2050,12 +2164,12 @@ def build():
             '<p>These are odds, not prizes. What each tier pays depends on your stake, '
             'the <a href="/multiplier/">multiplier</a> on that draw and Lotto NZ\'s current '
             'prize schedule. See <a href="/prizes/">how Keno prizes are structured</a>.</p></div>'
-            '<h2>How this is calculated</h2>'
+            '<h2>How This Is Calculated</h2>'
             '<p>Hypergeometric probability - drawing without replacement from a fixed pool. '
             f'For a {spots}-spot ticket the chance of matching exactly <em>k</em> numbers is '
             f'<span class="mono">C(20, k) &times; C(60, {spots} &minus; k) &divide; C(80, {spots})</span>. '
             'Every figure above can be checked with that formula.</p>'
-            '<h2>Other spot counts</h2>'
+            '<h2>Other Spot Counts</h2>'
             f'<p class="jump"><span class="jump-l">Compare</span>{others}</p>'
             '<p>Playing more spots does not shorten your odds - it lengthens the top tier '
             'and widens the ladder beneath it. Compare '
@@ -2146,7 +2260,7 @@ def build():
 
         stat_pages = []
 
-        stat_pages.append(("frequency", "Number frequency",
+        stat_pages.append(("frequency", "Number Frequency",
             f"How often each Keno number has been drawn across {N} confirmed draws.",
             '<p>Counts across all <strong>' + str(N) + '</strong> draws we hold, in number '
             'order. Sorting by count would present ordinary variation as a ranking, so we '
@@ -2161,7 +2275,7 @@ def build():
         for (a, b), c in pair_c.most_common(20):
             prows.append(f'<tr><td class="num">{a} + {b}</td><td class="num">{c}</td>'
                          f'<td class="num">{c/exp_pair:.2f}&times;</td></tr>')
-        stat_pages.append(("pairs", "Most drawn pairs",
+        stat_pages.append(("pairs", "Most Drawn Pairs",
             f"Which two numbers have come out together most often across {N} draws.",
             f'<p>There are <strong>3,160</strong> possible pairs and {N} draws, so any given '
             f'pair is expected about <strong>{exp_pair:.1f}</strong> times.</p>'
@@ -2181,7 +2295,7 @@ def build():
         for n, gap in sorted(last_seen.items(), key=lambda t: -t[1])[:20]:
             grows.append(f'<tr><td class="num">{n}</td><td class="num">{gap}</td>'
                          f'<td class="num">{gap/4:.1f} days</td></tr>')
-        stat_pages.append(("gaps", "Draws since last seen",
+        stat_pages.append(("gaps", "Draws Since Last Seen",
             "How many draws have passed since each number last came up.",
             '<p>Counted back from the most recent draw. At four draws a day, a gap of '
             'twelve is three days.</p>'
@@ -2206,7 +2320,7 @@ def build():
                 ("Fewest odds in a draw", f"{min(odds_ct)}", "&mdash;"),
                 ("Most odds in a draw", f"{max(odds_ct)}", "&mdash;"),
             ])
-        stat_pages.append(("patterns", "Sums and odd/even",
+        stat_pages.append(("patterns", "Sums and Odd/Even",
             f"Sum totals and odd/even splits across {N} Keno draws, against what randomness predicts.",
             '<p>Two measures that show, more clearly than any frequency chart, that the '
             'draw is behaving exactly as a random process should.</p>'
@@ -2228,7 +2342,7 @@ def build():
             draws_at = sum(c.values()) // 20
             trows.append(f'<tr><td class="num">{t}</td><td class="num">{draws_at}</td>'
                          f'<td class="num">{top_n}</td><td class="num">{top_c}</td></tr>')
-        stat_pages.append(("by-draw-time", "Frequency by draw time",
+        stat_pages.append(("by-draw-time", "Frequency by Draw Time",
             "Whether the morning, midday, afternoon and evening draws behave differently. They do not.",
             '<p>Keno draws four times a day. If any draw slot were different from the others, '
             'this is where it would appear.</p>'
@@ -2248,7 +2362,7 @@ def build():
                     '<div class="page-head"><p class="eyebrow">Statistics</p>'
                     f'<h1>{title}</h1><p class="lede">{desc}</p></div>'
                     f'<div class="prose" style="margin-top:30px">{inner}'
-                    '<h2>More statistics</h2>'
+                    '<h2>More Statistics</h2>'
                     f'<p class="jump"><span class="jump-l">See also</span>{others}'
                     '<a href="/statistics/">Hot and cold</a></p>'
                     '</div></div>')
