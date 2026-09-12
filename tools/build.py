@@ -1391,6 +1391,29 @@ def _load_offers():
         return []
 
 
+def _logo_squareish(src):
+    """Is this logo close enough to square that the plate's width is wasted?
+
+    A 116x44 plate is 2.6:1. A wide wordmark fills it; a round badge like
+    Lucky Vibe can only ever use the height, so it renders at a third of the
+    plate and looks shrunken beside the others. Those get the full 44px instead
+    of the padded 34px. Measured from the file rather than listed by operator,
+    so a replacement logo is judged on what it actually is.
+    """
+    if not hasattr(_logo_squareish, "_c"):
+        _logo_squareish._c = {}
+    if src not in _logo_squareish._c:
+        ratio = None
+        try:
+            from PIL import Image
+            with Image.open(os.path.join(ROOT, src.lstrip("/"))) as im:
+                ratio = im.size[0] / im.size[1]
+        except Exception:
+            pass
+        _logo_squareish._c[src] = ratio is not None and ratio < 1.6
+    return _logo_squareish._c[src]
+
+
 def _mark(o, img_cls, word_cls):
     """An operator's logo, or a typographic wordmark when we hold no artwork.
 
@@ -1514,8 +1537,9 @@ def casino_table(page=None):
         logo = o.get("logoRev") or o.get("logo")
         # The card plates the mark on its own tile; where we hold no artwork the
         # plate is dropped rather than filled with a borrowed or invented logo.
-        mark = (f'<span class="ct-mark">'
-                # No width/height attributes: the masters run 128x128 to
+        plate = "ct-mark ct-mark-sq" if _logo_squareish(logo) else "ct-mark"
+        mark = (f'<span class="{plate}">'
+                # No width/height attributes: the masters run 128x48 to
                 # 435x128, so one hard-coded pair would be wrong for nearly all
                 # of them. The plate is a fixed size and reserves the space, so
                 # there is no layout shift to guard against.
