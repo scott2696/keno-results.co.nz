@@ -500,6 +500,12 @@ h4{font-size:15.5px; font-weight:620; letter-spacing:-.01em; margin:22px 0 8px}
 .prose li::marker{color:var(--muted)}
 .prose h2{margin-top:40px}
 .prose h2:first-child{margin-top:0}
+/* Body headings fill their measure. `balance` is inherited from the h1-h4 rule
+   and is right for the centred hero, where it evens two display lines; here it
+   was holding a left-aligned heading 170-280px short of the table directly
+   under it, so the heading looked indented against its own content.
+   `pretty` fills the line and still keeps a lone word off the last one. */
+.prose h1,.prose h2,.prose h3,.prose h4{text-wrap:pretty}
 
 /* ---------- cards / panels ---------- */
 .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:24px; box-shadow:var(--shadow-1)}
