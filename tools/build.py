@@ -125,7 +125,7 @@ PAGES = [
          desc="Today's Keno results for New Zealand, updated after each of the four "
               "daily draws. Latest winning numbers, ticket checker and full archive.",
          js=["results"], schema=["website", "org"]),
-    dict(slug="check", faq=[
+    dict(slug="check", faqtopic="Checking Keno Numbers", faq=[
              ('How do I know if I have won?',
               'Enter your numbers above and they are matched against any published draw, in your browser. For an official confirmation and to claim, take the ticket to Lotto NZ &mdash; we tell you how many numbers matched, not what it is worth.'),
              ('Can I check an old Keno ticket?',
@@ -144,7 +144,7 @@ PAGES = [
          desc="Every daily Keno result we hold for New Zealand, searchable by draw "
               "number, date or a number that came up. Each draw has its own page.",
          js=["archive"], schema=["dataset"]),
-    dict(slug="statistics", faq=[
+    dict(slug="statistics", faqtopic="Keno Statistics", faq=[
              ('Are some Keno numbers due to come up?',
               'No. Every draw is independent and the machine has no memory. A number that has not appeared in fifty draws is exactly as likely as one that appeared in the last three &mdash; both sit at 25%, because twenty numbers are drawn from eighty.'),
              ('What are the most common Keno numbers?',
@@ -156,7 +156,7 @@ PAGES = [
          desc="Which NZ Keno numbers have come up most and least often over the last 5, "
               "10, 25, 50, 100 or 250 draws, plus the full frequency count.",
          js=["results"]),
-    dict(slug="how-to-play", faq=[
+    dict(slug="how-to-play", faqtopic="Playing Keno", faq=[
              ('How many numbers can I pick in Keno?',
               "Between one and ten &mdash; your spots. It is the most consequential choice on the ticket, because each spot count has an entirely different prize ladder. See <a href='/odds/'>the odds tables</a> for all ten."),
              ('Can I choose my own numbers, or do I have to take a Dip?',
@@ -170,7 +170,7 @@ PAGES = [
          desc="How New Zealand Keno works: 20 numbers drawn from 80, choosing your spots, "
               "how prizes are structured, and what people get wrong.",
          schema=["howto"]),
-    dict(slug="odds", faq=[
+    dict(slug="odds", faqtopic="Keno Odds", faq=[
              ('Which Keno spot count has the best odds?',
               'It depends what you mean by best. The chance of matching <em>every</em> spot is highest at 1 spot and falls steeply as you add more. The chance of winning <em>anything at all</em> peaks in the middle of the range. The tables above give both figures for all ten spot counts, so you can see the trade rather than take a recommendation.'),
              ('If I spend more, will I win more?',
@@ -186,7 +186,7 @@ PAGES = [
          desc="Verified Keno odds for every spot count, calculated from the rules of the "
               "game. Includes the full six-spot breakdown and the formula used.",
          schema=["faq"]),
-    dict(slug="number-generator", faq=[
+    dict(slug="number-generator", faqtopic="the Keno Number Generator", faq=[
              ('Do randomly generated numbers win more often?',
               'No. A random line and a line you chose yourself have identical odds. The generator exists so you can see the true probability of a line beside it, not because the numbers are better.'),
          ],
@@ -202,7 +202,7 @@ PAGES = [
          desc="Exact probabilities for any Keno spot count, plus real expected return and "
               "house edge once you supply the prize values from your own paytable.",
          js=["calculator"]),
-    dict(slug="prizes", faq=[
+    dict(slug="prizes", faqtopic="Keno Prizes", faq=[
              ('How do I claim a larger Keno prize?',
               'Smaller prizes can be paid at a retailer; larger ones are claimed through Lotto NZ directly. The operator publishes the current thresholds and the process, and those change, which is why we point you there rather than quote a figure.'),
          ],
@@ -227,7 +227,7 @@ PAGES = [
          desc="Straight answers about New Zealand Keno: how it works, the odds, the "
               "multiplier, whether numbers are ever due, and where our results come from.",
          schema=["faq2"]),
-    dict(slug="multiplier", faq=[
+    dict(slug="multiplier", faqtopic="the Keno Multiplier", faq=[
              ('Does the multiplier change my odds of winning?',
               'No. The multiplier scales what a winning ticket pays; it has no effect on whether a ticket wins. It is attached before the draw and applies to everyone playing that draw equally.'),
              ('What multipliers are possible?',
@@ -239,7 +239,7 @@ PAGES = [
          desc="How the NZ Keno multiplier scales prizes, the values we have observed "
               "across 220 draws, and why it never changes your odds of winning.",
          schema=["faq3"]),
-    dict(slug="draw-schedule", faq=[
+    dict(slug="draw-schedule", faqtopic="Keno Draw Times", faq=[
              ('What time is the Keno draw in New Zealand?',
               'Four draws every day, at 10:01am, 1:01pm, 3:01pm and 6:01pm New Zealand time. Every draw in our archive has held to those times.'),
              ('Does Keno draw on weekends and public holidays?',
@@ -259,7 +259,7 @@ PAGES = [
          desc="How NZ Keno is structured, who operates and regulates it, the age limit, "
               "how prizes are claimed, and where the binding rules live.",
          schema=[]),
-    dict(slug="gaming", src="gaming", section="gaming", noads=True,
+    dict(slug="gaming", faqtopic="Gambling in New Zealand", src="gaming", section="gaming", noads=True,
          faq=[
              ('Is gambling legal in New Zealand?',
               "Some of it. The Gambling Act 2003 works by prohibition with exceptions, so gambling is unlawful unless the Act specifically authorises it. What is permitted is Lotto NZ's games, betting through TAB NZ, gaming machines in pubs and clubs, and the six licensed land-based casinos."),
@@ -272,7 +272,7 @@ PAGES = [
          og="Gambling in New Zealand",
          desc="What is legal, who regulates it, where the money goes, and what "
               "changes on 1 December 2026 - sourced from the legislation itself."),
-    dict(slug="gaming/online-casino-law", src="gaming-online-casino-law",
+    dict(slug="gaming/online-casino-law", faqtopic="the Online Casino Law Change", src="gaming-online-casino-law",
          section="gaming", noads=True,
          faq=[
              ('When does the online casino law change take effect?',
@@ -290,7 +290,7 @@ PAGES = [
          og="The online casino law change",
          desc="New Zealand licensed online casino gambling in 2026. The dates that "
               "matter, what changes on 1 December, and how to spot a licensed site."),
-    dict(slug="gaming/who-regulates-gambling", src="gaming-who-regulates",
+    dict(slug="gaming/who-regulates-gambling", faqtopic="Gambling Regulation in NZ", src="gaming-who-regulates",
          section="gaming", noads=True,
          faq=[
              ('Who regulates gambling in New Zealand?',
@@ -304,7 +304,7 @@ PAGES = [
          og="Who regulates gambling",
          desc="The Gambling Act 2003, the four classes of gambling, the Department "
               "of Internal Affairs, and why sports betting sits under another law."),
-    dict(slug="gaming/getting-help", src="gaming-getting-help",
+    dict(slug="gaming/getting-help", faqtopic="Gambling Harm and Getting Help", src="gaming-getting-help",
          section="gaming", noads=True,
          faq=[
              ('Where can I get help with gambling in New Zealand?',
@@ -322,7 +322,7 @@ PAGES = [
     # noads throughout: online casino advertising is prohibited under the
     # Gambling Act 2003, and the 2026 Act attaches penalties reaching whoever
     # publishes or arranges to publish one. These pages rank on the arithmetic.
-    dict(slug="online-casinos", src="online-casinos", section="casinos", noads=True,
+    dict(slug="online-casinos", faqtopic="Online Casinos", src="online-casinos", section="casinos", noads=True,
          ct=dict(h="Best Online Casino Sites NZ &mdash; Ranked for {month}",
                  p="Fifteen online casinos take New Zealand players right now, and every welcome offer on this page has been through the same wagering maths before it went up. You get the bonus, the multiple and the minimum deposit side by side, so you can see in about ten seconds which ones are worth claiming and which are marketing."),
          faq=[
@@ -350,7 +350,7 @@ PAGES = [
          title="Best Online Casino Sites in New Zealand for {month} | keno-results.co.nz",
          og="Best online casino sites NZ",
          desc="Compare the top online casinos NZ players use in 2026. Real money casino NZ sites measured on house edge, withdrawal terms and bonus maths, not banner size."),
-    dict(slug="licensed-online-casinos", src="licensed-online-casinos",
+    dict(slug="licensed-online-casinos", faqtopic="Licensed Online Casinos", src="licensed-online-casinos",
          section="casinos", noads=True,
          ct=dict(h="Online Casino Sites Accepting New Zealand Players",
                  p="Fifteen casinos accepting New Zealand players, with the licence question answered properly for each: not one of them holds a New Zealand online casino licence, because the Department of Internal Affairs has not issued one to anyone yet. Below the table is the two-minute check that tells you what licence a site does hold."),
@@ -377,7 +377,7 @@ PAGES = [
          title="Licensed Online Casinos in New Zealand: Are They Legal? | keno-results.co.nz",
          og="Legal and licensed online casinos NZ",
          desc="Are online casinos legal in New Zealand? Check licensed online casinos NZ against the Gambling Act, see who regulates them, and verify a licence in two minutes."),
-    dict(slug="casino-bonus", src="casino-bonus",
+    dict(slug="casino-bonus", faqtopic="Casino Bonuses", src="casino-bonus",
          section="casinos", noads=True,
          ct=dict(h="Best Casino Bonuses NZ &mdash; Welcome Offers for {month}",
                  p="Every welcome bonus here has been run through one division before publication. A bonus breaks even at 25&times; wagering on a typical pokie; these run from 30&times; to 50&times;, and the multiple sits under each button so you can do the sum yourself. That is the difference between a NZ$18,500 headline and NZ$18,500 you can withdraw."),
@@ -402,7 +402,7 @@ PAGES = [
          title="Best Casino Bonuses in New Zealand for {month} | keno-results.co.nz",
          og="Best casino bonuses NZ",
          desc="Compare the best casino bonuses NZ offers in 2026: what a casino sign up bonus NZ is really worth after the wagering maths, plus $1 deposit casino NZ terms."),
-    dict(slug="casino-payout-percentages", src="casino-payout-percentages",
+    dict(slug="casino-payout-percentages", faqtopic="Casino Payout Percentages", src="casino-payout-percentages",
          section="casinos", noads=True,
          ct=dict(h="Best Payout Casinos NZ &mdash; Highest RTP Sites for {month}",
                  p="Fifteen casinos serving New Zealand, running largely the same games from the same studios. Which is the point: no casino pays out the most, games do. The house edge of every common game is set out below, derived from the published rules rather than quoted &mdash; from blackjack at 0.5% to the baccarat tie at 14.36%."),
@@ -427,7 +427,7 @@ PAGES = [
          title="Best Payout Casinos in New Zealand for {month} | keno-results.co.nz",
          og="Best payout online casinos NZ",
          desc="What is RTP in pokies, and which is the best payout online casino NZ? Casino payout percentage and highest RTP casinos NZ, worked from published game rules."),
-    dict(slug="fast-payout-casinos", src="fast-payout-casinos",
+    dict(slug="fast-payout-casinos", faqtopic="Fast Payout Casinos", src="fast-payout-casinos",
          section="casinos", noads=True,
          ct=dict(h="Best Fast Payout Casinos NZ &mdash; Instant Withdrawals for {month}",
                  p="Fifteen casinos accepting New Zealand players, with the minimum deposit and wagering on each. On withdrawal speed the honest answer is that your own account decides it: a verified account paying to an e-wallet is same-day almost anywhere, an unverified one paying to a card is a week almost anywhere. Below is how to be in the first group."),
@@ -456,7 +456,7 @@ PAGES = [
          title="Best Fast Payout Casinos in NZ for {month} | keno-results.co.nz",
          og="Fast payout casinos NZ",
          desc="How long do casino withdrawals take NZ? Compare fast payout casinos NZ and instant withdrawal casino NZ claims against what the payment rails actually clear."),
-    dict(slug="casino-payment-methods", src="casino-payment-methods",
+    dict(slug="casino-payment-methods", faqtopic="Casino Payment Methods", src="casino-payment-methods",
          section="casinos", noads=True,
          ct=dict(h="Best Casino Payment Methods NZ &mdash; NZD, POLi, Crypto for {month}",
                  p="Fifteen casinos taking New Zealand players, with the minimum deposit on each. What the table deliberately does not list is accepted payment methods &mdash; those change without notice and the cashier page is the only current source. What the guide below gives you is the cost nobody prints: the conversion spread on a non-NZD account."),
@@ -483,7 +483,7 @@ PAGES = [
          title="Best Casino Payment Methods in NZ for {month} | keno-results.co.nz",
          og="Casino payment methods NZ",
          desc="Casino payment methods NZ on fee and speed: online casino deposit methods NZ including PayPal casino NZ, Paysafecard casino NZ and casinos that accept POLi NZ."),
-    dict(slug="online-pokies", src="online-pokies",
+    dict(slug="online-pokies", faqtopic="Online Pokies", src="online-pokies",
          section="casinos", noads=True,
          ct=dict(h="Best Real Money Online Pokies Sites NZ for {month}",
                  p="Fifteen casinos with real money pokies for New Zealand players, and the welcome offer on each. The libraries overlap heavily because a handful of studios supply everyone, so what actually separates these sites is the cashier &mdash; and what separates the games is RTP, which runs from 92% to 99.07% and is disclosed in a tab nobody opens."),
@@ -512,7 +512,7 @@ PAGES = [
          title="Best Online Pokies Sites in New Zealand for {month} | keno-results.co.nz",
          og="Online pokies NZ",
          desc="Best online pokies NZ for 2026: how online pokies real money NZ games work, what RTP and volatility actually change, and where free pokies NZ demos mislead."),
-    dict(slug="live-casino", src="live-casino",
+    dict(slug="live-casino", faqtopic="Live Casino Games", src="live-casino",
          section="casinos", noads=True,
          ct=dict(h="Best Live Casino Sites NZ &mdash; Live Dealer Tables for {month}",
                  p="Fifteen casinos with live dealer tables for New Zealand players. The tables themselves come from a handful of studios and are streamed into all of them, so the site matters less than the table: French roulette with la partage runs a 1.35% house edge, and 6:5 blackjack costs 1.4% more than 3:2. Both are printed on the felt."),
@@ -537,7 +537,7 @@ PAGES = [
          title="Best Live Casino Sites in New Zealand for {month} | keno-results.co.nz",
          og="Live casino NZ",
          desc="Best live casino NZ guide for 2026: how live dealer casino NZ games work, and the real house edge on live roulette NZ, live blackjack NZ and baccarat tables."),
-    dict(slug="how-we-rate-casinos", src="how-we-rate-casinos",
+    dict(slug="how-we-rate-casinos", faqtopic="How We Rate Casinos", src="how-we-rate-casinos",
          section="casinos", noads=True,
          ct=dict(h="The Operators This Site Has Commercial Arrangements With",
                  p="Fifteen casinos accepting New Zealand players, shown on every page in this section. This is the page that explains how they got there, what we check, what we deliberately ignore, and who pays for what &mdash; published as criteria and arithmetic rather than a score out of ten, so you can apply it yourself."),
@@ -558,7 +558,7 @@ PAGES = [
          title="How We Rate Online Casinos in New Zealand | keno-results.co.nz",
          og="How to choose a safe online casino",
          desc="How to tell if an online casino is legit: our online casino review methodology, casino licensing explained, and how to check if a casino is licensed NZ-side."),
-    dict(slug="new-casinos-nz", src="new-casinos-nz",
+    dict(slug="new-casinos-nz", faqtopic="New Online Casinos", src="new-casinos-nz",
          section="casinos", noads=True,
          ct=dict(h="Newest Online Casino Sites NZ &mdash; New Casinos for {month}",
                  p="Fifteen casinos accepting New Zealand players, with the welcome offer and wagering on each. None is genuinely new, which is the point of this page: most sites marketed as new turn out to be a fresh brand on an existing licence, and the truly new ones have no complaint record &mdash; the most useful thing there is to know about a casino."),
@@ -581,7 +581,7 @@ PAGES = [
          title="New Online Casinos in New Zealand for {month} | keno-results.co.nz",
          og="New online casinos NZ",
          desc="New online casinos NZ for 2026: what the newest online casinos NZ and new casino sites NZ will not tell you, and how to check one with no track record."),
-    dict(slug="no-deposit-bonus", src="no-deposit-bonus",
+    dict(slug="no-deposit-bonus", faqtopic="No Deposit Bonuses", src="no-deposit-bonus",
          section="casinos", noads=True,
          ct=dict(h="Best No Deposit Bonus NZ &mdash; Free Spins for {month}",
                  p="Fifteen casinos accepting Kiwi players, with the wagering and minimum deposit on every welcome offer. One of them &mdash; Lucky7even &mdash; hands you 20 spins before you deposit anything. On any no deposit bonus the figure that decides its value is the maximum cashout, and that is what the guide below is about."),
@@ -608,7 +608,7 @@ PAGES = [
          title="Best No Deposit Bonus Offers in NZ for {month} | keno-results.co.nz",
          og="No deposit bonus NZ",
          desc="Find no deposit bonus NZ offers and free spins no deposit NZ deals, with no deposit bonus codes NZ checked against the max cashout that decides their value."),
-    dict(slug="crypto-casinos-nz", src="crypto-casinos-nz",
+    dict(slug="crypto-casinos-nz", faqtopic="Crypto Casinos", src="crypto-casinos-nz",
          section="casinos", noads=True,
          ct=dict(h="Best Crypto Casinos NZ &mdash; Bitcoin Sites for {month}",
                  p="Fifteen casinos that take New Zealand players and accept crypto, with the welcome offer and wagering on each. Before the bonus, price the round trip: paying in crypto means four currency conversions rather than two, and on a short session the spread costs more than the entire 2.70% house edge of single-zero roulette."),
@@ -641,7 +641,7 @@ PAGES = [
          desc="Who runs keno-results.co.nz, where the results come from, how every draw "
               "is validated before publication, and how to report an error.",
          schema=["org"]),
-    dict(slug="lotto-nz", faq=[
+    dict(slug="lotto-nz", faqtopic="Lotto NZ Games", faq=[
              ('Do I pay tax on Lotto winnings in New Zealand?',
               'Lotto NZ states prize money is not taxed, so a prize is paid in full. What the money then earns &mdash; interest, dividends, rent &mdash; is taxable in the ordinary way. That is general information rather than tax advice; Inland Revenue is the right answer for your own circumstances.'),
              ('I found an old ticket &mdash; can I still claim?',
@@ -653,7 +653,7 @@ PAGES = [
          desc="The Lotto NZ games that run alongside Keno \u2014 Lotto, Powerball, Strike, "
               "Bullseye and Instant Kiwi \u2014 with the odds, draw nights and structure "
               "of each compared."),
-    dict(slug="powerball", faq=[
+    dict(slug="powerball", faqtopic="Powerball", faq=[
              ('How has Powerball changed since it launched in 2001?',
               'It began with eight Powerballs and a $1 million starting jackpot. The change on 13 September 2026, taking the pool from 10 to 14, is the fifth revision of the game.'),
              ('Why is there a Must Be Won draw?',
@@ -665,7 +665,7 @@ PAGES = [
          desc="How Powerball NZ attaches to a Lotto line, what it does to the odds, how "
               "the 2026 change to 14 balls shifts them, and why a bigger jackpot is "
               "not better odds."),
-    dict(slug="bullseye", faq=[
+    dict(slug="bullseye", faqtopic="Bullseye", faq=[
              ('What are the odds of winning Bullseye?',
               'A six-digit number runs from 000000 to 999999, which is 1,000,000 possibilities, so one entry matches exactly once in a million. That follows from the format alone and does not change.'),
              ('When is Bullseye drawn?',
@@ -1861,7 +1861,7 @@ def hreflang_block(canonical, robots=""):
         for lang in ("en-NZ", "en-AU", "x-default"))
 
 
-def faq_block(faq):
+def faq_block(faq, page=None):
     """Per-page questions, rendered as the same disclosure list /faqs/ uses.
 
     Questions come from what people actually ask - Lotto NZ's own FAQ for the
@@ -1876,8 +1876,19 @@ def faq_block(faq):
         '<details%s><summary>%s</summary><div class="a">%s</div></details>'
         % (" open" if i == 0 else "", html.escape(q), a)
         for i, (q, a) in enumerate(faq))
-    return ('<section><div class="sec-h"><h2>Common Questions</h2></div>'
-            '<div class="faq">%s</div></section>' % items)
+    # "Frequently Asked Questions About X" rather than a bare "Common Questions":
+    # it is the phrasing people search, and it tells a reader arriving at an
+    # anchor which page's questions these are. faqtopic is the noun phrase; it
+    # falls back to the og title, which is close enough to read correctly.
+    topic = (page or {}).get("faqtopic") or (page or {}).get("og")
+    heading = ("Frequently Asked Questions About %s" % topic) if topic \
+        else "Frequently Asked Questions"
+    # {faq} is injected into <main> after the page's own .wrap divs have closed,
+    # so without one of its own the whole block sat flush against both window
+    # edges - no side margin at all, and the card borders clipped off-screen.
+    return ('<div class="wrap"><section><div class="sec-h"><h2>%s</h2></div>'
+            '<div class="faq">%s</div></section></div>'
+            % (html.escape(heading), items))
 
 
 def faq_schema(faq, url):
@@ -2011,7 +2022,7 @@ def build():
                    .replace("{bloglist}", entry_list("blog")))
                # outside the {content} chain: the slot lives in base.html, not
                # in the page body, so replacing it on `body` never matched
-               .replace("{faq}", faq_block(page.get("faq")))
+               .replace("{faq}", faq_block(page.get("faq"), page))
                .replace("{year}", str(YEAR)))
 
         rel = page.get("path") or ("index.html" if not slug else f"{slug}/index.html")
