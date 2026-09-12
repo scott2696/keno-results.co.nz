@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-11T23:19:03",
+  "updated": "2026-09-12T00:22:02",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -101,6 +101,16 @@
       "priority": 1,
       "covered": false,
       "seen": "2026-09-11"
+    },
+    {
+      "title": "Guaranteed winner tonight as Lotto overhauls Powerball",
+      "source": "NZ Herald",
+      "published": "Fri, 11 Sep 2026 23:57:39 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPSktIWHp3eVBBUGtDZEtnUFo2UEZPTlRPeHF5WFBlV3VzWkhTQ1NRSzVQeTc0WExCMXJXbkNzNVVYWEsybU5IY2l3UjJzbGttWEM3RXNuR3YxN2N5ODFkNTRkT19MWHg1TVJoZjZRWk4tbmVqTlR5M2oydTZERkVINkdwNlVaYTFnaUVnTk0wZy05SmJjVy04ME53cFZXc0ZUbjNqZzhjNFJDRmtSTGgzMjhpNEp0SUZmNnlIRGdYVWhydjJ6RWhpNWU4ZW5aYWlxY1NGMTI2LUE3V3c?oc=5",
+      "topic": "rules",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-12"
     },
     {
       "title": "Why tonight's $28m Lotto jackpot could be the last of its kind",
@@ -1187,16 +1197,6 @@
       "source": "NZ Herald",
       "published": "Tue, 24 Mar 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZVAyeTZCd21xM19LMHdiSEtSSGhaVThCbHZHcDhJRVNaRjdvUDh2ekZyU0c3UzA3V2dEa3h4MDd5T2lpdlA3RVotYWF0S182SkxFV3g2WDNQXzB2RlE0cFZZaTg5eFZocFp1WmVkZmhzallhZWVPbzQ5dnY1ekh4X2YzRHJvOFNVeGo4dWliWFZEQWlKUHlhakEyTDN3U1QweWVsS25VWlU?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Ashburton family's $7.50 Lotto ticket turns into $28.6 million win",
-      "source": "1News",
-      "published": "Thu, 11 Jun 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOaHBiQmt5VXRMMVhaeXoyUXN4SmdxQWk1aGdYN3Z6TVctMUdYMjJjYl90amN3Wk9QaF9JLWRoRTdEQ2RuMjhQTnJ6NEl3dkJTbjBYRGZjTkFSZno0NnE3ZTV3TzVJTFBsYnQtZ1o1LWxxVlZMUmxBZTBua0p3WDNzN294bndoc2c3c3JFeUNxcVRZNHBrOE1vWFhJR0ZiZw?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
