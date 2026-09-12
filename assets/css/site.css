@@ -1637,7 +1637,9 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
 .ct-adv a{color:var(--muted); text-decoration:underline; text-underline-offset:2px}
 .ct-adv a:hover{color:var(--accent)}
 /* per-page commentary; leads on desktop, drops below the table on mobile */
-.ct-note{font-size:13.5px; color:var(--muted); margin:0 0 16px; max-width:76ch; line-height:1.55}
+/* no measure cap: this standfirst is sized to the table it introduces, so it
+   runs the full width of the section rather than stopping short of it */
+.ct-note{font-size:13.5px; color:var(--muted); margin:0 0 16px; line-height:1.55}
 .ct-tw{margin:0}
 table.ct{min-width:680px}
 table.ct tbody td{padding:16px 14px; vertical-align:middle}
@@ -1687,7 +1689,7 @@ table.ct tbody td{padding:16px 14px; vertical-align:middle}
 .ct-cta:hover{filter:brightness(1.06); transform:translateX(1px)}
 .ct-cta:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .ct-terms{display:block; font-size:10.5px; color:var(--muted); margin-top:7px}
-.ct-legal{font-size:12px; color:var(--muted); margin:14px 0 0; max-width:78ch; line-height:1.55}
+.ct-legal{font-size:12px; color:var(--muted); margin:14px 0 0; line-height:1.55}
 
 /* ---- mobile: the ranked card ------------------------------------------- */
 @media (max-width:760px){
