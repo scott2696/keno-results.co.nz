@@ -1761,7 +1761,11 @@ table.ct tbody td{padding:16px 14px; vertical-align:middle}
    duplicating any of them in the markup. DOM order still reads correctly for
    assistive tech and for a no-CSS render. */
 @media (max-width:760px){
-  .atf{display:flex; flex-direction:column}
+  /* .page-head goes display:contents just below, which generates no box - so
+     its 52px padding-top is discarded and the eyebrow ends up flush against
+     the nav. The container keeps the spacing instead, trimmed from 52 because
+     the point of this whole block is to get the table above the fold. */
+  .atf{display:flex; flex-direction:column; padding-top:28px}
   /* flex items default to min-width:auto, which refuses to shrink below the
      widest unbreakable content and pushed the prose off the right edge */
   .atf > *{min-width:0; max-width:100%}
