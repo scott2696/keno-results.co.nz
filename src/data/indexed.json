@@ -1,6 +1,6 @@
 {
   "_note": "URLs already sent to RalfyIndex. A URL is recorded only once the API has accepted it, so a failed run simply retries next time.",
-  "updated": "2026-09-12T09:22:48",
+  "updated": "2026-09-12T10:50:45",
   "submitted": {
     "https://keno-results.co.nz/": "2026-09-10",
     "https://keno-results.co.nz/check/": "2026-09-10",
@@ -311,6 +311,18 @@
     "https://keno-results.co.nz/results/2026-09-12/27738/": "2026-09-12",
     "https://keno-results.co.nz/results/2026-09-12/27737/": "2026-09-12",
     "https://keno-results.co.nz/results/2026-09-12/27739/": "2026-09-12",
-    "https://keno-results.co.nz/news/lotto-draw-2620-result/": "2026-09-12"
+    "https://keno-results.co.nz/news/lotto-draw-2620-result/": "2026-09-12",
+    "https://keno-results.co.nz/online-casinos/": "2026-09-12",
+    "https://keno-results.co.nz/licensed-online-casinos/": "2026-09-12",
+    "https://keno-results.co.nz/casino-bonus/": "2026-09-12",
+    "https://keno-results.co.nz/casino-payout-percentages/": "2026-09-12",
+    "https://keno-results.co.nz/fast-payout-casinos/": "2026-09-12",
+    "https://keno-results.co.nz/casino-payment-methods/": "2026-09-12",
+    "https://keno-results.co.nz/online-pokies/": "2026-09-12",
+    "https://keno-results.co.nz/live-casino/": "2026-09-12",
+    "https://keno-results.co.nz/how-we-rate-casinos/": "2026-09-12",
+    "https://keno-results.co.nz/new-casinos-nz/": "2026-09-12",
+    "https://keno-results.co.nz/no-deposit-bonus/": "2026-09-12",
+    "https://keno-results.co.nz/crypto-casinos-nz/": "2026-09-12"
   }
 }
