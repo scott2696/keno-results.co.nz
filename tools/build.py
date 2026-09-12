@@ -229,7 +229,7 @@ PAGES = [
     # publishes or arranges to publish one. These pages rank on the arithmetic.
     dict(slug="online-casinos", src="online-casinos", section="casinos", noads=True,
          ct=dict(h="Best Online Casino Sites NZ &mdash; Ranked for {month}",
-                 p="Fifteen operators, every one a commercial partner of this site, in the order we list them &mdash; which is our choice, not a ranking any of them earned. Every welcome offer below has been run through the break-even wagering formula further down this page. On a typical 4% pokie the line is 25&times;. Twelve of the fifteen publish a wagering multiple and every one of them sits above it, from 30&times; to 50&times;; the other three publish none, which is its own answer. The table is paid for; the arithmetic underneath it is not."),
+                 p="Fifteen online casinos take New Zealand players right now, and every welcome offer on this page has been through the same wagering maths before it went up. You get the bonus, the multiple and the minimum deposit side by side, so you can see in about ten seconds which ones are worth claiming and which are marketing."),
          faq=[
              ('Are online casinos legal in New Zealand?',
               "Playing has never been an offence for a New Zealander. The Gambling Act 2003 works by prohibition with exceptions, and online casino gambling was not among the authorised forms &mdash; so it was unlawful to offer from inside New Zealand, while playing on an offshore site was not an offence. New Zealand has since legislated to licence it. See <a href='/licensed-online-casinos/'>licensed online casinos</a>."),
@@ -258,7 +258,7 @@ PAGES = [
     dict(slug="licensed-online-casinos", src="licensed-online-casinos",
          section="casinos", noads=True,
          ct=dict(h="Online Casino Sites Accepting New Zealand Players",
-                 p="All fifteen are paid placements, in our own order. Not one holds a New Zealand online casino licence, because the Department of Internal Affairs has not issued one to anyone yet &mdash; so below I show you how to check what licence a site does hold, rather than asking you to take a badge at face value."),
+                 p="Fifteen casinos accepting New Zealand players, with the licence question answered properly for each: not one of them holds a New Zealand online casino licence, because the Department of Internal Affairs has not issued one to anyone yet. Below the table is the two-minute check that tells you what licence a site does hold."),
          faq=[
              ('Which online casinos are licensed in New Zealand?',
               'The Department of Internal Affairs administers the regime and publishes a register of licensed operators, capped at fifteen. Until a licence has been issued to a given operator, no site can truthfully claim to hold one here &mdash; so the register, rather than a badge on a casino&rsquo;s own page, is what settles it.'),
@@ -285,7 +285,7 @@ PAGES = [
     dict(slug="casino-bonus", src="casino-bonus",
          section="casinos", noads=True,
          ct=dict(h="Best Casino Bonuses NZ &mdash; Welcome Offers for {month}",
-                 p="Paid placements, in our own order. I put every one of these welcome offers through the formula below before publishing it. A bonus breaks even at 1 &divide; the house edge &mdash; 25&times; wagering on a typical pokie &mdash; and every one of the twelve that publishes a multiple sits above it, from 30&times; to 50&times;. The remaining three publish no multiple at all. They are paid placements. The number that judges them is not."),
+                 p="Every welcome bonus here has been run through one division before publication. A bonus breaks even at 25&times; wagering on a typical pokie; these run from 30&times; to 50&times;, and the multiple sits under each button so you can do the sum yourself. That is the difference between a NZ$18,500 headline and NZ$18,500 you can withdraw."),
          faq=[
              ('What does 40x wagering actually mean?',
               'That you must stake forty times the bonus before bonus funds become withdrawable. On a NZ$100 bonus that is NZ$4,000 of turnover &mdash; or NZ$8,000 if the multiple applies to deposit plus bonus rather than to the bonus alone.'),
@@ -310,7 +310,7 @@ PAGES = [
     dict(slug="casino-payout-percentages", src="casino-payout-percentages",
          section="casinos", noads=True,
          ct=dict(h="Best Payout Casinos NZ &mdash; Highest RTP Sites for {month}",
-                 p="Paid placements, in our own order. I am not going to tell you which pays out the most, because no casino pays out the most &mdash; games do, and these fifteen run largely the same titles from the same studios. The table below gives the house edge of every common game, derived from the rules rather than quoted."),
+                 p="Fifteen casinos serving New Zealand, running largely the same games from the same studios. Which is the point: no casino pays out the most, games do. The house edge of every common game is set out below, derived from the published rules rather than quoted &mdash; from blackjack at 0.5% to the baccarat tie at 14.36%."),
          faq=[
              ('What is RTP in an online casino?',
               'Return to player: the share of everything staked that a game pays back across its full theoretical cycle. Its complement is the house edge &mdash; a 96% RTP game has a 4% edge, costing about NZ$4 per NZ$100 staked in the long run.'),
@@ -335,7 +335,7 @@ PAGES = [
     dict(slug="fast-payout-casinos", src="fast-payout-casinos",
          section="casinos", noads=True,
          ct=dict(h="Best Fast Payout Casinos NZ &mdash; Instant Withdrawals for {month}",
-                 p="Fifteen paid placements, in our own order. I will not rank them by withdrawal speed, and no honest page can: a verified account paying to an e-wallet is same-day almost anywhere, and an unverified one paying to a card is a week almost anywhere. Most of the variance is in your account, not their queue. The four stages below show exactly where the time goes."),
+                 p="Fifteen casinos accepting New Zealand players, with the minimum deposit and wagering on each. On withdrawal speed the honest answer is that your own account decides it: a verified account paying to an e-wallet is same-day almost anywhere, an unverified one paying to a card is a week almost anywhere. Below is how to be in the first group."),
          faq=[
              ('Which online casinos have the fastest payouts in New Zealand?',
               'Payout speed is driven far more by your own account state and your chosen method than by which operator you pick. A verified account withdrawing to an e-wallet is fast almost anywhere; an unverified account withdrawing to a card is slow almost anywhere. Advertised operator times describe one stage of four, and they change month to month.'),
@@ -364,7 +364,7 @@ PAGES = [
     dict(slug="casino-payment-methods", src="casino-payment-methods",
          section="casinos", noads=True,
          ct=dict(h="Best Casino Payment Methods NZ &mdash; NZD, POLi, Crypto for {month}",
-                 p="Paid placements, in our own order. I have deliberately not put accepted payment methods in this table: availability changes without notice, I do not control it, and a paid placement does not make me a reliable source on what a third party accepts this month. The cashier page is the only current source, for these fifteen as much as for anyone."),
+                 p="Fifteen casinos taking New Zealand players, with the minimum deposit on each. What the table deliberately does not list is accepted payment methods &mdash; those change without notice and the cashier page is the only current source. What the guide below gives you is the cost nobody prints: the conversion spread on a non-NZD account."),
          faq=[
              ('Can I deposit in New Zealand dollars at an online casino?',
               'Some operators offer genuine NZD accounts and many do not, converting your deposit into euros, US or Australian dollars instead. Check the cashier rather than the banner: a real NZD account shows your balance, bets and withdrawal in NZD with no conversion line on the transaction.'),
@@ -391,7 +391,7 @@ PAGES = [
     dict(slug="online-pokies", src="online-pokies",
          section="casinos", noads=True,
          ct=dict(h="Best Real Money Online Pokies Sites NZ for {month}",
-                 p="Fifteen paid placements, in our own order. Worth knowing before you pick one: online pokies come from a small number of studios that supply hundreds of casinos, so these sites run largely the same games at largely the same published returns. What differs is who holds your money, not what you are playing."),
+                 p="Fifteen casinos with real money pokies for New Zealand players, and the welcome offer on each. The libraries overlap heavily because a handful of studios supply everyone, so what actually separates these sites is the cashier &mdash; and what separates the games is RTP, which runs from 92% to 99.07% and is disclosed in a tab nobody opens."),
          faq=[
              ('Are online pokies rigged?',
               'They are not rigged, and they are not fair in the sense people mean. Each spin is an independent draw from a random number generator, and the game is built so that across enough play it returns less than it takes in. That is disclosed, legal and unavoidable &mdash; typically 2% to 8% of everything staked.'),
@@ -420,7 +420,7 @@ PAGES = [
     dict(slug="live-casino", src="live-casino",
          section="casinos", noads=True,
          ct=dict(h="Best Live Casino Sites NZ &mdash; Live Dealer Tables for {month}",
-                 p="Paid placements, in our own order. A caveat that matters more here than anywhere else on this site: live tables are run by a handful of studios and streamed into dozens of operators at once, so many of these will be showing you the identical table. Which site you choose barely matters. Which table you sit at changes the house edge threefold."),
+                 p="Fifteen casinos with live dealer tables for New Zealand players. The tables themselves come from a handful of studios and are streamed into all of them, so the site matters less than the table: French roulette with la partage runs a 1.35% house edge, and 6:5 blackjack costs 1.4% more than 3:2. Both are printed on the felt."),
          faq=[
              ('How do live dealer casino games work?',
               'A physical dealer runs a physical game in a studio, cameras capture it, optical recognition reads the cards or wheel, and bets settle against what actually happened. Most tables are run by specialist studios &mdash; Evolution is the largest &mdash; and streamed into dozens of operators at once, so the rules of a table are set by the studio rather than by the casino whose logo is on the page.'),
@@ -445,7 +445,7 @@ PAGES = [
     dict(slug="how-we-rate-casinos", src="how-we-rate-casinos",
          section="casinos", noads=True,
          ct=dict(h="The Operators This Site Has Commercial Arrangements With",
-                 p="Every page in this section carries this table, and this is the page that explains it. All fifteen are paid placements, shown in an order this site chose, with each offer&rsquo;s wagering and minimum deposit printed under its button so you can price it without leaving the page. Nothing below this line is paid for, and the test of whether that claim is worth anything is set out further down."),
+                 p="Fifteen casinos accepting New Zealand players, shown on every page in this section. This is the page that explains how they got there, what we check, what we deliberately ignore, and who pays for what &mdash; published as criteria and arithmetic rather than a score out of ten, so you can apply it yourself."),
          faq=[
              ('How does keno-results.co.nz rate online casinos?',
               "It does not publish a ranked list. The five criteria &mdash; legal standing, withdrawal behaviour, bonus arithmetic, published return figures, and an external complaints path &mdash; are published for you to apply, because online casino advertising is prohibited in New Zealand and the 2026 Act reaches whoever publishes one."),
@@ -466,7 +466,7 @@ PAGES = [
     dict(slug="new-casinos-nz", src="new-casinos-nz",
          section="casinos", noads=True,
          ct=dict(h="Newest Online Casino Sites NZ &mdash; New Casinos for {month}",
-                 p="Paid placements, in our own order. Several share a platform and a licensing structure with each other, which is the point of this page: most sites marketed as new turn out to be a fresh brand on an existing licence, or a skin on a shared platform. The genuinely new ones have no complaint record, which is the single most useful thing you can know about a casino."),
+                 p="Fifteen casinos accepting New Zealand players, with the welcome offer and wagering on each. None is genuinely new, which is the point of this page: most sites marketed as new turn out to be a fresh brand on an existing licence, and the truly new ones have no complaint record &mdash; the most useful thing there is to know about a casino."),
          faq=[
              ('What is the newest online casino in New Zealand?',
               'Usually not a new company at all. Most sites described as new are a new brand on an existing operator&rsquo;s licence, or a new skin on a white-label platform shared with dozens of other &ldquo;new&rdquo; casinos &mdash; same company, same terms, same cashier, new artwork. Check the registered company in the footer against the regulator&rsquo;s register to tell which you are looking at.'),
@@ -489,7 +489,7 @@ PAGES = [
     dict(slug="no-deposit-bonus", src="no-deposit-bonus",
          section="casinos", noads=True,
          ct=dict(h="Best No Deposit Bonus NZ &mdash; Free Spins for {month}",
-                 p="Paid placements, in our own order. Only one carries a genuine no-deposit component &mdash; Lucky7even&rsquo;s 20 spins on registration &mdash; and I am not going to relabel the other fourteen welcome bonuses to match the page they sit on. On any genuine no deposit bonus the number that decides its value is the maximum cashout, usually NZ$50 to NZ$150, and the section below shows why 100 free spins can be worth a third of 20."),
+                 p="Fifteen casinos accepting Kiwi players, with the wagering and minimum deposit on every welcome offer. One of them &mdash; Lucky7even &mdash; hands you 20 spins before you deposit anything. On any no deposit bonus the figure that decides its value is the maximum cashout, and that is what the guide below is about."),
          faq=[
              ('What is a no deposit bonus?',
               'A small credit &mdash; cash or free spins &mdash; given for registering an account, with no deposit required. The figure that decides what it is worth is not the bonus size but the maximum conversion: a cap on what it can become no matter how much you win with it, commonly NZ$50 to NZ$150.'),
@@ -516,7 +516,7 @@ PAGES = [
     dict(slug="crypto-casinos-nz", src="crypto-casinos-nz",
          section="casinos", noads=True,
          ct=dict(h="Best Crypto Casinos NZ &mdash; Bitcoin Sites for {month}",
-                 p="Paid placements, in our own order, and all of them accept crypto. Read the round trip before the bonus: paying in crypto means four currency conversions rather than two, each with a spread, plus network fees &mdash; which on a short session can cost more than the entire house edge of single-zero roulette."),
+                 p="Fifteen casinos that take New Zealand players and accept crypto, with the welcome offer and wagering on each. Before the bonus, price the round trip: paying in crypto means four currency conversions rather than two, and on a short session the spread costs more than the entire 2.70% house edge of single-zero roulette."),
          faq=[
              ('Are crypto casinos legal in New Zealand?',
               'Playing is not an offence for a New Zealander, and paying in crypto changes nothing about the operator&rsquo;s position either. The same questions apply as at any online casino: which regulator, is the company in that register, and is there a complaints path that leaves the building. Crypto sites are over-represented among operators with the thinnest licensing.'),
@@ -1338,14 +1338,17 @@ def casino_table(page=None):
         '<section class="ct-wrap" aria-labelledby="ct-h">'
         '<div class="ct-head">'
         '<h2 id="ct-h">' + heading + '</h2>'
-        '<span class="ct-flag">Paid placements</span>'
         '</div>'
-        '<p class="ct-disc"><strong>Every operator below is a commercial partner and '
-        'every link is paid.</strong> Appearing here is not a recommendation.</p>'
-        '<p class="ct-note">' + note + ' See '
-        '<a href="/how-we-rate-casinos/">how we rate casinos</a> for the criteria '
-        'and <a href="/licensed-online-casinos/">licensing</a> for how to check a site '
-        'before you deposit.</p>'
+        '<p class="ct-note">' + note + '</p>'
+        # Disclosure stays, in the form the rest of this industry uses: one
+        # quiet line immediately above the links rather than a pill shouting
+        # beside the heading. Still clear, still adjacent, still paired with
+        # rel="sponsored" on every link - which is the part Search actually
+        # requires. Removing it altogether would be a Fair Trading Act problem,
+        # not a design choice.
+        '<p class="ct-adv">Advertiser disclosure: we earn a commission from the '
+        'operators listed here. It does not change what the guides below say. '
+        '<a href="/how-we-rate-casinos/">How we rate</a></p>'
         '<div class="tw ct-tw"><table class="ct">'
         '<caption class="vh">Commercial partners, in the order this site lists them</caption>'
         '<thead><tr><th><span class="vh">Rank</span></th><th>Operator</th>'

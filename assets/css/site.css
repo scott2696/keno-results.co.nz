@@ -1630,12 +1630,13 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
 .ct-wrap{margin:34px 0 8px}
 .ct-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 14px; margin-bottom:8px}
 .ct-head h2{margin:0; font-size:clamp(19px,2.4vw,24px)}
-.ct-flag{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
-  padding:3px 9px; border-radius:999px; color:var(--live); background:var(--live-soft);
-  border:1px solid var(--live-line); white-space:nowrap}
+/* Quiet, adjacent, unmissable if you look for it - the pattern every serious
+   comparison site uses. The loud pill read as an apology. */
+.ct-adv{font-size:11.5px; color:var(--muted); margin:0 0 14px; line-height:1.5;
+  padding-left:11px; border-left:2px solid var(--line-2)}
+.ct-adv a{color:var(--muted); text-decoration:underline; text-underline-offset:2px}
+.ct-adv a:hover{color:var(--accent)}
 /* the disclosure that must sit against the links, in every layout */
-.ct-disc{font-size:13.5px; color:var(--ink-2); margin:0 0 8px; max-width:76ch; line-height:1.55}
-.ct-disc strong{color:var(--ink)}
 .ct-note{font-size:13.5px; color:var(--muted); margin:0 0 16px; max-width:76ch; line-height:1.55}
 .ct-tw{margin:0}
 table.ct{min-width:680px}
@@ -1751,7 +1752,7 @@ table.ct tbody td{padding:16px 14px; vertical-align:middle}
   .atf h1{order:2}
   .atf .byline{order:3; margin-top:12px; justify-content:center}
   .atf .ct-wrap{order:4; margin-top:22px; display:flex; flex-direction:column}
-  .atf .ct-head{order:1} .atf .ct-disc{order:2} .atf .ct-tw{order:3}
+  .atf .ct-head{order:1} .atf .ct-adv{order:2} .atf .ct-tw{order:3}
   .atf .ct-legal{order:5}
   .atf .subnav{order:5}
   /* the lede now sits with the prose rather than under the H1, so it reads
@@ -1760,15 +1761,15 @@ table.ct tbody td{padding:16px 14px; vertical-align:middle}
   .atf .prose{order:7}
   .atf .page-head{text-align:center}
   /* the H1 has to earn its space now that three things sit under it */
-  .atf h1{font-size:clamp(26px,7vw,34px); line-height:1.15}
-  .atf .ct-head{justify-content:center}
+  .atf h1{font-size:clamp(24px,6.4vw,34px); line-height:1.15;
+    overflow-wrap:anywhere; hyphens:auto}
   .atf .ct-head h2{font-size:19px}
   /* the disclosure standfirst is long; it stays with the table but the detail
      collapses to the sentence that matters until the reader opens it */
-  .atf .ct-disc{font-size:13px; text-align:left; margin-bottom:14px}
   /* the commentary is ten lines on a phone; it drops below the table so the
      first operator card is visible without scrolling. The disclosure above
      does not move. */
+  .atf .ct-adv{text-align:left}
   .atf .ct-note{order:6; font-size:13px; text-align:left; color:var(--muted);
     margin:22px 0 0; padding:0 2px}
 }
