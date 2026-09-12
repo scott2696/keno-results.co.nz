@@ -1329,32 +1329,29 @@ def casino_table(page=None):
                        'link below is paid, and the order is ours rather than a ranking '
                        'earned on merit.')
 
-    # Two paragraphs, not one. The first is the disclosure that has to sit
-    # against the links no matter what, so it stays above the table in every
-    # layout. The second is the per-page commentary, which on mobile drops
-    # below the table - it was ten lines deep on a phone and pushed the first
-    # operator card off the screen entirely.
+    # The per-page commentary leads; on mobile it drops below the table, because
+    # it was ten lines deep on a phone and pushed the first operator card off
+    # the screen entirely.
     return (
         '<section class="ct-wrap" aria-labelledby="ct-h">'
         '<div class="ct-head">'
         '<h2 id="ct-h">' + heading + '</h2>'
         '</div>'
         '<p class="ct-note">' + note + '</p>'
-        # Disclosure stays, in the form the rest of this industry uses: one
-        # quiet line immediately above the links rather than a pill shouting
-        # beside the heading. Still clear, still adjacent, still paired with
-        # rel="sponsored" on every link - which is the part Search actually
-        # requires. Removing it altogether would be a Fair Trading Act problem,
-        # not a design choice.
-        '<p class="ct-adv">Advertiser disclosure: we earn a commission from the '
-        'operators listed here. It does not change what the guides below say. '
-        '<a href="/how-we-rate-casinos/">How we rate</a></p>'
         '<div class="tw ct-tw"><table class="ct">'
         '<caption class="vh">Commercial partners, in the order this site lists them</caption>'
         '<thead><tr><th><span class="vh">Rank</span></th><th>Operator</th>'
         '<th>Welcome offer</th><th><span class="vh">Visit</span></th></tr></thead>'
         f'<tbody>{"".join(rows)}</tbody>'
         '</table></div>'
+        # Disclosure sits directly under the links, in the form the rest of this
+        # industry uses: one quiet line rather than a pill shouting beside the
+        # heading. Still adjacent, still paired with rel="sponsored" on every
+        # link - which is the part Search actually requires. Removing it
+        # altogether would be a Fair Trading Act problem, not a design choice.
+        '<p class="ct-adv">Advertiser disclosure: we earn a commission from the '
+        'operators listed here. It does not change what the guides below say. '
+        '<a href="/how-we-rate-casinos/">How we rate</a></p>'
         '<p class="ct-legal">18+ only. Gambling carries a fixed house edge and returns '
         'less than it takes in over time. Set a limit before you play. Free confidential '
         'help: Gambling Helpline 0800 654 655 or text 8006 \u2014 '
