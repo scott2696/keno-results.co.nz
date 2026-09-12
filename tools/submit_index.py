@@ -266,9 +266,15 @@ def main():
             sent[u] = today
 
     if skipped:
-        save_state(state)
+        # Not under --dry-run. The flag promises to send nothing, and a reader
+        # takes that to mean change nothing: persisting the skip records here
+        # made a dry run write to a tracked data file and silently mark those
+        # URLs as handled.
+        if not args.dry_run:
+            save_state(state)
         print("index: skipped " + ", ".join(f"{n} {k}" for k, n in skipped.items())
-              + " (not worth a credit; the sitemap covers discovery)")
+              + " (not worth a credit; the sitemap covers discovery)"
+              + (" [dry run: not recorded]" if args.dry_run else ""))
     if not fresh:
         print("index: nothing new worth submitting")
         return 0
