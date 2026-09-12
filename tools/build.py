@@ -1270,6 +1270,32 @@ def flush_content_dates():
             fh.write("\n")
 
 
+def asset_v(rel):
+    """A short content hash for a static asset, used as a ?v= cache buster.
+
+    GitHub Pages serves assets with cache-control: max-age=14400 and the header
+    is not ours to change, so a stylesheet edit stays invisible at the CDN edge
+    for up to four hours. The HTML has a much shorter TTL, which is the worst
+    combination: new markup arrives against old CSS and the page renders
+    half-styled. Versioning the URL sidesteps the cache entirely - different
+    bytes, different URL, fetched immediately.
+    """
+    if not hasattr(asset_v, "_c"):
+        asset_v._c = {}
+    if rel not in asset_v._c:
+        try:
+            with open(os.path.join(ROOT, rel.lstrip("/")), "rb") as fh:
+                asset_v._c[rel] = hashlib.sha1(fh.read()).hexdigest()[:10]
+        except OSError:
+            asset_v._c[rel] = ""
+    return asset_v._c[rel]
+
+
+def asset_url(rel):
+    v = asset_v(rel)
+    return f"{rel}?v={v}" if v else rel
+
+
 def page_lastmod(page):
     """When this page's content last actually changed.
 
@@ -2117,8 +2143,25 @@ def _sitemap_images(page):
     return "".join(out)
 
 
+def load_base():
+    """src/base.html with the shared blocks filled and the assets versioned.
+
+    One loader rather than three. base.html was being read and prepared
+    separately by the page loop, the odds/statistics path and the article path,
+    so a step added to one of them silently missed the other two - which is how
+    278 generated pages ended up still asking for an unversioned stylesheet.
+    """
+    tpl = (open(os.path.join(SRC, "base.html"), encoding="utf-8").read()
+           .replace("{analytics}", analytics_block())
+           .replace("{bonusbox}", bonusbox_block())
+           .replace("{band}", band_block()))
+    for rel in ("/assets/css/site.css", "/assets/js/site.js"):
+        tpl = tpl.replace('"%s"' % rel, '"%s"' % asset_url(rel))
+    return tpl
+
+
 def build():
-    base = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block()).replace("{band}", band_block())
+    base = load_base()
     written = []
 
     for page in PAGES:
@@ -2167,7 +2210,8 @@ def build():
                                  if page.get("section") == "casinos" else None)))
 
         scripts = "".join(
-            f'<script src="/assets/js/{name}.js" defer></script>' for name in page.get("js", []))
+            f'<script src="{asset_url("/assets/js/%s.js" % name)}" defer></script>'
+            for name in page.get("js", []))
 
         nav = page.get("nav")
         out = strip_ads(base) if page.get("noads") else base
@@ -2222,7 +2266,7 @@ def build():
     urls_extra = []
     feed = _draws()
     all_draws = feed.get("draws", [])
-    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block()).replace("{band}", band_block())
+    base_tpl = load_base()
     src_label = feed.get("source") or "Lotto NZ"
     src_url = feed.get("sourceUrl") or "https://mylotto.co.nz/results/keno"
 
@@ -2654,7 +2698,7 @@ def build():
         written.append(f"statistics/<page>/index.html  x{len(stat_pages)}")
 
     # ---- blog posts and news articles ----
-    base_tpl = open(os.path.join(SRC, "base.html"), encoding="utf-8").read().replace("{analytics}", analytics_block()).replace("{bonusbox}", bonusbox_block()).replace("{band}", band_block())
+    base_tpl = load_base()
     for kind, cfg in SECTIONS.items():
         for a in _entries(kind):
             canonical = f"{SITE}/{kind}/{a['slug']}/"
