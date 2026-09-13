@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-12T23:04:49",
+  "updated": "2026-09-13T00:02:58",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -171,6 +171,16 @@
       "priority": 1,
       "covered": false,
       "seen": "2026-09-12"
+    },
+    {
+      "title": "Powerball Jackpot Splits After Must Be Won Draw",
+      "source": "What\u2019s On Invers",
+      "published": "Sat, 12 Sep 2026 23:10:51 GMT",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE11WmowTEdNSGVqQ3Y0Wld2bEM3X0RYckp5MWlRZExROWUxb1J5Zm1VYjJjb2JwTHpYVzNWZFFLRGlRZzN1UTNhLVBVbzFKbzBUVmtRcnZJWmZPUjRtdzFVRWRhaDNVUE9Nb1I4OGhtQVZlUzc3QTVDczZmOG5Xdw?oc=5",
+      "topic": "rules",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-13"
     },
     {
       "title": "Why tonight's $28m Lotto jackpot could be the last of its kind",
@@ -1073,6 +1083,16 @@
       "seen": "2026-09-09"
     },
     {
+      "title": "Where last night's two $5m winning lotto tickets were sold",
+      "source": "NZ Herald",
+      "published": "Sat, 12 Sep 2026 23:45:44 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQVEl6ek93bnZCWl9MYnJGME01d3dUMFNwSi1WNmdGMEpPNjZGMms4c2dNVXhER1cwb1NLcHpoaUFRT09BbkFabnVPSlV3eHlVNVhDWEozOE9Ydm5vLWEwZGJFYXVFaDcxRzR0SGpZbkRYU1hVaFNtNWI5N1BuOV9RQlJpUHR3QlA0QnRpcG9vMEVMREcyb0pyMzdaX0h2ekFtVHFFOFVwRnFXeDF3SkZpQnc5LVdnemxlc1VTbmN4MjVGUG1zNDFDSEt4em43eGE0RTA2bTF6T0FmYTViZDVZb3dRa2JEdw?oc=5",
+      "topic": "retail",
+      "priority": 4,
+      "covered": false,
+      "seen": "2026-09-13"
+    },
+    {
       "title": "Lotto's top prize to hit $60m \u2013 but it\u2019s never been harder to win",
       "source": "1News",
       "published": "Thu, 27 Aug 2026 18:02:41 GMT",
@@ -1177,26 +1197,6 @@
       "source": "NZ Herald",
       "published": "Sat, 06 Jun 2026 08:08:03 GMT",
       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQWmlyXzJGcUVHTTdjallDckwycTZOaFhqSDlVYjFUanh2c1dVczlIY1pZWkFxS09fdUdnWWNMZFZaN2lMbzFoUHVEU3dNWGxoeGkzQk9ENmRLMmlWb0VWcVZrN1V6WWxicng4enpyN2FUYXIxMWZpcnpkbFhmdE9XbXBQazFmUHFPdmpobTBYQUJ0cGRIdmw1N21NVFNlSTBt?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "More Powerballs, More Prizes Coming 13 September - Scoop",
-      "source": "Scoop - New Zealand News",
-      "published": "Thu, 27 Aug 2026 22:05:37 GMT",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOR3lDMThuSHJ5bFJ5dmtMbGlwX1RDTnhGSGRsOVVpVEtoNmc5X2lEb09LUzJEd3NHZUtlWGNnYktnbUdoei15aXNBYjZsNXRsZlhDMHQ1cjNHTmxZQnRTdG1TOHAzT0JSblk1TGpqTGp2a3QtMXdtbTcxSXBFcVBIbXNrd25va3hMcVVMaDNDNUJ3QQ?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Man fears 'any second we're going to wake up' after $20m Lotto win",
-      "source": "1News",
-      "published": "Thu, 30 Jul 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQS3lfMnBmY040T1lrWERGNGJydi11R1B4anZkV0ItcS1RWm94WkgyR1RGdmFlWXJIckQyZzhIdUtveVA0UmpkaWgtOVBZcDd4QXJmazFzbERablJuNzFtYmVMa0V5MkNYWE1GU2Z0RkFVOW9MZ3JQMi0wbHFMLXpvSk1hZDExYVJ4QzRCSjhuY2xWYU4xbW1UVkNwSWF4N2c?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
