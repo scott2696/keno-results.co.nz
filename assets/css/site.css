@@ -1653,92 +1653,114 @@ a:hover > .foot-brand,.foot-brand:hover{opacity:.85}
 /* no measure cap: this standfirst is sized to the table it introduces, so it
    runs the full width of the section rather than stopping short of it */
 .ct-note{font-size:13.5px; color:var(--muted); margin:0 0 16px; line-height:1.55}
-.ct-tw{margin:0}
-table.ct{min-width:680px}
-table.ct tbody td{padding:16px 14px; vertical-align:middle}
+.ct-tw{margin:0; border:none; background:none; overflow:visible}
+/* ---- the ranked card ----------------------------------------------------
+   The row stays a table cell for semantics and for the twelve pages that build
+   it, but renders as the panel the homepage offer strip uses, so a reader meets
+   one treatment for a paid placement wherever they meet it. Everything the
+   table carried is still here - rank, product, features, wagering, min deposit
+   - laid out inside the card rather than across columns. */
+table.ct{min-width:0; display:block}
+table.ct thead{display:none}
+table.ct tbody{display:grid; gap:14px}
+table.ct tbody tr{
+  position:relative; overflow:hidden; isolation:isolate;
+  /* Each row is its own grid, so the tracks have to be fixed rather than
+     auto - sized to content they would differ row to row and the offer boxes
+     would step in and out down the column. */
+  display:grid; grid-template-columns:46px 300px minmax(0,1fr) 186px;
+  align-items:center; gap:24px; padding:20px 24px; border-radius:var(--r-xl);
+  background:linear-gradient(115deg,#2C0F58 0%,#4A1C92 38%,#6E3CC8 72%,#3A1470 100%);
+  border:1px solid rgba(232,213,163,.28);
+  box-shadow:0 14px 34px -14px rgba(58,20,112,.6);
+  color:#FFFFFF;
+}
+/* the same drifting bloom the strip panel carries */
+table.ct tbody tr::before{
+  content:""; position:absolute; inset:-40%; z-index:-1;
+  background:
+    radial-gradient(420px 260px at 20% 30%, rgba(168,120,255,.40), transparent 60%),
+    radial-gradient(380px 240px at 78% 70%, rgba(232,213,163,.20), transparent 62%);
+}
+table.ct tbody td{display:block; padding:0; border:none; background:none}
+table.ct tbody tr:hover td{background:none}
+@media (prefers-reduced-motion:no-preference){
+  table.ct tbody tr{transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease}
+  table.ct tbody tr:hover{transform:translateY(-2px);
+    box-shadow:0 20px 44px -16px rgba(58,20,112,.72)}
+}
 
-.ct-rank{width:60px; text-align:center; white-space:nowrap}
-.ct-num{display:block; font-family:var(--display); font-size:24px; font-weight:700;
-  color:var(--gold); line-height:1; font-variant-numeric:tabular-nums}
+.ct-rank{width:auto; text-align:center; white-space:nowrap}
+.ct-num{display:block; font-family:var(--display); font-size:26px; font-weight:700;
+  color:#F2DFAE; line-height:1; font-variant-numeric:tabular-nums}
 .ct-badge{display:inline-block; margin-top:7px; font-family:var(--mono); font-size:9px;
   letter-spacing:.11em; text-transform:uppercase; padding:3px 8px; border-radius:999px;
-  background:var(--gold-plate); color:#1B1405; font-weight:600; white-space:nowrap}
+  background:linear-gradient(160deg,#F2DFAE,#C9A961 62%,#A8853F); color:#1B1405;
+  font-weight:700; white-space:nowrap}
 
-.ct-brand{min-width:190px}
-.ct-mark{display:flex; align-items:center; justify-content:center; margin-bottom:8px;
-  width:116px; height:44px; padding:5px 8px; background:#fff;
-  border:1px solid var(--line-2); border-radius:var(--r-sm); box-sizing:border-box}
+.ct-brand{min-width:150px}
+/* the white plate, as on the strip, so a dark wordmark stays readable */
+.ct-mark{display:flex; align-items:center; justify-content:center; margin-bottom:9px;
+  width:150px; height:58px; padding:8px 12px; background:#FFFFFF;
+  border-radius:var(--r-lg); box-shadow:0 4px 14px -4px rgba(20,6,44,.5);
+  box-sizing:border-box}
 .ct-logo{display:block; width:auto; height:auto; max-width:100%; max-height:100%;
   object-fit:contain}
-/* A round badge can never use the plate's width, so it gets the plate's full
-   height instead of the padded 34px - otherwise it sits at a third of the area
-   of the wordmarks beside it. */
-.ct-mark-sq{padding-top:0; padding-bottom:0}
-.ct-name{display:block; font-weight:600; color:var(--ink); font-size:15.5px; line-height:1.25}
-.ct-kind{display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.09em;
-  text-transform:uppercase; color:var(--muted); margin-top:3px}
-.ct-tag{display:block; font-size:12.5px; color:var(--ink-2); margin-top:6px; line-height:1.45}
+.ct-mark-sq{padding-top:4px; padding-bottom:4px}
+.ct-name{display:block; font-family:var(--display); font-weight:700; color:#FFFFFF;
+  font-size:17px; line-height:1.2}
+.ct-kind{display:block; font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:#E8D5A3; margin-top:4px}
+.ct-tag{display:block; font-size:12.5px; color:#D6C7EE; margin-top:7px; line-height:1.5}
 
 .ct-score{margin-bottom:10px}
-.ct-bar{height:6px; border-radius:999px; background:var(--line); overflow:hidden}
+.ct-bar{height:6px; border-radius:999px; background:rgba(255,255,255,.18); overflow:hidden}
 .ct-bar span{display:block; height:100%; border-radius:999px;
-  background:linear-gradient(90deg,#A07B28,var(--gold))}
+  background:linear-gradient(90deg,#C9A961,#F2DFAE)}
 .ct-score-r{display:flex; justify-content:space-between; align-items:baseline; gap:10px;
-  margin-top:6px; font-size:12.5px; color:var(--muted)}
-.ct-score-r b{font-family:var(--display); font-size:16px; color:var(--ink);
+  margin-top:6px; font-size:12.5px; color:#D6C7EE}
+.ct-score-r b{font-family:var(--display); font-size:16px; color:#FFFFFF;
   font-variant-numeric:tabular-nums}
 
-.ct-offer-box{border:1px solid var(--accent-line); background:var(--accent-soft);
-  border-radius:var(--r-md); padding:11px 14px}
-.ct-offer-l{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--accent); margin-bottom:4px}
-.ct-offer-t{display:block; font-size:14px; font-weight:600; color:var(--ink); line-height:1.4}
-.ct-offer-none{border-color:var(--line); background:transparent}
-.ct-offer-none .ct-offer-l{color:var(--muted)}
-.ct-offer-none .ct-offer-t{font-weight:400; color:var(--muted)}
+.ct-offer-box{border:1px solid rgba(232,213,163,.30); background:rgba(255,255,255,.08);
+  border-radius:var(--r-md); padding:12px 15px}
+.ct-offer-l{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:#E8D5A3; margin-bottom:5px}
+.ct-offer-t{display:block; font-family:var(--display); font-size:17px; font-weight:700;
+  color:#FFFFFF; line-height:1.3; text-wrap:balance}
+.ct-offer-none{border-color:rgba(255,255,255,.18); background:transparent}
+.ct-offer-none .ct-offer-l{color:#D6C7EE}
+.ct-offer-none .ct-offer-t{font-weight:400; color:#D6C7EE; font-size:14px}
 
-.ct-go{text-align:right; white-space:nowrap; width:1%}
-.ct-cta{display:inline-flex; align-items:center; justify-content:center; gap:7px;
-  padding:11px 18px; border-radius:var(--r-md); background:var(--accent);
-  color:var(--on-accent); font-weight:600; font-size:14.5px; text-decoration:none;
-  transition:filter .15s ease, transform .15s ease}
+.ct-go{text-align:right}
+.ct-cta{display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  white-space:nowrap; padding:13px 22px; border-radius:var(--r-full);
+  background:linear-gradient(160deg,#F2DFAE,#C9A961 62%,#A8853F);
+  color:#17120A; font-weight:700; font-size:15px; letter-spacing:-.01em;
+  text-decoration:none;
+  box-shadow:0 6px 18px -6px rgba(201,169,97,.75), inset 0 1px 0 rgba(255,255,255,.55)}
 .ct-cta svg{width:15px; height:15px}
-.ct-cta:hover{filter:brightness(1.06); transform:translateX(1px)}
-.ct-cta:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-.ct-terms{display:block; font-size:10.5px; color:var(--muted); margin-top:7px}
+table.ct tbody tr:hover .ct-cta{background:linear-gradient(160deg,#F8ECC8,#D8BA76 62%,#B8944A)}
+.ct-cta:focus-visible{outline:2px solid #F2DFAE; outline-offset:3px}
+.ct-terms{display:block; font-size:11px; color:#D6C7EE; margin-top:9px;
+  line-height:1.5}
 .ct-legal{font-size:12px; color:var(--muted); margin:14px 0 0; line-height:1.55}
 
-/* ---- mobile: the ranked card ------------------------------------------- */
-@media (max-width:760px){
-  .ct-tw{border:none; background:none; overflow:visible}
-  table.ct{min-width:0; display:block}
-  table.ct thead{display:none}
-  table.ct tbody{display:grid; gap:16px}
-  table.ct tbody tr{display:block; position:relative; padding:18px 18px 16px;
-    border:1px solid var(--line-2); border-radius:var(--r-lg); background:var(--surface);
-    text-align:center}
-  table.ct tbody tr:hover td{background:none}
-  table.ct tbody td{display:block; padding:0; border:none; text-align:center}
-
-  /* number top-left, badge top-right, both out of the normal flow */
-  .ct-rank{position:static; width:auto; min-height:26px; margin-bottom:4px}
-  .ct-num{position:absolute; top:16px; left:18px; font-size:27px}
-  .ct-badge{position:absolute; top:16px; right:18px; margin:0}
-
-  .ct-mark{display:flex; margin:6px auto 12px; width:172px; height:66px;
-    padding:8px 12px; border:1px solid var(--line-2); border-radius:var(--r-md);
-    background:#fff}
-  /* plate is fixed; the mark contains itself inside it */
-  .ct-name{font-size:21px; font-family:var(--display); font-weight:660}
-  .ct-tag{margin:8px auto 0; max-width:42ch; font-size:13.5px}
-  .ct-score{margin:14px 0 12px}
-  .ct-score-r{font-size:13px}
-  .ct-score-r b{font-size:17px}
-  .ct-offer-box{margin-top:12px; text-align:left}
-  .ct-offer-t{font-size:15px}
-  .ct-go{text-align:center; width:auto}
-  .ct-cta{display:flex; width:100%; margin-top:14px; padding:15px 18px; font-size:16px}
-  .ct-terms{margin-top:9px; font-size:11px}
+/* ---- the card, stacked ---------------------------------------------------
+   Below the breakpoint the four columns become one centred column, the way the
+   strip panel stacks. */
+@media (max-width:860px){
+  table.ct tbody tr{grid-template-columns:auto minmax(0,1fr); gap:10px 18px}
+  .ct-go{grid-column:1 / -1; text-align:center}
+  .ct-offer{grid-column:1 / -1}
+  .ct-cta{display:flex; width:100%}
+}
+@media (max-width:560px){
+  table.ct tbody tr{grid-template-columns:1fr; gap:14px; text-align:center; padding:20px}
+  .ct-num{font-size:24px}
+  .ct-mark{margin-left:auto; margin-right:auto}
+  .ct-tag{margin-left:auto; margin-right:auto; max-width:42ch}
+  .ct-offer-box{text-align:left}
 }
 
 /* ---- byline: attribution + review date, directly under the H1 ----------- */
