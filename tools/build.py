@@ -1622,22 +1622,28 @@ def casino_table(page=None):
         terms.append("18+ T&amp;Cs apply")
         terms_html = " &middot; ".join(terms)
 
+        # The strip's shape: the plate on its own, then one body column reading
+        # eyebrow -> offer -> the small print, then the CTA. The operator name
+        # is the eyebrow, which is why the box's own "Welcome offer" label is
+        # hidden in CSS rather than removed - the rails still use it.
+        kind = html.escape(o.get("kind", ""))
+        eyebrow = (f'<span class="ct-name">{name}'
+                   + (f'<span class="ct-kind">{kind}</span>' if kind else "")
+                   + f'</span>')
         rows.append(
             f'<tr>'
             f'<td class="ct-rank"><span class="ct-num">{i:02d}</span>{badge}</td>'
-            f'<td class="ct-brand">{mark}'
-            f'<span class="ct-name">{name}</span>'
-            f'<span class="ct-kind">{html.escape(o.get("kind", ""))}</span>'
-            f'<span class="ct-tag">{tagline}</span></td>'
-            f'<td class="ct-offer">{score_html}{offer}</td>'
+            f'<td class="ct-brand">{mark}</td>'
+            f'<td class="ct-offer">{eyebrow}{score_html}{offer}'
+            f'<span class="ct-tag">{tagline}</span>'
+            f'<span class="ct-terms">{terms_html}</span></td>'
             f'<td class="ct-go">'
             f'<a class="ct-cta" href="{o["urlCasino"]}" target="_blank" '
             f'rel="sponsored nofollow noopener">'
             f'{html.escape(o.get("cta", "Visit site"))}'
             f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" '
             f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
-            f'<path d="M5 12h14M13 6l6 6-6 6"/></svg></a>'
-            f'<span class="ct-terms">{terms_html}</span></td>'
+            f'<path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td>'
             f'</tr>')
 
     ct = (page or {}).get("ct") or {}

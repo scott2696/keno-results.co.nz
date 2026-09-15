@@ -1668,8 +1668,8 @@ table.ct tbody tr{
   /* Each row is its own grid, so the tracks have to be fixed rather than
      auto - sized to content they would differ row to row and the offer boxes
      would step in and out down the column. */
-  display:grid; grid-template-columns:46px 300px minmax(0,1fr) 186px;
-  align-items:center; gap:24px; padding:20px 24px; border-radius:var(--r-xl);
+  display:grid; grid-template-columns:44px 150px minmax(0,1fr) auto;
+  align-items:center; gap:26px; padding:22px 26px; border-radius:var(--r-xl);
   background:linear-gradient(115deg,#2C0F58 0%,#4A1C92 38%,#6E3CC8 72%,#3A1470 100%);
   border:1px solid rgba(232,213,163,.28);
   box-shadow:0 14px 34px -14px rgba(58,20,112,.6);
@@ -1698,20 +1698,21 @@ table.ct tbody tr:hover td{background:none}
   background:linear-gradient(160deg,#F2DFAE,#C9A961 62%,#A8853F); color:#1B1405;
   font-weight:700; white-space:nowrap}
 
-.ct-brand{min-width:150px}
+.ct-brand{min-width:0}
 /* the white plate, as on the strip, so a dark wordmark stays readable */
-.ct-mark{display:flex; align-items:center; justify-content:center; margin-bottom:9px;
+.ct-mark{display:flex; align-items:center; justify-content:center; margin:0;
   width:150px; height:58px; padding:8px 12px; background:#FFFFFF;
   border-radius:var(--r-lg); box-shadow:0 4px 14px -4px rgba(20,6,44,.5);
   box-sizing:border-box}
 .ct-logo{display:block; width:auto; height:auto; max-width:100%; max-height:100%;
   object-fit:contain}
 .ct-mark-sq{padding-top:4px; padding-bottom:4px}
-.ct-name{display:block; font-family:var(--display); font-weight:700; color:#FFFFFF;
-  font-size:17px; line-height:1.2}
-.ct-kind{display:block; font-family:var(--mono); font-size:10px; letter-spacing:.16em;
-  text-transform:uppercase; color:#E8D5A3; margin-top:4px}
-.ct-tag{display:block; font-size:12.5px; color:#D6C7EE; margin-top:7px; line-height:1.5}
+.ct-name{display:block; font-family:var(--mono); font-size:10.5px;
+  text-transform:uppercase; letter-spacing:.18em; color:#E8D5A3; margin:0 0 7px}
+/* the product rides on the eyebrow rather than taking a line of its own */
+.ct-kind{font-family:inherit; letter-spacing:inherit; color:#C4A9F0}
+.ct-kind::before{content:" \00b7 "; color:#8E72C8}
+.ct-tag{display:block; font-size:12px; color:#D6C7EE; margin-top:10px; line-height:1.5}
 
 .ct-score{margin-bottom:10px}
 .ct-bar{height:6px; border-radius:999px; background:rgba(255,255,255,.18); overflow:hidden}
@@ -1722,17 +1723,19 @@ table.ct tbody tr:hover td{background:none}
 .ct-score-r b{font-family:var(--display); font-size:16px; color:#FFFFFF;
   font-variant-numeric:tabular-nums}
 
-.ct-offer-box{border:1px solid rgba(232,213,163,.30); background:rgba(255,255,255,.08);
-  border-radius:var(--r-md); padding:12px 15px}
-.ct-offer-l{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em;
-  text-transform:uppercase; color:#E8D5A3; margin-bottom:5px}
-.ct-offer-t{display:block; font-family:var(--display); font-size:17px; font-weight:700;
-  color:#FFFFFF; line-height:1.3; text-wrap:balance}
+/* No box: on the strip the offer is the headline that carries the card, so it
+   is set in the display face and left to stand on its own. */
+.ct-offer-box{border:none; background:none; padding:0}
+/* the operator name is the eyebrow, so this second label would double it */
+.ct-offer-l{display:none}
+.ct-offer-t{display:block; font-family:var(--display); font-weight:700;
+  letter-spacing:-.02em; font-size:clamp(18px,2.1vw,25px); line-height:1.16;
+  color:#FFFFFF; text-wrap:balance}
 .ct-offer-none{border-color:rgba(255,255,255,.18); background:transparent}
 .ct-offer-none .ct-offer-l{color:#D6C7EE}
-.ct-offer-none .ct-offer-t{font-weight:400; color:#D6C7EE; font-size:14px}
+.ct-offer-none .ct-offer-t{font-weight:400; color:#D6C7EE; font-size:15px}
 
-.ct-go{text-align:right}
+.ct-go{text-align:right; align-self:center}
 .ct-cta{display:inline-flex; align-items:center; justify-content:center; gap:9px;
   white-space:nowrap; padding:13px 22px; border-radius:var(--r-full);
   background:linear-gradient(160deg,#F2DFAE,#C9A961 62%,#A8853F);
@@ -1742,25 +1745,27 @@ table.ct tbody tr:hover td{background:none}
 .ct-cta svg{width:15px; height:15px}
 table.ct tbody tr:hover .ct-cta{background:linear-gradient(160deg,#F8ECC8,#D8BA76 62%,#B8944A)}
 .ct-cta:focus-visible{outline:2px solid #F2DFAE; outline-offset:3px}
-.ct-terms{display:block; font-size:11px; color:#D6C7EE; margin-top:9px;
+.ct-terms{display:block; font-size:11.5px; color:#D6C7EE; margin-top:7px;
   line-height:1.5}
 .ct-legal{font-size:12px; color:var(--muted); margin:14px 0 0; line-height:1.55}
 
 /* ---- the card, stacked ---------------------------------------------------
-   Below the breakpoint the four columns become one centred column, the way the
-   strip panel stacks. */
-@media (max-width:860px){
-  table.ct tbody tr{grid-template-columns:auto minmax(0,1fr); gap:10px 18px}
-  .ct-go{grid-column:1 / -1; text-align:center}
-  .ct-offer{grid-column:1 / -1}
-  .ct-cta{display:flex; width:100%}
-}
-@media (max-width:560px){
-  table.ct tbody tr{grid-template-columns:1fr; gap:14px; text-align:center; padding:20px}
-  .ct-num{font-size:24px}
-  .ct-mark{margin-left:auto; margin-right:auto}
-  .ct-tag{margin-left:auto; margin-right:auto; max-width:42ch}
-  .ct-offer-box{text-align:left}
+   Below the breakpoint the columns become one centred column, the way the
+   strip panel stacks. The offer is the headline here too, so it centres with
+   everything else rather than sitting left against a centred card. */
+@media (max-width:900px){
+  table.ct tbody tr{grid-template-columns:1fr; justify-items:center;
+    gap:14px; text-align:center; padding:22px 20px}
+  .ct-rank{width:100%}
+  .ct-num{font-size:25px}
+  .ct-brand,.ct-offer,.ct-go{width:100%}
+  .ct-mark{margin:0 auto}
+  .ct-offer-box{text-align:center}
+  .ct-offer-t{font-size:clamp(19px,5.2vw,24px)}
+  .ct-tag{margin:10px auto 0; max-width:42ch}
+  .ct-terms{margin-left:auto; margin-right:auto; max-width:46ch}
+  .ct-go{text-align:center}
+  .ct-cta{display:flex; width:100%; padding:15px 20px; font-size:16px}
 }
 
 /* ---- byline: attribution + review date, directly under the H1 ----------- */
