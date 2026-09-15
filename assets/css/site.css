@@ -974,6 +974,13 @@ table caption.vh{position:absolute; width:1px; height:1px; overflow:hidden;
   box-shadow:0 4px 14px -4px rgba(20,6,44,.5);
 }
 .offer-brand img{display:block; width:150px; height:auto}
+/* Fallback when we hold no artwork: the brand box is white, so the
+   wordmark needs its own dark colour or it inherits the card's light
+   text and disappears. */
+.offer-word{
+  font-family:var(--display,inherit); font-weight:800; font-size:20px;
+  line-height:1.1; text-align:center; color:#2A1147; letter-spacing:.01em;
+}
 @media (max-width:760px){ .offer-brand{justify-self:center} .offer-brand img{width:132px} }
 
 .offer-body{min-width:0; display:block}

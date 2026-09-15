@@ -26,6 +26,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: page_lastmod() reads the commit date of each
+          # page's source from `git log`. A shallow clone gives it one
+          # commit, so every page falls back to today and lastmod becomes
+          # the build date - the exact thing that function avoids.
+          fetch-depth: 0
 
       - name: Fetch latest draws
         run: python3 tools/fetch_draws.py --backfill 40
