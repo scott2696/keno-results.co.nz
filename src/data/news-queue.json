@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-15T11:47:32",
+  "updated": "2026-09-15T23:32:37",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -723,6 +723,16 @@
       "seen": "2026-09-11"
     },
     {
+      "title": "Why tonight's Lotto jackpot will be harder to win",
+      "source": "1News",
+      "published": "Tue, 15 Sep 2026 22:33:03 GMT",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPUGFzTEJaaXhqZ1RkMW1idUVQS3ZyU0d3S01oVV9RWTNSZmotREtTdTFCSWdmVk9EMklXa0FGVXZHT0hKa1RuLXN4S2tuaG1LLUFZUlVZTnlpY3FWUVJValU2TmhGTWxVVG9ObEZlbnc3b0FrTE9tVXg5Q0R2NTdYYjVLeUZkV01DbnUxcw?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-09-15"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1187,16 +1197,6 @@
       "source": "NZ Herald",
       "published": "Sat, 13 Jun 2026 08:12:10 GMT",
       "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPdFB0X0ZobHItUnVGR0FoeEl3cnN5UzdBdWUtU0F3MGxfb1QtX2Z6dkVIVGJzcE9jOHZYdzVSV0FyR2piMGw2dW1lX05KclNFa2hNVU1OM2pGaXhUVVQ2RkN0TDBHcE5YSGRoQUdnSTZhVkFaMkx0RDNDb0pBeGQ0MmNTRUI1OUcxVnEzX0toQk9jTXVpTzVuQk9HM1BHQjctNk5LNU9GaUpGRmVNRnEyendOa240c3dLWUJvZnlkV2ZiRi1S?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Lotto Powerball: Two ticket holders nab half a million each - is it you?",
-      "source": "NZ Herald",
-      "published": "Sat, 04 Apr 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOak42cDV4VlkyU3Q2R2xaaGZLRzJHa1MzbjBIbkhnQWhfRWR0ZGdFMnNYaFhLRlB5djZSQ294cnU1RTJuQmhkTkVOWGpVQkZyUk9YTk83UEtucU9NcGRJR1lRS0xDZUNDeGhiTHAxWmdLYWlVejBTZUkycmwzaWlBbDN4TFRxN3VsZW5Ed2RwU19DTFNhdjdRTG90NXNXLVpNV0FvY193?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
