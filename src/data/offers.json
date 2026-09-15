@@ -38,6 +38,19 @@
         "Crypto accepted",
         "Jackpots &amp; Megaways"
       ],
+      "theme": {
+        "deep": "#050522",
+        "base": "#111135",
+        "raised": "#1D1D4C",
+        "violet": "#8254FF",
+        "cyan": "#00F0F1",
+        "ctaFrom": "#6A2BE8",
+        "ctaTo": "#2F6FD6",
+        "style": "space"
+      },
+      "amount": "NZ$5,000",
+      "amountSub": "welcome bonus<br>+ 300 free spins",
+      "bonus": "Up to <b>NZ$5,000</b> + 300 free spins",
       "logo": "/assets/img/partners/spinjo-128.png",
       "placement": "rail-right",
       "cta": "Claim bonus",
@@ -258,6 +271,16 @@
         "Sports &amp; e-sports",
         "Crypto accepted"
       ],
+      "theme": {
+        "deep": "#0F0F14",
+        "base": "#1A1A22",
+        "raised": "#22222B",
+        "violet": "#FC311D",
+        "cyan": "#FF7A5C",
+        "ctaFrom": "#E02309",
+        "ctaTo": "#A81605",
+        "style": "sport"
+      },
       "amount": "NZ$200",
       "amountSub": "free bet<br>100% matched",
       "bonus": "Welcome bonus <b>NZ$200</b>",
