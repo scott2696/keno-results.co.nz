@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-17T07:47:06",
+  "updated": "2026-09-17T08:40:03",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -181,6 +181,16 @@
       "priority": 1,
       "covered": false,
       "seen": "2026-09-13"
+    },
+    {
+      "title": "Lotto numbers drawn, with thousands of winners in new division of revamped game",
+      "source": "Stuff",
+      "published": "Tue, 15 Sep 2026 14:12:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOc0liaG5DRndoa0I3ZDgtOEFGQkdkVXdMRUZ6aXVKay14V25QdndGSVMtM1ByWjJLVVRkSktxcGNJYjlFcEFoeXpKclR4c0JsSWxvaWJjMVlxMko0NlBMQldvOFQtUUNQMGNaWlNlUlZST25vUFdpaVNpTGtNcmN1UUp2a05SZHYxSjdVTmdycGNFTWNlbGNhZ01OMS1JcVZfN0E?oc=5",
+      "topic": "rules",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-17"
     },
     {
       "title": "Why tonight's $28m Lotto jackpot could be the last of its kind",
@@ -733,6 +743,16 @@
       "seen": "2026-09-15"
     },
     {
+      "title": "Check your tickets: Numbers drawn for Lotto\u2019s $15 million jackpot",
+      "source": "Stuff",
+      "published": "Wed, 19 Aug 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOVkJKZ0lnUm5BcTkycUJUQTVmaUc0WENUamZVSFkxWFA4TWg2bmdzbjF5SEJCZnpRN3RSM0d5UU9hMThKQ2ZMdE5JR3NUQUhrRGFJLTc5NThPZFYwYW5TbVk0blVJSFdLV3RrcHhlZDQwMzhzdm5hU2F1OGNyWXViX3ZXdG9vNWNoWFR3ZVBHMVdEd0M1ekhyWGY0eDlSbGhielE?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-09-17"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1177,26 +1197,6 @@
       "source": "NZ Herald",
       "published": "Wed, 15 Jul 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQcmlzYzYzaFpvVDNROWtGVlNIdm9HaVR4NGdwYjhDUGgxSGxXTzZ1bVdITHhHT0xYdVY5MGlyWUk1Mlc1akZpaUUwUDBURnZDZVdtN0xEZTNSSnVNOEtPaGZNNmJ1YkVXM0wtU29SQTNtUUgxSnRVakFDaENFTUE5ckNmNndfZkdaSUFiMi05Z3Y2S2dJT0R1dlR2cVY5aXRXRXB5Q2o3RnV0dzFaVDNuVWRsMFVCOGo2U1Q0?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "What should you do if you win Lotto?",
-      "source": "RNZ",
-      "published": "Fri, 24 Jul 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPb01LMlZlQlBNX3BQQmJfUU53eW5OM2RXZGFCUzlyVEFhZXBfaXhZM3QxQ1VmWmhFNzVQSHlZT3JlVEZyUlBBb2NNVG1rSmo1QVFVWE5XWWlsb2pWRDQ4RWVVTHJyLWRnTTdyVmpqN1ZVc1ZDTnVjWURJOG1nZjBpNXdKYTE?oc=5",
-      "topic": "general",
-      "priority": 5,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Power outage at TVNZ forces $5m Powerball Lotto draw offline",
-      "source": "NZ Herald",
-      "published": "Sat, 13 Jun 2026 08:12:10 GMT",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPdFB0X0ZobHItUnVGR0FoeEl3cnN5UzdBdWUtU0F3MGxfb1QtX2Z6dkVIVGJzcE9jOHZYdzVSV0FyR2piMGw2dW1lX05KclNFa2hNVU1OM2pGaXhUVVQ2RkN0TDBHcE5YSGRoQUdnSTZhVkFaMkx0RDNDb0pBeGQ0MmNTRUI1OUcxVnEzX0toQk9jTXVpTzVuQk9HM1BHQjctNk5LNU9GaUpGRmVNRnEyendOa240c3dLWUJvZnlkV2ZiRi1S?oc=5",
       "topic": "general",
       "priority": 5,
       "covered": false,
