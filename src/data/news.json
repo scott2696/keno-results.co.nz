@@ -2,6 +2,42 @@
   "_note": "Timely news items. Same shape as blog.json. Written from Lotto NZ's published results only - no third-party news copy is used as source material. Verify every figure against the operator before publishing an edit.",
   "articles": [
     {
+      "slug": "keno-draw-27764-multiplier-10",
+      "title": "Keno draw 27764 carries a x10 multiplier",
+      "date": "2026-09-18",
+      "tag": "Keno",
+      "summary": "Draw 27764 was attached to a &times;10 multiplier, recorded in 1.8% of the 276 draws in our archive.",
+      "body": "<p>The latest Keno draw carried a &times;10 multiplier &mdash; one of the two rarest the New Zealand game applies, and recorded in just 1.8% of the 276 consecutive draws in our archive.</p><h2>The result</h2><p>Keno draw <strong>27764</strong> was made on Saturday 19 September 2026 at 10:01 New Zealand time. The twenty numbers drawn were:</p><p><strong>7, 11, 14, 24, 30, 33, 41, 42, 45, 46, 53, 56, 58, 64, 70, 71, 73, 75, 77 and 78.</strong></p><p>The draw carried a <strong>&times;10</strong> multiplier, scaling prizes on winning tickets for that draw accordingly.</p><h2>How rare that is</h2><p>We hold 276 consecutive Keno draws. Of those, 5 have carried &times;10 &mdash; 1.8%. These are observed counts from a limited window rather than a published schedule; Lotto New Zealand set the underlying weightings.</p><h2>The draw itself</h2><p>The twenty numbers summed to 968 against a theoretical average of 810, and split 10 odd to 10 even. Both sit within ordinary variation.</p><h2>What the multiplier does</h2><p>It changes what a win pays, never how likely a win is. The probability of matching numbers is fixed by the rules &mdash; twenty drawn from eighty &mdash; and depends only on how many spots a player chooses. It is also not predictable: the multiplier on the next draw is unaffected by recent ones.</p><h2>Next draw</h2><p>Keno is drawn four times daily at 10:01am, 1:01pm, 3:01pm and 6:01pm New Zealand time, each with its own multiplier.</p><p class=\"article-foot\" style=\"margin-top:26px\">All figures in this report are taken from Lotto New Zealand&rsquo;s published results for the draw named above. keno-results.co.nz is an independent service and is not affiliated with Lotto NZ. Results here are unofficial &mdash; always confirm a winning ticket with the official operator before acting on it. See our <a href=\"/authors/\">editorial standards</a>.</p>",
+      "art": {
+        "kind": "keno",
+        "game": "Keno",
+        "drawNumber": "27764",
+        "numbers": [
+          7,
+          11,
+          14,
+          24,
+          30,
+          33,
+          41,
+          42,
+          45,
+          46,
+          53,
+          56,
+          58,
+          64,
+          70,
+          71,
+          73,
+          75,
+          77,
+          78
+        ],
+        "multiplier": "10"
+      }
+    },
+    {
       "slug": "lotto-draw-2621-result",
       "title": "Three tickets take Lotto's top prize as Powerball rolls to $5,312,481",
       "date": "2026-09-16",
