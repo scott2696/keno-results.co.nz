@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-21T00:18:41",
+  "updated": "2026-09-21T05:00:01",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -793,6 +793,16 @@
       "seen": "2026-09-20"
     },
     {
+      "title": "McCann NZ Refreshes Powerball\u2019s Jackpot 'Tittle' Characters",
+      "source": "Little Black Book | LBBOnline",
+      "published": "Mon, 21 Sep 2026 00:41:09 GMT",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNbHl6U0RHOVVYYjlYdU4tU2Y1N2FjZ3lWSERyVDNCWmVDS1JRblRnTGtEbjRTLUp0dkN4aEpCaE1ldFdCVlAtejdTbjJydnNLa25wbGFpenNWNFFpOHNjVkZXZW9hZ1U4WEwzeHJMWFlJQ2U0bC0xQmkwYUZvUnVFRXY1WQ?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-09-21"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1191,16 +1201,6 @@
       "priority": 4,
       "covered": false,
       "seen": "2026-09-09"
-    },
-    {
-      "title": "Where last night's two $5m winning lotto tickets were sold",
-      "source": "NZ Herald",
-      "published": "Sat, 12 Sep 2026 23:45:44 GMT",
-      "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQVEl6ek93bnZCWl9MYnJGME01d3dUMFNwSi1WNmdGMEpPNjZGMms4c2dNVXhER1cwb1NLcHpoaUFRT09BbkFabnVPSlV3eHlVNVhDWEozOE9Ydm5vLWEwZGJFYXVFaDcxRzR0SGpZbkRYU1hVaFNtNWI5N1BuOV9RQlJpUHR3QlA0QnRpcG9vMEVMREcyb0pyMzdaX0h2ekFtVHFFOFVwRnFXeDF3SkZpQnc5LVdnemxlc1VTbmN4MjVGUG1zNDFDSEt4em43eGE0RTA2bTF6T0FmYTViZDVZb3dRa2JEdw?oc=5",
-      "topic": "retail",
-      "priority": 4,
-      "covered": false,
-      "seen": "2026-09-13"
     }
   ]
 }
