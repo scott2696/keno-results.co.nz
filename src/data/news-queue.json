@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-22T08:33:17",
+  "updated": "2026-09-22T09:58:38",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -803,6 +803,16 @@
       "seen": "2026-09-21"
     },
     {
+      "title": "Lotto player wins $1 million as big jackpot rolls over",
+      "source": "Stuff",
+      "published": "Fri, 18 Sep 2026 13:52:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQeUFPUnZqaFM1UC1yZUZ4OFVYSS1vNVFIN05uSTRNQnJ2OVBBa0tkRzRiZlNmOE9XVnpNTE1xUllLTk9TWlpwM1JhVE5sSUdIM3RocDdSVTIwNzhsc0IzNk0weDFGbFpsTjkxVWlpUDlzaFRKVUlUdkhXMXZUN3lzNEkyS0FibDQ?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-09-22"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1191,16 +1201,6 @@
       "priority": 4,
       "covered": false,
       "seen": "2026-09-07"
-    },
-    {
-      "title": "16 Kiwis now $21k richer after Lotto draw \u2013 where lucky tickets were sold",
-      "source": "NZ Herald",
-      "published": "Sun, 10 May 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNc2FSWEJ3bElpV1Y5SEVNWjRMYUd1eFh4c1N4MUo1Y25Fc0VISUcwM2ZNT2ZhY2lJaVpMTnpTLTVFUzZuQU5RWnVBUk4wMHFlc0YwTTdfZWh4cU9kREJOZnZCaFhtZlgxMTBKbHpRSTJheDEzREc5OVF5Y052eWpTWXZUUzFVTGRKc2ZiNmFjVy1kQjN6RWNMWHZ2OGVvclh4dVZVM0hWNDlSX3hkVkVPelpzWHE4d1RfcGdYMFE1V09vNFlkaVZ4RHFrbGQxMm0zVDJadnhxSnVIVzJvMlE?oc=5",
-      "topic": "retail",
-      "priority": 4,
-      "covered": false,
-      "seen": "2026-09-09"
     }
   ]
 }
