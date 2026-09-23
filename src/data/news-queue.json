@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-23T08:35:24",
+  "updated": "2026-09-23T09:59:51",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -1093,6 +1093,16 @@
       "seen": "2026-09-20"
     },
     {
+      "title": "Are you the big winner? Numbers drawn after Powerball climbs to $8m",
+      "source": "NZ Herald",
+      "published": "Wed, 23 Sep 2026 08:37:16 GMT",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNek0wQ1ZuTno4d1JSb1JqRFY4bFphVjR3b1dneVVpNWhkdklYVlk4MzVnMGhzbklLeEhkc2hBZW9kM0tiLVAyQWdmV21yWlpKV0FPOEd4WnlPajBZWmRmLVBINV9FUC1tT19IT0pSSjBFXzREOHA2b25zVEVLQ1ZYalV5cDNRWFRCVmxwbDlTOGpBNHIyNVBJOFdJTjJrR09SNERXTlllU3p0UVpw?oc=5",
+      "topic": "winner",
+      "priority": 3,
+      "covered": false,
+      "seen": "2026-09-23"
+    },
+    {
       "title": "Where Saturday\u2019s winning Lotto tickets were sold",
       "source": "Stuff",
       "published": "Sat, 29 Aug 2026 23:13:39 GMT",
@@ -1191,16 +1201,6 @@
       "priority": 4,
       "covered": false,
       "seen": "2026-09-05"
-    },
-    {
-      "title": "Where last night's $28m winning Lotto ticket was sold",
-      "source": "NZ Herald",
-      "published": "Sat, 05 Sep 2026 23:37:41 GMT",
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMDB4cHNkSDNUUU92V09nbkJJeUNIQU1IWTQxR2Y5WEtub3FqWUJsU3lOX1ExUVJyWmFQOHlwWDN3azZWQzN6WnJDOGkxdkxIWVpOUXg0cV92eDlfZEFCSll2RWRyQ0ttS0RvcnZjMGRmYW4xZmpfbGdiLXlnUXNBM09CUUszNkNhOU01V0lBZ1Voa2RtNEtNUXdxQV9KZElpVU9jNDl3Nk1Ud1BR?oc=5",
-      "topic": "retail",
-      "priority": 4,
-      "covered": false,
-      "seen": "2026-09-06"
     }
   ]
 }
