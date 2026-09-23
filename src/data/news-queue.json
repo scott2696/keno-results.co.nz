@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-23T06:03:00",
+  "updated": "2026-09-23T07:49:41",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -201,6 +201,16 @@
       "priority": 1,
       "covered": false,
       "seen": "2026-09-18"
+    },
+    {
+      "title": "$10 million \u2018Must Be Won\u2019 jackpot announced for final 10-ball Lotto Powerball draw",
+      "source": "Stuff",
+      "published": "Wed, 09 Sep 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPYUUxSVMyLWZaZU54WXA3aXpQSDVaMk1oUEdUYXRhTzRjb2pESGZqMklha0lHYmJTZFRiUHpDMC03UWZTUVoxZ3ZoVHFUcllQSi1lS2I3b0ZvVEhyZGg1YmtkYWIyMVZOVWk4Y0lQTlhKSHJEZG4yMExwVl9JZ0wwYUJLQTduODA5TDE3SFJwdFctaFB6XzFfTlhpaUtzNnk2aUVhckFIWFFnUG1uTzBNRFlRNEMyOUYw?oc=5",
+      "topic": "rules",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-23"
     },
     {
       "title": "Why tonight's $28m Lotto jackpot could be the last of its kind",
@@ -1187,16 +1197,6 @@
       "source": "NZ Herald",
       "published": "Sat, 05 Sep 2026 23:37:41 GMT",
       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMDB4cHNkSDNUUU92V09nbkJJeUNIQU1IWTQxR2Y5WEtub3FqWUJsU3lOX1ExUVJyWmFQOHlwWDN3azZWQzN6WnJDOGkxdkxIWVpOUXg0cV92eDlfZEFCSll2RWRyQ0ttS0RvcnZjMGRmYW4xZmpfbGdiLXlnUXNBM09CUUszNkNhOU01V0lBZ1Voa2RtNEtNUXdxQV9KZElpVU9jNDl3Nk1Ud1BR?oc=5",
-      "topic": "retail",
-      "priority": 4,
-      "covered": false,
-      "seen": "2026-09-06"
-    },
-    {
-      "title": "Where the winning $330k Lotto tickets were bought",
-      "source": "Stuff",
-      "published": "Wed, 02 Sep 2026 23:10:26 GMT",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNU2R4N0N4MnhVNzF6SkF1V3YxZERWMGFnNmVvUTgteDFxdEtjS21rRFQ5Yjg1d1BrMlR1cDRkRnZkVmMyVmVQVUNpNkNBdWItTkJtNnN0d0lHSFhGLUFVM3hKdHp2VExKYkk5QkpUZzlDbW9mSEw3WEtOSHZTZDRRdkhUQnF3RFBsdWJwaFZIdw?oc=5",
       "topic": "retail",
       "priority": 4,
       "covered": false,
