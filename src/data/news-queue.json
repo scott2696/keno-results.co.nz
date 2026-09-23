@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-23T04:48:09",
+  "updated": "2026-09-23T06:03:00",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -813,6 +813,16 @@
       "seen": "2026-09-22"
     },
     {
+      "title": "Bigger Powerball jackpots raise Pacific gambling concerns",
+      "source": "Pacific Media Network",
+      "published": "Wed, 23 Sep 2026 05:04:39 GMT",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPMG14T0cxOUo5c0YxdEd2VnhYTG1kMWdseGZGRmJLbzI0WmZRb21uWFpTbkREMnNPVjkxdWdOb2dzNllkMnRhU3JGVXJudGp2bU9TTFFuRmlEMGR2QjhoVVpGU21OYUotQjF3QlBZd3NYRVZ1ZkU0blE5RjEwY2lqbjl2b3E0dFotWHpMR3MwMG1Ca1Z1a3dLWGxsSQ?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-09-23"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1191,16 +1201,6 @@
       "priority": 4,
       "covered": false,
       "seen": "2026-09-06"
-    },
-    {
-      "title": "Four Lotto players win $250k \u2013 where the winning tickets were sold",
-      "source": "NZ Herald",
-      "published": "Sat, 22 Aug 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQWE4zeEszQUxyYjRsNjFSeE84a2xoUElJbHppM08xUERaVy1ZWEhvb3FXeDNBUFBhNjJrdkt2QmczcTVhdmdPU1ljS2hncWtrMVlHenNpSzgyd0ZlOFpvc3VEdklwQ2Nad2hFOUlCVEhURUR2TlNSZWswOGplUENldHBKbzVmc3Q2Wm5qcjBDcm1JWklOYnhLTUtwZHc1MFFqU0VFdEh3bGY4eEFDMG9ZUmNlS0l4SmttSHVmUUVaeGhnSDYwYWozTGpyRXNBZVdmdVFoN1Rn?oc=5",
-      "topic": "retail",
-      "priority": 4,
-      "covered": false,
-      "seen": "2026-09-07"
     }
   ]
 }
