@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-26T00:40:32",
+  "updated": "2026-09-26T05:02:23",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -211,6 +211,16 @@
       "priority": 1,
       "covered": false,
       "seen": "2026-09-23"
+    },
+    {
+      "title": "How do the Powerball changes affect me?",
+      "source": "Lotto NZ",
+      "published": "Mon, 23 Mar 2026 22:06:09 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBqRlFuWXVfZWZYbkptQzJMSEo0T1Y0THpQWjZCWVVBN0xMbTlXakpvU2RBb0VxZ3hlTE5LMzduSEN0UUpFR25jWTRDLThvc0pl?oc=5",
+      "topic": "rules",
+      "priority": 1,
+      "covered": false,
+      "seen": "2026-09-26"
     },
     {
       "title": "Why tonight's $28m Lotto jackpot could be the last of its kind",
@@ -1187,16 +1197,6 @@
       "source": "NZ Herald",
       "published": "Sun, 29 Mar 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNenFYUS1nMDdYN2NDd0ZyNjlhdnlzS0RxdFBMektTQXprQmxOZ25rRjBhRFg3VWdMRnpMdm5yU1ozbHVVNVMyOTBwNlpYODVjaWc4ZG52d3d0bW4xM3VyUnkyOGYzN3p0RFExclJabEprSzNjbWFvc2M4RGZsSnAzdldLNVJpcWxXYUVFa01KMjF1R1J3S09vdDZxZTkxTVdOeFZGNmQxUFJrdEZpaGdyZnBETHNnME1zVG9iY0kyeU4xZDZlcHRB?oc=5",
-      "topic": "retail",
-      "priority": 4,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Here\u2019s where Saturday\u2019s winning Lotto tickets were sold",
-      "source": "Stuff",
-      "published": "Sat, 25 Jul 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQTRLYnJDNDVmbnZseG5RT0FOZjl5RFpYUEJMUGpUTHdPcDFPaEtJTmVhdlJBWUhjUG5TSHY3V2h2RkZueG02bzdfd0Jlak04SjEzSUg3S0NVdUtDWW8yUkQydlE0ZUp6bWhTNzY1dERKRDc3UG9Kb0M2bHhWSlpnZE95blRQcUdNS3djaExzLWVKRkVuTDhV?oc=5",
       "topic": "retail",
       "priority": 4,
       "covered": false,
