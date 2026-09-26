@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-09-26T11:28:24",
+  "updated": "2026-09-26T23:39:26",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -1133,6 +1133,16 @@
       "seen": "2026-09-23"
     },
     {
+      "title": "Five Lotto players share $1m prize \u2013 where last night's winning tickets were sold",
+      "source": "NZ Herald",
+      "published": "Sat, 26 Sep 2026 22:48:31 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQZDdMeEFCLU5CVXk4UlNKSS1pRWhxTlJrU1Uwc201YkxkY2ZJeFhuMWZOX3ZIR1FYYzllM1FzczI5MHR1akV6X0xrNzhiekwtTGlkVjNBSHl2ektPczFEcVhqN1h1OTdhcXU2STUwc2dnTDJmaVFKLVJncjl1akR6QnhQMFg3U0szb0xPUGhqdlA4b1Z4V3kzZ3dxLWdyeVdrQUp0OUJJdm1KdDMxX3hqLVpTdFR2a25ubXdBZ0JreHVQVWJTUjl2WkpVanhEM1F5VUE?oc=5",
+      "topic": "winner",
+      "priority": 3,
+      "covered": false,
+      "seen": "2026-09-26"
+    },
+    {
       "title": "Where Saturday\u2019s winning Lotto tickets were sold",
       "source": "Stuff",
       "published": "Sat, 29 Aug 2026 23:13:39 GMT",
@@ -1187,16 +1197,6 @@
       "source": "Stuff",
       "published": "Wed, 12 Aug 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPaUxNMUVEWDZGTXk3Rmw1anhKcDlZNVhWMW82WmZIbXNKZmxNMzFsd0IyM1ltcUh5Y2t5M2RHT3pDcGd0V2UtTkdRVXhPZUxMRWp3amJCQnhSX2Q4ZUlhSmRSNlNBZGxEeGs4TXdMX3RrbU1zX0pJcXE2cjJPWmpTRlkwZDdzejFLWVhUZA?oc=5",
-      "topic": "retail",
-      "priority": 4,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "How did a Huntly store sell 4 winning Lotto tickets in the same draw?",
-      "source": "1News",
-      "published": "Thu, 02 Jul 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdWh3QWd3YWpvNmhTZkhQN2dZVEo5aV9pNmxvNlM1SjduTnU0M2tqOVNDMTdxeUdyRjlaMDlscFFxMDliOXlHbDNad3NnZ0FlQkdIZDlOS0tOX2lUaDFteDJLMTVySFpzODRKMmJjQ0JiR3E3YTZtY1l0eGhfUHNfaTliczJ6aURiTEpudm9ncG9rVzA2Undvejg5dVpnRUlROUlHMkFqNA?oc=5",
       "topic": "retail",
       "priority": 4,
       "covered": false,
