@@ -26,6 +26,11 @@ SITE = "https://keno-results.co.nz"
 # BUILD_DATE=YYYY-MM-DD stamps a build as of that day (month, lastmod, bylines),
 # so a monthly refresh can be prepared the day before it goes live.
 BUILD_DATE = os.environ.get("BUILD_DATE")
+# Date of the last site-wide editorial refresh (titles, H1s, dates). Pages in
+# tools/seo_titles.json never report a lastmod/dateModified earlier than this,
+# so the scheduled CI rebuild keeps the refresh date without needing BUILD_DATE.
+EDITORIAL_REFRESH = "2026-10-01"
+REFRESH_FLOOR = max(BUILD_DATE or "", EDITORIAL_REFRESH)
 TODAY = datetime.date.fromisoformat(BUILD_DATE) if BUILD_DATE else datetime.date.today()
 YEAR = TODAY.year
 
@@ -1316,8 +1321,9 @@ def page_lastmod(page):
     cand = [git_dates().get("src/pages/%s.html" % page["src"]), content_date(page)]
     if page["slug"] in DATA_PAGES:
         cand.append(latest_draw_ymd())
-    if BUILD_DATE:
-        cand.append(BUILD_DATE)
+    rel = "index.html" if not page["slug"] else page["slug"] + "/index.html"
+    if rel in seo_titles.DATA:
+        cand.append(REFRESH_FLOOR)
     cand = [d for d in cand if d]
     return max(cand) if cand else TODAY.isoformat()
 
@@ -2273,7 +2279,7 @@ def build():
         dest = os.path.join(ROOT, rel)
         os.makedirs(os.path.dirname(dest) or ROOT, exist_ok=True)
         with open(dest, "w", encoding="utf-8") as fh:
-            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, BUILD_DATE))
+            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
         written.append(rel)
 
     # ---- one page per draw ----
@@ -2414,7 +2420,7 @@ def build():
         dest = os.path.join(ROOT, path, "index.html")
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "w", encoding="utf-8") as fh:
-            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, BUILD_DATE))
+            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
     if all_draws:
         written.append(f"results/<date>/<id>/index.html  x{len(all_draws)}")
 
@@ -2523,7 +2529,7 @@ def build():
         dest = os.path.join(ROOT, "odds", f"{spots}-spot", "index.html")
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "w", encoding="utf-8") as fh:
-            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, BUILD_DATE))
+            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
         urls_extra.append((f"odds/{spots}-spot/",
                            git_dates().get("src/pages/odds.html")
                            or TODAY.isoformat()))
@@ -2707,7 +2713,7 @@ def build():
             dest = os.path.join(ROOT, "statistics", slug, "index.html")
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             with open(dest, "w", encoding="utf-8") as fh:
-                fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, BUILD_DATE))
+                fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
             urls_extra.append((f"statistics/{slug}/",
                                latest_draw_ymd()
                                or TODAY.isoformat()))
@@ -2849,7 +2855,7 @@ def build():
             dest = os.path.join(ROOT, kind, a["slug"], "index.html")
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             with open(dest, "w", encoding="utf-8") as fh:
-                fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, BUILD_DATE))
+                fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
             written.append(f"{kind}/{a['slug']}/index.html")
 
     # ---- legacy redirect stubs ----
@@ -2892,8 +2898,8 @@ def build():
                     f"<lastmod>{page_lastmod(page)}</lastmod>"
                     f"{_sitemap_images(page)}</url>")
     for extra, mod in urls_extra:
-        if BUILD_DATE and extra + "index.html" in seo_titles.DATA:
-            mod = max(mod, BUILD_DATE)
+        if extra + "index.html" in seo_titles.DATA:
+            mod = max(mod, REFRESH_FLOOR)
         urls.append(f"  <url><loc>{SITE}/{extra}</loc><lastmod>{mod}</lastmod></url>")
     for d in all_draws:
         # A draw page is finished the moment the draw is published: the numbers
