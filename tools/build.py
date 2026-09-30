@@ -18,10 +18,21 @@ import shutil
 import subprocess
 import sys
 
+import seo_titles
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "src")
 SITE = "https://keno-results.co.nz"
-YEAR = datetime.date.today().year
+# BUILD_DATE=YYYY-MM-DD stamps a build as of that day (month, lastmod, bylines),
+# so a monthly refresh can be prepared the day before it goes live.
+BUILD_DATE = os.environ.get("BUILD_DATE")
+# Date of the last site-wide editorial refresh (titles, H1s, dates). Pages in
+# tools/seo_titles.json never report a lastmod/dateModified earlier than this,
+# so the scheduled CI rebuild keeps the refresh date without needing BUILD_DATE.
+EDITORIAL_REFRESH = "2026-10-01"
+REFRESH_FLOOR = max(BUILD_DATE or "", EDITORIAL_REFRESH)
+TODAY = datetime.date.fromisoformat(BUILD_DATE) if BUILD_DATE else datetime.date.today()
+YEAR = TODAY.year
 
 
 # ---- Title Case ---------------------------------------------------------
@@ -1089,6 +1100,8 @@ try:
     NZ_MONTH = datetime.datetime.now(ZoneInfo("Pacific/Auckland")).strftime("%B %Y")
 except Exception:                      # no tzdata: the month is still right
     NZ_MONTH = datetime.datetime.now().strftime("%B %Y")
+if BUILD_DATE:
+    NZ_MONTH = TODAY.strftime("%B %Y")
 
 
 # Two content sections, same machinery. "blog" is evergreen analysis and
@@ -1257,7 +1270,7 @@ def content_date(page):
     fp = _content_fingerprint(page)
     rec = store.get(key)
     if not rec or rec.get("hash") != fp:
-        store[key] = {"hash": fp, "date": datetime.date.today().isoformat()}
+        store[key] = {"hash": fp, "date": TODAY.isoformat()}
         _content_dates._dirty = True
     return store[key]["date"]
 
@@ -1308,8 +1321,11 @@ def page_lastmod(page):
     cand = [git_dates().get("src/pages/%s.html" % page["src"]), content_date(page)]
     if page["slug"] in DATA_PAGES:
         cand.append(latest_draw_ymd())
+    rel = "index.html" if not page["slug"] else page["slug"] + "/index.html"
+    if rel in seo_titles.DATA:
+        cand.append(REFRESH_FLOOR)
     cand = [d for d in cand if d]
-    return max(cand) if cand else datetime.date.today().isoformat()
+    return max(cand) if cand else TODAY.isoformat()
 
 
 def _nz_dt(iso):
@@ -2263,7 +2279,7 @@ def build():
         dest = os.path.join(ROOT, rel)
         os.makedirs(os.path.dirname(dest) or ROOT, exist_ok=True)
         with open(dest, "w", encoding="utf-8") as fh:
-            fh.write(out)
+            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
         written.append(rel)
 
     # ---- one page per draw ----
@@ -2404,7 +2420,7 @@ def build():
         dest = os.path.join(ROOT, path, "index.html")
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "w", encoding="utf-8") as fh:
-            fh.write(out)
+            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
     if all_draws:
         written.append(f"results/<date>/<id>/index.html  x{len(all_draws)}")
 
@@ -2513,10 +2529,10 @@ def build():
         dest = os.path.join(ROOT, "odds", f"{spots}-spot", "index.html")
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "w", encoding="utf-8") as fh:
-            fh.write(out)
+            fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
         urls_extra.append((f"odds/{spots}-spot/",
                            git_dates().get("src/pages/odds.html")
-                           or datetime.date.today().isoformat()))
+                           or TODAY.isoformat()))
     written.append("odds/<n>-spot/index.html  x10")
 
     # ---- statistics children ----
@@ -2697,10 +2713,10 @@ def build():
             dest = os.path.join(ROOT, "statistics", slug, "index.html")
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             with open(dest, "w", encoding="utf-8") as fh:
-                fh.write(out)
+                fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
             urls_extra.append((f"statistics/{slug}/",
                                latest_draw_ymd()
-                               or datetime.date.today().isoformat()))
+                               or TODAY.isoformat()))
         written.append(f"statistics/<page>/index.html  x{len(stat_pages)}")
 
     # ---- blog posts and news articles ----
@@ -2839,7 +2855,7 @@ def build():
             dest = os.path.join(ROOT, kind, a["slug"], "index.html")
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             with open(dest, "w", encoding="utf-8") as fh:
-                fh.write(out)
+                fh.write(seo_titles.apply(out, os.path.relpath(dest, ROOT), NZ_MONTH, REFRESH_FLOOR))
             written.append(f"{kind}/{a['slug']}/index.html")
 
     # ---- legacy redirect stubs ----
@@ -2882,6 +2898,8 @@ def build():
                     f"<lastmod>{page_lastmod(page)}</lastmod>"
                     f"{_sitemap_images(page)}</url>")
     for extra, mod in urls_extra:
+        if extra + "index.html" in seo_titles.DATA:
+            mod = max(mod, REFRESH_FLOOR)
         urls.append(f"  <url><loc>{SITE}/{extra}</loc><lastmod>{mod}</lastmod></url>")
     for d in all_draws:
         # A draw page is finished the moment the draw is published: the numbers

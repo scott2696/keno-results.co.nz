@@ -1,0 +1,254 @@
+{
+ "404.html": {
+  "title": "Page Not Found [{{month}}]: keno-results.co.nz",
+  "h1": "Page Not Found [{{month}}]: That Page Has Moved or Never Existed"
+ },
+ "about/index.html": {
+  "title": "About Us [{{month}}]: Keno Results NZ Data Sources",
+  "h1": "About This Site [{{month}}]: Who We Are and Where Our Data Comes From"
+ },
+ "authors/index.html": {
+  "title": "Our Authors [{{month}}]: Editorial Standards",
+  "h1": "Authors &amp; Editorial Standards [{{month}}]: Who Writes and Checks This Site"
+ },
+ "blog/index.html": {
+  "title": "Keno Blog NZ [{{month}}]: Keno Analysis & Data",
+  "h1": "Keno Blog [{{month}}]: Analysis and Reference From Real Draw Data"
+ },
+ "blog/keno-multiplier-what-weve-recorded/index.html": {
+  "title": "Keno Multiplier NZ [{{month}}]: Every One Recorded",
+  "h1": "Keno Multiplier [{{month}}]: Every Multiplier We Have Recorded"
+ },
+ "blog/nz-keno-draw-times-confirmed/index.html": {
+  "title": "NZ Keno Draw Times [{{month}}]: Confirmed Over 56 Days",
+  "h1": "NZ Keno Draw Times [{{month}}]: Confirmed Across 56 Days"
+ },
+ "blog/what-220-draws-say-about-hot-numbers/index.html": {
+  "title": "Keno Hot Numbers [{{month}}]: What 220 Draws Say",
+  "h1": "Keno Hot Numbers [{{month}}]: What 220 Draws Actually Say"
+ },
+ "bullseye/index.html": {
+  "title": "Bullseye NZ [{{month}}]: How to Play, Odds & Results",
+  "h1": "Bullseye NZ [{{month}}]: How It Works, Odds and Prizes"
+ },
+ "calculator/index.html": {
+  "title": "Keno Calculator NZ [{{month}}]: Odds & Return Calculator",
+  "h1": "Keno Calculator [{{month}}]: Odds &amp; Return Calculator for NZ Keno"
+ },
+ "casino-bonus/index.html": {
+  "title": "Casino Bonus NZ [{{month}}]: Best Welcome Bonuses",
+  "h1": "Casino Bonus NZ [{{month}}]: Casino Sign Up Bonus Offers Priced on Wagering"
+ },
+ "casino-payment-methods/index.html": {
+  "title": "Casino Payment Methods NZ [{{month}}]: POLi & PayPal",
+  "h1": "Casino Payment Methods NZ [{{month}}]: PayPal, POLi and Paysafecard"
+ },
+ "casino-payout-percentages/index.html": {
+  "title": "Casino Payout Percentage NZ [{{month}}]: Highest RTP",
+  "h1": "Casino Payout Percentage NZ [{{month}}]: RTP Meaning and the Highest RTP Casinos"
+ },
+ "check/index.html": {
+  "title": "Check My Keno Numbers [{{month}}]: NZ Ticket Checker",
+  "h1": "Check My Keno Numbers [{{month}}]: Free NZ Ticket Checker"
+ },
+ "contact/index.html": {
+  "title": "Contact Us [{{month}}]: keno-results.co.nz",
+  "h1": "Contact Us [{{month}}]: Corrections, Questions and Feedback"
+ },
+ "cookie-policy/index.html": {
+  "title": "Cookie Policy [{{month}}]: keno-results.co.nz",
+  "h1": "Cookie Policy [{{month}}]: What We Set and Why"
+ },
+ "crypto-casinos-nz/index.html": {
+  "title": "Crypto Casino NZ [{{month}}]: Bitcoin Casino Sites",
+  "h1": "Crypto Casino NZ [{{month}}]: Bitcoin Gambling Sites and the Real Costs"
+ },
+ "draw-schedule/index.html": {
+  "title": "Keno Draw Times NZ [{{month}}]: Daily Draw Schedule",
+  "h1": "Keno Draw Times NZ [{{month}}]: The Daily Draw Schedule"
+ },
+ "faqs/index.html": {
+  "title": "Keno FAQs NZ [{{month}}]: Rules, Odds & Prizes Answered",
+  "h1": "Keno FAQs [{{month}}]: Rules, Odds and Prizes Answered"
+ },
+ "fast-payout-casinos/index.html": {
+  "title": "Fast Payout Casinos NZ [{{month}}]: Instant Withdrawals",
+  "h1": "Fast Payout Casinos NZ [{{month}}]: Fastest Paying Online Casinos and Withdrawal Times"
+ },
+ "gaming/getting-help/index.html": {
+  "title": "Gambling Help NZ [{{month}}]: Free Support & Services",
+  "h1": "Gambling Help NZ [{{month}}]: If Gambling Stops Being Fun"
+ },
+ "gaming/index.html": {
+  "title": "Gambling in New Zealand [{{month}}]: Laws & Games Guide",
+  "h1": "Gambling in New Zealand [{{month}}]: Laws, Games and Regulators"
+ },
+ "gaming/online-casino-law/index.html": {
+  "title": "NZ Online Casino Law [{{month}}]: The 2026 Changes",
+  "h1": "NZ Online Casino Law [{{month}}]: The Online Casino Law Change Explained"
+ },
+ "gaming/who-regulates-gambling/index.html": {
+  "title": "Who Regulates Gambling NZ [{{month}}]: DIA & Lotto NZ",
+  "h1": "Who Regulates Gambling in New Zealand [{{month}}]: DIA, Lotto NZ and TAB"
+ },
+ "history/index.html": {
+  "title": "History of Keno [{{month}}]: From China to Lotto NZ",
+  "h1": "The History of Keno [{{month}}]: From Ancient China to Lotto NZ"
+ },
+ "how-to-play/index.html": {
+  "title": "How to Play Keno NZ [{{month}}]: Rules & Beginner Guide",
+  "h1": "How to Play Keno NZ [{{month}}]: Rules and a Beginner&rsquo;s Guide"
+ },
+ "how-we-rate-casinos/index.html": {
+  "title": "How We Rate Casinos NZ [{{month}}]: Our Methodology",
+  "h1": "How We Rate Online Casinos NZ [{{month}}]: Our Review Methodology"
+ },
+ "index.html": {
+  "title": "Keno Results NZ [{{month}}]: Latest Winning Numbers",
+  "h1": "Keno Results NZ [{{month}}]: Latest Winning Numbers"
+ },
+ "instant-kiwi/index.html": {
+  "title": "Instant Kiwi NZ [{{month}}]: Games, Odds & Prizes",
+  "h1": "Instant Kiwi [{{month}}]: Games, Odds and Prizes Explained"
+ },
+ "licensed-online-casinos/index.html": {
+  "title": "Licensed Online Casinos NZ [{{month}}]: Is It Legal?",
+  "h1": "Licensed Online Casinos NZ [{{month}}]: Online Gambling Laws in New Zealand"
+ },
+ "live-casino/index.html": {
+  "title": "Live Casino NZ [{{month}}]: Best Live Dealer Casinos",
+  "h1": "Live Casino NZ [{{month}}]: Live Roulette and Live Blackjack Sites"
+ },
+ "lotto-nz/index.html": {
+  "title": "Lotto NZ [{{month}}]: Games, Draws & Results Guide",
+  "h1": "Lotto NZ [{{month}}]: Every Game, Draw and Result Explained"
+ },
+ "multiplier/index.html": {
+  "title": "Keno Multiplier NZ [{{month}}]: How It Works & Odds",
+  "h1": "Keno Multiplier NZ [{{month}}]: How It Works and the Odds"
+ },
+ "new-casinos-nz/index.html": {
+  "title": "New Casinos NZ [{{month}}]: Newest Online Casino Sites",
+  "h1": "New Casinos NZ [{{month}}]: The Newest Online Casino Sites Checked"
+ },
+ "news/index.html": {
+  "title": "Keno News NZ [{{month}}]: Latest Lotto & Keno News",
+  "h1": "Keno News NZ [{{month}}]: Latest Keno and Lotto News"
+ },
+ "no-deposit-bonus/index.html": {
+  "title": "No Deposit Bonus NZ [{{month}}]: Free Spins No Deposit",
+  "h1": "No Deposit Bonus NZ [{{month}}]: Free Spins and No Deposit Bonus Codes"
+ },
+ "number-generator/index.html": {
+  "title": "Keno Number Generator NZ [{{month}}]: Random Picks",
+  "h1": "Keno Number Generator [{{month}}]: Random Keno Picks for NZ"
+ },
+ "odds/index.html": {
+  "title": "Keno Odds NZ [{{month}}]: Real Probabilities & Payouts",
+  "h1": "Keno Odds NZ [{{month}}]: Real Probabilities and Payouts"
+ },
+ "online-casinos/index.html": {
+  "title": "Online Casinos NZ [{{month}}]: Real Money Casino Sites",
+  "h1": "Online Casinos NZ [{{month}}]: Real Money Casino Sites Compared"
+ },
+ "online-pokies/index.html": {
+  "title": "Online Pokies NZ [{{month}}]: Best Real Money Pokies",
+  "h1": "Online Pokies NZ [{{month}}]: Best Real Money Pokies Online"
+ },
+ "powerball/index.html": {
+  "title": "Powerball NZ [{{month}}]: How It Works, Odds & Prizes",
+  "h1": "Powerball NZ [{{month}}]: How It Works, Odds and Prizes"
+ },
+ "privacy-policy/index.html": {
+  "title": "Privacy Policy [{{month}}]: keno-results.co.nz",
+  "h1": "Privacy Policy [{{month}}]: NZ Privacy Act 2020"
+ },
+ "prizes/index.html": {
+  "title": "Keno Prizes NZ [{{month}}]: How Keno Payouts Work",
+  "h1": "Keno Prizes NZ [{{month}}]: How Keno Prizes and Payouts Work"
+ },
+ "responsible-gambling/index.html": {
+  "title": "Responsible Gambling NZ [{{month}}]: Free Help & Limits",
+  "h1": "Responsible Gambling NZ [{{month}}]: Free Help, Limits and Support"
+ },
+ "results/index.html": {
+  "title": "Keno Draw Archive NZ [{{month}}]: Past Keno Results",
+  "h1": "Keno Draw Archive NZ [{{month}}]: Past Keno Results by Date"
+ },
+ "rules/index.html": {
+  "title": "Keno Rules NZ [{{month}}]: Rules & Regulations",
+  "h1": "Keno Rules NZ [{{month}}]: Rules and Regulations Explained"
+ },
+ "statistics/by-draw-time/index.html": {
+  "title": "Keno Frequency by Draw Time [{{month}}]: NZ Stats",
+  "h1": "Keno Frequency by Draw Time [{{month}}]: NZ Draw Statistics"
+ },
+ "statistics/frequency/index.html": {
+  "title": "Keno Number Frequency NZ [{{month}}]: Draw Stats",
+  "h1": "Keno Number Frequency NZ [{{month}}]: Every Number Counted"
+ },
+ "statistics/gaps/index.html": {
+  "title": "Keno Overdue Numbers NZ [{{month}}]: Draws Since Seen",
+  "h1": "Keno Overdue Numbers NZ [{{month}}]: Draws Since Last Seen"
+ },
+ "statistics/index.html": {
+  "title": "Hot & Cold Keno Numbers NZ [{{month}}]: Keno Statistics",
+  "h1": "Hot and Cold Keno Numbers NZ [{{month}}]: Keno Statistics"
+ },
+ "statistics/pairs/index.html": {
+  "title": "Keno Pairs NZ [{{month}}]: Most Drawn Number Pairs",
+  "h1": "Keno Pairs NZ [{{month}}]: The Most Drawn Number Pairs"
+ },
+ "statistics/patterns/index.html": {
+  "title": "Keno Patterns NZ [{{month}}]: Sums and Odd/Even Stats",
+  "h1": "Keno Patterns NZ [{{month}}]: Sums and Odd/Even Statistics"
+ },
+ "terms/index.html": {
+  "title": "Terms and Conditions [{{month}}]: keno-results.co.nz",
+  "h1": "Terms and Conditions [{{month}}]: Using keno-results.co.nz"
+ },
+ "where-to-play/index.html": {
+  "title": "Where to Play Keno NZ [{{month}}]: Online & In-Store",
+  "h1": "Where to Play Keno in New Zealand [{{month}}]: Online and In-Store"
+ },
+ "odds/1-spot/index.html": {
+  "title": "1 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "1 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/2-spot/index.html": {
+  "title": "2 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "2 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/3-spot/index.html": {
+  "title": "3 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "3 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/4-spot/index.html": {
+  "title": "4 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "4 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/5-spot/index.html": {
+  "title": "5 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "5 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/6-spot/index.html": {
+  "title": "6 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "6 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/7-spot/index.html": {
+  "title": "7 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "7 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/8-spot/index.html": {
+  "title": "8 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "8 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/9-spot/index.html": {
+  "title": "9 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "9 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ },
+ "odds/10-spot/index.html": {
+  "title": "10 Spot Keno Odds NZ [{{month}}]: Payouts & Prizes",
+  "h1": "10 Spot Keno Odds NZ [{{month}}]: Probabilities, Payouts and Prizes"
+ }
+}
