@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-10-03T11:42:58",
+  "updated": "2026-10-03T23:47:58",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -883,6 +883,16 @@
       "seen": "2026-09-30"
     },
     {
+      "title": "Auckland Lotto player scoops $15.3m Powerball jackpot",
+      "source": "Stuff",
+      "published": "Sat, 03 Oct 2026 22:16:59 GMT",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOalZ0bUhGN0dETmxVX2pYaGVSbktLVU9SWlp6aEphb1E2X2wwU2VLLWJZSEFJZzlGSGNoWVRoWjRwb2pCeXZxYW44dHhMU21iTzFHVFRJejA5UVlEMVB5OHpnWGJRNUM4WHhuVGZOS0RreTc2R1pNRGZ6MFhGTzlEQmM0ZTV1cHhnSHVnV1M1c0JicDJoZHZwRg?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-03"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1187,16 +1197,6 @@
       "source": "NZ Herald",
       "published": "Sat, 15 Aug 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNYmRaUS1VZkxQS3RmLWRCd2VjMkVTTXh3RXBmVEx4QkpCNTY0bnBtQm91Q1J1VTJGRzZOSFY4dkFQUTJ2cXYta2FJeFVYeVo2Nkx2d3VlaTlDbWRfWWNOYTlpZmhMMXBMenlPZkJQOEU3VE5FM2NKanBrS0N4a3ZNSVVaN1hoeTRmbWM5UHc4eFktdW9jdE1oQnJ1QWFQSEw5V2hvb3hNaVhoWFZSNWRjRXBiVW15MUYwZGNydTQ1NzAtV3Nqel91N0NuejA5T29GZF9RejhfVXpfdUF0ZURFdmdkeFJ1YlFaQWc?oc=5",
-      "topic": "retail",
-      "priority": 4,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Where Saturday night\u2019s winning Lotto tickets were sold",
-      "source": "Stuff",
-      "published": "Sat, 15 Aug 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQY1A3bXBjZVNpbGg0cUEtdlhjaGVGbFhTaVg1MmROcFZmRFNTOWJsN2ttOWVzSzZ2dDhqSEU1amdDVElnUThDWjR6bGY1dWtyMnA4VlZSX212LXdUTGg0Y0tsd1JGZ3RjR0ZtV0NNSGJJUDRWazczNXFOeWFnSFNwb0pBQ181aFdfMlBwUml2eXRJazA3ZDZOLUVLMA?oc=5",
       "topic": "retail",
       "priority": 4,
       "covered": false,
