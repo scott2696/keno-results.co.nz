@@ -1,13 +1,13 @@
 {
-  "drawNumber": 2625,
-  "drawnAt": "2026-09-30T20:20:00+13:00",
+  "drawNumber": 2626,
+  "drawnAt": "2026-10-03T20:00:00+13:00",
   "numbers": [
-    1,
-    8,
-    19,
-    23,
-    25,
-    30
+    3,
+    4,
+    5,
+    17,
+    18,
+    36
   ],
   "extras": [
     {
@@ -16,16 +16,16 @@
     },
     {
       "label": "Powerball",
-      "value": "07"
+      "value": "01"
     },
     {
       "label": "Strike",
-      "value": "30 19 08 01"
+      "value": "17 04 05 18"
     }
   ],
   "game": "lotto",
   "gameLabel": "Lotto & Powerball",
   "source": "Lotto NZ (MyLotto)",
   "sourceUrl": "https://mylotto.co.nz/results/lotto",
-  "retrievedAt": "2026-10-03T19:36:35+13:00"
+  "retrievedAt": "2026-10-03T21:15:05+13:00"
 }
