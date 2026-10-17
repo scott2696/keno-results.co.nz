@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-10-17T10:48:34",
+  "updated": "2026-10-17T23:10:35",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -923,6 +923,16 @@
       "seen": "2026-10-17"
     },
     {
+      "title": "Lotto Powerball rolls over to $12m, two players win $500k each",
+      "source": "NZ Herald",
+      "published": "Sat, 17 Oct 2026 16:09:06 GMT",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNWDNMX1VzVHppTkxkVXh5d1d5MWRXM2VMOXdzTkR2cFJ2UVZOdmlnVUFzd1NqemFFeHl4TUw5WHlWNHBIQTVyNkFhSFlIVE1VZUJ1cF9VUjdYTE9UbFR4WU5DS3FLT1doMWQ0Q1I2amY0UUFaNVlSdzZySmlxZmwwRWRuZy1GRjlWeHM2THdOMUszcjhBX2U5U2pJLWlZUi1vYUIyazQ5dUt0ZHIyLWRERlJzZWFndw?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-17"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1191,16 +1201,6 @@
       "priority": 3,
       "covered": false,
       "seen": "2026-09-23"
-    },
-    {
-      "title": "Five Lotto players share $1m prize \u2013 where last night's winning tickets were sold",
-      "source": "NZ Herald",
-      "published": "Sat, 26 Sep 2026 22:48:31 GMT",
-      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQZDdMeEFCLU5CVXk4UlNKSS1pRWhxTlJrU1Uwc201YkxkY2ZJeFhuMWZOX3ZIR1FYYzllM1FzczI5MHR1akV6X0xrNzhiekwtTGlkVjNBSHl2ektPczFEcVhqN1h1OTdhcXU2STUwc2dnTDJmaVFKLVJncjl1akR6QnhQMFg3U0szb0xPUGhqdlA4b1Z4V3kzZ3dxLWdyeVdrQUp0OUJJdm1KdDMxX3hqLVpTdFR2a25ubXdBZ0JreHVQVWJTUjl2WkpVanhEM1F5VUE?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-26"
     }
   ]
 }
