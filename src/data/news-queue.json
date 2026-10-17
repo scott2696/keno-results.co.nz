@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-10-17T07:48:40",
+  "updated": "2026-10-17T09:22:33",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -913,6 +913,16 @@
       "seen": "2026-10-12"
     },
     {
+      "title": "Lotto Powerball rolls over to $12m, two players pocket $500k each",
+      "source": "NZ Herald",
+      "published": "Sat, 17 Oct 2026 07:06:28 GMT",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNWDNMX1VzVHppTkxkVXh5d1d5MWRXM2VMOXdzTkR2cFJ2UVZOdmlnVUFzd1NqemFFeHl4TUw5WHlWNHBIQTVyNkFhSFlIVE1VZUJ1cF9VUjdYTE9UbFR4WU5DS3FLT1doMWQ0Q1I2amY0UUFaNVlSdzZySmlxZmwwRWRuZy1GRjlWeHM2THdOMUszcjhBX2U5U2pJLWlZUi1vYUIyazQ5dUt0ZHIyLWRERlJzZWFndw?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-17"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1191,16 +1201,6 @@
       "priority": 3,
       "covered": false,
       "seen": "2026-09-26"
-    },
-    {
-      "title": "Fillet steak, gold-plated toothbrush: $15.3m Lotto winner's wishlist",
-      "source": "1News",
-      "published": "Fri, 09 Oct 2026 00:29:13 GMT",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQTi1RNGpnRDNkMFpKUWFtamhHWlNGT19hN1U1R1RXS0RuaUxEb2NnWi1wV2hfSG9FeENaTi1ieU85dmlXOUdWUEZ0M2c2T3F3dU1NdjFXTWZFeXIyNU5ZVV84UzlwMEE3MmZaX05mNWYwdVY5WUkyV3ZsdU5rVHlGUWNZbmFScFMzemhjcVBhZWJUQ25TRjk4bkJTZnNiZXFk?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-10-09"
     }
   ]
 }
