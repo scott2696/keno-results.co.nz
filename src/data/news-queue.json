@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-10-20T23:56:30",
+  "updated": "2026-10-21T00:40:44",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -933,6 +933,26 @@
       "seen": "2026-10-17"
     },
     {
+      "title": "Tonight's Lotto Max jackpot is once again for a record $90 million: Here's how to play",
+      "source": "Yahoo News Canada",
+      "published": "Tue, 20 Oct 2026 13:22:46 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQTWFyQnU5eThKb1RlX0dwdkNxZTNiVnJZUUZOdHJvakF3WnFYdGN1RE56RXlObDVwSkhHVWo5MGEzX3dpd2lTUDNwWEY4RmNRRXA0eHJ6WUV0dk1zMm5uMWd4MEZmbjlRMEJRUlczS1lzcEw1czZVM2hKbkZBYWNQTzg5WnE2MjFnX0tZSmk4LVdYRjlmN1gzNEJzck9QS2JFTml5UHE5RE5hN28tZm9nM2NhM1NEM2MzVnJRNUlqRmI?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-21"
+    },
+    {
+      "title": "Lotto Max winning numbers for Friday, October 16 are out and there's a $90 million jackpot",
+      "source": "Yahoo News Canada",
+      "published": "Sat, 17 Oct 2026 14:22:25 GMT",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE56ZzRkTVlDZ2cyenJqTUJqVUtfZGI5aG5IeTBQZTJyRndFbUVSVW9ua01GVGJNak43ZTdMOTgtQnRFMmc1MG5NZVFlT1VaMU9SeGdkdkR2VEl0QWl5NW1WZnRjQmwwSmE4VE9mdVJTdGg4dU4yR3VQUEZWV1YwZw?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-21"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1181,26 +1201,6 @@
       "priority": 3,
       "covered": false,
       "seen": "2026-09-20"
-    },
-    {
-      "title": "Two Lotto players have won $5m \u2013 but have had to wait overnight to find out",
-      "source": "Stuff",
-      "published": "Sat, 12 Sep 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPY1hneTcxMll2TGJFajM2ZmNseEx0YzZqMUFNVVRkMGNhUExmNl9vMWxPZ0R6Q1hDcllhV2NpakhLeTM3ZmswM3NJUnFfbWg5VzJfSGxSX2pGNks3dEVsNTg5NzFEcnRVTVAtN0JCSDhKdzJtMTB3a3YtZm5KcmlZWUVXeFptMlM2T2s4YS12ck5aczU0OEJETmw4QlRNNjZWZE9FWg?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-20"
-    },
-    {
-      "title": "Are you the big winner? Numbers drawn after Powerball climbs to $8m",
-      "source": "NZ Herald",
-      "published": "Wed, 23 Sep 2026 08:37:16 GMT",
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNek0wQ1ZuTno4d1JSb1JqRFY4bFphVjR3b1dneVVpNWhkdklYVlk4MzVnMGhzbklLeEhkc2hBZW9kM0tiLVAyQWdmV21yWlpKV0FPOEd4WnlPajBZWmRmLVBINV9FUC1tT19IT0pSSjBFXzREOHA2b25zVEVLQ1ZYalV5cDNRWFRCVmxwbDlTOGpBNHIyNVBJOFdJTjJrR09SNERXTlllU3p0UVpw?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-23"
     }
   ]
 }
