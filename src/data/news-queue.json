@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-10-22T00:01:34",
+  "updated": "2026-10-22T00:43:52",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -953,6 +953,26 @@
       "seen": "2026-10-21"
     },
     {
+      "title": "Lotto Max's $90-million jackpot won in Alberta \u2014 these are the winning numbers",
+      "source": "Yahoo News Canada",
+      "published": "Wed, 21 Oct 2026 13:18:23 GMT",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOQUVORlFwRGxORmxRaURPRjRsNzFvaDVrU2J6WlV6ZjBPLWxYdVhmUlp0WDNwbzcxVERvWFhlWVlBVElXenlFX2F2NC1fYW9ibUpUakdUQ0lvUHFQLWpzWURFbkVNeFhwbG9WdXBWQVl3Q0VDeGE2M2pzazlLdTFwWE5PN2wtUVdMWjZhbUQteU5UOVdPdzFGcTFyc3VNMHB2RV92YTQwbzl4X0xlSDFoalE2cjg1bjQ?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-22"
+    },
+    {
+      "title": "Powerball jackpot tonight: How much is Oct. 21 prize, what time is drawing?",
+      "source": "Yahoo",
+      "published": "Wed, 21 Oct 2026 11:21:26 GMT",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOUDMwNVJPemFFQlYtZF9HSTF0amRtbWI2QlVWTkVEVVJsclJBX3pPYlJVMXo3cVA0bWpkTEpwc3ZCZ3AtbGFEY2FXWjVtRW1iakh0VFFPT0dKM2FVU1NFaTJyMU5WSjFLbmdOQjVQRXVxeHM2UFFqeTR2bkF4Wl9HOEhGTG5DT2FHaTlVa1FLTDlJUQ?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-22"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1181,26 +1201,6 @@
       "priority": 3,
       "covered": false,
       "seen": "2026-09-18"
-    },
-    {
-      "title": "Have you won big in tonight's $6m Lotto Powerball draw?",
-      "source": "NZ Herald",
-      "published": "Sat, 19 Sep 2026 08:09:21 GMT",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOUENnS052Q2JacU9sNTlLNnBqRXJUVGdwbTE4eGdwNVlTNFduS2U0RVlSd3M5TG5RWE8xclZCa2lWUDRDaGxOZW5XM2hLbjhFREdMUUlfVkEybTBDbm5LcVlOY1BBS2NUOFJzdEtoZkZiOFp6UGFQZjVkdzRZREgtQTNfbEFyRG1fa2tIYVpDTm9jRk41YlgyRXVNd2ZJMTdEa0IxUWsxSTVsdGhYX2E0anpxOWJWNnVrR3ZpLWtubw?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-19"
-    },
-    {
-      "title": "Where last night's lucky Lotto winners bought their tickets",
-      "source": "NZ Herald",
-      "published": "Sun, 20 Sep 2026 00:05:21 GMT",
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbHVzQ2RjZE11bWZxQThnUlcyUDRHVEVnY01HTFJpb0xXbjVWVkdyNk5PLXp2aEJHd2VROWVkTng0SXN1N3MtY3Q3LTdwdmhkOGNXTUtjWFlhc2ZDWmtjemgwZHFhbVFHbTdrQWdfcmlfVnk0UVZxUGVSQ19nWkFrRkVDRzI0OUlzN2dveUItLUx6N1oxVGNqcVpjdk1Na1VkWXlYdWNKZlhJQkNFTXpoSWxieWt1a2VSUW96b2R3?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-20"
     }
   ]
 }
