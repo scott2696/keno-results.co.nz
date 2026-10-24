@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-10-24T07:23:56",
+  "updated": "2026-10-24T08:08:28",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -993,6 +993,16 @@
       "seen": "2026-10-24"
     },
     {
+      "title": "Lotto: Seven winners to split whopping $50m jackpot",
+      "source": "RNZ",
+      "published": "Sat, 08 Jun 2024 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNX1E5UUFYSkdINU9LZXUyQlRzSE9GZTc0VDBITGNlY1dCdVNVOXJnSjBSaTd0dU1hQVFWdUxFdzJCa0ZrQU1pVHdReEdwcjVkSWV6VV95VXlrUDM2Tm4zNUJYUzBEWFRMblJXTS1lV2lfVldaNkRjSGJmLUpCN1RnS2VKY3lzOFRzbVpaUF9CNW96aG00cWdSRQ?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-24"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1191,16 +1201,6 @@
       "priority": 3,
       "covered": false,
       "seen": "2026-09-07"
-    },
-    {
-      "title": "Twenty-four lucky players split Lotto prize - where the winning tickets were sold",
-      "source": "NZ Herald",
-      "published": "Sun, 12 Jul 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVktkSmpsSlY1eFdld1Z2M2VMVnpXOWtBaEhka1dFRUpRYjFoS24xdnQwakpMcUZJTUs3SzNSaFV4TTVGaUhPTFBDaURKNmpXX0lsQlFBTkpKSHo4UklFRjNsa0VYNTdJOTVIOHBOd2ItNXBwdDIxN1AySW43ZC02dVNWdTdMTVZOM0hiNE5nQ1VOSHVuSEpfMGx3bmE0dVRrSHpJZEFvMUNwSXlqbHV6Q1QxZWV3M3pVVVhMZFJGcVhZcGFVRTdvTXRkR1duM0RM?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-08"
     }
   ]
 }
