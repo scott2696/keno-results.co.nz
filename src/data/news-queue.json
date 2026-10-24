@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-10-24T05:58:07",
+  "updated": "2026-10-24T07:23:56",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -983,6 +983,16 @@
       "seen": "2026-10-22"
     },
     {
+      "title": "Are you a winner? Lotto numbers revealed as jackpot hits $15m",
+      "source": "NZ Herald",
+      "published": "Sat, 24 Oct 2026 07:05:24 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcGUxNDY5NjhWdkE5T29YVHFEdlRHUmdfRzNUY01rcnFQdGs4Mk81dzRYalJYVzJWcXlpb2k0dzU3N0hNeG1JT3pVMDFWWUgzYk9XUGlLRjJEZlpacmlIQUJtT212Q1JVeDVOa2RMaHZ4MzViT1pSNTN0VF8xZU1oQ2JIS3lkbC1UYk42SkpGdXVZbGVGZHJmdHBiYnJ4WmNITko5ZzBtZmlBRHZ4dENPdlhVOTFOMTJYNlFCa2JtRXg?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-10-24"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1191,16 +1201,6 @@
       "priority": 3,
       "covered": false,
       "seen": "2026-09-08"
-    },
-    {
-      "title": "Six Lotto Players Share $1 Million: Lotto NZ 4 July",
-      "source": "Mirage News",
-      "published": "Sat, 04 Jul 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOVHBaYmpaR3h2VnlHUGgzcVlCTUQxZ1lTeWFKRkZHaEk2ZVZ4SHJzdkx5Z2dGWENKLTNFa3hCVEhBWTNBSXNWN1ZkMV9la05BVGFZTlRsSzdhdVg0Q2YxUEd0NVNGZ0dKZnFxT3BVLXZZVHNjOHRzeHQ1REpVRHAwRHZJOTlkU0k?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-09"
     }
   ]
 }
