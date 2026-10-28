@@ -2,6 +2,21 @@
   "_note": "Timely news items. Same shape as blog.json. Written from Lotto NZ's published results only - no third-party news copy is used as source material. Verify every figure against the operator before publishing an edit.",
   "articles": [
     {
+      "slug": "lotto-draw-2633-result",
+      "title": "2 tickets take Lotto's top prize as Powerball rolls to $5,314,615",
+      "date": "2026-10-28",
+      "tag": "Lotto NZ",
+      "summary": "Draw 2633 produced 2 First Division Lotto winners at $500,000 each, while Powerball went unstruck and its pool moved to $5,314,615.",
+      "body": "<p>2 tickets took First Division in Wednesday's Lotto draw, while Powerball went unclaimed for a further draw.</p><h2>The result</h2><p>Lotto draw 2633 was made on Wednesday 28 October 2026 at 20:20. The winning line was <strong>10, 27, 29, 30, 32 and 40</strong>, with <strong>38</strong> as the bonus ball. The Powerball number was <strong>10</strong>. The Strike sequence was drawn as <strong>40, 30, 10 and 29</strong>.</p><h2>Where the money went</h2><div class=\"tw\"><table><caption class=\"vh\">Lotto draw 2633 prize divisions</caption><thead><tr><th class=\"num\">Division</th><th class=\"num\">Winners</th><th class=\"num\">Prize each</th></tr></thead><tbody><tr><td class=\"num\">1</td><td class=\"num\">2</td><td class=\"num\">$500,000</td></tr><tr><td class=\"num\">2</td><td class=\"num\">7</td><td class=\"num\">$26,425</td></tr><tr><td class=\"num\">3</td><td class=\"num\">278</td><td class=\"num\">$660</td></tr><tr><td class=\"num\">4</td><td class=\"num\">696</td><td class=\"num\">$60</td></tr><tr><td class=\"num\">5</td><td class=\"num\">11,620</td><td class=\"num\">$32</td></tr><tr><td class=\"num\">6</td><td class=\"num\">15,316</td><td class=\"num\">$23</td></tr><tr><td class=\"num\">7</td><td class=\"num\">165,905</td><td class=\"num\">Bonus Ticket</td></tr></tbody></table></div><p>The Lotto pool returned $2,598,857 to 193,824 winning tickets. Counting Powerball and Strike alongside it, the draw paid $3,193,626 to 280,462 tickets in total.</p><h2>Reading the result</h2><p>Powerball requires a First Division Lotto line together with the separately drawn Powerball number, which is why it is struck far less often than Lotto's own top division and why its pool builds across draws.</p><p>A growing pool does not improve the chance of winning it. The odds on any given line are the same from one draw to the next, whatever the prize has reached.</p><h2>Next draw</h2><p>Lotto, Powerball and Strike are drawn on Wednesday and Saturday evenings at 8:20pm New Zealand time. The next draw is number 2634.</p><p class=\"article-foot\" style=\"margin-top:26px\">All figures in this report are taken from Lotto New Zealand&rsquo;s published results for the draw named above. keno-results.co.nz is an independent service and is not affiliated with Lotto NZ. Results here are unofficial &mdash; always confirm a winning ticket with the official operator before acting on it. See our <a href=\"/authors/\">editorial standards</a>.</p>",
+      "art": {
+        "kind": "draw",
+        "game": "Lotto",
+        "drawNumber": 2633,
+        "numbers": [],
+        "extras": []
+      }
+    },
+    {
       "slug": "keno-draw-27908-multiplier-5",
       "title": "Keno draw 27908 carries a x5 multiplier",
       "date": "2026-10-24",
