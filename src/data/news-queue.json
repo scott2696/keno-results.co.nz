@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-11-03T14:21:03",
+  "updated": "2026-11-04T01:26:59",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -1093,6 +1093,16 @@
       "seen": "2026-11-01"
     },
     {
+      "title": "One lucky Lotto player scoops $15.25m Powerball jackpot",
+      "source": "Stuff",
+      "published": "Sat, 24 Oct 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQQW9aWnRiR1ZlY19kUDhXMzAzMVBlS2R1LWFBSkY4WmNXbmVtbFF6UFZfZS1zR2VhUzBHQWM1VW9UcFVwOE1FR0YwbE4wWlVTNXlOLXpRSGZOVEl0bFpSZ0xleWJ3ZkpZdGlUQy1WZUNKbjRtZ0tXb2NiamNJc1VBMVhOZXJHeTFOMTdXTHRaU0cxRDdnczZSXzJkSQ?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-11-04"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1187,16 +1197,6 @@
       "source": "1News",
       "published": "Sun, 14 Jun 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPV0UyZ3dDLVpmSEE4aTduS1F6eE9zT24ydnlScE9FcUN1NDdUalZZMzFoTllCSmVXOERxOXk4THdtSWs2SUZoc2xaV1IzUWlsc2dXT0poRHQ2QTU3anhGTUswZXk3c1g1c3J0cGVwNEdfaW83UTZfUkNLT1hNYkJ4aUw2Vm9kaTdncW9JcU1jaHl0VjdYSGc?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Three Lotto players share $1m prize as Powerball jumps to $25m",
-      "source": "1News",
-      "published": "Thu, 26 Mar 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQX0JhNTNvSDNXeUZ1blBUem1DeEFKaTZta1FYbGRrSFd0YTJFT0x3Nnlla09rTTF6WHRWTXJGcFc4UE41M2psa0d5akhTcWtma1NtcC1pRjRSSFAtcXFNTEo3WnYtY1RxN3pTWnRGSFNHdnlXNG1nTkdYaTRFQXNjUjVJaUNSZGZPTk9sNGNNUUUteEp3RmRIbkRlZFU?oc=5",
       "topic": "winner",
       "priority": 3,
       "covered": false,
