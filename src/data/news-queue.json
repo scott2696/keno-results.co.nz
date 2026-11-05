@@ -1,6 +1,6 @@
 {
   "_note": "Topics spotted in NZ media. Headlines and links only - no article text is stored or reused. Write from official data.",
-  "updated": "2026-11-05T06:51:29",
+  "updated": "2026-11-05T07:56:24",
   "topics": [
     {
       "title": "Lotto NZ changes winner announcements ahead of $23m jackpot",
@@ -1163,6 +1163,16 @@
       "seen": "2026-11-05"
     },
     {
+      "title": "Winning ticket drawn in New Jersey for $847 million Powerball jackpot",
+      "source": "KTEN",
+      "published": "Thu, 05 Nov 2026 06:49:39 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPSm9manBJT0R4Q1NfZWd2ejY5WUhGOHhfcS14VWR0VmdSZ0JaX2h0Z2t1Um1LQWNVRDFNck85ZTVVMlRleUltYnFFUzlTY1pTem83NDJzR0VWUWNINng4OWlGQ21YaTFHUDJOUDBmMTVsbnVfcE5oY0I3M3lsMmhVQjUtdU1BTkJqU1otQlNGOVZmYW5lUDA2eHh6ZmdsdklRYXQ1a05JejFhQVFHMFRxLXhzNGQzSWFCNldUM1RyTkt5LVF4OHlnTkV3LV94VmFMd3F3YzFEN2FmUU13UU9uZjZiS3dPLVBk?oc=5",
+      "topic": "jackpot",
+      "priority": 2,
+      "covered": false,
+      "seen": "2026-11-05"
+    },
+    {
       "title": "Lotto: Winning locations revealed as three Kiwis win share of $1m in First Division",
       "source": "NZ Herald",
       "published": "Thu, 03 Sep 2026 01:25:23 GMT",
@@ -1187,16 +1197,6 @@
       "source": "NZ Herald",
       "published": "Wed, 26 Aug 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNek0xU1NhY2s2SWlibkF4bWFGNVl4RGhhYUc0MlkxSzZxeUVTZUVCQk1VRVNmS2p4QW9URC1fclNPeWtrcGN6eFEzdS1maG9raTA1aTBOT1lGV2tlbHhuTkw2ZHd6SmUwUVpOemhlVk1XMWRzc2NGRmNlZks4elkxSlZIRUJvclVfRjJXVTZZbXVxc01xZ0w5NjlaV0xyX0xCc2pNR2xOTm9HVVdWdW40?oc=5",
-      "topic": "winner",
-      "priority": 3,
-      "covered": false,
-      "seen": "2026-09-05"
-    },
-    {
-      "title": "Six Lotto players split $2m as Powerball rolls to $25m",
-      "source": "NZ Herald",
-      "published": "Sun, 30 Aug 2026 02:32:34 GMT",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPaklsQVpqbXpfTDhFX0RTbzFNbVF3VFYxM24tMmVpMTRUTHlOSEI1QXdqdkZPaXFPNFVsTmRTdm91RlpTdXFYdmw3Uk8zalpNYWVROHNrT1RpcjRmS3h3SjJIVkU4c1hVUllTbVduS0w3Ui1tLU1QQ1dxeXZmOXFpUi1xTEFBeXF1SlFQQnQzSmRESEt0cWFTZHNPUVVqUGhUSE9TLVNwZmh0dW84c0FVLVVOYktxaU9ObjJCVFNITFVpUkJQU3dN?oc=5",
       "topic": "winner",
       "priority": 3,
       "covered": false,
