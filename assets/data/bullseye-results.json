@@ -1,8 +1,8 @@
 {
-  "drawNumber": 6223,
-  "drawnAt": "2026-11-12T18:02:00+13:00",
+  "drawNumber": 6224,
+  "drawnAt": "2026-11-13T18:02:00+13:00",
   "numbers": [
-    "777590"
+    "379231"
   ],
   "singleNumber": true,
   "extras": [],
@@ -10,5 +10,5 @@
   "gameLabel": "Bullseye",
   "source": "Lotto NZ (MyLotto)",
   "sourceUrl": "https://mylotto.co.nz/results/bullseye",
-  "retrievedAt": "2026-11-13T15:40:53+13:00"
+  "retrievedAt": "2026-11-13T19:49:11+13:00"
 }
